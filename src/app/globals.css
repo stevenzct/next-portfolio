@@ -1,9 +1,20 @@
 @import "tailwindcss";
+@import "../app/public/fonts.css";
 
 :root {
   --background: #ffffff;
   --foreground: #171717;
 }
+
+@font-face {
+  font-family: 'Aileron';
+  src: url('../../public/fonts/PPNeueMontreal-Bold.otf') format('otf');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+
 
 @theme inline {
   --color-background: var(--background);
