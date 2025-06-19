@@ -2,6 +2,22 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { Navbar } from "../../components/Navbar";
 import { Footer } from "../../components/Footer";
+import localFont from "next/font/local";
+
+const PPNeueMontrealBold = localFont({
+  src: '../../public/fonts/PPNeueMontreal-Bold.otf',
+  variable: '--font-NeueMontreal-bold',
+});
+
+const PPNeueMontrealBook = localFont({
+  src: '../../public/fonts/PPNeueMontreal-Book.otf',
+  variable: '--font-NeueMontreal-book',
+});
+
+const PPNeueMontrealMedium = localFont({
+  src: '../../public/fonts/PPNeueMontreal-Medium.otf',
+  variable: '--font-NeueMontreal-medium',
+});
 
 
 export const metadata: Metadata = {
@@ -16,10 +32,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body>
+      <body className={`
+        ${PPNeueMontrealBold.variable} 
+        ${PPNeueMontrealBook.variable} 
+        ${PPNeueMontrealMedium.variable}
+        `}>
         <Navbar />
         <div>
-          <main className="relative overflow-hidden h-full py-32">
+          <main>
             {children}
           </main>
         </div>

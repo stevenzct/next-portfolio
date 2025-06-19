@@ -1,26 +1,21 @@
 @import "tailwindcss";
-@import "../app/public/fonts.css";
 
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --font-nm-bold: var(--font-NeueMontreal-bold);
+  --font-nm-book: var(--font-NeueMontreal-book);
+  --font-nm-medium: var(--font-NeueMontreal-medium);
 }
-
-@font-face {
-  font-family: 'Aileron';
-  src: url('../../public/fonts/PPNeueMontreal-Bold.otf') format('otf');
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-
-
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --font-nm-bold: var(--font-NeueMontreal-bold);
+  --font-nm-book: var(--font-NeueMontreal-book);
+  --font-nm-medium: var(--font-NeueMontreal-medium);
 }
 
 @media (prefers-color-scheme: dark) {
