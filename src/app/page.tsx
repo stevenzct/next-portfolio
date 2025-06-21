@@ -4,11 +4,9 @@ import SwiperUi from "../../components/hompage/SwiperUi";
 
 export default function Home() {
   return (
-    <div className="container-wrapper w-full bg-black h-[548px]">
-      <div className="app-container lg:w-[75%] max-w-[1200px] w-auto mx-6 md:mx-12 lg:mx-auto">
+    <div className="homepage-wrapper">
         <Hero/>
         <SwiperUi/>
-      </div>
     </div>
   );
 }

@@ -1,38 +1,54 @@
 "use client";
-import React, { useRef, useState } from 'react';
-import { Swiper, SwiperSlide } from 'swiper/react';
+import React from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import Image from "next/image";
 
 // Import Swiper styles
-import 'swiper/css';
-import 'swiper/css/pagination';
+import "swiper/css";
+import "swiper/css/pagination";
 
 // import required modules
-import { Pagination } from 'swiper/modules';
+import { Pagination, Autoplay } from "swiper/modules";
+
+const images = [
+  "/images/Image.jpg",
+  "/images/Image.jpg",
+  "/images/Image.jpg",
+  "/images/Image.jpg",
+  "/images/Image.jpg",
+  "/images/Image.jpg",
+];
 
 const SwiperUi = () => {
   return (
-    <div className='SwiperUi-section pt-[160px]'>
-        <Swiper
-        slidesPerView={3}
-        spaceBetween={30}
-        pagination={{
-          clickable: true,
-        }}
-        modules={[Pagination]}
-        className="mySwiper"
-      >
-        <SwiperSlide>Slide 1</SwiperSlide>
-        <SwiperSlide>Slide 2</SwiperSlide>
-        <SwiperSlide>Slide 3</SwiperSlide>
-        <SwiperSlide>Slide 4</SwiperSlide>
-        <SwiperSlide>Slide 5</SwiperSlide>
-        <SwiperSlide>Slide 6</SwiperSlide>
-        <SwiperSlide>Slide 7</SwiperSlide>
-        <SwiperSlide>Slide 8</SwiperSlide>
-        <SwiperSlide>Slide 9</SwiperSlide>
-      </Swiper>
+    <div className="SwiperUi-section bg-[#060415]">
+      <div className="container-wrapper w-full h-auto">
+        <div className="app-container lg:w-[75%] max-w-[1200px] w-auto mx-6 md:mx-12 lg:mx-auto py-[120px]">
+          <Swiper
+            slidesPerView="auto"
+            spaceBetween={16}
+            pagination={{ clickable: false }}
+            autoplay={{
+              delay: 0,
+              disableOnInteraction: false,
+            }}
+            modules={[Pagination, Autoplay]}
+            allowTouchMove={false}
+            loop={true}
+            speed={3000}
+            className="mySwiper"
+          >
+            {/* Duplicate slides to create seamless loop */}
+            {[...images, ...images].map((src, index) => (
+              <SwiperSlide key={index} style={{ width: 272 }}>
+                <Image className="rounded-lg" src={src} width={272} height={208} alt={`hero${index}`} />
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        </div>
+      </div>
     </div>
-  )
-}
+  );
+};
 
-export default SwiperUi
+export default SwiperUi;
