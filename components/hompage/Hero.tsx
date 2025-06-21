@@ -11,7 +11,7 @@ const Hero = () => {
             <br />
             Without Limits
           </h1>
-          <p className="text-base md:text-2xl text-center lg:text-start font-nm-book text-white w-auto lg:w-[53%] mt-4">
+          <p className="text-base md:text-2xl text-center lg:text-start font-nm-book text-[#EAE5FF] w-auto lg:w-[53%] mt-4">
             Designing and Developing Unique Web Experiences
           </p>
           <div className="cta flex justify-center lg:justify-start mt-6">
