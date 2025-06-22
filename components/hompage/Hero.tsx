@@ -4,7 +4,7 @@ import styles from "./Hero.module.css";
 const Hero = () => {
   return (
     <div className={`${styles["hero-section"]} pt-[120px] pb-[120px] md:pb-auto  md:pt-[160px]`}>
-      <div className="container-wrapper w-full h-auto  md:h-[400px]">
+      <div className="container-wrapper w-full h-auto">
         <div className="app-container lg:w-[75%] max-w-[1200px] w-auto mx-6 md:mx-12 lg:mx-auto">
           <h1 className="text-[45px] md:text-7xl lg:text-8xl text-center md:text-center lg:text-start font-nm-medium font-medium text-white w-auto leading-[44px] md:leading-20 lg:leading-[77px]">
             Design
