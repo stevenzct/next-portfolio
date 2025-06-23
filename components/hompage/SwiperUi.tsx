@@ -18,6 +18,7 @@ const images = [
   "/images/Image5.jpg",
   "/images/Image6.jpg",
   "/images/Image7.jpg",
+  "/images/Image8.jpg",
 ];
 
 const SwiperUi = () => {
@@ -33,7 +34,7 @@ const SwiperUi = () => {
               delay: 0,
               disableOnInteraction: false,
             }}
-            modules={[Pagination, Autoplay]}
+            modules={[Autoplay]}
             allowTouchMove={false}
             loop={true}
             speed={3000}
