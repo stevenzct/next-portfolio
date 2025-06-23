@@ -11,12 +11,13 @@ import "swiper/css/pagination";
 import { Pagination, Autoplay } from "swiper/modules";
 
 const images = [
-  "/images/Image.jpg",
-  "/images/Image.jpg",
-  "/images/Image.jpg",
-  "/images/Image.jpg",
-  "/images/Image.jpg",
-  "/images/Image.jpg",
+  "/images/Image1.jpg",
+  "/images/Image2.jpg",
+  "/images/Image3.jpg",
+  "/images/Image4.jpg",
+  "/images/Image5.jpg",
+  "/images/Image6.jpg",
+  "/images/Image7.jpg",
 ];
 
 const SwiperUi = () => {
