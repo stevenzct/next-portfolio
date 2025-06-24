@@ -19,6 +19,7 @@ const images = [
   "/images/Image6.jpg",
   "/images/Image7.jpg",
   "/images/Image8.jpg",
+  "/images/Image9.jpg",
 ];
 
 const SwiperUi = () => {
