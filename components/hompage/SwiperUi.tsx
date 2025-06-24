@@ -5,10 +5,10 @@ import Image from "next/image";
 
 // Import Swiper styles
 import "swiper/css";
-import "swiper/css/pagination";
+// import "swiper/css/pagination";
 
 // import required modules
-import { Pagination, Autoplay } from "swiper/modules";
+import { Autoplay } from "swiper/modules";
 
 const images = [
   "/images/Image1.jpg",
