@@ -1,9 +1,9 @@
 import React from "react";
 import Image from "next/image";
 
-const Works = () => {
+const Projects = () => {
   return (
-    <div className="works-section pt-[80px] pb-[80px] md:pt-[120px] md:pb-[120px]">
+    <div className="projects-section pt-[80px] pb-[80px] md:pt-[120px] md:pb-[120px]">
       <div className="container-wrapper w-full h-auto">
         <div className="app-container lg:w-[75%] max-w-[1200px] w-auto mx-6 md:mx-12 lg:mx-auto">
           <h3 className="font-nm-book text-base md:text-2xl mb-2">Projects</h3>
@@ -12,18 +12,18 @@ const Works = () => {
             <br />
             Become Interfaces
           </h1>
-          <div className="works-content grid md:grid-cols-2 gap-x-8">
-            <div className="works-wrapper">
-              <div className="works-images">
+          <div className="projects-content grid md:grid-cols-2 gap-x-8">
+            <div className="projects-wrapper">
+              <div className="projects-images">
                 <Image
-                  className="content-works rounded-lg"
-                  src="/images/works/Rioflorido1.jpg"
+                  className="content-projects rounded-lg w-full"
+                  src="/images/projects/Rioflorido1.jpg"
                   height={482}
                   width={589}
                   alt="Rioflorido1"
                 ></Image>
               </div>
-              <div className="works-title">
+              <div className="projects-title">
                 <h2 className="text-2xl md:text-3xl lg:text-4xl font-nm-medium font-medium text-black mt-6 mb-1 md:mb-2">
                   RV Rioflorido | 2025
                 </h2>
@@ -33,17 +33,17 @@ const Works = () => {
               </div>
             </div>
 
-            <div className="works-wrapper">
-              <div className="works-images">
+            <div className="projects-wrapper">
+              <div className="projects-images">
                 <Image
-                  className="content-works rounded-lg"
-                  src="/images/works/Rioflorido1.jpg"
+                  className="content-projects rounded-lg w-full"
+                  src="/images/projects/Rioflorido1.jpg"
                   height={482}
                   width={589}
                   alt="Rioflorido1"
                 ></Image>
               </div>
-              <div className="works-title">
+              <div className="projects-title">
                 <h2 className="text-2xl md:text-3xl lg:text-4xl font-nm-medium font-medium text-black mt-6 mb-1 md:mb-2">
                   RV Rioflorido | 2025
                 </h2>
@@ -59,4 +59,4 @@ const Works = () => {
   );
 };
 
-export default Works;
+export default Projects;

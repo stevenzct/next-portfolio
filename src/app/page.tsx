@@ -1,6 +1,7 @@
 import Hero from "../../components/hompage/Hero";
+import Projects from "../../components/hompage/Projects";
 import SwiperUi from "../../components/hompage/SwiperUi";
-import Works from "../../components/hompage/Works";
+
 
 
 export default function Home() {
@@ -8,7 +9,7 @@ export default function Home() {
     <div className="homepage-wrapper">
         <Hero/>
         <SwiperUi/>
-        <Works/>
+        <Projects/>
     </div>
   );
 }
