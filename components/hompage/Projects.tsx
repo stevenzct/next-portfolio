@@ -12,7 +12,47 @@ const Projects = () => {
             <br />
             Become Interfaces
           </h1>
-          <div className="projects-content grid md:grid-cols-2 gap-x-8">
+          <div className="projects-content grid md:grid-cols-2 gap-x-8 gap-y-12 md:gap-y-16">
+            <div className="projects-wrapper">
+              <div className="projects-images">
+                <Image
+                  className="content-projects rounded-lg w-full"
+                  src="/images/projects/Rioflorido1.jpg"
+                  height={482}
+                  width={589}
+                  alt="Rioflorido1"
+                ></Image>
+              </div>
+              <div className="projects-title">
+                <h2 className="text-2xl md:text-3xl lg:text-4xl font-nm-medium font-medium text-black mt-6 mb-1 md:mb-2">
+                  RV Rioflorido | 2025
+                </h2>
+                <h3 className="font-nm-book text-base md:text-2xl">
+                  Experienced construction company
+                </h3>
+              </div>
+            </div>
+
+            <div className="projects-wrapper">
+              <div className="projects-images">
+                <Image
+                  className="content-projects rounded-lg w-full"
+                  src="/images/projects/Rioflorido1.jpg"
+                  height={482}
+                  width={589}
+                  alt="Rioflorido1"
+                ></Image>
+              </div>
+              <div className="projects-title">
+                <h2 className="text-2xl md:text-3xl lg:text-4xl font-nm-medium font-medium text-black mt-6 mb-1 md:mb-2">
+                  RV Rioflorido | 2025
+                </h2>
+                <h3 className="font-nm-book text-base md:text-2xl">
+                  Experienced construction company
+                </h3>
+              </div>
+            </div>
+
             <div className="projects-wrapper">
               <div className="projects-images">
                 <Image
