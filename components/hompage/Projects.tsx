@@ -24,10 +24,10 @@ const Projects = () => {
                 ></Image>
               </div>
               <div className="projects-title">
-                <h2 className="text-2xl md:text-3xl lg:text-4xl font-nm-medium font-medium text-black mt-6 mb-0 md:mb-2">
+                <h2 className="text-2xl md:text-3xl lg:text-4xl font-nm-medium font-medium text-black mt-4 md:mt-6 mb-0">
                   RV Rioflorido | 2025
                 </h2>
-                <h3 className="font-nm-book text-base md:text-2xl">
+                <h3 className="font-nm-book text-base md:text-2xl leading-relaxed">
                   Experienced construction company
                 </h3>
               </div>
@@ -44,10 +44,10 @@ const Projects = () => {
                 ></Image>
               </div>
               <div className="projects-title">
-                <h2 className="text-2xl md:text-3xl lg:text-4xl font-nm-medium font-medium text-black mt-6 mb-1 md:mb-2">
+                <h2 className="text-2xl md:text-3xl lg:text-4xl font-nm-medium font-medium text-black mt-4 md:mt-6 mb-0">
                   RV Rioflorido | 2025
                 </h2>
-                <h3 className="font-nm-book text-base md:text-2xl">
+                <h3 className="font-nm-book text-base md:text-2xl leading-relaxed">
                   Experienced construction company
                 </h3>
               </div>
@@ -64,10 +64,10 @@ const Projects = () => {
                 ></Image>
               </div>
               <div className="projects-title">
-                <h2 className="text-2xl md:text-3xl lg:text-4xl font-nm-medium font-medium text-black mt-6 mb-1 md:mb-2">
+                <h2 className="text-2xl md:text-3xl lg:text-4xl font-nm-medium font-medium text-black mt-4 md:mt-6 mb-0">
                   RV Rioflorido | 2025
                 </h2>
-                <h3 className="font-nm-book text-base md:text-2xl">
+                <h3 className="font-nm-book text-base md:text-2xl leading-relaxed">
                   Experienced construction company
                 </h3>
               </div>
@@ -84,10 +84,10 @@ const Projects = () => {
                 ></Image>
               </div>
               <div className="projects-title">
-                <h2 className="text-2xl md:text-3xl lg:text-4xl font-nm-medium font-medium text-black mt-6 mb-1 md:mb-2">
+                <h2 className="text-2xl md:text-3xl lg:text-4xl font-nm-medium font-medium text-black mt-4 md:mt-6 mb-0">
                   RV Rioflorido | 2025
                 </h2>
-                <h3 className="font-nm-book text-base md:text-2xl">
+                <h3 className="font-nm-book text-base md:text-2xl leading-relaxed">
                   Experienced construction company
                 </h3>
               </div>
