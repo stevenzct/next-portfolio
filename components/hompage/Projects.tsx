@@ -28,7 +28,7 @@ const Projects = () => {
                   RV Rioflorido | 2025
                 </h2>
                 <h3 className="font-nm-book text-base md:text-2xl leading-relaxed">
-                  Experienced construction company
+                  Quality-driven construction company
                 </h3>
               </div>
             </div>

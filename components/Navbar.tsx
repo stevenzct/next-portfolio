@@ -23,7 +23,7 @@ export const Navbar = () => {
             className="flex items-center justify-between"
           >
             <div className="flex lg:flex-1">
-              <a href="#" className="-m-1.5 p-1.5 font-nm-bold font-bold text-white">
+              <a href="#" className="-m-1.5 p-1.5 font-nm-bold font-bold text-black">
                 STEVEN
               </a>
             </div>
@@ -34,7 +34,7 @@ export const Navbar = () => {
                 className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700"
               >
                 <span className="sr-only">Open main menu</span>
-                <Bars3Icon aria-hidden="true" className="size-6 text-white" />
+                <Bars3Icon aria-hidden="true" className="size-6 text-black" />
               </button>
             </div>
             <div className="hidden lg:flex lg:gap-x-6 bg-white py-[8px] px-[14px] rounded-lg items-center">

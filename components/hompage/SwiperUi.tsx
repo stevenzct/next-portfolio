@@ -24,7 +24,7 @@ const images = [
 
 const SwiperUi = () => {
   return (
-    <div className="SwiperUi-section bg-[#060415]">
+    <div className="SwiperUi-section bg-black">
       <div className="container-wrapper w-full h-auto">
         <div className="app-container lg:w-[75%] max-w-[1200px] w-auto mx-6 md:mx-12 lg:mx-auto py-[80px] md:py-[120px]">
           <Swiper
