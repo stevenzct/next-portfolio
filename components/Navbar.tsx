@@ -80,7 +80,7 @@ export const Navbar = () => {
             className="lg:hidden"
           >
             <div className="fixed inset-0 z-50" />
-            <DialogPanel className="fixed inset-y-0 right-0 z-50 h-[20rem] rounded-b-md w-full overflow-y-auto bg-[rgba(255,255,255,0.87)] backdrop-blur-sm px-6 py-3 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
+            <DialogPanel className="fixed inset-y-0 right-0 z-50 h-[20rem] md:h-full rounded-b-md w-full overflow-y-auto bg-[rgba(255,255,255,0.87)] backdrop-blur-sm px-6 py-3 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
               <div className="flex items-center justify-between">
                 <a
                   href="#"
