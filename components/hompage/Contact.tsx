@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import styles from "./Contact.module.css";
 import Button from "../Button";
@@ -21,7 +22,11 @@ const Contact = () => {
           </p>
 
           <div className="cta flex justify-start mt-6">
-            <Button type="button" title="Send a message" />
+            <Button 
+              type="button" 
+              title="Send a message"
+              onClick={() => window.location.href = "mailto:stevencabugos138@gmail.com"}
+            />
           </div>
         </div>
       </div>
