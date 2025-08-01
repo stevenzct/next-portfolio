@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { Navbar } from "../../components/Navbar";
-import { Footer } from "../../components/Footer";
 import localFont from "next/font/local";
 
 const PPNeueMontrealBold = localFont({
