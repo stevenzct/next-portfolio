@@ -3,7 +3,7 @@ import Image from "next/image";
 import { experiences } from "../../constants/experience";
 function Experience() {
   return (
-    <div className="experience pt-[120px] pb-[120px] bg-[#F8F8F8]">
+    <div className="experience pt-[80px] pb-[80px] md:pt-[120px] md:pb-[120px] bg-[#F8F8F8]">
       <div className="container-wrapper w-full h-auto">
         <div className="app-container lg:w-[75%] max-w-[1200px] w-auto mx-6 md:mx-12 lg:mx-auto">
           <h3 className="font-nm-book text-base md:text-2xl mb-2">Work</h3>
@@ -49,7 +49,7 @@ function Experience() {
                       {imageSrc && (
                         <div className="bg-[#F8F8F8] rounded-[8px] mt-4">
                           <Image
-                            className="rounded-lg"
+                            className="rounded-lg w-full"
                             src={imageSrc}
                             height={227}
                             width={323}
