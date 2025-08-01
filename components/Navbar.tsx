@@ -5,7 +5,7 @@ import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 
 // Define the navigation array
 const navigation = [
-  { name: "Home", href: "/" },
+  { name: "Home", href: "#home" },
   { name: "Projects", href: "#projects" },
   { name: "About", href: "#about" },
   { name: "Contact", href: "#contact" },
@@ -28,7 +28,7 @@ export const Navbar = () => {
 
   return (
     <header
-      className={`fixed inset-x-0 top-0 z-50 py-3 transition-colors duration-300 ${
+      className={`fixed inset-x-0 top-0 z-50 py-4 transition-colors duration-300 ${
         scrolled
           ? "bg-[rgba(255,255,255,0.76)] backdrop-blur-sm"
           : "bg-transparent"
@@ -104,6 +104,7 @@ export const Navbar = () => {
                       <a
                         key={item.name}
                         href={item.href}
+                        onClick={() => setMobileMenuOpen(false)}
                         className="-mx-3 block rounded-lg px-3 text-[32px] font-nm-medium font-medium text-black"
                       >
                         {item.name}
