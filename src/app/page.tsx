@@ -1,4 +1,5 @@
 import About from "../../components/hompage/About";
+import Contact from "../../components/hompage/Contact";
 import Experience from "../../components/hompage/Experience";
 import Hero from "../../components/hompage/Hero";
 import Projects from "../../components/hompage/Projects";
@@ -16,6 +17,7 @@ export default function Home() {
         <Experience/>
         <About/>
         <TechSwiper/>
+        <Contact/>
     </div>
   );
 }
