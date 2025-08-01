@@ -13,7 +13,7 @@ const navigation = [
 
 export const Navbar = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const currentPath = "/"; // Assuming you have a way to get the current path
+  const [currentPath, setCurrentPath] = useState("#home"); // Default active path
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
@@ -63,7 +63,8 @@ export const Navbar = () => {
                 <a
                   key={item.name}
                   href={item.href}
-                  className={`text-sm/6 font-nm-medium font-medium ${
+                   onClick={() => setCurrentPath(item.href)} // Update active state on click
+                  className={`text-sm/6 font-nm-medium font-medium  ${
                     item.href === currentPath
                       ? "text-white bg-black px-[14px] py-1 rounded-lg"
                       : "text-gray-900"
