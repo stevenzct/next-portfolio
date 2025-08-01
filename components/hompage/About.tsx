@@ -28,7 +28,7 @@ const About = () => {
               and web applications using tools like <span className="font-nm-medium font-medium">Figma</span> and <span className="font-nm-medium font-medium">Adobe XD</span>, along
               with technologies such as <span className="font-nm-medium font-medium">JavaScript, React, Vue.js, Next.js, Nuxt.js</span>, and 
               <span className="font-nm-medium font-medium"> Typescript</span>. I also work with CSS frameworks including <span className="font-nm-medium font-medium">Materialize,
-              Bootstrap</span>, and Tailwind, and I have experience with backend
+              Bootstrap</span>, and <span className="font-nm-medium font-medium">Tailwind</span>, and I have experience with backend
               technologies like <span className="font-nm-medium font-medium">PHP</span> and <span className="font-nm-medium font-medium">MySQL</span>.
             </p>
           </div>
