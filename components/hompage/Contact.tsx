@@ -5,6 +5,7 @@ import Button from "../Button";
 const Contact = () => {
   return (
     <div
+      id="contact"
       className={`${styles["contact-section"]} contact  pt-[80px] pb-[80px] md:pt-[120px] md:pb-[100px]`}
     >
       <div className="container-wrapper w-full h-auto">

@@ -35,3 +35,7 @@ body {
   transition-timing-function: linear !important;
   -webkit-transition-timing-function:linear!important;
 }
+
+html {
+  scroll-behavior: smooth;
+}

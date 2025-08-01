@@ -1,10 +1,12 @@
 import React from "react";
 import styles from "./Hero.module.css";
 import Button from "../Button";
+import Link from "next/link";
 
 const Hero = () => {
   return (
     <div
+      id="home"
       className={`${styles["hero-section"]} pt-[120px] pb-[120px] md:pb-auto  md:pt-[160px]`}
     >
       <div className="container-wrapper w-full h-auto">
@@ -18,7 +20,9 @@ const Hero = () => {
             Designing and Developing Unique Web Experiences
           </p>
           <div className="cta flex justify-center lg:justify-start mt-6">
-            <Button type="button" title="View Projects" />
+            <Link href="#projects" passHref>
+              <Button type="button" title="View Projects" />
+            </Link>
           </div>
         </div>
       </div>

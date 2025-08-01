@@ -6,9 +6,9 @@ import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 // Define the navigation array
 const navigation = [
   { name: "Home", href: "/" },
-  { name: "Projects", href: "/projects" },
-  { name: "About", href: "/about" },
-  { name: "Contact", href: "/contact" },
+  { name: "Projects", href: "#projects" },
+  { name: "About", href: "#about" },
+  { name: "Contact", href: "#contact" },
 ];
 
 export const Navbar = () => {
@@ -27,7 +27,13 @@ export const Navbar = () => {
   }, []);
 
   return (
-    <header className={`fixed inset-x-0 top-0 z-50 py-3 transition-colors duration-300 ${scrolled ? 'bg-[rgba(255,255,255,0.76)] backdrop-blur-sm' : 'bg-transparent'}`}>
+    <header
+      className={`fixed inset-x-0 top-0 z-50 py-3 transition-colors duration-300 ${
+        scrolled
+          ? "bg-[rgba(255,255,255,0.76)] backdrop-blur-sm"
+          : "bg-transparent"
+      }`}
+    >
       <div className="container-wrapper w-full">
         <div className="app-container lg:w-[75%] max-w-[1200px] w-auto mx-6 md:mx-12 lg:mx-auto">
           <nav
@@ -35,7 +41,10 @@ export const Navbar = () => {
             className="flex items-center justify-between"
           >
             <div className="flex lg:flex-1">
-              <a href="#" className="-m-1.5 p-1.5 font-nm-bold font-bold text-black">
+              <a
+                href="#"
+                className="-m-1.5 p-1.5 font-nm-bold font-bold text-black"
+              >
                 STEVEN
               </a>
             </div>
@@ -54,8 +63,10 @@ export const Navbar = () => {
                 <a
                   key={item.name}
                   href={item.href}
-                  className={`text-sm/6 font-semibold ${
-                    item.href === currentPath ? 'text-white bg-black px-[14px] py-1 rounded-lg' : 'text-gray-900' 
+                  className={`text-sm/6 font-nm-medium font-medium ${
+                    item.href === currentPath
+                      ? "text-white bg-black px-[14px] py-1 rounded-lg"
+                      : "text-gray-900"
                   }`}
                 >
                   {item.name}
@@ -71,7 +82,10 @@ export const Navbar = () => {
             <div className="fixed inset-0 z-50" />
             <DialogPanel className="fixed inset-y-0 right-0 z-50 h-[20rem] rounded-b-md w-full overflow-y-auto bg-[rgba(255,255,255,0.87)] backdrop-blur-sm px-6 py-3 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
               <div className="flex items-center justify-between">
-                <a href="#" className="-m-1.5 p-1.5 font-nm-bold font-bold text-black">
+                <a
+                  href="#"
+                  className="-m-1.5 p-1.5 font-nm-bold font-bold text-black"
+                >
                   STEVEN
                 </a>
                 <button
@@ -80,7 +94,7 @@ export const Navbar = () => {
                   className="-m-2.5 rounded-md p-2.5 text-gray-700"
                 >
                   <span className="sr-only">Close menu</span>
-                  <XMarkIcon aria-hidden="true" className="size-6"/>
+                  <XMarkIcon aria-hidden="true" className="size-6" />
                 </button>
               </div>
               <div className="mt-6 flow-root">
