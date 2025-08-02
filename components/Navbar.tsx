@@ -58,13 +58,13 @@ export const Navbar = () => {
                 <Bars3Icon aria-hidden="true" className="size-6 text-black" />
               </button>
             </div>
-            <div className="hidden lg:flex lg:gap-x-6 bg-white py-[8px] px-[14px] rounded-lg items-center">
+            <div className="hidden lg:flex lg:gap-x-4 bg-white py-[8px] px-[14px] rounded-lg items-center">
               {navigation.map((item) => (
                 <a
                   key={item.name}
                   href={item.href}
                    onClick={() => setCurrentPath(item.href)} // Update active state on click
-                  className={`text-sm/6 font-nm-medium font-medium transition-colors duration-300  ${
+                  className={`text-sm/6 font-nm-medium font-medium transition-colors duration-300 ${
                     item.href === currentPath
                       ? "text-white bg-black px-[14px] py-1 rounded-lg"
                       : "text-gray-900 hover:bg-[#F8F8F8] px-[14px] py-1 rounded-lg"
