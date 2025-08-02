@@ -64,7 +64,7 @@ export const Navbar = () => {
                   key={item.name}
                   href={item.href}
                    onClick={() => setCurrentPath(item.href)} // Update active state on click
-                  className={`text-sm/6 font-nm-medium font-medium  ${
+                  className={`text-sm/6 font-nm-medium font-medium transition-colors duration-300  ${
                     item.href === currentPath
                       ? "text-white bg-black px-[14px] py-1 rounded-lg"
                       : "text-gray-900 hover:bg-[#F8F8F8] px-[14px] py-1 rounded-lg"
