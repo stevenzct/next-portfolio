@@ -67,7 +67,7 @@ export const Navbar = () => {
                   className={`text-sm/6 font-nm-medium font-medium  ${
                     item.href === currentPath
                       ? "text-white bg-black px-[14px] py-1 rounded-lg"
-                      : "text-gray-900"
+                      : "text-gray-900 hover:bg-[#F8F8F8] px-[14px] py-1 rounded-lg"
                   }`}
                 >
                   {item.name}
