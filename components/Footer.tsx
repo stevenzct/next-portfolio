@@ -1,11 +1,11 @@
 "use client";
 import React from "react";
-import styles from "./Contact.module.css";
-import Button from "../Button";
+import styles from "./Footer.module.css";
+import Button from "./Button";
 
-const Contact = () => {
+const Footer = () => {
   return (
-    <div
+     <div
       id="contact"
       className={`${styles["contact-section"]} contact  pt-[80px] pb-[80px] md:pt-[120px] md:pb-[100px]`}
     >
@@ -32,6 +32,6 @@ const Contact = () => {
       </div>
     </div>
   );
-};
+}
 
-export default Contact;
+export default Footer;
