@@ -1,6 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import { projects } from "../../constants/projects";
+import Link from "next/link";
 
 const Projects = () => {
   return (
@@ -17,13 +18,15 @@ const Projects = () => {
             {projects.map(({ title, year, description, imageSrc, imageAlt }) => (
               <div className="projects-wrapper" key={title}>
                 <div className="projects-images">
-                  <Image
-                    className="content-projects rounded-lg w-full"
-                    src={imageSrc}
-                    height={482}
-                    width={589}
-                    alt={imageAlt}
-                  />
+                  <Link href={`/projects/${encodeURIComponent(title)}`}>
+                    <Image
+                      className="content-projects rounded-lg w-full"
+                      src={imageSrc}
+                      height={482}
+                      width={589}
+                      alt={imageAlt}
+                    />
+                </Link>
                 </div>
                 <div className="projects-title">
                   <h2 className="text-2xl md:text-3xl lg:text-4xl font-nm-medium font-medium text-black mt-4 md:mt-6 mb-0">

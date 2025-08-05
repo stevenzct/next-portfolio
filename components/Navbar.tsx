@@ -2,18 +2,19 @@
 import { useState, useEffect } from "react";
 import { Dialog, DialogPanel } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
+import Link from "next/link";
 
 // Define the navigation array
 const navigation = [
-  { name: "Home", href: "#home" },
-  { name: "Projects", href: "#projects" },
-  { name: "About", href: "#about" },
-  { name: "Contact", href: "#contact" },
+  { name: "Home", href: "/#home" },
+  { name: "Projects", href: "/#projects" },
+  { name: "About", href: "/#about" },
+  { name: "Contact", href: "/#contact" },
 ];
 
 export const Navbar = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [currentPath, setCurrentPath] = useState("#home"); // Default active path
+  const [currentPath, setCurrentPath] = useState("/#home"); // Default active path
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
@@ -41,12 +42,12 @@ export const Navbar = () => {
             className="flex items-center justify-between"
           >
             <div className="flex lg:flex-1">
-              <a
-                href="#"
+              <Link
+                href="/#home"
                 className="-m-1.5 p-1.5 font-nm-bold font-bold text-black"
               >
                 STEVEN
-              </a>
+              </Link>
             </div>
             <div className="flex lg:hidden">
               <button
@@ -60,7 +61,7 @@ export const Navbar = () => {
             </div>
             <div className="hidden lg:flex lg:gap-x-4 bg-white py-[8px] px-[14px] rounded-lg items-center">
               {navigation.map((item) => (
-                <a
+                <Link
                   key={item.name}
                   href={item.href}
                    onClick={() => setCurrentPath(item.href)} // Update active state on click
@@ -71,7 +72,7 @@ export const Navbar = () => {
                   }`}
                 >
                   {item.name}
-                </a>
+                </Link>
               ))}
             </div>
           </nav>
@@ -83,12 +84,12 @@ export const Navbar = () => {
             <div className="fixed inset-0 z-50" />
             <DialogPanel className="fixed inset-y-0 right-0 z-50 h-[20rem] md:h-full rounded-b-md w-full overflow-y-auto bg-[rgba(255,255,255,0.87)] backdrop-blur-sm px-6 py-3 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
               <div className="flex items-center justify-between">
-                <a
+                <Link
                   href="#"
                   className="-m-1.5 p-1.5 font-nm-bold font-bold text-black"
                 >
                   STEVEN
-                </a>
+                </Link>
                 <button
                   type="button"
                   onClick={() => setMobileMenuOpen(false)}
@@ -102,14 +103,14 @@ export const Navbar = () => {
                 <div className="-my-6 divide-y divide-gray-500/10">
                   <div className="space-y-2 py-6">
                     {navigation.map((item) => (
-                      <a
+                      <Link
                         key={item.name}
                         href={item.href}
                         onClick={() => setMobileMenuOpen(false)}
                         className="-mx-3 block rounded-lg px-3 text-[32px] font-nm-medium font-medium text-black"
                       >
                         {item.name}
-                      </a>
+                      </Link>
                     ))}
                   </div>
                 </div>
