@@ -13,8 +13,9 @@ interface PageProps {
   };
 }
 
-const ProjectPage = ({ params }: PageProps) => {
-  const decodedTitle = decodeURIComponent(params.title).toLowerCase();
+const ProjectPage = async ({ params }: PageProps) => {
+  const awaitedParams = await params;
+  const decodedTitle = decodeURIComponent(awaitedParams.title).toLowerCase();
   const project: ProjectDetails | undefined = projectDetails.find(
     (p) => p.title.toLowerCase() === decodedTitle
   );

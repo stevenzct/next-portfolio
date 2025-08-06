@@ -42,6 +42,8 @@ export const projectDetails: ProjectDetails[] = [
             "/images/projectDetails/Rioflorido/2.jpg",
             "/images/projectDetails/Rioflorido/3.jpg",
             "/images/projectDetails/Rioflorido/4.jpg",
+            "/images/projectDetails/Rioflorido/5.jpg",
+            "/images/projectDetails/Rioflorido/6.jpg",
         ],
         nextImage: "/images/projectDetails/Rioflorido/nextImage.jpg",
         nextTitle: "Laprasca Restaurant",
