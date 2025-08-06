@@ -12,6 +12,10 @@ export type ProjectDetails = {
     imageSrcTypography: string;
     imageSrcColorSystem: string;
     imageSrcUi: string[];
+    nextImage: string;
+    nextTitle: string;
+    nextDescription: string;
+
 };
 
 export const projectDetails: ProjectDetails[] = [
@@ -39,5 +43,8 @@ export const projectDetails: ProjectDetails[] = [
             "/images/projectDetails/Rioflorido/3.jpg",
             "/images/projectDetails/Rioflorido/4.jpg",
         ],
+        nextImage: "/images/projectDetails/Rioflorido/nextImage.jpg",
+        nextTitle: "Laprasca Restaurant",
+        nextDescription: "Fine dining table reservation restaurant",
     },
 ];

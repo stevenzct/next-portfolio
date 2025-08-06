@@ -4,7 +4,8 @@ import {
   projectDetails,
   ProjectDetails,
 } from "../../../../constants/projectDetails";
-import Footer from "../../../../components/Footer";
+import Button from "../../../../components/Button";
+import Link from "next/link";
 
 interface PageProps {
   params: {
@@ -21,16 +22,14 @@ const ProjectPage = ({ params }: PageProps) => {
   if (!project) {
     return (
       <div className="pt-[120px] container-wrapper">
-        <h1 className="text-center">
-          Project details coming soon
-        </h1>
+        <h1 className="text-center">Project details coming soon</h1>
       </div>
     );
   }
 
   return (
     <div className="pt-[120px] md:pb-auto md:pt-[160px]">
-      <div className="container-wrapper w-full h-auto mb-[120px]">
+      <div className="container-wrapper w-full h-auto">
         <div className="app-container lg:w-[75%] max-w-[1200px] w-auto mx-6 md:mx-12 lg:mx-auto">
           <h1 className="text-[45px] md:text-7xl lg:text-8xl text-start font-nm-medium font-medium text-black w-auto leading-[44px] md:leading-20 lg:leading-[77px]">
             {project.title}
@@ -63,7 +62,12 @@ const ProjectPage = ({ params }: PageProps) => {
                 Link
               </h4>
               <p className="text-base font-nm-book text-[#242424]">
-                <a className=" text-[#242424]" href={`https://${project.link}`} target="_blank" rel="noopener noreferrer">
+                <a
+                  className=" text-[#242424]"
+                  href={`https://${project.link}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   {project.link}
                 </a>
               </p>
@@ -89,7 +93,7 @@ const ProjectPage = ({ params }: PageProps) => {
           />
         </div>
 
-        <div className="app-container lg:w-[75%] max-w-[1200px] w-auto mx-6 md:mx-12 lg:mx-auto">
+        <div className="app-container lg:w-[75%] max-w-[1200px] mb-[120px] w-auto mx-6 md:mx-12 lg:mx-auto">
           <div className="pt-[32px] lg:pt-[64px] pb-[32px] lg:pb-[64px] gap-2 lg:gap-16 flex flex-col lg:flex-row lg:justify-between ">
             <div>
               <h4 className="text-[18px] font-nm-medium font-medium text-black">
@@ -149,8 +153,31 @@ const ProjectPage = ({ params }: PageProps) => {
             ))}
           </div>
         </div>
+
+        <div className="relative w-full h-screen shadow-[0px_4px_4px_rgba(0,0,0,0.25)]">
+          <div className="absolute inset-0 bg-black/45 z-10"></div>
+          <Image
+            src={project.nextImage}
+            alt={project.nextImage}
+            fill
+            className="object-cover"
+          />
+
+          <div className="absolute inset-0 z-20 flex flex-col items-center justify-center text-white px-4">
+            <h1 className="text-[45px] md:text-7xl lg:text-8xl text-center font-nm-medium font-medium text-white leading-[44px] md:leading-20 lg:leading-[77px]">
+              {project.nextTitle}
+            </h1>
+            <p className="text-base md:text-2xl text-center font-nm-book text-white lg:w-[53%] mt-4">
+              {project.nextDescription}
+            </p>
+            <div className="cta flex justify-center  mt-6">
+              <Link href="#projects" passHref>
+                <Button type="button" title="Next Project" />
+              </Link>
+            </div>
+          </div>
+        </div>
       </div>
-      <Footer />
     </div>
   );
 };
