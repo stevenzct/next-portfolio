@@ -22,13 +22,6 @@ export const projects: Project[] = [
     imageAlt: "Laprasca1 Project",
   },
   {
-    title: "Cryptofix",
-    year: 2024,
-    description: "Ad agency in the cryptocurrency industry",
-    imageSrc: "/images/projects/Cryptofix1.jpg",
-    imageAlt: "Cryptofix Project",
-  },
-  {
     title: "Planco",
     year: 2024,
     description: "Outdoor travel planning agency",

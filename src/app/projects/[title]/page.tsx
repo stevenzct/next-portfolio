@@ -127,21 +127,6 @@ const ProjectPage = async ({ params }: PageProps) => {
           </div>
 
           <div className="gap-8 grid grid-cols-1">
-            <Image
-              src={project.imageSrcTypography}
-              alt={project.title}
-              width={1200}
-              height={800}
-              className="object-cover"
-            />
-            <Image
-              src={project.imageSrcColorSystem}
-              alt={project.title}
-              width={1200}
-              height={800}
-              className="object-cover"
-            />
-
             {project.imageSrcUi.map((src, index) => (
               <Image
                 key={index}
