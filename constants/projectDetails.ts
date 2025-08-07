@@ -71,6 +71,11 @@ export const projectDetails: ProjectDetails[] = [
     imageSrcUi: [
       "/images/projectDetails/Laprasca/Typography.jpg",
       "/images/projectDetails/Laprasca/ColorSystem.jpg",
+      "/images/projectDetails/Laprasca/3.jpg",
+      "/images/projectDetails/Laprasca/4.jpg",
+      "/images/projectDetails/Laprasca/5.jpg",
+      "/images/projectDetails/Laprasca/6.jpg",
+
     ],
     nextImage: "/images/projectDetails/Rioflorido/nextImage.jpg",
     nextTitle: "Laprasca Restaurant",
