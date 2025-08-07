@@ -16,7 +16,7 @@ export const projects: Project[] = [
   },
   {
     title: "Laprasca Restaurant",
-    year: 2021,
+    year: 2022,
     description: "Fine dining table reservation restaurant",
     imageSrc: "/images/projects/Laprasca1.jpg",
     imageAlt: "Laprasca1 Project",
