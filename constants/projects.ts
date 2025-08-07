@@ -9,7 +9,7 @@ export type Project = {
 export const projects: Project[] = [
   {
     title: "RV Rioflorido",
-    year: 2024,
+    year: 2025,
     description: "Quality-driven construction company",
     imageSrc: "/images/projects/Rioflorido1.jpg",
     imageAlt: "Rioflorido Project",
