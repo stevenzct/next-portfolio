@@ -148,7 +148,6 @@ const ProjectPage = async ({ params }: PageProps) => {
             fill
             className="object-cover"
           />
-
           <div className="absolute inset-0 z-20 flex flex-col items-center justify-center text-white px-4">
             <h1 className="text-[45px] md:text-7xl lg:text-8xl text-center font-nm-medium font-medium text-white leading-[44px] md:leading-20 lg:leading-[77px]">
               {project.nextTitle}
@@ -157,7 +156,7 @@ const ProjectPage = async ({ params }: PageProps) => {
               {project.nextDescription}
             </p>
             <div className="cta flex justify-center  mt-6">
-              <Link href="#projects" passHref>
+              <Link href={`/projects/${encodeURIComponent(project.nextTitle)}`} passHref>
                 <Button type="button" title="Next Project" />
               </Link>
             </div>
