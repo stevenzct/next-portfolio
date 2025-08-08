@@ -15,18 +15,29 @@ const Projects = () => {
             Become Interfaces
           </h1>
           <div className="projects-content grid md:grid-cols-2 gap-x-8 gap-y-12 md:gap-y-16">
-            {projects.map(({ title, year, description, imageSrc, imageAlt }) => (
+            {projects.map(({ title, year, description, imageSrc, imageAlt, category }) => (
               <div className="projects-wrapper" key={title}>
-                <div className="projects-images">
+                <div className="projects-images relative group">
                   <Link href={`/projects/${encodeURIComponent(title)}`}>
                     <Image
-                      className="content-projects rounded-lg w-full"
+                      className="content-projects rounded-lg w-full  filter transition duration-300 group-hover:brightness-30"
                       src={imageSrc}
                       height={482}
                       width={589}
                       alt={imageAlt}
+                    /> 
+                    <Image
+                      className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                      src="/images/icons/circleArrow.jpg"
+                      height={76}
+                      width={76}
+                      alt="circleArrow"
                     />
-                </Link>
+                    <figcaption className="absolute inset-0 flex flex-col justify-end p-8 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg">
+                      <span className="text-[18px] font-nm-medium font-medium">{title}</span>
+                      <span className="text-[16px] font-nm-book">{category}</span>
+                    </figcaption>
+                  </Link>
                 </div>
                 <div className="projects-title">
                   <h2 className="text-2xl md:text-3xl lg:text-4xl font-nm-medium font-medium text-black mt-4 md:mt-6 mb-0">
