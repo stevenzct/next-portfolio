@@ -75,10 +75,12 @@ export const projectDetails: ProjectDetails[] = [
       "/images/projectDetails/Laprasca/4.jpg",
       "/images/projectDetails/Laprasca/5.jpg",
       "/images/projectDetails/Laprasca/6.jpg",
-
+      "/images/projectDetails/Laprasca/7.jpg",
+      "/images/projectDetails/Laprasca/8.jpg",
+      "/images/projectDetails/Laprasca/9.jpg"
     ],
-    nextImage: "/images/projectDetails/Rioflorido/nextImage.jpg",
-    nextTitle: "Laprasca Restaurant",
-    nextDescription: "Fine dining table reservation restaurant",
+    nextImage: "/images/projectDetails/Laprasca/nextImage.jpg",
+    nextTitle: "Planco",
+    nextDescription: "Outdoor travel planning agency",
   },
 ];
