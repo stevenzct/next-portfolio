@@ -83,4 +83,34 @@ export const projectDetails: ProjectDetails[] = [
     nextTitle: "Planco",
     nextDescription: "Outdoor travel planning agency",
   },
+  {
+    title: "Planco",
+    description:
+      "PlanCo is an outdoor travel planning agency based in San Francisco. Its mission is to help people get in touch with nature and explore new places off of the beaten path.",
+    role: "Designer",
+    tech: "Figma",
+    link: "bit.ly/448Dzho",
+    year: 2023,
+    imageSrcMockup: "/images/projectDetails/Planco/1.jpg",
+    assignment:
+      "Create a visually captivating User Interface for PlanCo as part of a design competition, inspiring users to discover unique, off-the-beaten-path travel experiences.",
+    objectives:
+      "Elevate PlanCo’s brand as an upscale outdoor travel agency by using immersive visuals, modern layouts, and a refined user experience that sparks curiosity and exploration.",
+    projectIncludes: [
+      "Design Ideation",
+      "Design Direction",
+      "Final Design",
+    ],
+    imageSrcUi: [
+      "/images/projectDetails/Planco/2.jpg",
+      "/images/projectDetails/Planco/3.jpg",
+      "/images/projectDetails/Planco/4.jpg",
+      "/images/projectDetails/Planco/5.jpg",
+      "/images/projectDetails/Planco/6.jpg",
+      "/images/projectDetails/Planco/7.jpg",
+    ],
+    nextImage: "/images/projectDetails/Planco/8.jpg",
+    nextTitle: "Chatgpt",
+    nextDescription: "Chatgpt AI conversational language",
+  },
 ];
