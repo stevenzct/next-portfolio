@@ -90,7 +90,7 @@ const ProjectPage = async ({ params }: PageProps) => {
             src={project.imageSrcMockup}
             alt={project.title}
             fill
-            className="object-cover"
+            className="object-cover object-center"
           />
         </div>
 

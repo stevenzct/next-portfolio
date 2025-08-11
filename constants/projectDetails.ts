@@ -113,4 +113,31 @@ export const projectDetails: ProjectDetails[] = [
     nextTitle: "Chatgpt",
     nextDescription: "Chatgpt AI conversational language",
   },
+  {
+    title: "Chatgpt",
+    description:
+      "ChatGPT is an AI conversational model developed by OpenAI, designed to understand and generate human-like text based on the input it receives.",
+    role: "Designer",
+    tech: "Figma",
+    link: "bit.ly/4lis1zl",
+    year: 2023,
+    imageSrcMockup: "/images/projectDetails/Chatgpt/1.jpg",
+    assignment:
+      "Redesign the 2023 ChatGPT landing page to improve clarity, visual hierarchy, and conversion. Focus on clear value messaging, scannable features, persuasive CTAs and accessibility, while keeping brand consistency.",
+    objectives:
+      "Demonstrate how a research-driven redesign can enhance usability, guide users to primary actions, and create a modern, engaging experience that boosts user comprehension and engagement.",
+    projectIncludes: [
+      "Design Ideation",
+      "Design Direction",
+      "Final Design",
+    ],
+    imageSrcUi: [
+      "/images/projectDetails/Chatgpt/2.jpg",
+      "/images/projectDetails/Chatgpt/3.jpg",
+      "/images/projectDetails/Chatgpt/4.jpg",
+    ],
+    nextImage: "/images/projectDetails/Chatgpt/5.jpg",
+    nextTitle: "Cryptomillions",
+    nextDescription: "Decentralized crypto-based lottery platform",
+  },
 ];
