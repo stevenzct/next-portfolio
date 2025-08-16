@@ -95,7 +95,7 @@ const ProjectPage = async ({ params }: PageProps) => {
         </div>
 
         <div className="app-container lg:w-[75%] max-w-[1200px] mb-[120px] w-auto mx-6 md:mx-12 lg:mx-auto">
-          <div className="pt-[32px] lg:pt-[64px] pb-[32px] lg:pb-[64px] gap-2 lg:gap-16 flex flex-col lg:flex-row lg:justify-between ">
+          <div className="pt-[32px] lg:pt-[64px] pb-[32px] lg:pb-[64px] gap-2 lg:gap-30 flex flex-col lg:flex-row lg:justify-between">
             <div>
               <h4 className="text-[18px] font-nm-medium font-medium text-black">
                 Assignment

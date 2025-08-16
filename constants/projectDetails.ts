@@ -140,4 +140,33 @@ export const projectDetails: ProjectDetails[] = [
     nextTitle: "Cryptomillions",
     nextDescription: "Decentralized crypto-based lottery platform",
   },
+   {
+    title: "CryptoMillions",
+    description:
+      "An industry-first crypto lottery platform using Crypto Millions for secure, blockchain-verified draws. Users can win prizes like ETH, luxury holidays, and high-end tech through a seamless crypto-to-ticket experience.",
+    role: "Designer",
+    tech: "Figma",
+    link: "bit.ly/3DLL5mu",
+    year: 2023,
+    imageSrcMockup: "/images/projectDetails/CryptoMillions/1.jpg",
+    assignment:
+      "Design a three-page platform that showcases the crypto lottery, enables seamless conversion of Crypto Millions Coin into tickets, and offers users a choice of exciting prize draws.",
+    objectives:
+      "Create an engaging UI, promote mega prizes, ensure blockchain transparency, and encourage repeat participation.",
+    projectIncludes: [
+      "Design Ideation",
+      "Design Direction",
+      "Prototyping",
+      "Final Design",
+    ],
+    imageSrcUi: [
+      "/images/projectDetails/CryptoMillions/2.jpg",
+      "/images/projectDetails/CryptoMillions/3.jpg",
+      "/images/projectDetails/CryptoMillions/4.jpg",
+      "/images/projectDetails/CryptoMillions/5.jpg",
+    ],
+    nextImage: "/images/projectDetails/CryptoMillions/6.jpg",
+    nextTitle: "ViewMinder",
+    nextDescription: "Enhances dark, low-quality videos for clearer insights",
+  },
 ];
