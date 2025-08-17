@@ -140,7 +140,7 @@ export const projectDetails: ProjectDetails[] = [
     nextTitle: "Cryptomillions",
     nextDescription: "Decentralized crypto-based lottery platform",
   },
-   {
+  {
     title: "CryptoMillions",
     description:
       "An industry-first crypto lottery platform using Crypto Millions for secure, blockchain-verified draws. Users can win prizes like ETH, luxury holidays, and high-end tech through a seamless crypto-to-ticket experience.",
@@ -168,5 +168,41 @@ export const projectDetails: ProjectDetails[] = [
     nextImage: "/images/projectDetails/CryptoMillions/6.jpg",
     nextTitle: "ViewMinder",
     nextDescription: "Enhances dark, low-quality videos for clearer insights",
+  },
+    {
+    title: "ViewMinder",
+    description:
+      "ViewMinder is a Python-based video enhancement desktop application that improves visibility and detail in low-light or poor-quality footage. By enhancing videos for clearer identification of people, objects, and events, it eliminates a common bottleneck in surveillance and data analysis.",
+    role: "Designer and Developer",
+    tech: "Figma, Python, C#,  MySQL, Guna UI",
+    link: "bit.ly/3Ql9k0r",
+    year: 2023,
+    imageSrcMockup: "/images/projectDetails/ViewMinder/1.jpg",
+    assignment:
+      "Design and develop the frontend of ViewMinder, contribute to backend implementation, and create the project’s wireframes and interactive prototypes.",
+    objectives:
+      "Deliver a functional  video enhancement application that improves low-quality footage while providing a clean and user-friendly interface for seamless use across surveillance and content-analysis scenarios",
+    projectIncludes: [
+      "Design Ideation",
+      "Design Direction",
+      "Prototyping",
+      "Final Design",
+    ],
+    imageSrcUi: [
+      "/images/projectDetails/ViewMinder/2.jpg",
+      "/images/projectDetails/ViewMinder/3.jpg",
+      "/images/projectDetails/ViewMinder/4.jpg",
+      "/images/projectDetails/ViewMinder/5.jpg",
+      "/images/projectDetails/ViewMinder/6.jpg",
+      "/images/projectDetails/ViewMinder/7.jpg",
+      "/images/projectDetails/ViewMinder/8.jpg",
+      "/images/projectDetails/ViewMinder/9.jpg",
+      "/images/projectDetails/ViewMinder/10.jpg",
+      "/images/projectDetails/ViewMinder/11.jpg",
+      "/images/projectDetails/ViewMinder/12.jpg",
+    ],
+    nextImage: "/images/projectDetails/ViewMinder/13.jpg",
+    nextTitle: "Website Performance",
+    nextDescription: "Monitors request latency and server issues, showing real-time errors",
   },
 ];
