@@ -210,7 +210,7 @@ export const projectDetails: ProjectDetails[] = [
     description: "Website Performance monitors request latency, detects delays or non-responsive behaviour, and displays any encountered errors.",
     role: "Designer and Developer",
     tech: "Vue.js, SCSS",
-    link: "https://bit.ly/4ozacyV",
+    link: "bit.ly/4ozacyV",
     year: 2025,
     imageSrcMockup: "/images/projectDetails/WebsitePerformance/1.jpg",
     assignment:
