@@ -10,9 +10,9 @@ export type ProjectDetails = {
   objectives: string;
   projectIncludes: string[];
   imageSrcUi: string[];
-  nextImage: string;
-  nextTitle: string;
-  nextDescription: string;
+  nextImage?: string;
+  nextTitle?: string;
+  nextDescription?: string;
 };
 
 export const projectDetails: ProjectDetails[] = [
@@ -169,7 +169,7 @@ export const projectDetails: ProjectDetails[] = [
     nextTitle: "ViewMinder",
     nextDescription: "Enhances dark, low-quality videos for clearer insights",
   },
-    {
+  {
     title: "ViewMinder",
     description:
       "ViewMinder is a Python-based video enhancement desktop application that improves visibility and detail in low-light or poor-quality footage. By enhancing videos for clearer identification of people, objects, and events, it eliminates a common bottleneck in surveillance and data analysis.",
@@ -204,5 +204,35 @@ export const projectDetails: ProjectDetails[] = [
     nextImage: "/images/projectDetails/ViewMinder/13.jpg",
     nextTitle: "Website Performance",
     nextDescription: "Monitors request latency and server issues, showing real-time errors",
+  },
+  {
+    title: "Website Performance",
+    description: "Website Performance monitors request latency, detects delays or non-responsive behaviour, and displays any encountered errors.",
+    role: "Designer and Developer",
+    tech: "Vue.js, SCSS",
+    link: "https://bit.ly/4ozacyV",
+    year: 2025,
+    imageSrcMockup: "/images/projectDetails/WebsitePerformance/1.jpg",
+    assignment:
+      "Design and build the Website Performance system from the ground up, including the creation of sitemaps, wireframes, and responsive UI designs for both desktop and mobile, while also contributing to the frontend development.",
+    objectives:
+      "Deliver a functional and user-friendly web application that accurately measures website request latency, detects delays or non-responsive behaviour, and clearly displays any encountered errors to help users identify and troubleshoot performance issues.",
+    projectIncludes: [
+      "Design Ideation",
+      "Design Direction",
+      "Prototyping",
+      "Final Design",
+    ],
+    imageSrcUi: [
+      "/images/projectDetails/WebsitePerformance/2.jpg",
+      "/images/projectDetails/WebsitePerformance/3.jpg",
+      "/images/projectDetails/WebsitePerformance/4.jpg",
+      "/images/projectDetails/WebsitePerformance/5.jpg",
+      "/images/projectDetails/WebsitePerformance/6.jpg",
+      "/images/projectDetails/WebsitePerformance/7.jpg",
+    ],
+    nextImage: "",
+    nextTitle: "",
+    nextDescription: "",
   },
 ];
