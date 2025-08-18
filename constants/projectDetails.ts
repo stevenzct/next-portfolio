@@ -3,7 +3,7 @@ export type ProjectDetails = {
   description: string;
   role: string;
   tech: string;
-  link: string;
+  link?: string;
   year: number;
   imageSrcMockup: string;
   assignment: string;
@@ -13,6 +13,12 @@ export type ProjectDetails = {
   nextImage?: string;
   nextTitle?: string;
   nextDescription?: string;
+  linkItems?: LinkItem[];
+};
+
+export type LinkItem = {
+  label: string;
+  href: string;
 };
 
 export const projectDetails: ProjectDetails[] = [
@@ -89,7 +95,11 @@ export const projectDetails: ProjectDetails[] = [
       "PlanCo is an outdoor travel planning agency based in San Francisco. Its mission is to help people get in touch with nature and explore new places off of the beaten path.",
     role: "Designer",
     tech: "Figma",
-    link: "bit.ly/448Dzho",
+    link: "",
+    linkItems: [
+      { label: "Desktop Design", href: "https://www.figma.com/proto/q9Kcb1KaBnfG6qbYS4ihhD/works?type=design&node-id=12-253&scaling=min-zoom&page-id=0%3A1" },
+      { label: "Mobile Design", href: "https://www.figma.com/proto/q9Kcb1KaBnfG6qbYS4ihhD/works?type=design&node-id=12-409&scaling=min-zoom&page-id=0%3A1" },
+    ],
     year: 2023,
     imageSrcMockup: "/images/projectDetails/Planco/1.jpg",
     assignment:
@@ -175,7 +185,12 @@ export const projectDetails: ProjectDetails[] = [
       "ViewMinder is a Python-based video enhancement desktop application that improves visibility and detail in low-light or poor-quality footage. By enhancing videos for clearer identification of people, objects, and events, it eliminates a common bottleneck in surveillance and data analysis.",
     role: "Designer and Developer",
     tech: "Figma, Python, C#,  MySQL, Guna UI",
-    link: "bit.ly/3Ql9k0r",
+    link: "",
+    linkItems: [
+      { label: "Desktop App Design", href: "https://www.figma.com/proto/Oq8wgtyHTeHXpurXA4GItR/viewminder?type=design&node-id=479-1149&t=r0UFpZjKL9L7WrE8-0&scaling=min-zoom&page-id=476%3A1109&starting-point-node-id=479%3A1114" },
+      { label: "System Flow", href: "https://www.figma.com/design/Oq8wgtyHTeHXpurXA4GItR/viewminder?node-id=476-1109&t=rSs3fie0GjN20E6Y-0" },
+      { label: "Github Link", href: "https://github.com/stevenzct/viewminder1.5.0/tree/main" },
+    ],
     year: 2023,
     imageSrcMockup: "/images/projectDetails/ViewMinder/1.jpg",
     assignment:
@@ -210,7 +225,11 @@ export const projectDetails: ProjectDetails[] = [
     description: "Website Performance monitors request latency, detects delays or non-responsive behaviour, and displays any encountered errors.",
     role: "Designer and Developer",
     tech: "Vue.js, SCSS",
-    link: "bit.ly/4ozacyV",
+    link: "",
+    linkItems: [
+      { label: "Sitemaps and Wireframes", href: "https://www.figma.com/design/FqPLS9Qzb4sT60yzJM4i4j/website-performance?node-id=0-1&p=f&t=NuchjoEY8NNPJAq3-0" },
+      { label: "Deskstop and Mobile Design", href: "https://www.figma.com/design/FqPLS9Qzb4sT60yzJM4i4j/website-performance?node-id=4-2&p=f&t=7vH1xUWwS9KUEWds-0" },
+    ],
     year: 2025,
     imageSrcMockup: "/images/projectDetails/WebsitePerformance/1.jpg",
     assignment:
