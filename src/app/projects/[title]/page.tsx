@@ -130,7 +130,7 @@ const ProjectPage = async ({ params }: PageProps) => {
         </div>
 
         <div className="app-container lg:w-[75%] max-w-[1200px] mb-[120px] w-auto mx-6 md:mx-12 lg:mx-auto">
-          <div className="pt-[32px] lg:pt-[64px] pb-[32px] lg:pb-[64px] gap-2 lg:gap-30 flex flex-col lg:flex-row lg:justify-between">
+          <div className="pt-[32px] lg:pt-[64px] pb-[32px] lg:pb-[64px] gap-2 lg:gap-[65px] flex flex-col lg:flex-row lg:justify-between">
             <div>
               <h4 className="text-[18px] font-nm-medium font-medium text-black">
                 Assignment
@@ -150,10 +150,10 @@ const ProjectPage = async ({ params }: PageProps) => {
             </div>
 
             <div>
-              <h4 className="text-[18px] font-nm-medium font-medium text-black">
+              <h4 className="text-[18px] font-nm-medium font-medium text-black w-max">
                 Project Includes
               </h4>
-              <ul className="text-base font-nm-book text-[#242424] lg:flex lg:flex-wrap">
+              <ul className="text-base font-nm-book text-[#242424] lg:flex lg:flex-wrap ">
                 {project.projectIncludes.map((item, index) => (
                   <li key={index}>{item}</li>
                 ))}

@@ -165,8 +165,8 @@ export const projectDetails: ProjectDetails[] = [
       "Create an engaging UI, promote mega prizes, ensure blockchain transparency, and encourage repeat participation.",
     projectIncludes: [
       "Design Ideation",
-      "Design Direction",
       "Prototyping",
+      "Design Direction",
       "Final Design",
     ],
     imageSrcUi: [
