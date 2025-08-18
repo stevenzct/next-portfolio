@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { Dialog, DialogPanel } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import Link from "next/link";
+import Button from "./Button";
 
 // Define the navigation array
 const navigation = [
@@ -64,7 +65,7 @@ export const Navbar = () => {
                 <Link
                   key={item.name}
                   href={item.href}
-                   onClick={() => setCurrentPath(item.href)} // Update active state on click
+                  onClick={() => setCurrentPath(item.href)} // Update active state on click
                   className={`text-sm/6 font-nm-medium font-medium transition-colors duration-300 ${
                     item.href === currentPath
                       ? "text-white bg-black px-[14px] py-1 rounded-lg"
@@ -82,7 +83,7 @@ export const Navbar = () => {
             className="lg:hidden"
           >
             <div className="fixed inset-0 z-50" />
-            <DialogPanel className="fixed inset-y-0 right-0 z-50 h-[20rem] md:h-full rounded-b-md w-full overflow-y-auto bg-[rgba(255,255,255,0.87)] backdrop-blur-sm px-6 py-3 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
+            <DialogPanel className="fixed inset-y-0 right-0 z-50 h-[25rem] md:h-full rounded-b-md w-full overflow-y-auto bg-[rgba(255,255,255,0.6)] backdrop-blur-sm px-6 py-3 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
               <div className="flex items-center justify-between">
                 <Link
                   href="#"
@@ -100,18 +101,31 @@ export const Navbar = () => {
                 </button>
               </div>
               <div className="mt-6 flow-root">
-                <div className="-my-6 divide-y divide-gray-500/10">
-                  <div className="space-y-2 py-6">
+                <div>
+                  <div className="py-2">
+                    <h3 className="font-nm-book text-base md:text-2xl mb-2">
+                      Navigate around
+                    </h3>
                     {navigation.map((item) => (
                       <Link
                         key={item.name}
                         href={item.href}
                         onClick={() => setMobileMenuOpen(false)}
-                        className="-mx-3 block rounded-lg px-3 text-[32px] font-nm-medium font-medium text-black"
+                        className=" block text-[32px] font-nm-medium font-medium text-black"
                       >
                         {item.name}
                       </Link>
                     ))}
+                    <div className="cta flex justify-start mt-4">
+                      <Button
+                        type="button"
+                        title="Send a message"
+                        onClick={() =>
+                          (window.location.href =
+                            "mailto:stevencabugos138@gmail.com")
+                        }
+                      />
+                    </div>
                   </div>
                 </div>
               </div>
