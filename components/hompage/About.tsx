@@ -26,8 +26,8 @@ const About = () => {
                   Software Developer & UI/UX Designer
                 </span>{" "}
                 passionate about crafting user-friendly and visually engaging
-                web applications. Passionate about continuous learning, minimal
-                design, and creating meaningful user experiences.
+                web applications, with a strong focus on continuous learning,
+                minimal design, and creating meaningful user experiences.
               </p>
 
               <p className="text-lead md:text-[24px] font-nm-book text-[#222222] leading-normal md:leading-[29px]">
