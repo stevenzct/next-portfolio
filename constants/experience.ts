@@ -26,7 +26,7 @@ export const experiences: Experience[] = [
     role: "UI/UX Designer Intern",
     company: "Pixel8 Web Solutions and Consultancy",
     startDate: "Jun 2023",
-    endDate: "to July 2023 · 2 mos",
+    endDate: "July 2023 · 2 mos",
     location: "Corner Albay 647, Legazpi City, Albay · Remote ",
     logoSrc: "/images/experience/Pixel8-1.jpg",
     logoAlt: "Pixel8 Logo",

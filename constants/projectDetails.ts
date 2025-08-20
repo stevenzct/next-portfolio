@@ -72,7 +72,7 @@ export const projectDetails: ProjectDetails[] = [
       "Design Ideation",
       "Design Direction",
       "Final Design",
-      "Frontend Development",
+      "Full-stack Development",
     ],
     imageSrcUi: [
       "/images/projectDetails/Laprasca/Typography.jpg",
@@ -200,8 +200,8 @@ export const projectDetails: ProjectDetails[] = [
     projectIncludes: [
       "Design Ideation",
       "Design Direction",
-      "Prototyping",
       "Final Design",
+      "Full-stack Development",
     ],
     imageSrcUi: [
       "/images/projectDetails/ViewMinder/2.jpg",
