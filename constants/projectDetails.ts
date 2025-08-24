@@ -3,7 +3,7 @@ export type ProjectDetails = {
   description: string;
   role: string;
   tech: string;
-  link?: string;
+  linkItem?: LinkItem;
   year: number;
   imageSrcMockup: string;
   assignment: string;
@@ -28,7 +28,10 @@ export const projectDetails: ProjectDetails[] = [
       "RV Rioflorido is a civil engineer-led construction company in the Philippines, specializing in residential and commercial projects with modern finishes and comprehensive services.",
     role: "Designer, Developer",
     tech: "Figma, Vue.js, Nuxt.js, Tailwind",
-    link: "rvriofloridocon.com",
+    linkItem: {
+      label: "rvriofloridocon.com",
+      href: "https://rvriofloridocon.com"
+    },
     year: 2025,
     imageSrcMockup: "/images/projectDetails/Rioflorido/RiofloridoMockup.jpg",
     assignment:
@@ -61,7 +64,11 @@ export const projectDetails: ProjectDetails[] = [
       "Laprasca is a fine dining table reservation restaurant in the Philippines, specializing in Italian cuisine with a modern twist.",
     role: "Designer, Developer",
     tech: "Figma, Bootstrap, Javascript, PHP, MySQL",
-    link: "laprasca.pages.dev",
+    linkItem: {
+      label: "laprasca.pages.dev",
+      href: "https://laprasca.pages.dev"
+    },
+
     year: 2022,
     imageSrcMockup: "/images/projectDetails/Laprasca/LaprascaMockup.jpg",
     assignment:
@@ -95,7 +102,10 @@ export const projectDetails: ProjectDetails[] = [
       "PlanCo is an outdoor travel planning agency based in San Francisco. Its mission is to help people get in touch with nature and explore new places off of the beaten path.",
     role: "Designer",
     tech: "Figma",
-    link: "",
+    linkItem: {
+      label: "",
+      href: ""
+    },
     linkItems: [
       { label: "Desktop Design", href: "https://www.figma.com/proto/q9Kcb1KaBnfG6qbYS4ihhD/works?type=design&node-id=12-253&scaling=min-zoom&page-id=0%3A1" },
       { label: "Mobile Design", href: "https://www.figma.com/proto/q9Kcb1KaBnfG6qbYS4ihhD/works?type=design&node-id=12-409&scaling=min-zoom&page-id=0%3A1" },
@@ -129,7 +139,10 @@ export const projectDetails: ProjectDetails[] = [
       "ChatGPT is an AI conversational model developed by OpenAI, designed to understand and generate human-like text based on the input it receives.",
     role: "Designer",
     tech: "Figma",
-    link: "bit.ly/4lis1zl",
+    linkItem: {
+      label: "Desktop Design",
+      href: "https://www.figma.com/proto/q9Kcb1KaBnfG6qbYS4ihhD/works?node-id=2-6&t=CgIw7yQPRNAeYcV5-0&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1"
+    },
     year: 2023,
     imageSrcMockup: "/images/projectDetails/Chatgpt/1.jpg",
     assignment:
@@ -156,7 +169,10 @@ export const projectDetails: ProjectDetails[] = [
       "An industry-first crypto lottery platform using Crypto Millions for secure, blockchain-verified draws. Users can win prizes like ETH, luxury holidays, and high-end tech through a seamless crypto-to-ticket experience.",
     role: "Designer",
     tech: "Figma",
-    link: "bit.ly/3DLL5mu",
+    linkItem: {
+      label: "Desktop Design",
+      href: "https://www.figma.com/proto/Nqvz88k6subNUiaC1wPHbQ/Untitled?type=design&node-id=56-2&t=KBUQR8Q15RPXmMIW-0&scaling=scale-down-width&page-id=0:1&starting-point-node-id=56:2"
+    },
     year: 2023,
     imageSrcMockup: "/images/projectDetails/CryptoMillions/1.jpg",
     assignment:
@@ -185,7 +201,10 @@ export const projectDetails: ProjectDetails[] = [
       "ViewMinder is a Python-based video enhancement desktop application that improves visibility and detail in low-light or poor-quality footage. By enhancing videos for clearer identification of people, objects, and events, it eliminates a common bottleneck in surveillance and data analysis.",
     role: "Designer and Developer",
     tech: "Figma, Python, C#,  MySQL, Guna UI",
-    link: "",
+    linkItem: {
+      label: "",
+      href: ""
+    },
     linkItems: [
       { label: "Desktop App Design", href: "https://www.figma.com/proto/Oq8wgtyHTeHXpurXA4GItR/viewminder?type=design&node-id=479-1149&t=r0UFpZjKL9L7WrE8-0&scaling=min-zoom&page-id=476%3A1109&starting-point-node-id=479%3A1114" },
       { label: "System Flow", href: "https://www.figma.com/design/Oq8wgtyHTeHXpurXA4GItR/viewminder?node-id=476-1109&t=rSs3fie0GjN20E6Y-0" },
@@ -225,7 +244,10 @@ export const projectDetails: ProjectDetails[] = [
     description: "Website Performance monitors request latency, detects delays or non-responsive behaviour, and displays any encountered errors.",
     role: "Designer and Developer",
     tech: "Vue.js, SCSS",
-    link: "",
+    linkItem: {
+      label: "",
+      href: ""
+    },
     linkItems: [
       { label: "Sitemaps and Wireframes", href: "https://www.figma.com/design/FqPLS9Qzb4sT60yzJM4i4j/website-performance?node-id=0-1&p=f&t=NuchjoEY8NNPJAq3-0" },
       { label: "Deskstop and Mobile Design", href: "https://www.figma.com/design/FqPLS9Qzb4sT60yzJM4i4j/website-performance?node-id=4-2&p=f&t=7vH1xUWwS9KUEWds-0" },

@@ -74,14 +74,18 @@ const ProjectPage = async ({ params }: PageProps) => {
                 Link
               </h4>
               <p className="text-base font-nm-book text-[#242424]">
-                <a
-                  className=" text-[#242424]"
-                  href={`https://${project.link}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  {project.link}
-                </a>
+                {project.linkItem &&
+                project.linkItem.href &&
+                project.linkItem.label ? (
+                  <a
+                    className="text-[#242424]"
+                    href={project.linkItem.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {project.linkItem.label}
+                  </a>
+                ) : null}
               </p>
 
               {project.linkItems && project.linkItems.length > 0 && (
@@ -99,19 +103,20 @@ const ProjectPage = async ({ params }: PageProps) => {
                     className="absolute right-0 z-10 mt-2 w-auto md:w-56 origin-top-right rounded-md bg-white shadow-lg outline-1 outline-black/5 transition data-closed:scale-95 data-closed:transform data-closed:opacity-0 data-enter:duration-100 data-enter:ease-out data-leave:duration-75 data-leave:ease-in"
                   >
                     <div className="py-1">
-                      {project.linkItems.map((item: { href: string; label: string }, index) => (
-
-                        <MenuItem key={index}>
-                          <a
-                            href={item.href}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="block px-4 py-2 text-sm font-nm-book data-focus:bg-gray-100 data-focus:text-gray-900 data-focus:outline-hidden"
-                          >
-                            {item.label}
-                          </a>
-                        </MenuItem>
-                      ))}
+                      {project.linkItems.map(
+                        (item: { href: string; label: string }, index) => (
+                          <MenuItem key={index}>
+                            <a
+                              href={item.href}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="block px-4 py-2 text-sm font-nm-book data-focus:bg-gray-100 data-focus:text-gray-900 data-focus:outline-hidden"
+                            >
+                              {item.label}
+                            </a>
+                          </MenuItem>
+                        )
+                      )}
                     </div>
                   </MenuItems>
                 </Menu>
