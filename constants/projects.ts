@@ -54,7 +54,7 @@ export const projects: Project[] = [
     description: "Enhances dark, low-quality videos for clearer insights",
     imageSrc: "/images/projects/Viewminder1.jpg",
     imageAlt: "Viewminder Project",
-    category: "UI/UX DESIGN",
+    category: "UI/UX DESIGN | DEVELOPMENT",
   },
   {
     title: "Website Performance",
