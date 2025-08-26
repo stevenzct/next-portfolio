@@ -250,7 +250,7 @@ export const projectDetails: ProjectDetails[] = [
     },
     linkItems: [
       { label: "Sitemaps and Wireframes", href: "https://www.figma.com/design/FqPLS9Qzb4sT60yzJM4i4j/website-performance?node-id=0-1&p=f&t=NuchjoEY8NNPJAq3-0" },
-      { label: "Deskstop and Mobile Design", href: "https://www.figma.com/design/FqPLS9Qzb4sT60yzJM4i4j/website-performance?node-id=4-2&p=f&t=7vH1xUWwS9KUEWds-0" },
+      { label: "Desktop and Mobile Design", href: "https://www.figma.com/design/FqPLS9Qzb4sT60yzJM4i4j/website-performance?node-id=4-2&p=f&t=7vH1xUWwS9KUEWds-0" },
     ],
     year: 2025,
     imageSrcMockup: "/images/projectDetails/WebsitePerformance/1.jpg",
