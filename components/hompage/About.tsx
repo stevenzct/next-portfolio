@@ -20,7 +20,7 @@ const About = () => {
 
             <div>
               <p className="text-lead md:text-[24px] font-nm-book text-[#222222] leading-normal md:leading-[29px] pb-4">
-                Creative
+                I&#39;m Steven Cabugos, a{" "}
                 <span className="font-nm-medium font-medium">
                   {" "}
                   Software Developer & UI/UX Designer
