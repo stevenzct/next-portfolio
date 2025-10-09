@@ -78,7 +78,7 @@ const ProjectPage = async ({ params }: PageProps) => {
                 project.linkItem.href &&
                 project.linkItem.label ? (
                   <a
-                    className="text-[#242424]"
+                    className="text-[#242424] underline underline-offset-4 decoration-[#242424]"
                     href={project.linkItem.href}
                     target="_blank"
                     rel="noopener noreferrer"
