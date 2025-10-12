@@ -198,7 +198,7 @@ export const projectDetails: ProjectDetails[] = [
   {
     title: "ViewMinder",
     description:
-      "ViewMinder is a Python-based video enhancement desktop application that improves visibility and detail in low-light or poor-quality footage. By enhancing videos for clearer identification of people, objects, and events, it eliminates a common bottleneck in surveillance and data analysis.",
+      "ViewMinder is a Python-based video enhancement desktop application thesis project that improves visibility and detail in low-light or poor-quality footage. By enhancing videos for clearer identification of people, objects, and events, it eliminates a common bottleneck in surveillance and data analysis.",
     role: "Designer and Developer",
     tech: "Figma, Python, C#,  MySQL, Guna UI",
     linkItem: {
@@ -263,6 +263,7 @@ export const projectDetails: ProjectDetails[] = [
       "Design Direction",
       "Prototyping",
       "Final Design",
+      "Frontend Development"
     ],
     imageSrcUi: [
       "/images/projectDetails/WebsitePerformance/2.jpg",
