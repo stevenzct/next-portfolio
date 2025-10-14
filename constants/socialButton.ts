@@ -25,9 +25,9 @@ export const socialButtons: SocialButtonType[] = [
     iconAlt: "Bento.me",
   },
   {
-    buttonName: "Email",
-    href: "mailto:stevencabugos138@gmail.com",
-    icon: "/images/icons/email.png",
-    iconAlt: "Email",
+    buttonName: "Facebook",
+    href: "https://www.facebook.com/stevenzct/",
+    icon: "/images/icons/facebook.png",
+    iconAlt: "Facebook",
   },
 ];
