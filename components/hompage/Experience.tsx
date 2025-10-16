@@ -3,7 +3,9 @@ import Image from "next/image";
 import { experiences } from "../../constants/experience";
 function Experience() {
   return (
-    <div className="experience pt-[80px] pb-[80px] md:pt-[120px] md:pb-[120px] bg-[#F8F8F8]">
+    <div
+      id="work"
+      className="experience pt-[80px] pb-[80px] md:pt-[120px] md:pb-[120px] bg-[#F8F8F8]">
       <div className="container-wrapper w-full h-auto">
         <div className="app-container lg:w-[75%] max-w-[1200px] w-auto mx-6 md:mx-12 lg:mx-auto">
           <h3 className="font-nm-book text-base md:text-2xl mb-2">Work</h3>

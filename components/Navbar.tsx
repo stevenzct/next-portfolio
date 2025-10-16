@@ -9,6 +9,7 @@ import Button from "./Button";
 const navigation = [
   { name: "Home", href: "/#home" },
   { name: "Projects", href: "/#projects" },
+  { name: "Work", href: "/#work" },
   { name: "About", href: "/#about" },
   { name: "Contact", href: "/#contact" },
 ];
@@ -60,7 +61,7 @@ export const Navbar = () => {
                 <Bars3Icon aria-hidden="true" className="size-6 text-black" />
               </button>
             </div>
-            <div className="hidden lg:flex lg:gap-x-4 bg-white py-[8px] px-[14px] rounded-lg items-center">
+            <div className="hidden lg:flex lg:gap-x-1 bg-white py-[8px] px-[14px] rounded-lg items-center">
               {navigation.map((item) => (
                 <Link
                   key={item.name}
