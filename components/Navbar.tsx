@@ -106,7 +106,9 @@ export const Navbar = () => {
                     <h3 className="font-nm-book text-base md:text-2xl mb-2">
                       Navigate around
                     </h3>
-                    {navigation.map((item) => (
+                    {navigation
+                      .filter((item) => item.name !== "Contact") // Exclude "Contact" for mobile
+                      .map((item) => (
                       <Link
                         key={item.name}
                         href={item.href}
