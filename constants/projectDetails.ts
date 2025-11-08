@@ -48,7 +48,7 @@ export const projectDetails: ProjectDetails[] = [
       "/images/projectDetails/Rioflorido/projectBrief.jpg",
       "/images/projectDetails/Rioflorido/sitemaps.jpg",
       "/images/projectDetails/Rioflorido/wireframe.jpg",
-      "/images/projectDetails/Rioflorido/typography.jpg",
+      "/images/projectDetails/Rioflorido/Typography.jpg",
       "/images/projectDetails/Rioflorido/ColorSystem.jpg",
       "/images/projectDetails/Rioflorido/1.jpg",
       "/images/projectDetails/Rioflorido/2.jpg",
@@ -85,6 +85,7 @@ export const projectDetails: ProjectDetails[] = [
       "Full-stack Development",
     ],
     imageSrcUi: [
+      "/images/projectDetails/Laprasca/projectBrief.jpg",
       "/images/projectDetails/Laprasca/Typography.jpg",
       "/images/projectDetails/Laprasca/ColorSystem.jpg",
       "/images/projectDetails/Laprasca/3.jpg",
