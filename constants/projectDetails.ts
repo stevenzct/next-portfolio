@@ -45,7 +45,10 @@ export const projectDetails: ProjectDetails[] = [
       "Frontend Development",
     ],
     imageSrcUi: [
-      "/images/projectDetails/Rioflorido/Typography.jpg",
+      "/images/projectDetails/Rioflorido/projectBrief.jpg",
+      "/images/projectDetails/Rioflorido/sitemaps.jpg",
+      "/images/projectDetails/Rioflorido/wireframe.jpg",
+      "/images/projectDetails/Rioflorido/typography.jpg",
       "/images/projectDetails/Rioflorido/ColorSystem.jpg",
       "/images/projectDetails/Rioflorido/1.jpg",
       "/images/projectDetails/Rioflorido/2.jpg",
