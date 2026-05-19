@@ -9,6 +9,14 @@ export type Project = {
 
 export const projects: Project[] = [
   {
+    title: "Payso Cashier",
+    year: 2025,
+    description: "H5-based mobile product cashier",
+    imageSrc: "/images/projects/PaysoCashier1.png",
+    imageAlt: "PaysoCashier Project",
+    category: "UI/UX DESIGN",
+  },
+  {
     title: "RV Rioflorido",
     year: 2025,
     description: "Quality-driven construction company",
