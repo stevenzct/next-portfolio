@@ -23,6 +23,37 @@ export type LinkItem = {
 
 export const projectDetails: ProjectDetails[] = [
   {
+    title: "Payso Cashier",
+    description: "H5-based cashier product designed to facilitate digital payment processing, merchant transactions, and streamlined cashier operations for businesses.",
+    role: "UI/UX Designer and QA",  
+    tech: "Figma", 
+    year: 2025,
+    imageSrcMockup: "/images/projectDetails/PaysoCashier/PaysoCashierMockup.png",
+    assignment:
+      "Responsible for designing and validating the UI/UX of the Payso Cashier H5 product, focusing on merchant payment flows, responsive interfaces, and design-to-development quality assurance.",
+    objectives:
+      "To design and validate a seamless, reliable, and user-friendly H5 cashier system that enables merchants to efficiently process digital payments with minimal friction, ensuring a smooth end-to-end transaction experience across mobile devices.",
+    projectIncludes: [
+      "UI/UX Design",
+      "Quality Assurance",
+      "Interaction & Usability",
+      "Collaboration Work",
+    ],
+    imageSrcUi: [
+      "/images/projectDetails/PaysoCashier/1.png",
+      "/images/projectDetails/PaysoCashier/2.png",
+      "/images/projectDetails/PaysoCashier/3.png",
+      "/images/projectDetails/PaysoCashier/4.png",
+    ],
+    nextImage: "/images/projectDetails/PaysoCashier/nextImage.webp",
+    nextTitle: "RV Rioflorido",
+    nextDescription: "Quality-driven construction company",
+    linkItem: {
+      label: "figma link",
+      href: "https://www.figma.com/design/DTECkf9eQwa5P9mpfENox4/Payso-Cashier--Copy-?node-id=0-1&t=5XgEU0Z2WNn0ssZb-1"
+    },
+  },
+  {
     title: "RV Rioflorido",
     description:
       "RV Rioflorido is a civil engineer-led construction company in the Philippines, specializing in residential and commercial projects with modern finishes and comprehensive services.",
