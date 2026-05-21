@@ -17,6 +17,22 @@ export const projects: Project[] = [
     category: "UI/UX DESIGN",
   },
   {
+    title: "Payso Merchant",
+    year: 2026,
+    description: "H5-based mobile product merchant",
+    imageSrc: "/images/projects/PaysoMerchant1.png",
+    imageAlt: "PaysoMerchant Project",
+    category: "UI/UX DESIGN",
+  },
+  {
+    title: "Remittance app",
+    year: 2026,
+    description: "Remittance app for OFW",
+    imageSrc: "/images/projects/PaysoRemittance1.png",
+    imageAlt: "Remittance app Project",
+    category: "UI/UX DESIGN",
+  },
+  {
     title: "RV Rioflorido",
     year: 2025,
     description: "Quality-driven construction company",
