@@ -46,9 +46,9 @@ export const projectDetails: ProjectDetails[] = [
       "/images/projectDetails/PaysoCashier/4.png",
       "/images/projectDetails/PaysoCashier/5.png",
     ],
-    nextImage: "/images/projectDetails/PaysoCashier/nextImage.webp",
-    nextTitle: "RV Rioflorido",
-    nextDescription: "Quality-driven construction company",
+    nextImage: "/images/projectDetails/PaysoCashier/nextImage.png",
+    nextTitle: "Payso Merchant",
+    nextDescription: "Payso Merchant h5 mobile product",
      linkItem: {
       label: "",
       href: ""
@@ -57,6 +57,40 @@ export const projectDetails: ProjectDetails[] = [
       { label: "Payso Cashier UI", href: "https://www.figma.com/design/DTECkf9eQwa5P9mpfENox4/Payso-Cashier--Copy-?node-id=0-1&p=f&t=TusKU9HojoZdGuXk-0" },
       { label: "User Flow", href: "https://www.figma.com/design/DTECkf9eQwa5P9mpfENox4/Payso-Cashier--Copy-?node-id=2662-667&p=f&t=TusKU9HojoZdGuXk-0" },
       { label: "Design System", href: "https://www.figma.com/design/DTECkf9eQwa5P9mpfENox4/Payso-Cashier--Copy-?node-id=41-241&p=f" },
+    ],
+  },
+    {
+    title: "Payso Merchant",
+    description: "H5 mobile product focused on merchant payment workflows, responsive mobile experiences, and seamless transaction interfaces.",
+    role: "UI/UX Designer and QA",  
+    tech: "Figma", 
+    year: 2026,
+    imageSrcMockup: "/images/projectDetails/PaysoMerchant/PaysoMerchantMockup.png",
+    assignment:
+      "Responsible for designing the UI/UX of Payso Merchant, an H5 mobile payment product. Created responsive mobile layouts, improved payment flows, and supported QA testing to ensure usability, functionality, and visual consistency across devices.",
+    objectives:
+      "To design a clear, responsive, and user-friendly H5 mobile payment experience that helps merchants manage payment workflows smoothly while maintaining strong visual consistency with the Payso brand.",
+    projectIncludes: [
+      "UI/UX Design",
+      "Quality Assurance",
+      "Interaction & Usability",
+      "Collaboration Work",
+    ],
+    imageSrcUi: [
+      "/images/projectDetails/PaysoMerchant/1.png",
+      "/images/projectDetails/PaysoMerchant/2.png",
+    ],
+    nextImage: "/images/projectDetails/PaysoMerchant/nextImage.webp",
+    nextTitle: "RV Rioflorido",
+    nextDescription: "Quality-driven construction company",
+     linkItem: {
+      label: "",
+      href: ""
+    },
+    linkItems: [
+      { label: "Payso Merchant UI", href: "https://www.figma.com/design/hBdm1zdfThaZss1TAjgvbw/Payso-Merchant?node-id=998-3091&t=s9BW3z4ZJJJLEVqS-0" },
+      { label: "User Flow", href: "https://www.figma.com/design/hBdm1zdfThaZss1TAjgvbw/Payso-Merchant?node-id=298-702&p=f&t=s9BW3z4ZJJJLEVqS-0" },
+      { label: "Design System", href: "https://www.figma.com/design/hBdm1zdfThaZss1TAjgvbw/Payso-Merchant?node-id=298-702&p=f&t=s9BW3z4ZJJJLEVqS-0" },
     ],
   },
   {
