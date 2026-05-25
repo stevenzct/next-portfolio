@@ -79,6 +79,7 @@ export const projectDetails: ProjectDetails[] = [
     imageSrcUi: [
       "/images/projectDetails/PaysoMerchant/1.png",
       "/images/projectDetails/PaysoMerchant/2.png",
+      "/images/projectDetails/PaysoMerchant/3.png",
     ],
     nextImage: "/images/projectDetails/PaysoMerchant/nextImage.webp",
     nextTitle: "RV Rioflorido",
