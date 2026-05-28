@@ -89,7 +89,7 @@ export const projectDetails: ProjectDetails[] = [
       href: ""
     },
     linkItems: [
-      { label: "Payso Merchant UI", href: "https://www.figma.com/design/hBdm1zdfThaZss1TAjgvbw/Payso-Merchant?node-id=998-3091&t=s9BW3z4ZJJJLEVqS-0" },
+      { label: "Payso Merchant UI", href: "https://www.figma.com/design/hBdm1zdfThaZss1TAjgvbw/Payso-Merchant?node-id=0-1&t=l1Z5j1vJDdYchP1F-1" },
       { label: "User Flow", href: "https://www.figma.com/design/hBdm1zdfThaZss1TAjgvbw/Payso-Merchant?node-id=919-1154&t=9kXUgcwNXIqDy88D-1" },
       { label: "Design System", href: "https://www.figma.com/design/hBdm1zdfThaZss1TAjgvbw/Payso-Merchant?node-id=298-702&p=f&t=s9BW3z4ZJJJLEVqS-0" },
     ],
