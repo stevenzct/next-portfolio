@@ -32,6 +32,14 @@ export const projects: Project[] = [
     imageAlt: "Remittance app Project",
     category: "UI/UX DESIGN",
   },
+   {
+    title: "Payso Graphics",
+    year: 2026,
+    description: "Sales materials, trifolds, and banners",
+    imageSrc: "/images/projects/PaysoGraphics.png",
+    imageAlt: "PaysoGraphics Project",
+    category: "Graphics Design",
+  },
   {
     title: "RV Rioflorido",
     year: 2025,
