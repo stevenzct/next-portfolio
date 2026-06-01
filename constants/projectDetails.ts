@@ -81,9 +81,9 @@ export const projectDetails: ProjectDetails[] = [
       "/images/projectDetails/PaysoMerchant/22.png",
       "/images/projectDetails/PaysoMerchant/3.png",
     ],
-    nextImage: "/images/projectDetails/PaysoMerchant/nextImage.webp",
-    nextTitle: "RV Rioflorido",
-    nextDescription: "Quality-driven construction company",
+    nextImage: "/images/projectDetails/PaysoGraphics/image1.png",
+    nextTitle: "Payso Graphics",
+    nextDescription: "Sales materials, trifolds, and banners",
      linkItem: {
       label: "",
       href: ""
@@ -93,6 +93,34 @@ export const projectDetails: ProjectDetails[] = [
       { label: "User Flow", href: "https://www.figma.com/design/hBdm1zdfThaZss1TAjgvbw/Payso-Merchant?node-id=919-1154&t=9kXUgcwNXIqDy88D-1" },
       { label: "Design System", href: "https://www.figma.com/design/hBdm1zdfThaZss1TAjgvbw/Payso-Merchant?node-id=298-702&p=f&t=s9BW3z4ZJJJLEVqS-0" },
     ],
+  },
+   {
+    title: "Payso Graphics",
+    description: "Sales materials, trifolds, and banners.",
+    role: "Graphics Designer",  
+    tech: "Figma, Adobe XD, Photoshop", 
+    year: 2026,
+    imageSrcMockup: "/images/projectDetails/PaysoGraphics/image1.png",
+    assignment:
+      "Responsible for creating Payso graphic design assets such as banners, trifolds, and sales materials to support product promotions and sales activities.",
+    objectives:
+      "To create clear and visually appealing graphic design assets for Payso that support product promotions, sales activities, and product launch initiatives.",
+    projectIncludes: [
+      "Graphic Design",
+      "Sales Materials",
+      "Product Promotional Assets",
+      "Collaboration Work",
+    ],
+    imageSrcUi: [
+      "/images/projectDetails/PaysoGraphics/image2.png",
+    ],
+    nextImage: "/images/projectDetails/PaysoMerchant/nextImage.webp",
+    nextTitle: "RV Rioflorido",
+    nextDescription: "Quality-driven construction company",
+     linkItem: {
+      label: "Payso Graphics Figma",
+      href: "https://www.figma.com/design/mGdxx2x94Z1Hk0zpmin2FC/Payso-freestyle2?node-id=187-100&t=YzuuqRtduYtIaR8D-0"
+    },
   },
   {
     title: "RV Rioflorido",
