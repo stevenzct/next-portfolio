@@ -112,7 +112,7 @@ export const projectDetails: ProjectDetails[] = [
       "Collaboration Work",
     ],
     imageSrcUi: [
-      "/images/projectDetails/PaysoGraphics/image2.png",
+      "/images/projectDetails/PaysoGraphics/image22.png",
     ],
     nextImage: "/images/projectDetails/PaysoMerchant/nextImage.webp",
     nextTitle: "RV Rioflorido",
