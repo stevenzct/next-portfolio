@@ -107,12 +107,18 @@ export const projectDetails: ProjectDetails[] = [
       "To create clear and visually appealing graphic design assets for Payso that support product promotions, sales activities, and product launch initiatives.",
     projectIncludes: [
       "Graphic Design",
-      "Sales Materials",
       "Product Promotional Assets",
       "Collaboration Work",
+      "Sales Materials",
     ],
     imageSrcUi: [
-      "/images/projectDetails/PaysoGraphics/image22.png",
+      "/images/projectDetails/PaysoGraphics/image2.png",
+      "/images/projectDetails/PaysoGraphics/image3.png",
+      "/images/projectDetails/PaysoGraphics/image4.png",
+      "/images/projectDetails/PaysoGraphics/image5.png",
+      "/images/projectDetails/PaysoGraphics/image6.png",
+      "/images/projectDetails/PaysoGraphics/image7.png",
+      "/images/projectDetails/PaysoGraphics/image8.png"
     ],
     nextImage: "/images/projectDetails/PaysoMerchant/nextImage.webp",
     nextTitle: "RV Rioflorido",
