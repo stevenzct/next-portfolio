@@ -1,6 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import { socialButtons } from "../../constants/socialButton";
+import Link from "next/link";
 
 const About = () => {
   return (
@@ -23,11 +24,27 @@ const About = () => {
                 I&#39;m Steven Cabugos, a{" "}
                 <span className="font-nm-medium font-medium">
                   {" "}
-                  Software Developer & UI/UX Designer
+                  Software Developer{" "}
                 </span>{" "}
-                passionate about crafting user-friendly and visually engaging
-                web applications, with a strong focus on continuous learning,
-                minimal design, and creating meaningful user experiences.
+                and currently working as{" "}
+                <span className="font-nm-medium font-medium">
+                  {" "}
+                  UI/UX Designer
+                </span>{" "}
+                at{" "}
+                <span className="font-nm-medium font-medium">
+                  <Link
+                    href="https://www.linkedin.com/company/paysophl/posts/?feedView=all"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="font-nm-medium font-medium underline underline-offset-4 hover:opacity-80"
+                  >
+                    Payso
+                  </Link>
+                </span>
+                , designing high-impact digital experiences for fintech
+                products. I combine software engineering skills with design
+                thinking to build successful digital products.
               </p>
 
               <p className="text-lead md:text-[24px] font-nm-book text-[#222222] leading-normal md:leading-[29px]">
@@ -43,7 +60,7 @@ const About = () => {
                 <span className="font-nm-medium font-medium"> Typescript</span>.
                 I also work with CSS frameworks including{" "}
                 <span className="font-nm-medium font-medium">
-                  Materialize, Bootstrap
+                  Materialize, Bootstrap, ShadcnUI
                 </span>
                 , and{" "}
                 <span className="font-nm-medium font-medium">Tailwind</span>,
