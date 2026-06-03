@@ -118,7 +118,8 @@ export const projectDetails: ProjectDetails[] = [
       "/images/projectDetails/PaysoGraphics/image5.png",
       "/images/projectDetails/PaysoGraphics/image6.png",
       "/images/projectDetails/PaysoGraphics/image7.png",
-      "/images/projectDetails/PaysoGraphics/image8.png"
+      "/images/projectDetails/PaysoGraphics/image8.png",
+      "/images/projectDetails/PaysoGraphics/image9.png",
     ],
     nextImage: "/images/projectDetails/PaysoMerchant/nextImage.webp",
     nextTitle: "RV Rioflorido",
