@@ -19,12 +19,6 @@ export const socialButtons: SocialButtonType[] = [
     iconAlt: "GitHub",
   },
   {
-    buttonName: "Bento.me",
-    href: "https://bento.me/steven-cabugos",
-    icon: "/images/icons/bento.png",
-    iconAlt: "Bento.me",
-  },
-  {
     buttonName: "Facebook",
     href: "https://www.facebook.com/stevenzct/",
     icon: "/images/icons/facebook.png",
