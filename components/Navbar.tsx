@@ -1,5 +1,6 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
+import { usePathname } from "next/navigation";
 import { Dialog, DialogPanel } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import Link from "next/link";
@@ -7,16 +8,91 @@ import Button from "./Button";
 
 // Define the navigation array
 const navigation = [
-  { name: "Home", href: "/#home" },
-  { name: "Projects", href: "/#projects" },
-  { name: "Work", href: "/#work" },
-  { name: "About", href: "/#about" },
-  { name: "Contact", href: "/#contact" },
+  { name: "Home", href: "/#home", sectionId: "home" },
+  { name: "Projects", href: "/#projects", sectionId: "projects" },
+  { name: "Work", href: "/#work", sectionId: "work" },
+  { name: "About", href: "/#about", sectionId: "about" },
+  { name: "Contact", href: "/#contact", sectionId: "contact" },
 ];
+
+// Custom hook to track active section using IntersectionObserver
+const useActiveSection = () => {
+  const [activeSection, setActiveSection] = useState("home");
+  const pathname = usePathname();
+  const observerRef = useRef<IntersectionObserver | null>(null);
+
+  useEffect(() => {
+    // Determine active section based on pathname
+    const getActiveSectionFromPath = (path: string): string => {
+      if (path === "/" || path === "") return "home";
+      if (path.includes("/projects")) return "projects";
+      if (path.includes("/work")) return "work";
+      if (path.includes("/about")) return "about";
+      if (path.includes("/contact")) return "contact";
+      if (path.includes("/resources")) return "home"; // or appropriate section
+      return "home";
+    };
+
+    // Clean up previous observer
+    if (observerRef.current) {
+      observerRef.current.disconnect();
+    }
+
+    const observerOptions = {
+      root: null,
+      rootMargin: "-50% 0px -50% 0px",
+      threshold: 0,
+    };
+
+    const observerCallback = (entries: IntersectionObserverEntry[]) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const sectionId = entry.target.id;
+          if (sectionId) {
+            setActiveSection(sectionId);
+          }
+        }
+      });
+    };
+
+    const observer = new IntersectionObserver(
+      observerCallback,
+      observerOptions
+    );
+
+    const sectionIds = ["home", "projects", "work", "about", "contact"];
+    let observedCount = 0;
+
+    // Observe all sections that exist on the page
+    sectionIds.forEach((id) => {
+      const element = document.getElementById(id);
+      if (element) {
+        observer.observe(element);
+        observedCount++;
+      }
+    });
+
+    // If no sections exist on this page, set active section based on pathname
+    if (observedCount === 0) {
+      const pathBasedSection = getActiveSectionFromPath(pathname);
+      setActiveSection(pathBasedSection);
+    }
+
+    observerRef.current = observer;
+
+    return () => {
+      if (observerRef.current) {
+        observerRef.current.disconnect();
+      }
+    };
+  }, [pathname]); // Re-run when pathname changes
+
+  return activeSection;
+};
 
 export const Navbar = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [currentPath, setCurrentPath] = useState("/#home"); // Default active path
+  const activeSection = useActiveSection();
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
@@ -66,9 +142,8 @@ export const Navbar = () => {
                 <Link
                   key={item.name}
                   href={item.href}
-                  onClick={() => setCurrentPath(item.href)} // Update active state on click
                   className={`text-sm/6 font-nm-medium font-medium transition-colors duration-300 ${
-                    item.href === currentPath
+                    item.sectionId === activeSection
                       ? "text-white bg-black px-[14px] py-1 rounded-lg"
                       : "text-gray-900 hover:bg-[#F8F8F8] px-[14px] py-1 rounded-lg"
                   }`}
@@ -114,7 +189,7 @@ export const Navbar = () => {
                         key={item.name}
                         href={item.href}
                         onClick={() => setMobileMenuOpen(false)}
-                        className=" block text-[32px] font-nm-medium font-medium text-black"
+                        className={`block text-[32px] font-nm-medium font-medium ${item.sectionId === activeSection ? "text-black" : "text-gray-600"}`}
                       >
                         {item.name}
                       </Link>
@@ -139,3 +214,4 @@ export const Navbar = () => {
     </header>
   );
 };
+
