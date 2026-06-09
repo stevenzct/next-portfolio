@@ -45,6 +45,7 @@ export const projectDetails: ProjectDetails[] = [
       "/images/projectDetails/PaysoCashier/3.png",
       "/images/projectDetails/PaysoCashier/4.png",
       "/images/projectDetails/PaysoCashier/5.png",
+      "/images/projectDetails/PaysoCashier/6.png",
     ],
     nextImage: "/images/projectDetails/PaysoCashier/nextImage.png",
     nextTitle: "Payso Merchant",
