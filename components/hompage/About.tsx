@@ -68,18 +68,17 @@ const About = () => {
                 <span className="font-nm-medium font-medium">MySQL</span>.
               </p>
 
-              <div className="pt-3.5 flex flex-wrap gap-2 md:gap-4">
+              <div className="flex flex-nowrap gap-2 pt-3.5 md:gap-4">
                 {socialButtons.map(({ buttonName, href, icon, iconAlt }) => (
                   <a
                     key={buttonName}
                     href={href}
                     target="_blank"
                     rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center gap-1.5 rounded-[8px] border-1 border-[#D6D6D6] px-2 py-2 text-xs font-nm-book text-[#222222] transition-colors duration-300 hover:bg-[#F8F8F8] md:gap-2 md:px-4 md:text-sm"
                   >
-                    <button className="inline-flex items-center gap-2 px-4 py-2 text-[#222222] transition-colors duration-300 hover:bg-[#F8F8F8] text-sm font-nm-book rounded-[8px] border-1 border-[#D6D6D6]">
-                      <Image src={icon} alt={iconAlt} width={16} height={16} />
-                      {buttonName}
-                    </button>
+                    <Image src={icon} alt={iconAlt} width={16} height={16} />
+                    {buttonName}
                   </a>
                 ))}
               </div>
