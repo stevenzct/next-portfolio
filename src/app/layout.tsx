@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { Navbar } from "../../components/Navbar";
 import localFont from "next/font/local";
-import { SpotifyIsland } from "../../components/SpotifyIsland";
 
 const PPNeueMontrealBold = localFont({
   src: '../../public/fonts/PPNeueMontreal-Bold.otf',
@@ -46,7 +45,6 @@ export default function RootLayout({
             {children}
           </main>
         </div>
-        <SpotifyIsland />
       </body>
     </html>
   );
