@@ -11,15 +11,25 @@ const About = () => {
     >
       <div className="container-wrapper w-full h-auto">
         <div className="app-container lg:w-[75%] max-w-[1200px] w-auto mx-6 md:mx-12 lg:mx-auto">
-          <h3 className="font-nm-book text-base md:text-2xl mb-2">
-            My Expertise
-          </h3>
-          <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2">
-            <h1 className="text-[32px] md:text-7xl lg:text-8xl text-start mb-4 md:mb-16 font-nm-medium font-medium text-black w-auto leading-[30px] md:leading-20 lg:leading-[77px]">
-              About Me
-            </h1>
+          <div className="grid grid-cols-1 gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-stretch lg:gap-20 xl:gap-24">
+            <div className="overflow-hidden rounded-[13px] bg-[#F8F8F8]">
+              <Image
+                src="/images/about/StevenCabugos.png"
+                alt="Steven Cabugos"
+                width={520}
+                height={640}
+                className="h-auto w-full object-cover"
+                priority
+              />
+            </div>
 
-            <div>
+            <div className="flex min-w-0 flex-col">
+              <h3 className="font-nm-book text-base md:text-2xl mb-2">
+                My Expertise
+              </h3>
+              <h1 className="text-[32px] md:text-7xl lg:text-8xl text-start mb-4 md:mb-8 font-nm-medium font-medium text-black w-auto leading-[30px] md:leading-20 lg:leading-[77px]">
+                About Me
+              </h1>
               <p className="text-lead md:text-[24px] font-nm-book text-[#222222] leading-normal md:leading-[29px] pb-4">
                 I&#39;m Steven Cabugos, a{" "}
                 <span className="font-nm-medium font-medium">
@@ -46,28 +56,6 @@ const About = () => {
                 products. I combine software engineering skills, design thinking, AI tools to speed up workflows, improve efficiency, and build successful digital products. 
               </p>
 
-              <p className="text-lead md:text-[24px] font-nm-book text-[#222222] leading-normal md:leading-[29px]">
-                I have a proven track record of designing and developing
-                software and web applications using tools like{" "}
-                <span className="font-nm-medium font-medium">Figma</span> and{" "}
-                <span className="font-nm-medium font-medium">Adobe XD</span>,
-                along with technologies such as{" "}
-                <span className="font-nm-medium font-medium">
-                  JavaScript, React, Vue.js, Next.js, Nuxt.js
-                </span>
-                , and
-                <span className="font-nm-medium font-medium"> Typescript</span>.
-                I also work with CSS frameworks including{" "}
-                <span className="font-nm-medium font-medium">
-                  Materialize, Bootstrap, ShadcnUI
-                </span>
-                , and{" "}
-                <span className="font-nm-medium font-medium">Tailwind</span>,
-                and I have experience with backend technologies like{" "}
-                <span className="font-nm-medium font-medium">PHP</span> and{" "}
-                <span className="font-nm-medium font-medium">MySQL</span>.
-              </p>
-
               <div className="flex flex-nowrap gap-2 pt-3.5 md:gap-4">
                 {socialButtons.map(({ buttonName, href, icon, iconAlt }) => (
                   <a
@@ -82,6 +70,18 @@ const About = () => {
                   </a>
                 ))}
               </div>
+              <iframe
+                data-testid="embed-iframe"
+                title="Spotify playlist"
+                src="https://open.spotify.com/embed/playlist/63rfA69SeqNJqyKc8pr3Ro?utm_source=generator&theme=0"
+                width="100%"
+                height="352"
+                frameBorder="0"
+                allowFullScreen
+                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                loading="lazy"
+                className="mt-6 h-[352px] w-full max-w-full rounded-[12px] md:h-[300px] lg:min-h-[180px] lg:flex-1 lg:mt-8"
+              />
             </div>
           </div>
         </div>
