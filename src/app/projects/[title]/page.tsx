@@ -4,10 +4,13 @@ import {
   projectDetails,
   ProjectDetails,
 } from "../../../../constants/projectDetails";
-import Button from "../../../../components/Button";
 import Link from "next/link";
 import { Menu, MenuButton, MenuItem, MenuItems } from "@headlessui/react";
 import { ChevronDownIcon } from "@heroicons/react/20/solid";
+import {
+  ArrowLeftIcon,
+  ArrowRightIcon,
+} from "@heroicons/react/24/outline";
 
 interface PageProps {
   params: {
@@ -29,6 +32,18 @@ const ProjectPage = async ({ params }: PageProps) => {
       </div>
     );
   }
+
+  const currentProjectIndex = projectDetails.findIndex(
+    (p) => p.title.toLowerCase() === decodedTitle
+  );
+  const previousProject =
+    currentProjectIndex > 0 ? projectDetails[currentProjectIndex - 1] : null;
+  const hasNextProject = Boolean(project.nextImage && project.nextTitle);
+  const navigationImage =
+    project.nextImage || previousProject?.imageSrcMockup || "";
+  const navigationTitle = project.nextTitle || previousProject?.title || "";
+  const navigationDescription =
+    project.nextDescription || previousProject?.description || "";
 
   return (
     <div className="pt-[120px] md:pb-auto md:pt-[160px]">
@@ -180,29 +195,55 @@ const ProjectPage = async ({ params }: PageProps) => {
           </div>
         </div>
 
-        {project.nextImage && project.nextTitle && (
+        {(hasNextProject || previousProject) && (
           <div className="relative w-full h-screen shadow-[0px_4px_4px_rgba(0,0,0,0.25)]">
             <div className="absolute inset-0 bg-black/45 z-10"></div>
             <Image
-              src={project.nextImage}
-              alt={project.nextTitle}
+              src={navigationImage}
+              alt={navigationTitle}
               fill
               className="object-cover"
             />
             <div className="absolute inset-0 z-20 flex flex-col items-center justify-center text-white px-4">
               <h1 className="text-[45px] md:text-7xl lg:text-8xl text-center font-nm-medium font-medium text-white leading-[44px] md:leading-20 lg:leading-[77px]">
-                {project.nextTitle}
+                {navigationTitle}
               </h1>
               <p className="text-base md:text-2xl text-center font-nm-book text-white lg:w-[53%] mt-4">
-                {project.nextDescription}
+                {navigationDescription}
               </p>
-              <div className="cta flex justify-center mt-6">
-                <Link
-                  href={`/projects/${encodeURIComponent(project.nextTitle)}`}
-                  passHref
-                >
-                  <Button type="button" title="Next Project" />
-                </Link>
+              <div
+                className={`cta grid w-full items-center justify-center gap-3 mt-6 ${
+                  hasNextProject && previousProject
+                    ? "max-w-[320px] grid-cols-2"
+                    : "max-w-[154px] grid-cols-1"
+                }`}
+              >
+                {previousProject && (
+                  <Link
+                    href={`/projects/${encodeURIComponent(
+                      previousProject.title
+                    )}`}
+                    className="inline-flex h-11 w-full cursor-pointer items-center justify-center gap-1.5 rounded-lg bg-white px-4 text-black transition-colors duration-300 hover:bg-black hover:text-white"
+                  >
+                    <ArrowLeftIcon className="h-3.5 w-3.5" />
+                    <span className="font-nm-medium text-sm font-medium">
+                      Previous
+                    </span>
+                  </Link>
+                )}
+                {hasNextProject && (
+                  <Link
+                    href={`/projects/${encodeURIComponent(
+                      project.nextTitle ?? ""
+                    )}`}
+                    className="inline-flex h-11 w-full cursor-pointer items-center justify-center gap-1.5 rounded-lg bg-white px-4 text-black transition-colors duration-300 hover:bg-black hover:text-white"
+                  >
+                    <span className="font-nm-medium text-sm font-medium">
+                      Next
+                    </span>
+                    <ArrowRightIcon className="h-3.5 w-3.5" />
+                  </Link>
+                )}
               </div>
             </div>
           </div>
