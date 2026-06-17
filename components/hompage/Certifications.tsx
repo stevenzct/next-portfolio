@@ -100,7 +100,7 @@ function Certifications() {
                             {certificateName.charAt(0)}
                           </div>
                         )}
-                        <h3 className="mt-1 text-[24px] font-nm-medium font-medium text-black">
+                        <h3 className="mt-1 text-[24px] font-nm-medium font-medium leading-tight text-black md:leading-normal">
                           {certificateName}
                         </h3>
                         <h4 className="text-[18px] font-nm-medium font-medium text-[#242424]">
