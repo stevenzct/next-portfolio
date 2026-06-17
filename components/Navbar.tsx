@@ -5,6 +5,9 @@ import { Dialog, DialogPanel } from "@headlessui/react";
 import {
   Bars3Icon,
   ChevronDownIcon,
+  DocumentCheckIcon,
+  EnvelopeIcon,
+  UserCircleIcon,
   XMarkIcon,
 } from "@heroicons/react/24/outline";
 import Link from "next/link";
@@ -19,13 +22,24 @@ const navigation = [
 ];
 
 const aboutDropdown = [
-  { name: "About Me", href: "/#about", sectionId: "about" },
+  {
+    name: "About Me",
+    href: "/#about",
+    sectionId: "about",
+    Icon: UserCircleIcon,
+  },
   {
     name: "Certifications",
     href: "/#certifications",
     sectionId: "certifications",
+    Icon: DocumentCheckIcon,
   },
-  { name: "Contact", href: "/#contact", sectionId: "contact" },
+  {
+    name: "Contact",
+    href: "/#contact",
+    sectionId: "contact",
+    Icon: EnvelopeIcon,
+  },
 ];
 
 const mobileAboutDropdown = aboutDropdown.filter(
@@ -189,15 +203,20 @@ export const Navbar = () => {
                       </Link>
                       <div className="pointer-events-none absolute left-1/2 top-full z-50 w-44 -translate-x-1/2 translate-y-1 scale-[0.98] pt-2 opacity-0 transition-all duration-300 ease-out group-hover:pointer-events-auto group-hover:translate-y-0 group-hover:scale-100 group-hover:opacity-100">
                         <div className="rounded-lg border border-[#D6D6D6] bg-white p-2 shadow-[0_12px_30px_rgba(0,0,0,0.08)]">
-                          {aboutDropdown.map((dropdownItem) => (
-                            <Link
-                              key={dropdownItem.name}
-                              href={dropdownItem.href}
-                              className="block rounded-md px-3 py-2 text-sm/6 font-nm-medium font-medium text-gray-900 transition-colors duration-300 hover:bg-[#F8F8F8]"
-                            >
-                              {dropdownItem.name}
-                            </Link>
-                          ))}
+                          {aboutDropdown.map((dropdownItem) => {
+                            const DropdownIcon = dropdownItem.Icon;
+
+                            return (
+                              <Link
+                                key={dropdownItem.name}
+                                href={dropdownItem.href}
+                                className="flex items-center gap-2 rounded-md px-3 py-2 text-sm/6 font-nm-medium font-medium text-gray-900 transition-colors duration-300 hover:bg-[#F8F8F8]"
+                              >
+                                <DropdownIcon className="h-4 w-4 shrink-0" />
+                                {dropdownItem.name}
+                              </Link>
+                            );
+                          })}
                         </div>
                       </div>
                     </div>
@@ -295,16 +314,21 @@ export const Navbar = () => {
                               }`}
                             >
                               <div className="min-h-0">
-                                {mobileAboutDropdown.map((dropdownItem) => (
-                                  <Link
-                                    key={dropdownItem.name}
-                                    href={dropdownItem.href}
-                                    onClick={() => setMobileMenuOpen(false)}
-                                    className="block rounded-md px-3 py-1.5 text-[24px] font-nm-medium font-medium text-gray-600 transition-colors duration-300 hover:bg-[#F8F8F8] hover:text-black"
-                                  >
-                                    {dropdownItem.name}
-                                  </Link>
-                                ))}
+                                {mobileAboutDropdown.map((dropdownItem) => {
+                                  const DropdownIcon = dropdownItem.Icon;
+
+                                  return (
+                                    <Link
+                                      key={dropdownItem.name}
+                                      href={dropdownItem.href}
+                                      onClick={() => setMobileMenuOpen(false)}
+                                      className="flex items-center gap-2 rounded-md px-3 py-1.5 text-[24px] font-nm-medium font-medium text-gray-600 transition-colors duration-300 hover:bg-[#F8F8F8] hover:text-black"
+                                    >
+                                      <DropdownIcon className="h-5 w-5 shrink-0" />
+                                      {dropdownItem.name}
+                                    </Link>
+                                  );
+                                })}
                               </div>
                             </div>
                           </div>
