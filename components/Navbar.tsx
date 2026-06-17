@@ -2,7 +2,11 @@
 import { useState, useEffect, useRef } from "react";
 import { usePathname } from "next/navigation";
 import { Dialog, DialogPanel } from "@headlessui/react";
-import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
+import {
+  Bars3Icon,
+  ChevronDownIcon,
+  XMarkIcon,
+} from "@heroicons/react/24/outline";
 import Link from "next/link";
 import Button from "./Button";
 
@@ -12,8 +16,21 @@ const navigation = [
   { name: "Projects", href: "/#projects", sectionId: "projects" },
   { name: "Work", href: "/#work", sectionId: "work" },
   { name: "About", href: "/#about", sectionId: "about" },
+];
+
+const aboutDropdown = [
+  { name: "About Me", href: "/#about", sectionId: "about" },
+  {
+    name: "Certifications",
+    href: "/#certifications",
+    sectionId: "certifications",
+  },
   { name: "Contact", href: "/#contact", sectionId: "contact" },
 ];
+
+const mobileAboutDropdown = aboutDropdown.filter(
+  (item) => item.sectionId !== "contact"
+);
 
 // Custom hook to track active section using IntersectionObserver
 const useActiveSection = () => {
@@ -28,6 +45,7 @@ const useActiveSection = () => {
       if (path.includes("/projects")) return "projects";
       if (path.includes("/work")) return "work";
       if (path.includes("/about")) return "about";
+      if (path.includes("/certifications")) return "certifications";
       if (path.includes("/contact")) return "contact";
       if (path.includes("/resources")) return "home"; // or appropriate section
       return "home";
@@ -60,7 +78,14 @@ const useActiveSection = () => {
       observerOptions
     );
 
-    const sectionIds = ["home", "projects", "work", "about", "contact"];
+    const sectionIds = [
+      "home",
+      "projects",
+      "work",
+      "about",
+      "certifications",
+      "contact",
+    ];
     let observedCount = 0;
 
     // Observe all sections that exist on the page
@@ -92,6 +117,7 @@ const useActiveSection = () => {
 
 export const Navbar = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [mobileAboutOpen, setMobileAboutOpen] = useState(false);
   const activeSection = useActiveSection();
   const [scrolled, setScrolled] = useState(false);
 
@@ -130,7 +156,10 @@ export const Navbar = () => {
             <div className="flex lg:hidden">
               <button
                 type="button"
-                onClick={() => setMobileMenuOpen(true)}
+                onClick={() => {
+                  setMobileMenuOpen(true);
+                  setMobileAboutOpen(false);
+                }}
                 className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700"
               >
                 <span className="sr-only">Open main menu</span>
@@ -138,19 +167,57 @@ export const Navbar = () => {
               </button>
             </div>
             <div className="hidden lg:flex lg:gap-x-1 bg-white py-[8px] px-[14px] rounded-lg items-center">
-              {navigation.map((item) => (
-                <Link
-                  key={item.name}
-                  href={item.href}
-                  className={`text-sm/6 font-nm-medium font-medium transition-colors duration-300 ${
-                    item.sectionId === activeSection
-                      ? "text-white bg-black px-[14px] py-1 rounded-lg"
-                      : "text-gray-900 hover:bg-[#F8F8F8] px-[14px] py-1 rounded-lg"
-                  }`}
-                >
-                  {item.name}
-                </Link>
-              ))}
+              {navigation.map((item) => {
+                const isAboutItem = item.sectionId === "about";
+                const isAboutGroupActive = aboutDropdown.some(
+                  (dropdownItem) => dropdownItem.sectionId === activeSection
+                );
+
+                if (isAboutItem) {
+                  return (
+                    <div key={item.name} className="relative group">
+                      <Link
+                        href={item.href}
+                        className={`inline-flex items-center gap-1.5 text-sm/6 font-nm-medium font-medium transition-colors duration-300 ${
+                          isAboutGroupActive
+                            ? "text-white bg-black px-[14px] py-1 rounded-lg"
+                            : "text-gray-900 hover:bg-[#F8F8F8] px-[14px] py-1 rounded-lg"
+                        }`}
+                      >
+                        <span>{item.name}</span>
+                        <ChevronDownIcon className="h-3.5 w-3.5 transition-transform duration-300 ease-out group-hover:rotate-180" />
+                      </Link>
+                      <div className="pointer-events-none absolute left-1/2 top-full z-50 w-44 -translate-x-1/2 translate-y-1 scale-[0.98] pt-2 opacity-0 transition-all duration-300 ease-out group-hover:pointer-events-auto group-hover:translate-y-0 group-hover:scale-100 group-hover:opacity-100">
+                        <div className="rounded-lg border border-[#D6D6D6] bg-white p-2 shadow-[0_12px_30px_rgba(0,0,0,0.08)]">
+                          {aboutDropdown.map((dropdownItem) => (
+                            <Link
+                              key={dropdownItem.name}
+                              href={dropdownItem.href}
+                              className="block rounded-md px-3 py-2 text-sm/6 font-nm-medium font-medium text-gray-900 transition-colors duration-300 hover:bg-[#F8F8F8]"
+                            >
+                              {dropdownItem.name}
+                            </Link>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+                  );
+                }
+
+                return (
+                  <Link
+                    key={item.name}
+                    href={item.href}
+                    className={`text-sm/6 font-nm-medium font-medium transition-colors duration-300 ${
+                      item.sectionId === activeSection
+                        ? "text-white bg-black px-[14px] py-1 rounded-lg"
+                        : "text-gray-900 hover:bg-[#F8F8F8] px-[14px] py-1 rounded-lg"
+                    }`}
+                  >
+                    {item.name}
+                  </Link>
+                );
+              })}
             </div>
           </nav>
           <Dialog
@@ -182,18 +249,83 @@ export const Navbar = () => {
                     <h3 className="font-nm-book text-base md:text-2xl mb-2">
                       Navigate around
                     </h3>
-                    {navigation
-                      .filter((item) => item.name !== "Contact") // Exclude "Contact" for mobile
-                      .map((item) => (
-                      <Link
-                        key={item.name}
-                        href={item.href}
-                        onClick={() => setMobileMenuOpen(false)}
-                        className={`block text-[32px] font-nm-medium font-medium ${item.sectionId === activeSection ? "text-black" : "text-gray-600"}`}
-                      >
-                        {item.name}
-                      </Link>
-                    ))}
+                    {navigation.map((item) => {
+                      const isAboutItem = item.sectionId === "about";
+                      const isAboutGroupActive = aboutDropdown.some(
+                        (dropdownItem) =>
+                          dropdownItem.sectionId === activeSection
+                      );
+
+                      if (isAboutItem) {
+                        return (
+                          <div key={item.name}>
+                            <div className="flex items-center justify-between gap-3">
+                              <Link
+                                href={item.href}
+                                onClick={() => setMobileMenuOpen(false)}
+                                className={`block text-[32px] font-nm-medium font-medium ${
+                                  isAboutGroupActive
+                                    ? "text-black"
+                                    : "text-gray-600"
+                                }`}
+                              >
+                                {item.name}
+                              </Link>
+                              <button
+                                type="button"
+                                aria-label="Toggle about navigation"
+                                aria-expanded={mobileAboutOpen}
+                                onClick={() =>
+                                  setMobileAboutOpen((isOpen) => !isOpen)
+                                }
+                                className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg text-black transition-colors duration-300 hover:bg-[#F8F8F8]"
+                              >
+                                <ChevronDownIcon
+                                  className={`h-5 w-5 transition-transform duration-300 ease-out ${
+                                    mobileAboutOpen ? "rotate-180" : ""
+                                  }`}
+                                />
+                              </button>
+                            </div>
+                            <div
+                              className={`grid overflow-hidden pl-4 transition-all duration-300 ease-out ${
+                                mobileAboutOpen
+                                  ? "grid-rows-[1fr] opacity-100"
+                                  : "grid-rows-[0fr] opacity-0"
+                              }`}
+                            >
+                              <div className="min-h-0">
+                                {mobileAboutDropdown.map((dropdownItem) => (
+                                  <Link
+                                    key={dropdownItem.name}
+                                    href={dropdownItem.href}
+                                    onClick={() => setMobileMenuOpen(false)}
+                                    className="block rounded-md px-3 py-1.5 text-[24px] font-nm-medium font-medium text-gray-600 transition-colors duration-300 hover:bg-[#F8F8F8] hover:text-black"
+                                  >
+                                    {dropdownItem.name}
+                                  </Link>
+                                ))}
+                              </div>
+                            </div>
+                          </div>
+                        );
+                      }
+
+                      return (
+                        <Link
+                          key={item.name}
+                          href={item.href}
+                          onClick={() => setMobileMenuOpen(false)}
+                          className={`block text-[32px] font-nm-medium font-medium ${
+                            item.sectionId === activeSection
+                              ? "text-black"
+                              : "text-gray-600"
+                          }`}
+                        >
+                          {item.name}
+                        </Link>
+                      );
+                    })}
                     <div className="cta flex justify-start mt-4">
                       <Button
                         type="button"
