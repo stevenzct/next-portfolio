@@ -10,7 +10,7 @@ import "swiper/css";
 import { Autoplay } from "swiper/modules";
 
 const images = [
-  "/images/tech/bootstrap.jpg",
+  "/images/tech/Bootstrap.jpg",
   "/images/tech/chatgpt.jpg",
   "/images/tech/claude.jpg",
   "/images/tech/codex.jpg",
