@@ -30,9 +30,9 @@ const images = [
   "/images/tech/Reactjs.jpg",
   "/images/tech/Scss.jpg",
   "/images/tech/shadcnUI.jpg",
-  "/images/tech/tailwind.jpg",
-  "/images/tech/typescript.jpg",
-  "/images/tech/vuejs.jpg",
+  "/images/tech/Tailwind.jpg",
+  "/images/tech/Typescript.jpg",
+  "/images/tech/Vuejs.jpg",
 ];
 
 const TechSwiper = () => {
