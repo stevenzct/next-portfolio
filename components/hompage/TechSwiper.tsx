@@ -25,6 +25,7 @@ const images = [
   "/images/tech/Mysql.jpg",
   "/images/tech/Nextjs.jpg",
   "/images/tech/Nuxtjs.jpg",
+  "/images/tech/Nodejs.jpg",
   "/images/tech/Php.jpg",
   "/images/tech/Postman.jpg", 
   "/images/tech/Reactjs.jpg",
