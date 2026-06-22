@@ -53,7 +53,7 @@ const About = () => {
                   </Link>
                 </span>
                 , designing high-impact digital experiences for fintech
-                products. I combine software engineering skills, design thinking, AI tools to speed up workflows, improve efficiency, and build successful digital products. 
+                products. I combine software engineering skills, design thinking, and AI-enhanced workflows to improve efficiency, speed up processes, and build successful digital products. 
               </p>
 
               <div className="flex flex-nowrap gap-2 pt-3.5 md:gap-4">
