@@ -1,7 +1,10 @@
 import React from "react";
 import styles from "./Hero.module.css";
-import Button from "../Button";
 import Link from "next/link";
+import {
+  BanknotesIcon,
+  Squares2X2Icon,
+} from "@heroicons/react/24/outline";
 
 const Hero = () => {
   return (
@@ -19,9 +22,20 @@ const Hero = () => {
           <p className="text-base md:text-2xl text-center lg:text-start font-nm-book text-[#313131] w-auto lg:w-[53%] mt-4">
             Designing and Developing Unique Web Experiences
           </p>
-          <div className="cta flex justify-center lg:justify-start mt-6">
-            <Link href="#projects" passHref>
-              <Button type="button" title="View Projects" />
+          <div className="cta mx-auto mt-6 grid w-full max-w-[380px] grid-cols-2 gap-3 lg:mx-0">
+            <Link
+              href="/#projects"
+              className="inline-flex h-12 w-full items-center justify-center gap-2 rounded-lg border border-white bg-white px-3 font-nm-medium text-sm font-medium text-black transition-colors duration-300 hover:bg-[#F8F8F8] sm:text-base"
+            >
+              <Squares2X2Icon className="h-4 w-4 shrink-0" aria-hidden="true" />
+              View Projects
+            </Link>
+            <Link
+              href="/#pricing"
+              className="inline-flex h-12 w-full items-center justify-center gap-2 rounded-lg border border-black bg-black px-3 font-nm-medium text-sm font-medium text-white transition-colors duration-300 hover:bg-[#242424] sm:text-base"
+            >
+              <BanknotesIcon className="h-4 w-4 shrink-0" aria-hidden="true" />
+              See Pricing
             </Link>
           </div>
         </div>
