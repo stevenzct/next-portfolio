@@ -231,12 +231,14 @@ const Pricing = ({ initialCountry, initialCurrency }: PricingProps) => {
                 </div>
 
                 <div className="grid gap-3 sm:grid-cols-2">
-                  <button
-                    type="button"
+                  <Link
+                    href="https://tally.so/r/Y5gQDz"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="inline-flex h-12 cursor-pointer items-center justify-center rounded-lg bg-white px-5 font-nm-medium font-medium text-black transition-colors duration-300 hover:bg-[#E8E8E8]"
                   >
                     Start a Project
-                  </button>
+                  </Link>
                   <Link
                     href="/book-a-meeting"
                     className="inline-flex h-12 items-center justify-center rounded-lg border border-white/25 px-5 font-nm-medium font-medium text-white transition-colors duration-300 hover:bg-white/10"

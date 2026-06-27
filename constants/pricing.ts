@@ -10,7 +10,7 @@ export const BASE_PRICE_PHP = 50_000;
 
 export const PRICING_SERVICES: readonly PricingService[] = [
   { title: "Unlimited design and development revisions", icon: "revisions" },
-  { title: "Mobile app design", icon: "mobile" },
+  { title: "Mobile app", icon: "mobile" },
   { title: "Website design and development", icon: "development" },
   { title: "Web design", icon: "web" },
   { title: "Product design", icon: "product" },
