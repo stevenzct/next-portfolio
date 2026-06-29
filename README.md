@@ -2,7 +2,7 @@
 
 A responsive portfolio for Steven Cabugos, a software developer and UI/UX designer. The site presents selected projects, professional experience, certifications, services, location-aware pricing, and ways to start a project or book a meeting.
 
-> **Live demo:** [Add the production URL here](https://your-domain.example)
+> **Live demo:** [Add the production URL here](https://stevencabugos.me/)
 
 ## Overview
 
@@ -185,4 +185,4 @@ Built with Next.js, React, Tailwind CSS, Swiper, Headless UI, Heroicons, Cal.com
 
 ## License
 
-This repository does not currently include a license. Contact the author before copying, modifying, or redistributing the project.
+This project is licensed under the [MIT License](LICENSE).
