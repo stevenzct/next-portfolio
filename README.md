@@ -2,7 +2,7 @@
 
 A responsive portfolio for Steven Cabugos, a software developer and UI/UX designer. The site presents selected projects, professional experience, certifications, services, location-aware pricing, and ways to start a project or book a meeting.
 
-> **Live demo:** [Add the production URL here](https://stevencabugos.me/)
+> **Live demo:** [stevencabugos.me](https://stevencabugos.me/)
 
 ## Overview
 
