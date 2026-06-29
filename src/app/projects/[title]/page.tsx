@@ -12,9 +12,9 @@ import {
 } from "@heroicons/react/24/outline";
 
 interface PageProps {
-  params: {
+  params: Promise<{
     title: string;
-  };
+  }>;
 }
 
 const ProjectPage = async ({ params }: PageProps) => {

@@ -16,7 +16,7 @@ import Button from "./Button";
 // Define the navigation array
 const navigation = [
   { name: "Home", href: "/#home", sectionId: "home" },
-  { name: "Projects", href: "/#projects", sectionId: "projects" },
+  { name: "Projects", href: "/projects", sectionId: "projects" },
   { name: "Work", href: "/#work", sectionId: "work" },
   { name: "Pricing", href: "/#pricing", sectionId: "pricing" },
   { name: "About", href: "/#about", sectionId: "about" },
@@ -47,30 +47,38 @@ const mobileAboutDropdown = aboutDropdown.filter(
   (item) => item.sectionId !== "contact"
 );
 
+const getActiveSectionFromPath = (path: string): string => {
+  if (path === "/" || path === "") return "home";
+  if (path.includes("/book-a-meeting")) return "pricing";
+  if (path.includes("/projects")) return "projects";
+  if (path.includes("/work")) return "work";
+  if (path.includes("/about")) return "about";
+  if (path.includes("/certifications")) return "certifications";
+  if (path.includes("/pricing")) return "pricing";
+  if (path.includes("/contact")) return "contact";
+  return "home";
+};
+
 // Custom hook to track active section using IntersectionObserver
 const useActiveSection = () => {
-  const [activeSection, setActiveSection] = useState("home");
   const pathname = usePathname();
+  const [activeSection, setActiveSection] = useState(() =>
+    getActiveSectionFromPath(pathname)
+  );
   const observerRef = useRef<IntersectionObserver | null>(null);
 
   useEffect(() => {
-    // Determine active section based on pathname
-    const getActiveSectionFromPath = (path: string): string => {
-      if (path === "/" || path === "") return "home";
-      if (path.includes("/book-a-meeting")) return "pricing";
-      if (path.includes("/projects")) return "projects";
-      if (path.includes("/work")) return "work";
-      if (path.includes("/about")) return "about";
-      if (path.includes("/certifications")) return "certifications";
-      if (path.includes("/pricing")) return "pricing";
-      if (path.includes("/contact")) return "contact";
-      if (path.includes("/resources")) return "home"; // or appropriate section
-      return "home";
-    };
-
     // Clean up previous observer
     if (observerRef.current) {
       observerRef.current.disconnect();
+      observerRef.current = null;
+    }
+
+    // Standalone routes use pathname state so shared page sections, such as
+    // the footer contact section, cannot override the active navigation item.
+    if (pathname !== "/" && pathname !== "") {
+      setActiveSection(getActiveSectionFromPath(pathname));
+      return;
     }
 
     const observerOptions = {
