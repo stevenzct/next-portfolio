@@ -5,8 +5,7 @@ import {
   ProjectDetails,
 } from "../../../../constants/projectDetails";
 import Link from "next/link";
-import { Menu, MenuButton, MenuItem, MenuItems } from "@headlessui/react";
-import { ChevronDownIcon } from "@heroicons/react/20/solid";
+import ProjectLinksMenu from "../../../../components/ProjectLinksMenu";
 import {
   ArrowLeftIcon,
   ArrowRightIcon,
@@ -104,37 +103,7 @@ const ProjectPage = async ({ params }: PageProps) => {
               </p>
 
               {project.linkItems && project.linkItems.length > 0 && (
-                <Menu as="div" className="relative inline-block">
-                  <MenuButton className="inline-flex items-center gap-2 px-4 py-2 text-[#222222] transition-colors duration-300 hover:bg-[#F8F8F8] text-sm font-nm-book rounded-[8px] border-1 border-[#D6D6D6]">
-                    Select Links
-                    <ChevronDownIcon
-                      aria-hidden="true"
-                      className="-mr-1 size-5 text-gray-400"
-                    />
-                  </MenuButton>
-
-                  <MenuItems
-                    transition
-                    className="absolute right-0 z-10 mt-2 w-auto md:w-56 origin-top-right rounded-md bg-white shadow-lg outline-1 outline-black/5 transition data-closed:scale-95 data-closed:transform data-closed:opacity-0 data-enter:duration-100 data-enter:ease-out data-leave:duration-75 data-leave:ease-in"
-                  >
-                    <div className="py-1">
-                      {project.linkItems.map(
-                        (item: { href: string; label: string }, index) => (
-                          <MenuItem key={index}>
-                            <a
-                              href={item.href}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="block px-4 py-2 text-sm font-nm-book data-focus:bg-gray-100 data-focus:text-gray-900 data-focus:outline-hidden"
-                            >
-                              {item.label}
-                            </a>
-                          </MenuItem>
-                        )
-                      )}
-                    </div>
-                  </MenuItems>
-                </Menu>
+                <ProjectLinksMenu links={project.linkItems} />
               )}
             </div>
           </div>
