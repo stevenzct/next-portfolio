@@ -27,7 +27,7 @@ export const projects: Project[] = [
   {
     title: "Payso Remittance App",
     year: 2026,
-    description: "Remittance app for OFW",
+    description: "Fast, secure, and convenient money transfers",
     imageSrc: "/images/projects/PaysoRemittance1.png",
     imageAlt: "Remittance app Project",
     category: "UI/UX DESIGN",
