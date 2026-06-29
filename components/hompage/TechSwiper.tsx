@@ -11,13 +11,9 @@ import { Autoplay } from "swiper/modules";
 
 const images = [
   "/images/tech/Bootstrap.jpg",
-  "/images/tech/chatgpt.jpg",
   "/images/tech/claude.jpg",
-  "/images/tech/codex.jpg",
-  "/images/tech/copilot.jpg",
   "/images/tech/Figma.jpg",
   "/images/tech/firebase.jpg",
-  "/images/tech/firebaseStudio.jpg",
   "/images/tech/github.jpg",
   "/images/tech/Google.jpg",
   "/images/tech/Javascript.jpg",
