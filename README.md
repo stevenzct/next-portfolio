@@ -26,9 +26,10 @@ This project uses the Next.js App Router and a data-driven content structure. Mo
 
 ## Key Features
 
-- Responsive single-page portfolio sections for projects, experience, about, certifications, pricing, and contact.
+- Responsive homepage sections for featured projects, experience, about, certifications, pricing, and contact.
+- Dedicated all-projects page backed by the same typed project catalog as the six featured homepage cards.
 - Dynamic project detail routes generated from local TypeScript data.
-- Desktop and mobile navigation with active-section tracking through `IntersectionObserver`.
+- Desktop and mobile navigation with homepage section tracking and route-aware active states.
 - Responsive Swiper carousels for visual work, experience, certifications, and technology logos.
 - Location-aware pricing based on deployment headers or browser locale.
 - Server-side exchange-rate proxy with six-hour caching and static fallback rates.
@@ -42,6 +43,7 @@ This project uses the Next.js App Router and a data-driven content structure. Mo
 | Route | Purpose |
 | --- | --- |
 | `/` | Main portfolio and all homepage sections |
+| `/projects` | Complete project catalog |
 | `/projects/[title]` | Data-driven project case study and previous/next navigation |
 | `/book-a-meeting` | Embedded 30-minute Cal.com booking flow |
 | `/api/exchange-rates` | Cached exchange rates with static fallbacks |
@@ -56,6 +58,7 @@ next-portfolio/
 |-- components/
 |   |-- booking/              # Cal.com booking embed
 |   |-- hompage/              # Homepage section components
+|   |-- projects/             # Shared project catalog grid
 |   |-- Navbar.tsx            # Responsive navigation and active-section logic
 |   |-- Footer.tsx            # Contact section
 |   `-- ProjectLinksMenu.tsx  # Accessible links menu on project details
@@ -67,7 +70,7 @@ next-portfolio/
 |-- src/app/
 |   |-- api/exchange-rates/   # Server route for currency conversion data
 |   |-- book-a-meeting/       # Booking page
-|   |-- projects/[title]/     # Dynamic project detail page
+|   |-- projects/             # All-projects index and dynamic project details
 |   |-- resources/            # Placeholder resources page
 |   |-- globals.css           # Tailwind import and global styles
 |   |-- layout.tsx            # Root metadata, fonts, and navigation
@@ -135,7 +138,7 @@ Most content updates do not require editing page components:
 
 | Content | Source file |
 | --- | --- |
-| Project cards | `constants/projects.ts` |
+| Project cards and catalog order | `constants/projects.ts` |
 | Project case studies | `constants/projectDetails.ts` |
 | Work experience | `constants/experience.ts` |
 | Certifications | `constants/certifications.ts` |
@@ -143,7 +146,7 @@ Most content updates do not require editing page components:
 | Pricing services, currencies, and fallbacks | `constants/pricing.ts` |
 | Portfolio images | `public/images/` |
 
-When adding a project, keep the project title consistent between `projects.ts` and `projectDetails.ts`; the title is used to build and resolve the dynamic route.
+When adding a project, keep the project title consistent between `projects.ts` and `projectDetails.ts`; the title is used to build and resolve the dynamic route. Every entry in `projects.ts` appears on `/projects`, while the first six entries are featured on the homepage.
 
 ## Build and Deployment
 

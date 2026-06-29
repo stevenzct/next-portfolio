@@ -83,6 +83,7 @@ If the exchange-rate request fails, the API route returns the static rates from 
 ## Post-deployment Checks
 
 - Confirm the homepage and all section navigation links load correctly.
+- Confirm the Projects navigation opens `/projects`, remains active there, and the page displays the complete catalog.
 - Open several project cards and test previous/next project navigation.
 - Verify `/api/exchange-rates` returns JSON.
 - Confirm pricing uses an appropriate currency or the PHP fallback.

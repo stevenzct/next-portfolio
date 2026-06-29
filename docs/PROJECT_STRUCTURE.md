@@ -43,6 +43,10 @@ Request
 
 The section IDs are also used by the navigation's active-section observer.
 
+### Project catalog
+
+`src/app/projects/page.tsx` renders the complete catalog from `constants/projects.ts` through the shared `components/projects/ProjectGrid.tsx` component. The homepage uses the same grid component with the first six catalog entries, so project cards have one source of data and one reusable presentation.
+
 ### Project details
 
 `src/app/projects/[title]/page.tsx`:
@@ -78,10 +82,11 @@ Project card and detail titles should stay synchronized because titles form the 
 
 | Component | Responsibility |
 | --- | --- |
-| `Navbar.tsx` | Desktop/mobile navigation, scroll appearance, dropdowns, and active-section tracking |
+| `Navbar.tsx` | Desktop/mobile navigation, scroll appearance, dropdowns, homepage section tracking, and route-aware active states |
 | `Footer.tsx` | Contact copy and email action |
 | `Button.tsx` | Shared call-to-action button |
 | `ProjectLinksMenu.tsx` | Click and keyboard-controlled project links menu |
+| `projects/ProjectGrid.tsx` | Reusable project-card grid for the homepage and complete catalog |
 
 The navigation's `useActiveSection` hook is co-located in `Navbar.tsx`; there is no separate hooks directory at present.
 
@@ -91,7 +96,7 @@ The navigation's `useActiveSection` hook is co-located in `Navbar.tsx`; there is
 | --- | --- |
 | `Hero.tsx` | Primary introduction and project/pricing calls to action |
 | `SwiperUi.tsx` | Continuous visual portfolio strip |
-| `Projects.tsx` | Data-driven grid linking to dynamic case-study routes |
+| `Projects.tsx` | Six featured projects and the call to action for the complete catalog |
 | `Experience.tsx` | Responsive work-history carousel |
 | `About.tsx` | Biography, social links, portrait, and Spotify playlist embed |
 | `TechSwiper.tsx` | Continuous technology-logo carousel |
@@ -104,7 +109,7 @@ The portfolio does not use a CMS or database. Content is stored in typed local m
 
 | File | Content |
 | --- | --- |
-| `constants/projects.ts` | Homepage project cards |
+| `constants/projects.ts` | Complete project-card catalog and display order |
 | `constants/projectDetails.ts` | Full project case studies and navigation metadata |
 | `constants/experience.ts` | Roles, companies, review links, and work images |
 | `constants/certifications.ts` | Credentials and verification links |
@@ -129,10 +134,10 @@ Country detection checks Vercel, Cloudflare, and generic country headers. If non
 
 ## Navigation and Routing
 
-- Homepage navigation uses hash links such as `/#projects`.
+- The Projects navigation item links to `/projects`; the remaining homepage sections use hash links such as `/#work`.
 - Smooth scrolling is enabled globally in `src/app/globals.css`.
-- `IntersectionObserver` marks the section nearest the viewport center as active.
-- Route-aware fallbacks keep Projects or Pricing active on related subpages.
+- `IntersectionObserver` marks the section nearest the viewport center as active on the homepage.
+- Pathname state takes priority on standalone routes, keeping Projects active across `/projects` and project detail pages.
 - Headless UI provides the mobile navigation dialog.
 - Next.js `Link` handles internal navigation.
 
@@ -162,6 +167,7 @@ There is no custom contact form backend.
 3. Use exactly the same project title in both files.
 4. Place card artwork under `public/images/projects/`.
 5. Place case-study images under `public/images/projectDetails/<ProjectName>/`.
-6. Confirm the generated `/projects/<encoded-title>` route and previous/next navigation.
+6. Confirm the card appears on `/projects`; entries within the first six positions also appear on the homepage.
+7. Confirm the generated `/projects/<encoded-title>` route and previous/next navigation.
 
 If a detail entry is intentionally unavailable, the project card can still exist; its route will show the current placeholder message.
