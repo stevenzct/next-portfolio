@@ -42,9 +42,17 @@ const ProjectGrid = ({ projects }: ProjectGridProps) => {
               </Link>
             </div>
             <div className="projects-title">
-              <h2 className="mb-0 mt-4 font-nm-medium text-2xl font-medium text-black md:mt-6 md:text-3xl lg:text-4xl">
-                {title} | {year}
-              </h2>
+              <div className="mt-4 flex items-start justify-between gap-4 md:mt-6">
+                <h2 className="mb-0 font-nm-medium text-2xl font-medium text-black md:text-3xl lg:text-4xl">
+                  {title}
+                </h2>
+                <time
+                  dateTime={String(year)}
+                  className="mt-1 shrink-0 rounded-full bg-neutral-200/70 px-3 py-1.5 font-nm-medium text-xs font-medium leading-none tracking-[0.05em] text-neutral-600 md:mt-2 md:text-sm"
+                >
+                  {year}
+                </time>
+              </div>
               <p className="font-nm-book text-base leading-normal md:text-2xl">
                 {description}
               </p>
