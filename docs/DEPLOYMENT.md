@@ -83,13 +83,15 @@ If the exchange-rate request fails, the API route returns the static rates from 
 ## Post-deployment Checks
 
 - Confirm the homepage and all section navigation links load correctly.
+- Confirm the hero concept card loads from `/images/hero/concept-to-conversion.png`, floats smoothly, tilts on pointer movement, and remains static when reduced motion is enabled.
 - Confirm the Projects navigation opens `/projects`, remains active there, and the page displays the complete catalog.
+- Confirm project years appear as compact right-aligned pills without changing the existing title and description sizing.
 - Open several project cards and test previous/next project navigation.
 - Verify `/api/exchange-rates` returns JSON.
 - Confirm pricing uses an appropriate currency or the PHP fallback.
 - Test the Tally intake link and Cal.com booking page.
 - Test the email, social, certificate, and project resource links.
-- Check desktop, tablet, and mobile navigation.
+- Check desktop, tablet, and mobile navigation. On mobile, open the full-height sheet, expand About, verify active states, scroll on a short viewport, and test the email action.
 - Add the final live URL and current screenshots to `README.md`.
 
 ## Static Export Note

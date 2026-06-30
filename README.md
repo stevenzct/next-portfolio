@@ -6,7 +6,7 @@ A responsive portfolio for Steven Cabugos, a software developer and UI/UX design
 
 ## Overview
 
-This project uses the Next.js App Router and a data-driven content structure. Most portfolio content lives in TypeScript files under `constants/`, while reusable UI is organized under `components/`. The home page combines server-rendered location detection with interactive client components for navigation, carousels, pricing, and booking.
+This project uses the Next.js App Router and a data-driven content structure. Most portfolio content lives in TypeScript files under `constants/`, while reusable UI is organized under `components/`. The home page combines server-rendered location detection with interactive client components for navigation, GSAP motion, carousels, pricing, and booking.
 
 ## Tech Stack
 
@@ -19,6 +19,7 @@ This project uses the Next.js App Router and a data-driven content structure. Mo
 | Carousels | Swiper 11 |
 | Accessible UI | Headless UI |
 | Icons | Heroicons |
+| Animation | GSAP 3 |
 | Scheduling | Cal.com Embed |
 | Images and fonts | `next/image`, `next/font/local` |
 | Exchange rates | Frankfurter API with local fallback rates |
@@ -27,9 +28,11 @@ This project uses the Next.js App Router and a data-driven content structure. Mo
 ## Key Features
 
 - Responsive homepage sections for featured projects, experience, about, certifications, pricing, and contact.
+- Responsive hero composition with local concept-card artwork, GSAP floating motion, and pointer-responsive 3D tilt.
 - Dedicated all-projects page backed by the same typed project catalog as the six featured homepage cards.
+- Shared project cards with compact year metadata pills that preserve title hierarchy.
 - Dynamic project detail routes generated from local TypeScript data.
-- Desktop and mobile navigation with homepage section tracking and route-aware active states.
+- Desktop navigation plus a full-height, scroll-safe mobile sheet with expandable About links, large touch targets, and route-aware active states.
 - Responsive Swiper carousels for visual work, experience, certifications, and technology logos.
 - Location-aware pricing based on deployment headers or browser locale.
 - Server-side exchange-rate proxy with six-hour caching and static fallback rates.
@@ -57,7 +60,7 @@ Project routes are matched against `constants/projectDetails.ts`. If a card has 
 next-portfolio/
 |-- components/
 |   |-- booking/              # Cal.com booking embed
-|   |-- hompage/              # Homepage section components
+|   |-- hompage/              # Homepage sections and interactive HeroCard
 |   |-- projects/             # Shared project catalog grid
 |   |-- Navbar.tsx            # Responsive navigation and active-section logic
 |   |-- Footer.tsx            # Contact section
@@ -66,7 +69,7 @@ next-portfolio/
 |-- docs/                     # Developer-oriented project documentation
 |-- public/
 |   |-- fonts/                # Local PP Neue Montreal font files
-|   `-- images/               # Portfolio, project, certification, and icon assets
+|   `-- images/               # Portfolio assets, including images/hero concept artwork
 |-- src/app/
 |   |-- api/exchange-rates/   # Server route for currency conversion data
 |   |-- book-a-meeting/       # Booking page
@@ -144,6 +147,7 @@ Most content updates do not require editing page components:
 | Certifications | `constants/certifications.ts` |
 | Social profiles | `constants/socialButton.ts` |
 | Pricing services, currencies, and fallbacks | `constants/pricing.ts` |
+| Hero concept-card artwork | `public/images/hero/concept-to-conversion.png` |
 | Portfolio images | `public/images/` |
 
 When adding a project, keep the project title consistent between `projects.ts` and `projectDetails.ts`; the title is used to build and resolve the dynamic route. Every entry in `projects.ts` appears on `/projects`, while the first six entries are featured on the homepage.
@@ -184,7 +188,7 @@ Designed and developed by **Steven Cabugos**.
 - [GitHub](https://github.com/stevenzct)
 - [LinkedIn](https://www.linkedin.com/in/cabugos-steven/)
 
-Built with Next.js, React, Tailwind CSS, Swiper, Headless UI, Heroicons, Cal.com, and the Frankfurter exchange-rate service.
+Built with Next.js, React, Tailwind CSS, GSAP, Swiper, Headless UI, Heroicons, Cal.com, and the Frankfurter exchange-rate service.
 
 ## License
 

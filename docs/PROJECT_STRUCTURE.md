@@ -43,9 +43,11 @@ Request
 
 The section IDs are also used by the navigation's active-section observer.
 
+The hero keeps its layout and copy in the server-rendered `components/hompage/Hero.tsx` component. Its artwork is isolated in the client-side `HeroCard.tsx` component, which uses GSAP for the idle float, pointer-position 3D tilt, shadow transition, and reduced-motion fallback. The source image is `public/images/hero/concept-to-conversion.png`.
+
 ### Project catalog
 
-`src/app/projects/page.tsx` renders the complete catalog from `constants/projects.ts` through the shared `components/projects/ProjectGrid.tsx` component. The homepage uses the same grid component with the first six catalog entries, so project cards have one source of data and one reusable presentation.
+`src/app/projects/page.tsx` renders the complete catalog from `constants/projects.ts` through the shared `components/projects/ProjectGrid.tsx` component. The homepage uses the same grid component with the first six catalog entries, so project cards have one source of data and one reusable presentation. Each card displays its year as a compact right-aligned metadata pill instead of combining it with the project title.
 
 ### Project details
 
@@ -82,7 +84,7 @@ Project card and detail titles should stay synchronized because titles form the 
 
 | Component | Responsibility |
 | --- | --- |
-| `Navbar.tsx` | Desktop/mobile navigation, scroll appearance, dropdowns, homepage section tracking, and route-aware active states |
+| `Navbar.tsx` | Desktop navigation, responsive full-height mobile sheet, scroll appearance, dropdowns, homepage section tracking, and route-aware active states |
 | `Footer.tsx` | Contact copy and email action |
 | `Button.tsx` | Shared call-to-action button |
 | `ProjectLinksMenu.tsx` | Click and keyboard-controlled project links menu |
@@ -94,7 +96,8 @@ The navigation's `useActiveSection` hook is co-located in `Navbar.tsx`; there is
 
 | Component | Responsibility |
 | --- | --- |
-| `Hero.tsx` | Primary introduction and project/pricing calls to action |
+| `Hero.tsx` | Responsive hero layout, introduction, artwork placement, and project/pricing calls to action |
+| `HeroCard.tsx` | Client-side GSAP float and pointer-responsive 3D interaction for the hero artwork |
 | `SwiperUi.tsx` | Continuous visual portfolio strip |
 | `Projects.tsx` | Six featured projects and the call to action for the complete catalog |
 | `Experience.tsx` | Responsive work-history carousel |
@@ -117,7 +120,7 @@ The portfolio does not use a CMS or database. Content is stored in typed local m
 | `constants/pricing.ts` | Base price, supported currencies, country mapping, services, and fallback rates |
 | `types/pricing.ts` | Shared pricing and currency types |
 
-Images are served from `public/images/`. Local fonts are served from `public/fonts/`.
+Images are served from `public/images/`. Hero artwork is grouped under `public/images/hero/`; local fonts are served from `public/fonts/`.
 
 ## Pricing Data Flow
 
@@ -138,7 +141,8 @@ Country detection checks Vercel, Cloudflare, and generic country headers. If non
 - Smooth scrolling is enabled globally in `src/app/globals.css`.
 - `IntersectionObserver` marks the section nearest the viewport center as active on the homepage.
 - Pathname state takes priority on standalone routes, keeping Projects active across `/projects` and project detail pages.
-- Headless UI provides the mobile navigation dialog.
+- Headless UI provides the mobile navigation dialog. On phones it opens as a full-width, full-height sheet; at larger mobile widths it becomes a capped right-side drawer with safe-area padding, a dimmed backdrop, and its own overflow scrolling.
+- Mobile navigation links use large touch targets, explicit active states, and an expandable About group.
 - Next.js `Link` handles internal navigation.
 
 ## Contact and External Services
@@ -155,6 +159,7 @@ There is no custom contact form backend.
 
 - Tailwind CSS 4 utilities define most layouts, spacing, colors, and breakpoints.
 - CSS Modules provide the hero and footer background images.
+- GSAP owns the hero card's floating and pointer-tilt transforms inside `HeroCard.tsx`; the animation is disabled when the visitor prefers reduced motion.
 - `globals.css` imports Tailwind, defines font variables, enables smooth scrolling, and normalizes Swiper timing.
 - The main content uses responsive side gutters and a `1200px` maximum width.
 - Mobile-first layouts expand at Tailwind's `md` and `lg` breakpoints.
