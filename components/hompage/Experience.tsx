@@ -7,7 +7,6 @@ import type { Swiper as SwiperType } from "swiper";
 import {
   ChevronLeftIcon,
   ChevronRightIcon,
-  DocumentCheckIcon,
 } from "@heroicons/react/24/outline";
 import { experiences } from "../../constants/experience";
 
@@ -81,7 +80,6 @@ function Experience() {
                     imageSrc,
                     imageAlt,
                     linkedinUrl,
-                    performanceReviewUrl,
                   }) => (
                     <SwiperSlide
                       key={`${company}-${role}`}
@@ -113,7 +111,7 @@ function Experience() {
                         <p className="text-[14px] font-nm-book text-[#242424]">
                           {location}
                         </p>
-                        <div className="grid grid-cols-[0.8fr_1.2fr] gap-2 pt-3.5">
+                        <div className="pt-3.5">
                           <a
                             href={linkedinUrl ?? undefined}
                             target={linkedinUrl ? "_blank" : undefined}
@@ -133,30 +131,6 @@ function Experience() {
                                 height={14}
                               />
                               LinkedIn
-                            </button>
-                          </a>
-                          <a
-                            href={performanceReviewUrl ?? undefined}
-                            target={performanceReviewUrl ? "_blank" : undefined}
-                            rel={
-                              performanceReviewUrl
-                                ? "noopener noreferrer"
-                                : undefined
-                            }
-                            aria-disabled={!performanceReviewUrl}
-                            className={`w-full ${
-                              !performanceReviewUrl
-                                ? "pointer-events-none"
-                                : ""
-                            }`}
-                          >
-                            <button className={`inline-flex w-full min-w-0 items-center justify-center gap-1.5 whitespace-nowrap px-2 py-2 transition-colors duration-300 hover:bg-[#F8F8F8] text-[11px] sm:gap-2 sm:px-3 sm:text-sm font-nm-book rounded-[8px] border-1 border-[#D6D6D6] ${
-                              performanceReviewUrl
-                                ? "text-[#222222]"
-                                : "text-[#9A9A9A]"
-                            }`}>
-                              <DocumentCheckIcon className="h-3.5 w-3.5 shrink-0 sm:h-4 sm:w-4" />
-                              Performance Review
                             </button>
                           </a>
                         </div>

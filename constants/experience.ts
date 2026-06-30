@@ -9,7 +9,6 @@ export type Experience = {
   imageSrc?: string;
   imageAlt?: string;
   linkedinUrl?: string;
-  performanceReviewUrl?: string;
 }
 
 export const experiences: Experience[] = [
@@ -24,7 +23,6 @@ export const experiences: Experience[] = [
     imageSrc: "/images/experience/payso-team.png",
     imageAlt: "Payso Project Image",
     linkedinUrl: "https://www.linkedin.com/company/paysophl/posts/?feedView=all",
-    performanceReviewUrl: "https://drive.google.com/file/d/1RmFUlguIHqszhesRd3lOqmir_ZR1b9Pe/view?usp=sharing",
   },
   {
     role: "Software Engineer II",
@@ -37,7 +35,6 @@ export const experiences: Experience[] = [
     imageSrc: "/images/experience/flexicon-team.png",
     imageAlt: "Flexicon Project Image",
     linkedinUrl: "https://www.linkedin.com/company/flexicon-solution-inc/",
-    performanceReviewUrl: "https://drive.google.com/file/d/1HJxcpvLNWLkCUJ4jVKRAm4EL1ROuZOzm/view?usp=sharing",
   },
   {
     role: "Designer | Developer",
@@ -61,6 +58,5 @@ export const experiences: Experience[] = [
     imageSrc: "/images/experience/Pixel8-2.jpg",
     imageAlt: "Pixel8 Project Image",
     linkedinUrl: "https://www.linkedin.com/company/pixel8-websolutions/about/",
-    performanceReviewUrl: "https://drive.google.com/file/d/1xo_JTsfB-kiuTPvAIAEKatl-2QvSjbhl/view?usp=sharing",
   },
 ];
