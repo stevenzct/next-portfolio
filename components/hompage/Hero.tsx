@@ -1,11 +1,11 @@
 import React from "react";
 import styles from "./Hero.module.css";
-import Image from "next/image";
 import Link from "next/link";
 import {
   ArrowRightIcon,
   SparklesIcon,
 } from "@heroicons/react/24/outline";
+import HeroCard from "./HeroCard";
 
 const Hero = () => {
   return (
@@ -43,20 +43,7 @@ const Hero = () => {
               </div>
             </div>
 
-            <div className="relative isolate mx-auto flex w-full max-w-[300px] items-center justify-center lg:max-w-[360px]">
-              <div
-                className="absolute inset-[14%] -z-10 rounded-full bg-white/70 blur-3xl"
-                aria-hidden="true"
-              />
-              <Image
-                src="/images/hero/concept-to-conversion.png"
-                alt="Concept to conversion design card"
-                width={685}
-                height={868}
-                priority
-                className="h-auto w-full drop-shadow-[0_28px_45px_rgba(0,0,0,0.18)]"
-              />
-            </div>
+            <HeroCard />
           </div>
         </div>
       </div>
