@@ -199,7 +199,7 @@ export const Navbar = () => {
                 <Bars3Icon aria-hidden="true" className="size-6 text-black" />
               </button>
             </div>
-            <div className="hidden lg:flex lg:gap-x-1 bg-white py-[8px] px-[14px] rounded-lg items-center">
+            <div className="hidden lg:flex divide-x divide-[#E5E7EB] bg-white py-[8px] px-[14px] rounded-lg items-center">
               {navigation.map((item) => {
                 const isAboutItem = item.sectionId === "about";
                 const isAboutGroupActive = aboutDropdown.some(
