@@ -1,8 +1,9 @@
 "use client";
 
 import Image from "next/image";
-import { gsap } from "gsap";
+import gsap from "gsap";
 import { useEffect, useRef, type PointerEvent } from "react";
+import { prefersReducedMotion } from "../../utils/motion";
 
 const RESTING_SHADOW = "drop-shadow(0 28px 45px rgba(0, 0, 0, 0.18))";
 const HOVER_SHADOW = "drop-shadow(0 36px 50px rgba(0, 0, 0, 0.28))";
@@ -20,9 +21,7 @@ const HeroCard = () => {
 
     if (!shell || !floatingCard || !card) return;
 
-    reducedMotionRef.current = window.matchMedia(
-      "(prefers-reduced-motion: reduce)"
-    ).matches;
+    reducedMotionRef.current = prefersReducedMotion();
 
     if (reducedMotionRef.current) return;
 
@@ -49,7 +48,12 @@ const HeroCard = () => {
     const shell = shellRef.current;
     const card = cardRef.current;
 
-    if (!shell || !card || reducedMotionRef.current || event.pointerType === "touch") {
+    if (
+      !shell ||
+      !card ||
+      reducedMotionRef.current ||
+      event.pointerType === "touch"
+    ) {
       return;
     }
 

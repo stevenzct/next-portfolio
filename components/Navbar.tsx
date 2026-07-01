@@ -12,6 +12,7 @@ import {
 } from "@heroicons/react/24/outline";
 import Link from "next/link";
 import Button from "./Button";
+import { useMobileMenuAnimation } from "../hooks/useMobileMenuAnimation";
 
 // Define the navigation array
 const navigation = [
@@ -146,11 +147,17 @@ export const Navbar = () => {
   const [mobileAboutOpen, setMobileAboutOpen] = useState(false);
   const activeSection = useActiveSection();
   const [scrolled, setScrolled] = useState(false);
+  const {
+    backdropRef: mobileMenuBackdropRef,
+    closeMenu: closeMobileMenu,
+    setPanelRef: setMobileMenuPanelRef,
+  } = useMobileMenuAnimation(setMobileMenuOpen);
 
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 0);
     };
+    handleScroll();
     window.addEventListener("scroll", handleScroll);
     return () => {
       window.removeEventListener("scroll", handleScroll);
@@ -253,12 +260,21 @@ export const Navbar = () => {
           </nav>
           <Dialog
             open={mobileMenuOpen}
-            onClose={setMobileMenuOpen}
+            onClose={closeMobileMenu}
             className="lg:hidden"
           >
-            <div className="fixed inset-0 z-50" />
-            <DialogPanel className="fixed inset-y-0 right-0 z-50 h-[30rem] md:h-full rounded-b-md w-full overflow-y-auto bg-[rgba(255,255,255,0.76)] backdrop-blur-sm px-6 py-3 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
-              <div className="flex items-center justify-between">
+            <div
+              ref={mobileMenuBackdropRef}
+              className="fixed inset-0 z-50 bg-black/10"
+            />
+            <DialogPanel
+              ref={setMobileMenuPanelRef}
+              className="fixed inset-y-0 right-0 z-50 h-[30rem] md:h-full rounded-b-md w-full overflow-y-auto bg-[rgba(255,255,255,0.76)] backdrop-blur-sm px-6 py-3 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10"
+            >
+              <div
+                data-mobile-nav-item
+                className="flex items-center justify-between"
+              >
                 <Link
                   href="#"
                   className="-m-1.5 p-1.5 font-nm-bold font-bold text-black"
@@ -267,7 +283,7 @@ export const Navbar = () => {
                 </Link>
                 <button
                   type="button"
-                  onClick={() => setMobileMenuOpen(false)}
+                  onClick={closeMobileMenu}
                   className="-m-2.5 rounded-md p-2.5 text-gray-700"
                 >
                   <span className="sr-only">Close menu</span>
@@ -277,7 +293,10 @@ export const Navbar = () => {
               <div className="mt-6 flow-root">
                 <div>
                   <div className="py-2">
-                    <h3 className="font-nm-book text-base md:text-2xl mb-2">
+                    <h3
+                      data-mobile-nav-item
+                      className="font-nm-book text-base md:text-2xl mb-2"
+                    >
                       Navigate around
                     </h3>
                     {navigation.map((item) => {
@@ -290,10 +309,13 @@ export const Navbar = () => {
                       if (isAboutItem) {
                         return (
                           <div key={item.name}>
-                            <div className="flex items-center justify-between gap-3">
+                            <div
+                              data-mobile-nav-item
+                              className="flex items-center justify-between gap-3"
+                            >
                               <Link
                                 href={item.href}
-                                onClick={() => setMobileMenuOpen(false)}
+                                onClick={closeMobileMenu}
                                 className={`block text-[32px] font-nm-medium font-medium ${
                                   isAboutGroupActive
                                     ? "text-black"
@@ -333,7 +355,7 @@ export const Navbar = () => {
                                     <Link
                                       key={dropdownItem.name}
                                       href={dropdownItem.href}
-                                      onClick={() => setMobileMenuOpen(false)}
+                                      onClick={closeMobileMenu}
                                       className="flex items-center gap-2 rounded-md px-3 py-1.5 text-[24px] font-nm-medium font-medium text-gray-600 transition-colors duration-300 hover:bg-[#F8F8F8] hover:text-black"
                                     >
                                       <DropdownIcon className="h-5 w-5 shrink-0" />
@@ -351,7 +373,8 @@ export const Navbar = () => {
                         <Link
                           key={item.name}
                           href={item.href}
-                          onClick={() => setMobileMenuOpen(false)}
+                          data-mobile-nav-item
+                          onClick={closeMobileMenu}
                           className={`block text-[32px] font-nm-medium font-medium ${
                             item.sectionId === activeSection
                               ? "text-black"
@@ -362,7 +385,10 @@ export const Navbar = () => {
                         </Link>
                       );
                     })}
-                    <div className="cta flex justify-start mt-4">
+                    <div
+                      data-mobile-nav-item
+                      className="cta flex justify-start mt-4"
+                    >
                       <Button
                         type="button"
                         title="Send a message"

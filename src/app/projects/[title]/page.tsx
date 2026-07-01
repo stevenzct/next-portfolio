@@ -1,15 +1,16 @@
-import React from "react";
 import Image from "next/image";
-import {
-  projectDetails,
-  ProjectDetails,
-} from "../../../../constants/projectDetails";
 import Link from "next/link";
-import ProjectLinksMenu from "../../../../components/ProjectLinksMenu";
 import {
   ArrowLeftIcon,
   ArrowRightIcon,
 } from "@heroicons/react/24/outline";
+
+import ProjectLinksMenu from "../../../../components/ProjectLinksMenu";
+import ProjectDetailMotion from "../../../../components/projects/ProjectDetailMotion";
+import {
+  projectDetails,
+  type ProjectDetails,
+} from "../../../../constants/projectDetails";
 
 interface PageProps {
   params: Promise<{
@@ -37,25 +38,41 @@ const ProjectPage = async ({ params }: PageProps) => {
   );
   const previousProject =
     currentProjectIndex > 0 ? projectDetails[currentProjectIndex - 1] : null;
-  const hasNextProject = Boolean(project.nextImage && project.nextTitle);
+  const nextProject =
+    project.nextImage && project.nextTitle
+      ? {
+          imageSrc: project.nextImage,
+          title: project.nextTitle,
+          description: project.nextDescription,
+        }
+      : null;
   const navigationImage =
-    project.nextImage || previousProject?.imageSrcMockup || "";
-  const navigationTitle = project.nextTitle || previousProject?.title || "";
+    nextProject?.imageSrc ?? previousProject?.imageSrcMockup ?? "";
+  const navigationTitle = nextProject?.title ?? previousProject?.title ?? "";
   const navigationDescription =
-    project.nextDescription || previousProject?.description || "";
+    nextProject?.description ?? previousProject?.description ?? "";
 
   return (
-    <div className="pt-[120px] md:pb-auto md:pt-[160px]">
+    <ProjectDetailMotion className="overflow-x-clip pt-[120px] md:pt-[160px]">
       <div className="container-wrapper w-full h-auto">
         <div className="app-container lg:w-[75%] max-w-[1200px] w-auto mx-6 md:mx-12 lg:mx-auto">
-          <h1 className="text-[45px] md:text-7xl lg:text-8xl text-start font-nm-medium font-medium text-black w-auto leading-[44px] md:leading-20 lg:leading-[77px]">
+          <h1
+            data-project-detail-intro
+            className="text-[45px] md:text-7xl lg:text-8xl text-start font-nm-medium font-medium text-black w-auto leading-[44px] md:leading-20 lg:leading-[77px]"
+          >
             {project.title}
           </h1>
-          <p className="text-base md:text-2xl text-start font-nm-book text-[#313131] w-auto lg:w-[83%] mt-4">
+          <p
+            data-project-detail-intro
+            className="text-base md:text-2xl text-start font-nm-book text-[#313131] w-auto lg:w-[83%] mt-4"
+          >
             {project.description}
           </p>
 
-          <div className="pt-[32px] lg:pt-[64px] pb-[32px] lg:pb-[64px] gap-2 lg:gap-0 flex flex-col lg:flex-row lg:justify-between ">
+          <div
+            data-project-detail-intro
+            className="pt-[32px] lg:pt-[64px] pb-[32px] lg:pb-[64px] gap-2 lg:gap-0 flex flex-col lg:flex-row lg:justify-between"
+          >
             <div>
               <h4 className="text-[18px] font-nm-medium font-medium text-black">
                 Role
@@ -109,17 +126,25 @@ const ProjectPage = async ({ params }: PageProps) => {
           </div>
         </div>
 
-        <div className="w-full relative aspect-[16/9]">
+        <div
+          data-project-detail-hero
+          className="w-full relative aspect-[16/9]"
+        >
           <Image
             src={project.imageSrcMockup}
             alt={project.title}
             fill
+            priority
+            sizes="100vw"
             className="object-cover object-center"
           />
         </div>
 
         <div className="app-container lg:w-[75%] max-w-[1200px] mb-[120px] w-auto mx-6 md:mx-12 lg:mx-auto">
-          <div className="pt-[32px] lg:pt-[64px] pb-[32px] lg:pb-[64px] gap-2 lg:gap-[65px] flex flex-col lg:flex-row lg:justify-between">
+          <div
+            data-project-detail-reveal
+            className="pt-[32px] lg:pt-[64px] pb-[32px] lg:pb-[64px] gap-2 lg:gap-[65px] flex flex-col lg:flex-row lg:justify-between"
+          >
             <div>
               <h4 className="text-[18px] font-nm-medium font-medium text-black">
                 Assignment
@@ -143,8 +168,8 @@ const ProjectPage = async ({ params }: PageProps) => {
                 Project Includes
               </h4>
               <ul className="text-base font-nm-book text-[#242424] lg:flex lg:flex-wrap ">
-                {project.projectIncludes.map((item, index) => (
-                  <li key={index}>{item}</li>
+                {project.projectIncludes.map((item) => (
+                  <li key={item}>{item}</li>
                 ))}
               </ul>
             </div>
@@ -153,7 +178,8 @@ const ProjectPage = async ({ params }: PageProps) => {
           <div className="gap-8 grid grid-cols-1">
             {project.imageSrcUi.map((src, index) => (
               <Image
-                key={index}
+                key={src}
+                data-project-detail-reveal
                 src={src}
                 alt={`${project.title}-${index + 1}`}
                 width={1200}
@@ -164,8 +190,11 @@ const ProjectPage = async ({ params }: PageProps) => {
           </div>
         </div>
 
-        {(hasNextProject || previousProject) && (
-          <div className="relative w-full h-screen shadow-[0px_4px_4px_rgba(0,0,0,0.25)]">
+        {(nextProject || previousProject) && (
+          <div
+            data-next-project
+            className="relative w-full h-screen shadow-[0px_4px_4px_rgba(0,0,0,0.25)]"
+          >
             <div className="absolute inset-0 bg-black/45 z-10"></div>
             <Image
               src={navigationImage}
@@ -174,15 +203,22 @@ const ProjectPage = async ({ params }: PageProps) => {
               className="object-cover"
             />
             <div className="absolute inset-0 z-20 flex flex-col items-center justify-center text-white px-4">
-              <h1 className="text-[45px] md:text-7xl lg:text-8xl text-center font-nm-medium font-medium text-white leading-[44px] md:leading-20 lg:leading-[77px]">
+              <h2
+                data-next-project-content
+                className="text-[45px] md:text-7xl lg:text-8xl text-center font-nm-medium font-medium text-white leading-[44px] md:leading-20 lg:leading-[77px]"
+              >
                 {navigationTitle}
-              </h1>
-              <p className="text-base md:text-2xl text-center font-nm-book text-white lg:w-[53%] mt-4">
+              </h2>
+              <p
+                data-next-project-content
+                className="text-base md:text-2xl text-center font-nm-book text-white lg:w-[53%] mt-4"
+              >
                 {navigationDescription}
               </p>
               <div
+                data-next-project-content
                 className={`cta grid w-full items-center justify-center gap-3 mt-6 ${
-                  hasNextProject && previousProject
+                  nextProject && previousProject
                     ? "max-w-[320px] grid-cols-2"
                     : "max-w-[154px] grid-cols-1"
                 }`}
@@ -200,11 +236,9 @@ const ProjectPage = async ({ params }: PageProps) => {
                     </span>
                   </Link>
                 )}
-                {hasNextProject && (
+                {nextProject && (
                   <Link
-                    href={`/projects/${encodeURIComponent(
-                      project.nextTitle ?? ""
-                    )}`}
+                    href={`/projects/${encodeURIComponent(nextProject.title)}`}
                     className="inline-flex h-11 w-full cursor-pointer items-center justify-center gap-1.5 rounded-lg bg-white px-4 text-black transition-colors duration-300 hover:bg-black hover:text-white"
                   >
                     <span className="font-nm-medium text-sm font-medium">
@@ -218,7 +252,7 @@ const ProjectPage = async ({ params }: PageProps) => {
           </div>
         )}
       </div>
-    </div>
+    </ProjectDetailMotion>
   );
 };
 
