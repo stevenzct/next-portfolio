@@ -31,6 +31,8 @@ Request
 
 `src/app/template.tsx` remounts for route navigation and applies the shared GSAP page entrance. It animates position, scale, and clipping without fading the complete page, so the transparent Navbar continues to show the underlying hero on reload. Visitors who prefer reduced motion receive the unanimated page.
 
+Root metadata in `src/app/layout.tsx` uses `constants/site.ts` for the canonical site identity, title template, description, authorship, crawler directives, and default Open Graph/Twitter preview. Static routes use `utils/metadata.ts` for consistent canonical and social metadata. `src/app/robots.ts` and `src/app/sitemap.ts` expose crawl rules and all indexable canonical routes.
+
 ### Homepage
 
 `src/app/page.tsx` is an async server component. It reads country headers, chooses an initial currency, and renders the sections in this order:
@@ -63,6 +65,8 @@ The hero keeps its layout and copy in the server-rendered `components/hompage/He
 - Builds previous navigation from array order and next navigation from the current project's data.
 - Priority-loads the primary project mockup so it is available immediately instead of waiting for a viewport observer.
 - Uses `components/projects/ProjectDetailMotion.tsx` for the intro sequence, viewport-based case-study reveals, and the previous/next project banner transition.
+- Generates a unique canonical URL, title, description, social image, and `CreativeWork` JSON-LD object for every case study.
+- Pre-renders known project-detail paths through `generateStaticParams` and marks unknown placeholder details as `noindex`.
 - Displays a safe placeholder when no matching case study exists.
 
 Project card and detail titles should stay synchronized because titles form the route URLs.
@@ -93,6 +97,7 @@ Project card and detail titles should stay synchronized because titles form the 
 | `Navbar.tsx` | Desktop navigation, responsive full-height mobile sheet, scroll appearance, dropdowns, homepage section tracking, and route-aware active states |
 | `Footer.tsx` | Contact copy and email action |
 | `Button.tsx` | Shared call-to-action button |
+| `JsonLd.tsx` | Escaped JSON-LD output for visible profile and project data |
 | `ProjectLinksMenu.tsx` | Click and keyboard-controlled project links menu |
 | `projects/ProjectGrid.tsx` | Reusable project-card grid for the homepage and complete catalog |
 | `projects/ProjectDetailMotion.tsx` | GSAP lifecycle for project intro, case-study, and next-project reveals |
@@ -128,6 +133,16 @@ The portfolio does not use a CMS or database. Content is stored in typed local m
 | `types/pricing.ts` | Shared pricing and currency types |
 
 Images are served from `public/images/`. Hero artwork is grouped under `public/images/hero/`; local fonts are served from `public/fonts/`.
+
+## Search and Social Metadata
+
+- `constants/site.ts` is the source of truth for the production URL, creator identity, default descriptions, social profiles, and preview imagery.
+- `utils/metadata.ts` creates consistent static and dynamic page metadata without duplicating title, canonical, Open Graph, Twitter, or `noindex` logic.
+- The homepage emits `ProfilePage` and `Person` JSON-LD that matches the visible portfolio content.
+- Project-detail routes emit page-specific metadata and `CreativeWork` JSON-LD using `constants/projectDetails.ts`.
+- `/resources` remains accessible but is excluded from indexing while it contains placeholder content.
+- `src/app/sitemap.ts` includes only canonical pages intended for search results; `/api/*` is excluded through `src/app/robots.ts`.
+- The homepage keeps one primary `<h1>`; section titles use `<h2>` and visual eyebrow labels use paragraphs.
 
 ## Pricing Data Flow
 

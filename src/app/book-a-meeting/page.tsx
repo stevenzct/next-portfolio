@@ -1,16 +1,19 @@
-import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowLeftIcon } from "@heroicons/react/24/outline";
-import CalBooker from "../../../components/booking/CalBooker";
 
-export const metadata: Metadata = {
-  title: "Book a Meeting | Steven Cabugos",
-  description: "Choose a convenient time for a 30-minute meeting with Steven Cabugos.",
-};
+import CalBooker from "../../../components/booking/CalBooker";
+import { createPageMetadata } from "../../../utils/metadata";
+
+export const metadata = createPageMetadata({
+  title: "Book a Meeting",
+  description:
+    "Schedule a 30-minute meeting with Steven Cabugos to discuss UI/UX design, software development, or a digital product project.",
+  path: "/book-a-meeting",
+});
 
 export default function BookMeetingPage() {
   return (
-    <main className="min-h-screen bg-[#F8F8F8] pb-20 pt-28 md:pb-28 md:pt-36">
+    <div className="min-h-screen bg-[#F8F8F8] pb-20 pt-28 md:pb-28 md:pt-36">
       <div className="mx-6 w-auto max-w-[1200px] md:mx-12 lg:mx-auto lg:w-[75%]">
         <Link
           href="/#pricing"
@@ -35,7 +38,6 @@ export default function BookMeetingPage() {
 
         <CalBooker />
       </div>
-    </main>
+    </div>
   );
 }
-

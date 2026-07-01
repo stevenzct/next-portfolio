@@ -1,3 +1,12 @@
+import { createPageMetadata } from "../../../utils/metadata";
+
+export const metadata = createPageMetadata({
+  title: "Resources",
+  description: "Resources from Steven Cabugos are coming soon.",
+  path: "/resources",
+  noIndex: true,
+});
+
 export default function Resources() {
   return (
     <div className="container-wrapper w-full bg-black">

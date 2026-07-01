@@ -1,13 +1,14 @@
-import type { Metadata } from "next";
-
 import Footer from "../../../components/Footer";
 import ProjectGrid from "../../../components/projects/ProjectGrid";
 import { projects } from "../../../constants/projects";
+import { createPageMetadata } from "../../../utils/metadata";
 
-export const metadata: Metadata = {
-  title: "All Projects | Steven Cabugos",
-  description: "Explore all UI/UX design and development projects by Steven Cabugos.",
-};
+export const metadata = createPageMetadata({
+  title: "Projects",
+  description:
+    "Explore UI/UX design, software development, fintech, and digital product case studies by Steven Cabugos.",
+  path: "/projects",
+});
 
 const AllProjectsPage = () => {
   return (

@@ -21,11 +21,11 @@ function Experience() {
       className="experience pt-[80px] pb-[80px] md:pt-[120px] md:pb-[120px] bg-[#F8F8F8]">
       <div className="container-wrapper w-full h-auto">
         <div className="app-container lg:w-[75%] max-w-[1200px] w-auto mx-6 md:mx-12 lg:mx-auto">
-          <h3 className="font-nm-book text-base md:text-2xl mb-2">Work</h3>
+          <p className="font-nm-book text-base md:text-2xl mb-2">Work</p>
           <div className="mb-8 flex items-center justify-between gap-4 md:mb-16">
-            <h1 className="text-[32px] md:text-7xl lg:text-8xl text-start font-nm-medium font-medium text-black w-auto leading-[30px] md:leading-20 lg:leading-[77px]">
+            <h2 className="text-[32px] md:text-7xl lg:text-8xl text-start font-nm-medium font-medium text-black w-auto leading-[30px] md:leading-20 lg:leading-[77px]">
               Experience
-            </h1>
+            </h2>
             <div className="flex shrink-0 justify-end gap-3">
               <button
                 type="button"

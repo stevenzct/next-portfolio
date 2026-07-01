@@ -24,12 +24,12 @@ const About = () => {
             </div>
 
             <div className="flex min-w-0 flex-col">
-              <h3 className="font-nm-book text-base md:text-2xl mb-2">
+              <p className="font-nm-book text-base md:text-2xl mb-2">
                 My Expertise
-              </h3>
-              <h1 className="text-[32px] md:text-7xl lg:text-8xl text-start mb-4 md:mb-8 font-nm-medium font-medium text-black w-auto leading-[30px] md:leading-20 lg:leading-[77px]">
+              </p>
+              <h2 className="text-[32px] md:text-7xl lg:text-8xl text-start mb-4 md:mb-8 font-nm-medium font-medium text-black w-auto leading-[30px] md:leading-20 lg:leading-[77px]">
                 About Me
-              </h1>
+              </h2>
               <p className="text-lead md:text-[24px] font-nm-book text-[#222222] leading-normal md:leading-[29px] pb-4">
                 I&#39;m Steven Cabugos, a{" "}
                 <span className="font-nm-medium font-medium">

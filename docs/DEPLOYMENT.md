@@ -85,6 +85,10 @@ If the exchange-rate request fails, the API route returns the static rates from 
 - Confirm the homepage and all section navigation links load correctly.
 - Confirm the hero concept card loads from `/images/hero/concept-to-conversion.png`, floats smoothly, tilts on pointer movement, and remains static when reduced motion is enabled.
 - Navigate between standalone routes and confirm the global GSAP entrance runs without hiding the page, flashing a white background behind the Navbar, or introducing horizontal scrolling.
+- Open `/robots.txt` and confirm it references the production `/sitemap.xml`; verify the sitemap contains `/`, `/projects`, `/book-a-meeting`, and every valid project-detail URL.
+- Inspect the homepage, Projects, booking, and several project-detail pages for unique titles, descriptions, canonical URLs, and Open Graph/Twitter tags.
+- Validate the homepage profile JSON-LD and project `CreativeWork` JSON-LD with a structured-data testing tool.
+- Confirm `/resources` outputs `noindex` while it remains placeholder content.
 - Confirm the Projects navigation opens `/projects`, remains active there, and the page displays the complete catalog.
 - Confirm project years appear as compact right-aligned pills without changing the existing title and description sizing.
 - Open several project cards and confirm the primary project hero loads immediately, case-study sections reveal as they enter view, and there is no horizontal overflow.

@@ -30,6 +30,7 @@ This project uses the Next.js App Router and a data-driven content structure. Mo
 - Responsive homepage sections for featured projects, experience, about, certifications, pricing, and contact.
 - Responsive hero composition with local concept-card artwork, GSAP floating motion, and pointer-responsive 3D tilt.
 - Global GSAP route entrances through the App Router template, with reduced-motion support and no page-opacity flash behind the transparent navigation.
+- Route-specific canonical, Open Graph, Twitter, robots, sitemap, and JSON-LD metadata generated through the App Router Metadata API.
 - Dedicated all-projects page backed by the same typed project catalog as the six featured homepage cards.
 - Shared project cards with compact year metadata pills that preserve title hierarchy.
 - Dynamic project detail routes with a priority-loaded hero, scroll-based content reveals, and animated previous/next project navigation.
@@ -65,8 +66,9 @@ next-portfolio/
 |   |-- projects/             # Project grid and project-detail motion boundary
 |   |-- Navbar.tsx            # Responsive navigation and active-section logic
 |   |-- Footer.tsx            # Contact section
+|   |-- JsonLd.tsx            # Safe reusable structured-data script
 |   `-- ProjectLinksMenu.tsx  # Accessible links menu on project details
-|-- constants/                # Projects, case studies, experience, pricing, and profile data
+|-- constants/                # Portfolio content plus centralized site/SEO identity
 |-- docs/                     # Developer-oriented project documentation
 |-- hooks/
 |   `-- useMobileMenuAnimation.ts  # GSAP mobile-menu lifecycle and cleanup
@@ -78,12 +80,14 @@ next-portfolio/
 |   |-- book-a-meeting/       # Booking page
 |   |-- projects/             # All-projects index and dynamic project details
 |   |-- resources/            # Placeholder resources page
+|   |-- robots.ts             # Search crawler rules and sitemap discovery
+|   |-- sitemap.ts            # Canonical static and project URLs
 |   |-- globals.css           # Tailwind import and global styles
 |   |-- layout.tsx            # Root metadata, fonts, and navigation
 |   |-- template.tsx          # Global GSAP route entrance
 |   `-- page.tsx              # Homepage composition and location detection
 |-- types/                    # Shared TypeScript types
-|-- utils/                    # Currency, country detection, and shared motion preferences
+|-- utils/                    # Currency, metadata, country detection, and motion helpers
 |-- next.config.ts
 |-- package.json
 `-- tsconfig.json

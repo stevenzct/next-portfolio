@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import {
@@ -5,12 +6,15 @@ import {
   ArrowRightIcon,
 } from "@heroicons/react/24/outline";
 
+import JsonLd from "../../../../components/JsonLd";
 import ProjectLinksMenu from "../../../../components/ProjectLinksMenu";
 import ProjectDetailMotion from "../../../../components/projects/ProjectDetailMotion";
 import {
   projectDetails,
   type ProjectDetails,
 } from "../../../../constants/projectDetails";
+import { siteConfig } from "../../../../constants/site";
+import { createPageMetadata } from "../../../../utils/metadata";
 
 interface PageProps {
   params: Promise<{
@@ -18,12 +22,45 @@ interface PageProps {
   }>;
 }
 
-const ProjectPage = async ({ params }: PageProps) => {
-  const awaitedParams = await params;
-  const decodedTitle = decodeURIComponent(awaitedParams.title).toLowerCase();
-  const project: ProjectDetails | undefined = projectDetails.find(
-    (p) => p.title.toLowerCase() === decodedTitle
+const getProjectByTitle = (title: string) => {
+  const decodedTitle = decodeURIComponent(title).toLowerCase();
+  return projectDetails.find(
+    (project) => project.title.toLowerCase() === decodedTitle
   );
+};
+
+export const generateStaticParams = () =>
+  projectDetails.map(({ title }) => ({ title }));
+
+export const generateMetadata = async ({
+  params,
+}: PageProps): Promise<Metadata> => {
+  const { title } = await params;
+  const project = getProjectByTitle(title);
+
+  if (!project) {
+    return createPageMetadata({
+      title: "Project Not Found",
+      description: "This project case study is not currently available.",
+      path: `/projects/${encodeURIComponent(title)}`,
+      noIndex: true,
+    });
+  }
+
+  const path = `/projects/${encodeURIComponent(project.title)}`;
+
+  return createPageMetadata({
+    title: `${project.title} Case Study`,
+    description: project.description,
+    path,
+    image: project.imageSrcMockup,
+    imageAlt: `${project.title} project by ${siteConfig.name}`,
+  });
+};
+
+const ProjectPage = async ({ params }: PageProps) => {
+  const { title } = await params;
+  const project: ProjectDetails | undefined = getProjectByTitle(title);
 
   if (!project) {
     return (
@@ -34,7 +71,7 @@ const ProjectPage = async ({ params }: PageProps) => {
   }
 
   const currentProjectIndex = projectDetails.findIndex(
-    (p) => p.title.toLowerCase() === decodedTitle
+    (item) => item.title === project.title
   );
   const previousProject =
     currentProjectIndex > 0 ? projectDetails[currentProjectIndex - 1] : null;
@@ -51,9 +88,26 @@ const ProjectPage = async ({ params }: PageProps) => {
   const navigationTitle = nextProject?.title ?? previousProject?.title ?? "";
   const navigationDescription =
     nextProject?.description ?? previousProject?.description ?? "";
+  const projectPath = `/projects/${encodeURIComponent(project.title)}`;
+  const projectJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "CreativeWork",
+    name: project.title,
+    description: project.description,
+    url: `${siteConfig.url}${projectPath}`,
+    image: `${siteConfig.url}${project.imageSrcMockup}`,
+    dateCreated: String(project.year),
+    keywords: project.tech,
+    creator: {
+      "@type": "Person",
+      name: siteConfig.name,
+      url: siteConfig.url,
+    },
+  };
 
   return (
     <ProjectDetailMotion className="overflow-x-clip pt-[120px] md:pt-[160px]">
+      <JsonLd data={projectJsonLd} />
       <div className="container-wrapper w-full h-auto">
         <div className="app-container lg:w-[75%] max-w-[1200px] w-auto mx-6 md:mx-12 lg:mx-auto">
           <h1
