@@ -29,10 +29,11 @@ This project uses the Next.js App Router and a data-driven content structure. Mo
 
 - Responsive homepage sections for featured projects, experience, about, certifications, pricing, and contact.
 - Responsive hero composition with local concept-card artwork, GSAP floating motion, and pointer-responsive 3D tilt.
+- Global GSAP route entrances through the App Router template, with reduced-motion support and no page-opacity flash behind the transparent navigation.
 - Dedicated all-projects page backed by the same typed project catalog as the six featured homepage cards.
 - Shared project cards with compact year metadata pills that preserve title hierarchy.
-- Dynamic project detail routes generated from local TypeScript data.
-- Desktop navigation plus a full-height, scroll-safe mobile sheet with expandable About links, large touch targets, and route-aware active states.
+- Dynamic project detail routes with a priority-loaded hero, scroll-based content reveals, and animated previous/next project navigation.
+- Desktop navigation plus a responsive mobile dialog with GSAP open/close motion, expandable About links, large touch targets, and route-aware active states.
 - Responsive Swiper carousels for visual work, experience, certifications, and technology logos.
 - Location-aware pricing based on deployment headers or browser locale.
 - Server-side exchange-rate proxy with six-hour caching and static fallback rates.
@@ -61,12 +62,14 @@ next-portfolio/
 |-- components/
 |   |-- booking/              # Cal.com booking embed
 |   |-- hompage/              # Homepage sections and interactive HeroCard
-|   |-- projects/             # Shared project catalog grid
+|   |-- projects/             # Project grid and project-detail motion boundary
 |   |-- Navbar.tsx            # Responsive navigation and active-section logic
 |   |-- Footer.tsx            # Contact section
 |   `-- ProjectLinksMenu.tsx  # Accessible links menu on project details
 |-- constants/                # Projects, case studies, experience, pricing, and profile data
 |-- docs/                     # Developer-oriented project documentation
+|-- hooks/
+|   `-- useMobileMenuAnimation.ts  # GSAP mobile-menu lifecycle and cleanup
 |-- public/
 |   |-- fonts/                # Local PP Neue Montreal font files
 |   `-- images/               # Portfolio assets, including images/hero concept artwork
@@ -77,9 +80,10 @@ next-portfolio/
 |   |-- resources/            # Placeholder resources page
 |   |-- globals.css           # Tailwind import and global styles
 |   |-- layout.tsx            # Root metadata, fonts, and navigation
+|   |-- template.tsx          # Global GSAP route entrance
 |   `-- page.tsx              # Homepage composition and location detection
 |-- types/                    # Shared TypeScript types
-|-- utils/                    # Currency and country-detection helpers
+|-- utils/                    # Currency, country detection, and shared motion preferences
 |-- next.config.ts
 |-- package.json
 `-- tsconfig.json
@@ -151,6 +155,8 @@ Most content updates do not require editing page components:
 | Portfolio images | `public/images/` |
 
 When adding a project, keep the project title consistent between `projects.ts` and `projectDetails.ts`; the title is used to build and resolve the dynamic route. Every entry in `projects.ts` appears on `/projects`, while the first six entries are featured on the homepage.
+
+Project-detail hero images are priority-loaded because they are the primary visual for the route. Additional case-study images remain lazy-loaded and reveal as they approach the viewport.
 
 ## Build and Deployment
 

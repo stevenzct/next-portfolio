@@ -10,6 +10,8 @@ The project uses the Next.js App Router. Server components handle the initial pa
 Request
   -> src/app/layout.tsx
      -> global fonts, metadata, and Navbar
+     -> src/app/template.tsx
+        -> global GSAP route entrance
      -> route page
         -> server-rendered page structure
         -> client components for interaction
@@ -26,6 +28,8 @@ Request
 - Defines the default title, description, and favicon metadata.
 - Mounts the global navigation above every route.
 - Imports the Tailwind entry point and global styles from `globals.css`.
+
+`src/app/template.tsx` remounts for route navigation and applies the shared GSAP page entrance. It animates position, scale, and clipping without fading the complete page, so the transparent Navbar continues to show the underlying hero on reload. Visitors who prefer reduced motion receive the unanimated page.
 
 ### Homepage
 
@@ -57,6 +61,8 @@ The hero keeps its layout and copy in the server-rendered `components/hompage/He
 - Renders project metadata, assignment, objectives, deliverables, and case-study images.
 - Supports either one direct project link or an accessible menu of related links.
 - Builds previous navigation from array order and next navigation from the current project's data.
+- Priority-loads the primary project mockup so it is available immediately instead of waiting for a viewport observer.
+- Uses `components/projects/ProjectDetailMotion.tsx` for the intro sequence, viewport-based case-study reveals, and the previous/next project banner transition.
 - Displays a safe placeholder when no matching case study exists.
 
 Project card and detail titles should stay synchronized because titles form the route URLs.
@@ -89,8 +95,9 @@ Project card and detail titles should stay synchronized because titles form the 
 | `Button.tsx` | Shared call-to-action button |
 | `ProjectLinksMenu.tsx` | Click and keyboard-controlled project links menu |
 | `projects/ProjectGrid.tsx` | Reusable project-card grid for the homepage and complete catalog |
+| `projects/ProjectDetailMotion.tsx` | GSAP lifecycle for project intro, case-study, and next-project reveals |
 
-The navigation's `useActiveSection` hook is co-located in `Navbar.tsx`; there is no separate hooks directory at present.
+The navigation's active-section observer remains co-located in `Navbar.tsx`. Mobile-menu GSAP orchestration is isolated in `hooks/useMobileMenuAnimation.ts`, which owns its element refs, entrance context, exit timeline, reduced-motion fallback, and cleanup.
 
 ### Homepage sections
 
@@ -114,7 +121,7 @@ The portfolio does not use a CMS or database. Content is stored in typed local m
 | --- | --- |
 | `constants/projects.ts` | Complete project-card catalog and display order |
 | `constants/projectDetails.ts` | Full project case studies and navigation metadata |
-| `constants/experience.ts` | Roles, companies, review links, and work images |
+| `constants/experience.ts` | Roles, companies, LinkedIn links, and work images |
 | `constants/certifications.ts` | Credentials and verification links |
 | `constants/socialButton.ts` | Social profile links and icons |
 | `constants/pricing.ts` | Base price, supported currencies, country mapping, services, and fallback rates |
@@ -141,7 +148,8 @@ Country detection checks Vercel, Cloudflare, and generic country headers. If non
 - Smooth scrolling is enabled globally in `src/app/globals.css`.
 - `IntersectionObserver` marks the section nearest the viewport center as active on the homepage.
 - Pathname state takes priority on standalone routes, keeping Projects active across `/projects` and project detail pages.
-- Headless UI provides the mobile navigation dialog. On phones it opens as a full-width, full-height sheet; at larger mobile widths it becomes a capped right-side drawer with safe-area padding, a dimmed backdrop, and its own overflow scrolling.
+- Headless UI provides the mobile navigation dialog. On narrow phones it opens as a full-width `30rem` panel; from the `sm` breakpoint it becomes a capped right-side drawer, and at `md` it uses the full viewport height. The dialog has a dimmed backdrop and its own overflow scrolling.
+- `hooks/useMobileMenuAnimation.ts` adds a GSAP panel reveal, staggered navigation items, backdrop fade, and an animated close before Headless UI unmounts the dialog.
 - Mobile navigation links use large touch targets, explicit active states, and an expandable About group.
 - Next.js `Link` handles internal navigation.
 
@@ -159,7 +167,9 @@ There is no custom contact form backend.
 
 - Tailwind CSS 4 utilities define most layouts, spacing, colors, and breakpoints.
 - CSS Modules provide the hero and footer background images.
-- GSAP owns the hero card's floating and pointer-tilt transforms inside `HeroCard.tsx`; the animation is disabled when the visitor prefers reduced motion.
+- GSAP owns the hero card interaction, global route entrances, mobile-menu motion, and project-detail reveals.
+- `utils/motion.ts` is the shared source for reduced-motion detection used by GSAP client components.
+- Motion contexts, timelines, and observers are cleaned up when their owning component unmounts.
 - `globals.css` imports Tailwind, defines font variables, enables smooth scrolling, and normalizes Swiper timing.
 - The main content uses responsive side gutters and a `1200px` maximum width.
 - Mobile-first layouts expand at Tailwind's `md` and `lg` breakpoints.
