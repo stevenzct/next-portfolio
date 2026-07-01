@@ -311,19 +311,8 @@ export const Navbar = () => {
                           <div key={item.name}>
                             <div
                               data-mobile-nav-item
-                              className="flex items-center justify-between gap-3"
+                              className="flex items-center"
                             >
-                              <Link
-                                href={item.href}
-                                onClick={closeMobileMenu}
-                                className={`block text-[32px] font-nm-medium font-medium ${
-                                  isAboutGroupActive
-                                    ? "text-black"
-                                    : "text-gray-600"
-                                }`}
-                              >
-                                {item.name}
-                              </Link>
                               <button
                                 type="button"
                                 aria-label="Toggle about navigation"
@@ -331,10 +320,15 @@ export const Navbar = () => {
                                 onClick={() =>
                                   setMobileAboutOpen((isOpen) => !isOpen)
                                 }
-                                className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg text-black transition-colors duration-300 hover:bg-[#F8F8F8]"
+                                className={`inline-flex items-center gap-2 rounded-lg text-[32px] font-nm-medium font-medium transition-colors duration-300 ${
+                                  isAboutGroupActive
+                                    ? "text-black"
+                                    : "text-gray-600"
+                                } hover:text-black`}
                               >
+                                <span>{item.name}</span>
                                 <ChevronDownIcon
-                                  className={`h-5 w-5 transition-transform duration-300 ease-out ${
+                                  className={`h-5 w-5 shrink-0 transition-transform duration-300 ease-out ${
                                     mobileAboutOpen ? "rotate-180" : ""
                                   }`}
                                 />
