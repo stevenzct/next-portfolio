@@ -27,7 +27,7 @@ const images = [
   "/images/tech/Reactjs.jpg",
   "/images/tech/Scss.jpg",
   "/images/tech/shadcnUI.jpg",
-  "/images/tech/Supabase.png",
+  "/images/tech/supabase.png",
   "/images/tech/Tailwind.jpg",
   "/images/tech/Typescript.jpg",
   "/images/tech/Vuejs.jpg",
