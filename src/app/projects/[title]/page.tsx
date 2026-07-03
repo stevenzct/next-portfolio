@@ -125,7 +125,7 @@ const ProjectPage = async ({ params }: PageProps) => {
 
           <div
             data-project-detail-intro
-            className="pt-[32px] lg:pt-[64px] pb-[32px] lg:pb-[64px] gap-2 lg:gap-0 flex flex-col lg:flex-row lg:justify-between"
+            className="relative z-30 pt-[32px] lg:pt-[64px] pb-[32px] lg:pb-[64px] gap-2 lg:gap-0 flex flex-col lg:flex-row lg:justify-between"
           >
             <div>
               <h4 className="text-[18px] font-nm-medium font-medium text-black">
@@ -182,7 +182,7 @@ const ProjectPage = async ({ params }: PageProps) => {
 
         <div
           data-project-detail-hero
-          className="w-full relative aspect-[16/9]"
+          className="relative z-0 w-full aspect-[16/9]"
         >
           <Image
             src={project.imageSrcMockup}

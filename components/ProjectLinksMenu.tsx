@@ -70,7 +70,7 @@ const ProjectLinksMenu = ({ links }: ProjectLinksMenuProps) => {
   return (
     <div
       ref={menuRef}
-      className="relative inline-block"
+      className="relative z-40 inline-block"
       onBlur={(event) => {
         if (!event.currentTarget.contains(event.relatedTarget)) setIsOpen(false);
       }}
@@ -100,7 +100,7 @@ const ProjectLinksMenu = ({ links }: ProjectLinksMenuProps) => {
           role="menu"
           aria-label="Project links"
           onKeyDown={handleMenuKeyDown}
-          className="absolute right-0 z-10 mt-2 w-auto origin-top-right rounded-md bg-white py-1 shadow-lg outline-1 outline-black/5 md:w-56"
+          className="absolute right-0 z-50 mt-2 w-auto origin-top-right rounded-md bg-white py-1 shadow-lg outline-1 outline-black/5 md:w-56"
         >
           {links.map((item, index) => (
             <a
