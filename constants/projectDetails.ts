@@ -150,7 +150,7 @@ export const projectDetails: ProjectDetails[] = [
       "Design Ideation",
       "Design Direction",
       "Final Design",
-      "Frontend Development",
+      "Full-stack Development",
     ],
     imageSrcUi: [
       "/images/projectDetails/Rioflorido/projectBrief.jpg",
