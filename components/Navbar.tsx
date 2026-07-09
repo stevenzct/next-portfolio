@@ -11,7 +11,7 @@ import {
   XMarkIcon,
 } from "@heroicons/react/24/outline";
 import Link from "next/link";
-import Button from "./Button";
+import { siteConfig } from "../constants/site";
 import { useMobileMenuAnimation } from "../hooks/useMobileMenuAnimation";
 
 // Define the navigation array
@@ -265,18 +265,20 @@ export const Navbar = () => {
           >
             <div
               ref={mobileMenuBackdropRef}
-              className="fixed inset-0 z-50 bg-black/10"
+              className="fixed inset-0 z-40 bg-transparent"
             />
             <DialogPanel
               ref={setMobileMenuPanelRef}
-              className="fixed inset-y-0 right-0 z-50 h-[30rem] md:h-full rounded-b-md w-full overflow-y-auto bg-[rgba(255,255,255,0.76)] backdrop-blur-sm px-6 py-3 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10"
+              className="fixed inset-0 z-50 flex h-[100dvh] w-full flex-col overflow-y-auto bg-white px-6 py-7 text-black sm:px-10 sm:py-8"
+              style={{ clipPath: "inset(0 0 0 100%)" }}
             >
               <div
                 data-mobile-nav-item
                 className="flex items-center justify-between"
               >
                 <Link
-                  href="#"
+                  href="/#home"
+                  onClick={closeMobileMenu}
                   className="-m-1.5 p-1.5 font-nm-bold font-bold text-black"
                 >
                   STEVEN
@@ -284,114 +286,118 @@ export const Navbar = () => {
                 <button
                   type="button"
                   onClick={closeMobileMenu}
-                  className="-m-2.5 rounded-md p-2.5 text-gray-700"
+                  className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700 transition-opacity duration-300 hover:opacity-60"
                 >
                   <span className="sr-only">Close menu</span>
-                  <XMarkIcon aria-hidden="true" className="size-6" />
+                  <XMarkIcon
+                    aria-hidden="true"
+                    className="size-6 text-black"
+                  />
                 </button>
               </div>
-              <div className="mt-6 flow-root">
-                <div>
-                  <div className="py-2">
+              <div className="mt-24 flex flex-1 flex-col sm:mt-28">
+                <div className="flex-1">
+                  <div>
                     <h3
                       data-mobile-nav-item
-                      className="font-nm-book text-base md:text-2xl mb-2"
+                      className="mb-5 font-nm-book text-lg leading-none tracking-normal text-[#B8B8B8]"
                     >
-                      Navigate around
+                      Menu
                     </h3>
-                    {navigation.map((item) => {
-                      const isAboutItem = item.sectionId === "about";
-                      const isAboutGroupActive = aboutDropdown.some(
-                        (dropdownItem) =>
-                          dropdownItem.sectionId === activeSection
-                      );
+                    <div className="space-y-2 sm:space-y-3">
+                      {navigation.map((item) => {
+                        const isAboutItem = item.sectionId === "about";
 
-                      if (isAboutItem) {
-                        return (
-                          <div key={item.name}>
-                            <div
-                              data-mobile-nav-item
-                              className="flex items-center"
-                            >
+                        if (isAboutItem) {
+                          return (
+                            <div key={item.name}>
                               <button
                                 type="button"
                                 aria-label="Toggle about navigation"
                                 aria-expanded={mobileAboutOpen}
+                                data-mobile-nav-item
                                 onClick={() =>
                                   setMobileAboutOpen((isOpen) => !isOpen)
                                 }
-                                className={`inline-flex items-center gap-2 rounded-lg text-[32px] font-nm-medium font-medium transition-colors duration-300 ${
-                                  isAboutGroupActive
-                                    ? "text-black"
-                                    : "text-gray-600"
-                                } hover:text-black`}
+                                className="inline-flex items-center gap-3 font-nm-book text-[48px] font-normal leading-[0.95] tracking-normal text-black transition-opacity duration-300 hover:opacity-60 sm:text-[64px] md:text-[76px]"
                               >
                                 <span>{item.name}</span>
                                 <ChevronDownIcon
-                                  className={`h-5 w-5 shrink-0 transition-transform duration-300 ease-out ${
+                                  className={`mt-2 h-7 w-7 shrink-0 stroke-[1.5] transition-transform duration-300 ease-out sm:h-9 sm:w-9 ${
                                     mobileAboutOpen ? "rotate-180" : ""
                                   }`}
                                 />
                               </button>
-                            </div>
-                            <div
-                              className={`grid overflow-hidden pl-4 transition-all duration-300 ease-out ${
-                                mobileAboutOpen
-                                  ? "grid-rows-[1fr] opacity-100"
-                                  : "grid-rows-[0fr] opacity-0"
-                              }`}
-                            >
-                              <div className="min-h-0">
-                                {mobileAboutDropdown.map((dropdownItem) => {
-                                  const DropdownIcon = dropdownItem.Icon;
+                              <div
+                                className={`grid overflow-hidden transition-all duration-300 ease-out ${
+                                  mobileAboutOpen
+                                    ? "grid-rows-[1fr] opacity-100"
+                                    : "grid-rows-[0fr] opacity-0"
+                                }`}
+                              >
+                                <div className="min-h-0 pt-4">
+                                  {mobileAboutDropdown.map((dropdownItem) => {
+                                    const DropdownIcon = dropdownItem.Icon;
 
-                                  return (
-                                    <Link
-                                      key={dropdownItem.name}
-                                      href={dropdownItem.href}
-                                      onClick={closeMobileMenu}
-                                      className="flex items-center gap-2 rounded-md px-3 py-1.5 text-[24px] font-nm-medium font-medium text-gray-600 transition-colors duration-300 hover:bg-[#F8F8F8] hover:text-black"
-                                    >
-                                      <DropdownIcon className="h-5 w-5 shrink-0" />
-                                      {dropdownItem.name}
-                                    </Link>
-                                  );
-                                })}
+                                    return (
+                                      <Link
+                                        key={dropdownItem.name}
+                                        href={dropdownItem.href}
+                                        onClick={closeMobileMenu}
+                                        className="flex w-fit items-center gap-2 border-b border-black/20 py-2 font-nm-book text-[28px] leading-tight tracking-normal text-black transition-opacity duration-300 hover:opacity-60 sm:text-[34px]"
+                                      >
+                                        <DropdownIcon className="h-5 w-5 shrink-0 stroke-[1.6]" />
+                                        {dropdownItem.name}
+                                      </Link>
+                                    );
+                                  })}
+                                </div>
                               </div>
                             </div>
-                          </div>
-                        );
-                      }
-
-                      return (
-                        <Link
-                          key={item.name}
-                          href={item.href}
-                          data-mobile-nav-item
-                          onClick={closeMobileMenu}
-                          className={`block text-[32px] font-nm-medium font-medium ${
-                            item.sectionId === activeSection
-                              ? "text-black"
-                              : "text-gray-600"
-                          }`}
-                        >
-                          {item.name}
-                        </Link>
-                      );
-                    })}
-                    <div
-                      data-mobile-nav-item
-                      className="cta flex justify-start mt-4"
-                    >
-                      <Button
-                        type="button"
-                        title="Send a message"
-                        onClick={() =>
-                          (window.location.href =
-                            "mailto:stevencabugos138@gmail.com")
+                          );
                         }
-                      />
+
+                        return (
+                          <Link
+                            key={item.name}
+                            href={item.href}
+                            data-mobile-nav-item
+                            onClick={closeMobileMenu}
+                            className="block w-fit font-nm-book text-[48px] font-normal leading-[0.95] tracking-normal text-black transition-opacity duration-300 hover:opacity-60 sm:text-[64px] md:text-[76px]"
+                          >
+                            {item.name}
+                          </Link>
+                        );
+                      })}
                     </div>
+                  </div>
+                </div>
+                <div
+                  data-mobile-nav-item
+                  className="grid gap-7 pb-6 pt-12 sm:grid-cols-2 sm:gap-12 sm:pb-8"
+                >
+                  <div>
+                    <p className="mb-4 font-nm-book text-lg leading-none tracking-normal text-[#B8B8B8]">
+                      Get in touch
+                    </p>
+                    <a
+                      href={`mailto:${siteConfig.email}`}
+                      className="inline-flex border-b border-black/20 pb-2 font-nm-book text-xl leading-none tracking-normal text-black transition-opacity duration-300 hover:opacity-60"
+                    >
+                      {siteConfig.email}
+                    </a>
+                  </div>
+                  <div>
+                    <p className="mb-4 font-nm-book text-lg leading-none tracking-normal text-[#B8B8B8]">
+                      Start a project
+                    </p>
+                    <Link
+                      href="/book-a-meeting"
+                      onClick={closeMobileMenu}
+                      className="inline-flex border-b border-black/20 pb-2 font-nm-book text-xl leading-none tracking-normal text-black transition-opacity duration-300 hover:opacity-60"
+                    >
+                      Book a meeting
+                    </Link>
                   </div>
                 </div>
               </div>

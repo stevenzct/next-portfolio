@@ -10,7 +10,12 @@ import {
 import gsap from "gsap";
 import { prefersReducedMotion } from "../utils/motion";
 
-const MOBILE_NAV_ITEM_SELECTOR = "[data-mobile-nav-item]";
+const MOBILE_NAV_PANEL_DURATION = 0.64;
+const MOBILE_NAV_PANEL_EASE = "power4.inOut";
+const MOBILE_NAV_OPEN_X = 0;
+const MOBILE_NAV_CLOSED_X = 14;
+const MOBILE_NAV_OPEN_CLIP = "inset(0 0 0% 0)";
+const MOBILE_NAV_CLOSED_CLIP = "inset(0 0 0 100%)";
 
 export const useMobileMenuAnimation = (
   setMenuOpen: Dispatch<SetStateAction<boolean>>
@@ -31,57 +36,38 @@ export const useMobileMenuAnimation = (
     if (!panel) return;
 
     isClosingRef.current = false;
-    const backdrop = backdropRef.current;
-    const items = panel.querySelectorAll<HTMLElement>(
-      MOBILE_NAV_ITEM_SELECTOR
-    );
-
     if (prefersReducedMotion()) {
-      gsap.set([panel, ...(backdrop ? [backdrop] : []), ...items], {
+      gsap.set(panel, {
         clearProps: "all",
       });
       return;
     }
 
     entranceContextRef.current = gsap.context(() => {
-      const timeline = gsap.timeline();
+      gsap.set(panel, {
+        autoAlpha: 1,
+        transformOrigin: "right center",
+        willChange: "clip-path, transform",
+      });
 
-      if (backdrop) {
-        timeline.fromTo(
-          backdrop,
-          { autoAlpha: 0 },
-          { autoAlpha: 1, duration: 0.3, ease: "power2.out" }
-        );
-      }
+      const timeline = gsap.timeline({
+        defaults: { overwrite: "auto" },
+      });
 
       timeline
         .fromTo(
           panel,
           {
-            yPercent: -6,
-            autoAlpha: 0,
-            clipPath: "inset(0 0 100% 0)",
+            xPercent: MOBILE_NAV_CLOSED_X,
+            clipPath: MOBILE_NAV_CLOSED_CLIP,
           },
           {
-            yPercent: 0,
-            autoAlpha: 1,
-            clipPath: "inset(0 0 0% 0)",
-            duration: 0.55,
-            ease: "power3.out",
+            xPercent: MOBILE_NAV_OPEN_X,
+            clipPath: MOBILE_NAV_OPEN_CLIP,
+            duration: MOBILE_NAV_PANEL_DURATION,
+            ease: MOBILE_NAV_PANEL_EASE,
           },
           0
-        )
-        .fromTo(
-          items,
-          { x: 20, autoAlpha: 0 },
-          {
-            x: 0,
-            autoAlpha: 1,
-            duration: 0.4,
-            stagger: 0.055,
-            ease: "power3.out",
-          },
-          0.16
         );
     }, panel);
   }, []);
@@ -90,18 +76,13 @@ export const useMobileMenuAnimation = (
     if (isClosingRef.current) return;
 
     const panel = panelRef.current;
-    const backdrop = backdropRef.current;
-
     if (!panel || prefersReducedMotion()) {
       setMenuOpen(false);
       return;
     }
 
     isClosingRef.current = true;
-    const items = panel.querySelectorAll<HTMLElement>(
-      MOBILE_NAV_ITEM_SELECTOR
-    );
-    gsap.killTweensOf([panel, ...(backdrop ? [backdrop] : []), ...items]);
+    gsap.killTweensOf(panel);
 
     const timeline = gsap.timeline({
       onComplete: () => {
@@ -109,35 +90,19 @@ export const useMobileMenuAnimation = (
         exitTimelineRef.current = null;
         setMenuOpen(false);
       },
+      defaults: { overwrite: "auto" },
     });
 
-    timeline
-      .to(items, {
-        x: 16,
-        autoAlpha: 0,
-        duration: 0.18,
-        stagger: 0.025,
-        ease: "power2.in",
-      })
-      .to(
-        panel,
-        {
-          yPercent: -6,
-          autoAlpha: 0,
-          clipPath: "inset(0 0 100% 0)",
-          duration: 0.35,
-          ease: "power3.inOut",
-        },
-        0.05
-      );
-
-    if (backdrop) {
-      timeline.to(
-        backdrop,
-        { autoAlpha: 0, duration: 0.25, ease: "power2.out" },
-        0
-      );
-    }
+    timeline.to(
+      panel,
+      {
+        xPercent: MOBILE_NAV_CLOSED_X,
+        clipPath: MOBILE_NAV_CLOSED_CLIP,
+        duration: MOBILE_NAV_PANEL_DURATION,
+        ease: MOBILE_NAV_PANEL_EASE,
+      },
+      0
+    );
 
     exitTimelineRef.current = timeline;
   }, [setMenuOpen]);
