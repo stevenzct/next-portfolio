@@ -270,7 +270,6 @@ export const Navbar = () => {
             <DialogPanel
               ref={setMobileMenuPanelRef}
               className="fixed inset-0 z-50 flex h-[100dvh] w-full flex-col overflow-y-auto bg-white px-6 py-7 text-black sm:px-10 sm:py-8"
-              style={{ clipPath: "inset(0 0 0 100%)" }}
             >
               <div
                 data-mobile-nav-item

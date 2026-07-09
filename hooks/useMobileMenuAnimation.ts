@@ -46,6 +46,8 @@ export const useMobileMenuAnimation = (
     entranceContextRef.current = gsap.context(() => {
       gsap.set(panel, {
         autoAlpha: 1,
+        xPercent: MOBILE_NAV_CLOSED_X,
+        clipPath: MOBILE_NAV_CLOSED_CLIP,
         transformOrigin: "right center",
         willChange: "clip-path, transform",
       });
