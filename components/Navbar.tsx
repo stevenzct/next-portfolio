@@ -318,7 +318,7 @@ export const Navbar = () => {
                                 onClick={() =>
                                   setMobileAboutOpen((isOpen) => !isOpen)
                                 }
-                                className="inline-flex items-center gap-3 font-nm-book text-[48px] font-normal leading-[0.95] tracking-normal text-black transition-opacity duration-300 hover:opacity-60 sm:text-[64px] md:text-[76px]"
+                                className="inline-flex items-center gap-3 font-nm-book text-[36px] font-normal leading-[0.95] tracking-normal text-black transition-opacity duration-300 hover:opacity-60"
                               >
                                 <span>{item.name}</span>
                                 <ChevronDownIcon
@@ -362,7 +362,7 @@ export const Navbar = () => {
                             href={item.href}
                             data-mobile-nav-item
                             onClick={closeMobileMenu}
-                            className="block w-fit font-nm-book text-[48px] font-normal leading-[0.95] tracking-normal text-black transition-opacity duration-300 hover:opacity-60 sm:text-[64px] md:text-[76px]"
+                            className="block w-fit font-nm-book text-[36px] font-normal leading-[0.95] tracking-normal text-black transition-opacity duration-300 hover:opacity-60"
                           >
                             {item.name}
                           </Link>

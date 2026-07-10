@@ -16,6 +16,7 @@ const MOBILE_NAV_OPEN_X = 0;
 const MOBILE_NAV_CLOSED_X = 14;
 const MOBILE_NAV_OPEN_CLIP = "inset(0 0 0% 0)";
 const MOBILE_NAV_CLOSED_CLIP = "inset(0 0 0 100%)";
+const MOBILE_NAV_ITEM_SELECTOR = "[data-mobile-nav-item]";
 
 export const useMobileMenuAnimation = (
   setMenuOpen: Dispatch<SetStateAction<boolean>>
@@ -44,12 +45,21 @@ export const useMobileMenuAnimation = (
     }
 
     entranceContextRef.current = gsap.context(() => {
+      const navItems = Array.from(
+        panel.querySelectorAll<HTMLElement>(MOBILE_NAV_ITEM_SELECTOR)
+      );
+
       gsap.set(panel, {
         autoAlpha: 1,
         xPercent: MOBILE_NAV_CLOSED_X,
         clipPath: MOBILE_NAV_CLOSED_CLIP,
         transformOrigin: "right center",
         willChange: "clip-path, transform",
+      });
+      gsap.set(navItems, {
+        autoAlpha: 0,
+        y: 22,
+        willChange: "opacity, transform",
       });
 
       const timeline = gsap.timeline({
@@ -70,6 +80,17 @@ export const useMobileMenuAnimation = (
             ease: MOBILE_NAV_PANEL_EASE,
           },
           0
+        )
+        .to(
+          navItems,
+          {
+            autoAlpha: 1,
+            y: 0,
+            duration: 0.48,
+            ease: "power3.out",
+            stagger: 0.045,
+          },
+          0.24
         );
     }, panel);
   }, []);
@@ -84,7 +105,11 @@ export const useMobileMenuAnimation = (
     }
 
     isClosingRef.current = true;
-    gsap.killTweensOf(panel);
+    const navItems = Array.from(
+      panel.querySelectorAll<HTMLElement>(MOBILE_NAV_ITEM_SELECTOR)
+    );
+
+    gsap.killTweensOf([panel, ...navItems]);
 
     const timeline = gsap.timeline({
       onComplete: () => {
@@ -95,16 +120,31 @@ export const useMobileMenuAnimation = (
       defaults: { overwrite: "auto" },
     });
 
-    timeline.to(
-      panel,
-      {
-        xPercent: MOBILE_NAV_CLOSED_X,
-        clipPath: MOBILE_NAV_CLOSED_CLIP,
-        duration: MOBILE_NAV_PANEL_DURATION,
-        ease: MOBILE_NAV_PANEL_EASE,
-      },
-      0
-    );
+    timeline
+      .to(
+        navItems,
+        {
+          autoAlpha: 0,
+          y: -12,
+          duration: 0.2,
+          ease: "power2.in",
+          stagger: {
+            each: 0.014,
+            from: "end",
+          },
+        },
+        0
+      )
+      .to(
+        panel,
+        {
+          xPercent: MOBILE_NAV_CLOSED_X,
+          clipPath: MOBILE_NAV_CLOSED_CLIP,
+          duration: MOBILE_NAV_PANEL_DURATION,
+          ease: MOBILE_NAV_PANEL_EASE,
+        },
+        0.04
+      );
 
     exitTimelineRef.current = timeline;
   }, [setMenuOpen]);
