@@ -34,7 +34,7 @@ The portfolio needs a Next.js server runtime. It reads request headers on the ho
 
 No environment variables are required by the current codebase.
 
-The Cal.com account and event slug, Tally form URL, Spotify embed URL, social links, and Frankfurter endpoint are public values stored in source code. If any integration is later changed to use a private API key, keep it server-side and configure it through the hosting provider rather than committing it.
+The Cal.com account and event slug, Tally form URL, social links, and Frankfurter endpoint are public values stored in source code. If any integration is later changed to use a private API key, keep it server-side and configure it through the hosting provider rather than committing it.
 
 ## Deploying to Vercel
 
@@ -76,9 +76,8 @@ The deployed site must be able to access or embed:
 | `api.frankfurter.dev` | Live exchange rates |
 | `cal.com` | Meeting calendar |
 | `tally.so` | Project intake form |
-| `open.spotify.com` | Playlist embed |
 
-If the exchange-rate request fails, the API route returns the static rates from `constants/pricing.ts`. Booking, intake, and Spotify embeds require the visitor's browser or network policy to allow those services.
+If the exchange-rate request fails, the API route returns the static rates from `constants/pricing.ts`. Booking and intake embeds require the visitor's browser or network policy to allow those services.
 
 ## Post-deployment Checks
 

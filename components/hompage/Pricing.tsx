@@ -3,7 +3,9 @@
 import { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
 import {
+  ArrowUpRightIcon,
   ArrowPathRoundedSquareIcon,
+  CalendarDaysIcon,
   CheckIcon,
   CodeBracketIcon,
   ComputerDesktopIcon,
@@ -110,92 +112,114 @@ const Pricing = ({ initialCountry, initialCurrency }: PricingProps) => {
     >
       <div
         aria-hidden="true"
-        className="absolute -left-24 top-32 h-72 w-72 rounded-full bg-[#F3F3F3] blur-3xl"
+        className="absolute -left-32 top-24 h-80 w-80 rounded-full bg-[#EFEFED] blur-3xl"
       />
       <div
         aria-hidden="true"
-        className="absolute -right-24 bottom-12 h-80 w-80 rounded-full bg-[#ECECEC] blur-3xl"
+        className="absolute -right-32 bottom-10 h-96 w-96 rounded-full bg-[#F1F1EF] blur-3xl"
       />
 
       <div className="container-wrapper relative w-full">
-        <div className="app-container mx-6 w-auto max-w-[1200px] md:mx-12 lg:mx-auto lg:w-[75%]">
-          <p className="mb-2 font-nm-book text-base md:text-2xl">
-            Flexible Partnership
-          </p>
-          <h2
-            id="pricing-heading"
-            className="mb-8 text-[32px] font-nm-medium font-medium leading-[30px] text-black md:mb-16 md:text-7xl md:leading-20 lg:text-8xl lg:leading-[77px]"
-          >
-            Pricing
-          </h2>
+        <div className="app-container mx-6 w-auto max-w-[1200px] md:mx-12 lg:mx-auto lg:w-[90%] xl:w-[88%] 2xl:w-[75%]">
+          <div className="mb-10 md:mb-14 lg:mb-16">
+            <p className="mb-2 font-nm-book text-base md:text-2xl">
+              Flexible Partnership
+            </p>
+            <h2
+              id="pricing-heading"
+              className="text-[32px] font-nm-medium font-medium leading-[30px] text-black md:text-7xl md:leading-20 lg:text-8xl lg:leading-[77px]"
+            >
+              Pricing
+            </h2>
+          </div>
 
-          <div className="grid items-stretch gap-6 lg:grid-cols-[0.8fr_1.2fr] lg:gap-8">
-            <div className="flex flex-col justify-between rounded-[13px] border border-[#E6E6E6] bg-[#F8F8F8] p-6 md:p-10">
-              <div>
-                <span className="inline-flex items-center gap-2 rounded-full border border-[#D6D6D6] bg-white px-3 py-1.5 font-nm-medium text-xs font-medium uppercase tracking-[0.14em] text-[#242424]">
+          <div className="grid items-stretch gap-6 md:gap-8 xl:grid-cols-[0.82fr_1.18fr] xl:gap-10">
+            <div className="relative flex h-full flex-col overflow-hidden rounded-[20px] border border-black/[0.06] bg-white p-5 shadow-[0_24px_60px_rgba(0,0,0,0.06)] sm:p-7 md:p-10">
+              <div
+                aria-hidden="true"
+                className="absolute -right-20 -top-20 h-64 w-64 rounded-full bg-[#F0F0ED] blur-3xl"
+              />
+
+              <div className="relative flex h-full flex-col">
+                <span className="inline-flex w-fit items-center gap-2 rounded-full border border-[#DEDEDA] bg-[#F7F7F5] px-3 py-1.5 font-nm-medium text-[10px] font-medium uppercase tracking-[0.14em] text-[#242424] sm:text-xs">
                   <span className="h-2 w-2 rounded-full bg-black" />
                   Monthly creative partner
                 </span>
-                <h3 className="mt-6 max-w-lg font-nm-medium text-[30px] font-medium leading-[1.05] text-black md:text-[46px]">
+
+                <h3 className="mt-6 max-w-xl font-nm-medium text-[30px] font-medium leading-[1.05] tracking-[-0.025em] text-black sm:text-[38px] md:text-[46px]">
                   One plan for design, product, and development.
                 </h3>
-                <p className="mt-5 max-w-xl font-nm-book text-base leading-6 text-[#4A4A4A] md:text-lg md:leading-7">
+                <p className="mt-5 max-w-xl font-nm-book text-base leading-6 text-[#555555] md:text-lg md:leading-7">
                   Move from idea to launch with one focused partner across your
-                  product experience—without juggling separate design and
+                  product experience&mdash;without juggling separate design and
                   development retainers.
                 </p>
-              </div>
 
-              <div className="mt-10 grid grid-cols-1 gap-3 sm:grid-cols-3 lg:grid-cols-1 xl:grid-cols-3">
-                {["One monthly rate", "Design + code", "Direct collaboration"].map(
-                  (benefit) => (
-                    <div
-                      key={benefit}
-                      className="flex items-center gap-2 rounded-lg bg-white px-3 py-3 font-nm-book text-sm text-[#242424]"
-                    >
-                      <CheckIcon className="h-4 w-4 shrink-0" aria-hidden="true" />
-                      {benefit}
-                    </div>
-                  )
-                )}
+                <div className="mt-8 grid grid-cols-1 gap-3 sm:grid-cols-3 xl:mt-auto xl:grid-cols-1 xl:pt-10">
+                  {["One monthly rate", "Design + code", "Direct collaboration"].map(
+                    (benefit) => (
+                      <div
+                        key={benefit}
+                        className="flex min-h-14 items-center gap-3 rounded-[10px] border border-[#E5E5E1] bg-[#F7F7F5] px-3.5 py-3 font-nm-book text-sm text-[#242424] transition-colors duration-300 hover:border-[#CFCFCA] hover:bg-white"
+                      >
+                        <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-black text-white">
+                          <CheckIcon
+                            className="h-3.5 w-3.5"
+                            strokeWidth={2.2}
+                            aria-hidden="true"
+                          />
+                        </span>
+                        <span className="leading-5">{benefit}</span>
+                      </div>
+                    )
+                  )}
+                </div>
               </div>
             </div>
 
-            <div className="relative overflow-hidden rounded-[13px] bg-black p-6 text-white md:p-10">
+            <div className="relative flex h-full flex-col overflow-hidden rounded-[20px] bg-black p-5 text-white shadow-[0_28px_70px_rgba(0,0,0,0.18)] sm:p-7 md:p-10">
               <div
                 aria-hidden="true"
-                className="absolute -right-20 -top-20 h-64 w-64 rounded-full bg-white/10 blur-3xl"
+                className="absolute -right-24 -top-24 h-80 w-80 rounded-full bg-white/[0.12] blur-3xl"
               />
-              <div className="relative">
+              <div
+                aria-hidden="true"
+                className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,rgba(255,255,255,0.08),transparent_38%)]"
+              />
+
+              <div className="relative flex h-full flex-col">
                 <div className="flex flex-col gap-5 sm:flex-row sm:items-start sm:justify-between">
                   <div>
-                    <p className="font-nm-book text-sm text-white/60">
+                    <p className="font-nm-book text-xs uppercase tracking-[0.14em] text-white/50">
                       Main offer
                     </p>
-                    <p className="mt-1 font-nm-medium text-lg font-medium">
+                    <p className="mt-2 font-nm-medium text-xl font-medium">
                       Full-service monthly plan
                     </p>
                   </div>
 
-                  <div className="inline-flex w-fit items-center gap-2 rounded-full border border-white/15 bg-white/10 px-3 py-2 font-nm-book text-sm text-white/80">
-                    <span className="h-2 w-2 rounded-full bg-white" />
-                    Location-based · {currency}
+                  <div className="inline-flex w-fit items-center gap-2 rounded-full border border-white/15 bg-white/[0.08] px-3 py-2 font-nm-book text-xs text-white/75 backdrop-blur-sm sm:text-sm">
+                    <span className="h-2 w-2 rounded-full bg-emerald-400 shadow-[0_0_0_4px_rgba(52,211,153,0.12)]" />
+                    Location-based &middot; {currency}
                   </div>
                 </div>
 
-                <div className="mt-8 border-b border-white/15 pb-8 md:mt-10 md:pb-10">
+                <div className="mt-8 rounded-[16px] border border-white/10 bg-white/[0.06] p-4 sm:p-5 md:mt-10 md:p-6">
+                  <p className="mb-3 font-nm-book text-xs uppercase tracking-[0.14em] text-white/50">
+                    Monthly investment
+                  </p>
                   <div
                     aria-live="polite"
-                    className="flex flex-wrap items-end gap-x-3 gap-y-1"
+                    className="flex min-w-0 flex-wrap items-end gap-x-3 gap-y-1"
                   >
-                    <span className="font-nm-medium text-[48px] font-medium leading-none tracking-[-0.04em] sm:text-[64px] md:text-[72px]">
+                    <span className="min-w-0 break-words font-nm-medium text-[clamp(2.25rem,7vw,4.5rem)] font-medium leading-none tracking-[-0.045em] tabular-nums">
                       {formattedPrice}
                     </span>
-                    <span className="pb-1 font-nm-book text-base text-white/60 md:pb-2 md:text-lg">
+                    <span className="pb-1 font-nm-book text-sm text-white/55 md:pb-2 md:text-lg">
                       / month
                     </span>
                   </div>
-                  <p className="mt-3 min-h-5 font-nm-book text-sm text-white/55">
+                  <p className="mt-3 min-h-5 font-nm-book text-xs leading-5 text-white/50 sm:text-sm">
                     {currency === "PHP"
                       ? "Base monthly price in Philippine pesos"
                       : `Converted from ${basePrice}/month. Exchange rates are indicative.`}
@@ -203,9 +227,15 @@ const Pricing = ({ initialCountry, initialCurrency }: PricingProps) => {
                 </div>
 
                 <div className="py-8 md:py-10">
-                  <p className="font-nm-medium text-lg font-medium">
-                    Everything included
-                  </p>
+                  <div className="flex items-center justify-between gap-4">
+                    <p className="font-nm-medium text-lg font-medium">
+                      Everything included
+                    </p>
+                    <span className="shrink-0 rounded-full border border-white/10 bg-white/[0.06] px-2.5 py-1 font-nm-book text-xs text-white/55">
+                      {PRICING_SERVICES.length} services
+                    </span>
+                  </div>
+
                   <ul className="mt-5 grid gap-3 sm:grid-cols-2">
                     {PRICING_SERVICES.map(({ title, icon }) => {
                       const ServiceIcon = serviceIcons[icon];
@@ -213,15 +243,15 @@ const Pricing = ({ initialCountry, initialCurrency }: PricingProps) => {
                       return (
                         <li
                           key={title}
-                          className="flex min-h-14 items-center gap-3 rounded-lg border border-white/10 bg-white/[0.06] px-3.5 py-3"
+                          className="group/service flex min-h-16 items-center gap-3 rounded-[10px] border border-white/10 bg-white/[0.055] px-3.5 py-3 transition-colors duration-300 hover:border-white/20 hover:bg-white/[0.09]"
                         >
-                          <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-md bg-white text-black">
+                          <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-white text-black transition-transform duration-300 motion-safe:group-hover/service:scale-105">
                             <ServiceIcon
                               aria-hidden="true"
                               className="h-[18px] w-[18px]"
                             />
                           </span>
-                          <span className="font-nm-book text-sm leading-5 text-white/85">
+                          <span className="font-nm-book text-sm leading-5 text-white/80">
                             {title}
                           </span>
                         </li>
@@ -230,19 +260,24 @@ const Pricing = ({ initialCountry, initialCurrency }: PricingProps) => {
                   </ul>
                 </div>
 
-                <div className="grid gap-3 sm:grid-cols-2">
+                <div className="mt-auto grid gap-3 sm:grid-cols-2">
                   <Link
                     href="https://tally.so/r/Y5gQDz"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex h-12 cursor-pointer items-center justify-center rounded-lg bg-white px-5 font-nm-medium font-medium text-black transition-colors duration-300 hover:bg-[#E8E8E8]"
+                    className="group/primary inline-flex h-12 cursor-pointer items-center justify-center gap-2 rounded-[10px] bg-white px-5 font-nm-medium font-medium text-black transition-all duration-300 hover:bg-[#E8E8E8] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white motion-safe:hover:-translate-y-0.5"
                   >
                     Start a Project
+                    <ArrowUpRightIcon
+                      className="h-4 w-4 transition-transform duration-300 motion-safe:group-hover/primary:translate-x-0.5 motion-safe:group-hover/primary:-translate-y-0.5"
+                      aria-hidden="true"
+                    />
                   </Link>
                   <Link
                     href="/book-a-meeting"
-                    className="inline-flex h-12 items-center justify-center rounded-lg border border-white/25 px-5 font-nm-medium font-medium text-white transition-colors duration-300 hover:bg-white/10"
+                    className="inline-flex h-12 items-center justify-center gap-2 rounded-[10px] border border-white/20 px-5 font-nm-medium font-medium text-white transition-colors duration-300 hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
                   >
+                    <CalendarDaysIcon className="h-4 w-4" aria-hidden="true" />
                     Book a Meeting
                   </Link>
                 </div>

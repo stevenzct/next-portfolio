@@ -113,7 +113,7 @@ The navigation's active-section observer remains co-located in `Navbar.tsx`. Mob
 | `SwiperUi.tsx` | Continuous visual portfolio strip |
 | `Projects.tsx` | Six featured projects and the call to action for the complete catalog |
 | `Experience.tsx` | Responsive work-history carousel |
-| `About.tsx` | Biography, social links, portrait, and Spotify playlist embed |
+| `About.tsx` | Responsive biography, portrait, project call to action, and social links |
 | `TechSwiper.tsx` | Continuous technology-logo carousel |
 | `Certifications.tsx` | Responsive credentials carousel with external certificate links |
 | `Pricing.tsx` | Location-aware converted price, included services, intake, and booking links |
@@ -175,7 +175,6 @@ There is no custom contact form backend.
 - **Send a message:** opens the visitor's email client through a `mailto:` link.
 - **Start a project:** opens the external Tally intake form.
 - **Book a meeting:** uses the Cal.com embed.
-- **About media:** embeds a Spotify playlist.
 - **Exchange rates:** uses Frankfurter through a server route.
 
 ## Styling and Responsive Design
