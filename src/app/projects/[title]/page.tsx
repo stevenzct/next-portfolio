@@ -106,59 +106,74 @@ const ProjectPage = async ({ params }: PageProps) => {
   };
 
   return (
-    <ProjectDetailMotion className="overflow-x-clip pt-[120px] md:pt-[160px]">
+    <ProjectDetailMotion className="overflow-x-clip bg-white pt-[120px] md:pt-[160px]">
       <JsonLd data={projectJsonLd} />
-      <div className="container-wrapper w-full h-auto">
-        <div className="app-container lg:w-[75%] max-w-[1200px] w-auto mx-6 md:mx-12 lg:mx-auto">
+      <div className="container-wrapper h-auto w-full">
+        <div className="app-container mx-6 w-auto max-w-[1200px] pb-8 md:mx-12 md:pb-12 lg:mx-auto lg:w-[90%] xl:w-[88%] 2xl:w-[75%]">
+          <Link
+            data-project-detail-intro
+            href="/projects"
+            className="mb-8 inline-flex items-center gap-2 rounded-lg border border-[#D6D6D6] px-3.5 py-2 font-nm-book text-sm text-[#242424] transition-colors duration-300 hover:bg-[#F8F8F8] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black md:mb-10"
+          >
+            <ArrowLeftIcon className="h-4 w-4" aria-hidden="true" />
+            All Projects
+          </Link>
+
+          <p
+            data-project-detail-intro
+            className="mb-3 font-nm-book text-sm uppercase tracking-[0.14em] text-[#666666] md:text-base"
+          >
+            Case Study
+          </p>
           <h1
             data-project-detail-intro
-            className="text-[45px] md:text-7xl lg:text-8xl text-start font-nm-medium font-medium text-black w-auto leading-[44px] md:leading-20 lg:leading-[77px]"
+            className="max-w-5xl break-words text-start font-nm-medium text-[clamp(2.8rem,8vw,6rem)] font-medium leading-[0.94] tracking-[-0.035em] text-black"
           >
             {project.title}
           </h1>
           <p
             data-project-detail-intro
-            className="text-base md:text-2xl text-start font-nm-book text-[#313131] w-auto lg:w-[83%] mt-4"
+            className="mt-5 max-w-4xl text-start font-nm-book text-base leading-7 text-[#4A4A4A] md:text-2xl md:leading-9"
           >
             {project.description}
           </p>
 
-          <div
+          <dl
             data-project-detail-intro
-            className="relative z-30 pt-[32px] lg:pt-[64px] pb-[32px] lg:pb-[64px] gap-2 lg:gap-0 flex flex-col lg:flex-row lg:justify-between"
+            className="relative z-30 mt-10 grid grid-cols-1 gap-x-8 gap-y-6 border-t border-[#D6D6D6] py-6 sm:grid-cols-2 md:mt-12 md:py-8 lg:grid-cols-4 lg:gap-y-0"
           >
-            <div>
-              <h4 className="text-[18px] font-nm-medium font-medium text-black">
+            <div className="min-w-0">
+              <dt className="font-nm-book text-xs uppercase tracking-[0.12em] text-[#777777]">
                 Role
-              </h4>
-              <p className="text-base font-nm-book text-[#242424]">
+              </dt>
+              <dd className="mt-2 font-nm-medium text-base font-medium leading-6 text-[#242424]">
                 {project.role}
-              </p>
+              </dd>
             </div>
 
-            <div>
-              <h4 className="text-[18px] font-nm-medium font-medium text-black">
+            <div className="min-w-0">
+              <dt className="font-nm-book text-xs uppercase tracking-[0.12em] text-[#777777]">
                 Tech
-              </h4>
-              <p className="text-base font-nm-book text-[#242424]">
+              </dt>
+              <dd className="mt-2 font-nm-medium text-base font-medium leading-6 text-[#242424]">
                 {project.tech}
-              </p>
+              </dd>
             </div>
 
-            <div>
-              <h4 className="text-[18px] font-nm-medium font-medium text-black">
+            <div className="min-w-0">
+              <dt className="font-nm-book text-xs uppercase tracking-[0.12em] text-[#777777]">
                 Year
-              </h4>
-              <p className="text-base font-nm-book text-[#242424]">
+              </dt>
+              <dd className="mt-2 font-nm-medium text-base font-medium leading-6 text-[#242424]">
                 {project.year}
-              </p>
+              </dd>
             </div>
 
-            <div>
-              <h4 className="text-[18px] font-nm-medium font-medium text-black">
+            <div className="min-w-0">
+              <dt className="font-nm-book text-xs uppercase tracking-[0.12em] text-[#777777]">
                 Link
-              </h4>
-              <p className="text-base font-nm-book text-[#242424]">
+              </dt>
+              <dd className="mt-2 min-h-10 font-nm-medium text-base font-medium leading-6 text-[#242424]">
                 {project.linkItem &&
                 project.linkItem.href &&
                 project.linkItem.label ? (
@@ -171,107 +186,157 @@ const ProjectPage = async ({ params }: PageProps) => {
                     {project.linkItem.label}
                   </a>
                 ) : null}
-              </p>
 
-              {project.linkItems && project.linkItems.length > 0 && (
-                <ProjectLinksMenu links={project.linkItems} />
-              )}
+                {project.linkItems && project.linkItems.length > 0 ? (
+                  <ProjectLinksMenu links={project.linkItems} />
+                ) : !project.linkItem?.href || !project.linkItem?.label ? (
+                  <span aria-label="No public project link">—</span>
+                ) : null}
+              </dd>
             </div>
-          </div>
+          </dl>
         </div>
 
         <div
           data-project-detail-hero
-          className="relative z-0 w-full aspect-[16/9]"
+          className="relative z-0 mx-4 aspect-[4/3] overflow-hidden rounded-[16px] bg-[#F3F3F3] shadow-[0_24px_70px_rgba(0,0,0,0.10)] sm:mx-6 sm:aspect-[16/10] md:mx-8 md:rounded-[20px] lg:mx-auto lg:aspect-[16/9] lg:w-[calc(100%_-_96px)] xl:max-w-[1600px]"
         >
           <Image
             src={project.imageSrcMockup}
             alt={project.title}
             fill
             priority
-            sizes="100vw"
+            sizes="(max-width: 767px) calc(100vw - 32px), (max-width: 1023px) calc(100vw - 64px), (max-width: 1695px) calc(100vw - 96px), 1600px"
             className="object-cover object-center"
           />
         </div>
 
-        <div className="app-container lg:w-[75%] max-w-[1200px] mb-[120px] w-auto mx-6 md:mx-12 lg:mx-auto">
-          <div
-            data-project-detail-reveal
-            className="pt-[32px] lg:pt-[64px] pb-[32px] lg:pb-[64px] gap-2 lg:gap-[65px] flex flex-col lg:flex-row lg:justify-between"
-          >
-            <div>
-              <h4 className="text-[18px] font-nm-medium font-medium text-black">
-                Assignment
-              </h4>
-              <p className="text-base font-nm-book text-[#242424]">
-                {project.assignment}
+        <div className="app-container mx-6 mb-[120px] w-auto max-w-[1200px] md:mx-12 lg:mx-auto lg:w-[90%] xl:w-[88%] 2xl:w-[75%]">
+          <section className="py-[64px] md:py-[88px] lg:py-[104px]">
+            <div data-project-detail-reveal>
+              <p className="font-nm-book text-sm uppercase tracking-[0.14em] text-[#777777]">
+                Project Overview
+              </p>
+              <h2 className="mt-3 max-w-3xl font-nm-medium text-[32px] font-medium leading-[1.05] tracking-[-0.025em] text-black md:text-[52px]">
+                The thinking behind the work.
+              </h2>
+            </div>
+
+            <div
+              data-project-detail-reveal
+              className="mt-8 grid grid-cols-1 border-y border-[#D6D6D6] md:mt-12 md:grid-cols-2 lg:grid-cols-[1fr_1fr_0.72fr]"
+            >
+              <article className="py-6 md:pr-8 md:py-8 lg:pr-10">
+                <h3 className="font-nm-medium text-lg font-medium text-black">
+                  Assignment
+                </h3>
+                <p className="mt-3 font-nm-book text-base leading-7 text-[#4A4A4A]">
+                  {project.assignment}
+                </p>
+              </article>
+
+              <article className="border-t border-[#D6D6D6] py-6 md:border-l md:border-t-0 md:px-8 md:py-8 lg:px-10">
+                <h3 className="font-nm-medium text-lg font-medium text-black">
+                  Objective
+                </h3>
+                <p className="mt-3 font-nm-book text-base leading-7 text-[#4A4A4A]">
+                  {project.objectives}
+                </p>
+              </article>
+
+              <article className="border-t border-[#D6D6D6] py-6 md:col-span-2 md:py-8 lg:col-span-1 lg:border-l lg:border-t-0 lg:pl-10">
+                <h3 className="font-nm-medium text-lg font-medium text-black">
+                  Project Includes
+                </h3>
+                <ul className="mt-3 font-nm-book text-base leading-7 text-[#4A4A4A] sm:grid sm:grid-cols-2 sm:gap-x-8 lg:grid-cols-1 lg:gap-x-0">
+                  {project.projectIncludes.map((item) => (
+                    <li
+                      key={item}
+                      className="border-t border-[#E5E5E5] py-2.5 first:border-t-0 first:pt-0"
+                    >
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </article>
+            </div>
+          </section>
+
+          <section>
+            <div
+              data-project-detail-reveal
+              className="mb-6 flex items-end justify-between gap-6 md:mb-8"
+            >
+              <div>
+                <p className="font-nm-book text-sm uppercase tracking-[0.14em] text-[#777777]">
+                  Selected Work
+                </p>
+                <h2 className="mt-2 font-nm-medium text-[32px] font-medium leading-[1.05] tracking-[-0.025em] text-black md:text-[52px]">
+                  Interface Gallery
+                </h2>
+              </div>
+              <p className="shrink-0 font-nm-book text-sm text-[#777777]">
+                {project.imageSrcUi.length}{" "}
+                {project.imageSrcUi.length === 1 ? "image" : "images"}
               </p>
             </div>
 
-            <div>
-              <h4 className="text-[18px] font-nm-medium font-medium text-black">
-                Objective
-              </h4>
-              <p className="text-base font-nm-book text-[#242424]">
-                {project.objectives}
-              </p>
+            <div className="grid grid-cols-1 gap-6 md:gap-10">
+              {project.imageSrcUi.map((src, index) => (
+                <figure
+                  key={src}
+                  data-project-detail-reveal
+                  className="overflow-hidden rounded-[16px] border border-black/[0.06] bg-[#F5F5F3] p-1.5 md:rounded-[20px] md:p-2"
+                >
+                  <Image
+                    src={src}
+                    alt={`${project.title} interface ${index + 1}`}
+                    width={1200}
+                    height={800}
+                    sizes="(max-width: 767px) calc(100vw - 60px), (max-width: 1023px) calc(100vw - 112px), 1200px"
+                    className="h-auto w-full rounded-[12px] object-contain md:rounded-[14px]"
+                  />
+                </figure>
+              ))}
             </div>
-
-            <div>
-              <h4 className="text-[18px] font-nm-medium font-medium text-black w-max">
-                Project Includes
-              </h4>
-              <ul className="text-base font-nm-book text-[#242424] lg:flex lg:flex-wrap ">
-                {project.projectIncludes.map((item) => (
-                  <li key={item}>{item}</li>
-                ))}
-              </ul>
-            </div>
-          </div>
-
-          <div className="gap-8 grid grid-cols-1">
-            {project.imageSrcUi.map((src, index) => (
-              <Image
-                key={src}
-                data-project-detail-reveal
-                src={src}
-                alt={`${project.title}-${index + 1}`}
-                width={1200}
-                height={800}
-                className="object-cover"
-              />
-            ))}
-          </div>
+          </section>
         </div>
 
         {(nextProject || previousProject) && (
           <div
             data-next-project
-            className="relative w-full h-screen shadow-[0px_4px_4px_rgba(0,0,0,0.25)]"
+            className="relative min-h-[72svh] w-full overflow-hidden bg-black shadow-[0_-18px_60px_rgba(0,0,0,0.12)] md:min-h-[82svh]"
           >
-            <div className="absolute inset-0 bg-black/45 z-10"></div>
+            <div className="absolute inset-0 z-10 bg-gradient-to-t from-black/80 via-black/45 to-black/25" />
             <Image
               src={navigationImage}
               alt={navigationTitle}
               fill
-              className="object-cover"
+              sizes="100vw"
+              className="object-cover transition-transform duration-[1200ms] motion-safe:hover:scale-[1.02]"
             />
-            <div className="absolute inset-0 z-20 flex flex-col items-center justify-center text-white px-4">
+            <div className="relative z-20 flex min-h-[72svh] flex-col items-center justify-center px-6 py-20 text-white md:min-h-[82svh] md:px-12">
+              <p
+                data-next-project-content
+                className="mb-4 font-nm-book text-xs uppercase tracking-[0.18em] text-white/70 md:text-sm"
+              >
+                {nextProject ? "Next Case Study" : "Previous Case Study"}
+              </p>
               <h2
                 data-next-project-content
-                className="text-[45px] md:text-7xl lg:text-8xl text-center font-nm-medium font-medium text-white leading-[44px] md:leading-20 lg:leading-[77px]"
+                className="max-w-5xl break-words text-center font-nm-medium text-[clamp(2.8rem,8vw,6rem)] font-medium leading-[0.94] tracking-[-0.035em] text-white"
               >
                 {navigationTitle}
               </h2>
               <p
                 data-next-project-content
-                className="text-base md:text-2xl text-center font-nm-book text-white lg:w-[53%] mt-4"
+                className="mt-5 max-w-3xl text-center font-nm-book text-base leading-7 text-white/80 md:text-2xl md:leading-9"
               >
                 {navigationDescription}
               </p>
               <div
                 data-next-project-content
-                className={`cta grid w-full items-center justify-center gap-3 mt-6 ${
+                className={`cta mt-7 grid w-full items-center justify-center gap-3 ${
                   nextProject && previousProject
                     ? "max-w-[320px] grid-cols-2"
                     : "max-w-[154px] grid-cols-1"
@@ -282,9 +347,9 @@ const ProjectPage = async ({ params }: PageProps) => {
                     href={`/projects/${encodeURIComponent(
                       previousProject.title
                     )}`}
-                    className="inline-flex h-11 w-full cursor-pointer items-center justify-center gap-1.5 rounded-lg bg-white px-4 text-black transition-colors duration-300 hover:bg-black hover:text-white"
+                    className="inline-flex h-11 w-full cursor-pointer items-center justify-center gap-1.5 rounded-[10px] border border-white bg-white px-4 text-black transition-colors duration-300 hover:bg-transparent hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
                   >
-                    <ArrowLeftIcon className="h-3.5 w-3.5" />
+                    <ArrowLeftIcon className="h-3.5 w-3.5" aria-hidden="true" />
                     <span className="font-nm-medium text-sm font-medium">
                       Previous
                     </span>
@@ -293,12 +358,12 @@ const ProjectPage = async ({ params }: PageProps) => {
                 {nextProject && (
                   <Link
                     href={`/projects/${encodeURIComponent(nextProject.title)}`}
-                    className="inline-flex h-11 w-full cursor-pointer items-center justify-center gap-1.5 rounded-lg bg-white px-4 text-black transition-colors duration-300 hover:bg-black hover:text-white"
+                    className="inline-flex h-11 w-full cursor-pointer items-center justify-center gap-1.5 rounded-[10px] border border-white bg-white px-4 text-black transition-colors duration-300 hover:bg-transparent hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
                   >
                     <span className="font-nm-medium text-sm font-medium">
                       Next
                     </span>
-                    <ArrowRightIcon className="h-3.5 w-3.5" />
+                    <ArrowRightIcon className="h-3.5 w-3.5" aria-hidden="true" />
                   </Link>
                 )}
               </div>
