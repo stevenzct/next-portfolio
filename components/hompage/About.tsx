@@ -1,8 +1,16 @@
-import React from "react";
+"use client";
+
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { socialButtons } from "../../constants/socialButton";
 import Link from "next/link";
-import { ArrowUpRightIcon } from "@heroicons/react/24/outline";
+import {
+  ArrowPathIcon,
+  ArrowUpRightIcon,
+} from "@heroicons/react/24/outline";
+import gsap from "gsap";
+import { prefersReducedMotion } from "../../utils/motion";
+import { aboutTechStack } from "../../constants/aboutTechStack";
 
 const capabilities = [
   "Product design",
@@ -48,6 +56,47 @@ const SocialBrandIcon = ({ name }: { name: string }) => {
 };
 
 const About = () => {
+  const flipCardRef = useRef<HTMLDivElement>(null);
+  const [isTechVisible, setIsTechVisible] = useState(false);
+
+  useEffect(() => {
+    const flipCard = flipCardRef.current;
+    if (!flipCard) return;
+
+    gsap.set(flipCard, {
+      rotationY: 0,
+      transformPerspective: 1600,
+      transformOrigin: "50% 50%",
+      transformStyle: "preserve-3d",
+    });
+
+    return () => {
+      gsap.killTweensOf(flipCard);
+    };
+  }, []);
+
+  const handleCardFlip = () => {
+    const flipCard = flipCardRef.current;
+    const nextFaceIsTech = !isTechVisible;
+
+    setIsTechVisible(nextFaceIsTech);
+
+    if (!flipCard) return;
+
+    if (prefersReducedMotion()) {
+      gsap.set(flipCard, { rotationY: nextFaceIsTech ? 180 : 0 });
+      return;
+    }
+
+    gsap.killTweensOf(flipCard);
+    gsap.to(flipCard, {
+      rotationY: nextFaceIsTech ? 180 : 0,
+      duration: 0.85,
+      ease: "power3.inOut",
+      overwrite: "auto",
+    });
+  };
+
   return (
     <div
       id="about"
@@ -73,81 +122,190 @@ const About = () => {
               />
             </div>
 
-            <div className="relative flex min-w-0 flex-col overflow-hidden rounded-[20px] bg-black p-5 text-white shadow-[0_28px_70px_rgba(0,0,0,0.16)] sm:p-7 md:p-8 lg:p-10 xl:h-full xl:min-h-[720px]">
+            <div className="relative mx-auto h-[720px] min-w-0 w-full [perspective:1600px] sm:h-[680px] xl:h-[720px]">
+              <button
+                type="button"
+                onClick={handleCardFlip}
+                aria-pressed={isTechVisible}
+                aria-label={
+                  isTechVisible
+                    ? "Show About information"
+                    : "Show my technology stack"
+                }
+                className="group/flip absolute right-5 top-5 z-30 inline-flex items-center gap-2 rounded-full border border-white/15 bg-black/35 px-2.5 py-1.5 font-nm-medium text-[10px] font-medium uppercase tracking-[0.12em] text-white/75 backdrop-blur-md transition-all duration-300 hover:border-white/30 hover:bg-white/10 hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white sm:right-7 sm:top-7 sm:px-3 sm:py-2 sm:text-[11px] md:right-8 md:top-8 lg:right-10 lg:top-10"
+              >
+                <span className="text-white/45">01</span>
+                <span
+                  className="h-3 w-px bg-white/20"
+                  aria-hidden="true"
+                />
+                <span>{isTechVisible ? "About" : "My Tech"}</span>
+                <ArrowPathIcon
+                  className={`h-3.5 w-3.5 transition-transform duration-500 ${
+                    isTechVisible ? "rotate-180" : ""
+                  }`}
+                  aria-hidden="true"
+                />
+              </button>
+
               <div
-                aria-hidden="true"
-                className="absolute -right-24 -top-24 h-72 w-72 rounded-full bg-white/10 blur-3xl"
-              />
-              <div
-                aria-hidden="true"
-                className="absolute -bottom-32 -left-28 h-80 w-80 rounded-full bg-white/[0.06] blur-3xl"
-              />
+                ref={flipCardRef}
+                className="grid h-full min-h-0 w-full [transform-style:preserve-3d] will-change-transform"
+              >
+                <div
+                  aria-hidden={isTechVisible}
+                  inert={isTechVisible ? true : undefined}
+                  className="relative col-start-1 row-start-1 flex h-full min-w-0 flex-col overflow-hidden rounded-[20px] bg-black p-5 text-white shadow-[0_28px_70px_rgba(0,0,0,0.16)] sm:p-7 md:p-8 lg:p-10"
+                  style={{
+                    backfaceVisibility: "hidden",
+                    WebkitBackfaceVisibility: "hidden",
+                  }}
+                >
+                  <div
+                    aria-hidden="true"
+                    className="absolute -right-24 -top-24 h-72 w-72 rounded-full bg-white/10 blur-3xl"
+                  />
+                  <div
+                    aria-hidden="true"
+                    className="absolute -bottom-32 -left-28 h-80 w-80 rounded-full bg-white/[0.06] blur-3xl"
+                  />
 
-              <div className="relative flex h-full flex-col">
-                <div className="flex items-center justify-between gap-4 font-nm-book text-[11px] uppercase tracking-[0.16em] text-white/55 sm:text-xs">
-                  <span className="font-nm-medium font-medium text-white/90">
-                    About / Steven Cabugos
-                  </span>
-                  <span>01</span>
-                </div>
+                  <div className="relative flex h-full flex-col">
+                    <div className="flex items-center pr-28 font-nm-book text-[11px] uppercase tracking-[0.16em] text-white/55 sm:pr-32 sm:text-xs">
+                      <span className="font-nm-medium font-medium text-white/90">
+                        About / Steven Cabugos
+                      </span>
+                    </div>
 
-                <h3 className="mt-12 max-w-2xl font-nm-medium text-[clamp(2.75rem,6vw,5rem)] font-medium leading-[0.9] tracking-[-0.045em] text-white sm:mt-16">
-                  Building{" "}
-                  <span className="text-white/45">useful digital products.</span>
-                </h3>
+                    <h3 className="mt-12 max-w-2xl font-nm-medium text-[clamp(2.75rem,6vw,5rem)] font-medium leading-[0.9] tracking-[-0.045em] text-white sm:mt-16">
+                      Building{" "}
+                      <span className="text-white/45">
+                        useful digital products.
+                      </span>
+                    </h3>
 
-                <p className="mt-7 max-w-xl font-nm-book text-base leading-7 text-white/70 md:text-lg">
-                  Full-stack Software Engineer and currently working as a UI/UX Designer at{" "}
-                  <Link
-                    href="https://www.linkedin.com/company/paysophl/posts/?feedView=all"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="font-nm-medium font-medium text-white underline decoration-white/40 underline-offset-4 transition-colors hover:decoration-white"
-                  >
-                    Payso
-                  </Link>
-                  {", "}designing high-impact digital experiences for fintech
-                  products.
-                </p>
-
-                <div className="mt-8 flex flex-wrap gap-2.5">
-                  {capabilities.map((capability) => (
-                    <span
-                      key={capability}
-                      className="rounded-full border border-white/15 bg-white/[0.06] px-3 py-2 font-nm-book text-xs text-white/75 backdrop-blur-sm md:text-sm"
-                    >
-                      {capability}
-                    </span>
-                  ))}
-                </div>
-
-                <div className="mt-12 flex flex-col items-start gap-5 xl:mt-auto xl:pt-12">
-                  <Link
-                    href="https://tally.so/r/Y5gQDz"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="group/cta inline-flex w-full items-center justify-center gap-2 rounded-[10px] bg-white px-5 py-3 font-nm-medium text-sm font-medium text-black transition-all duration-300 hover:bg-[#E8E8E8] hover:shadow-lg focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white motion-safe:hover:-translate-y-0.5 sm:w-fit"
-                  >
-                    Share your project
-                    <ArrowUpRightIcon
-                      className="h-4 w-4 transition-transform duration-300 motion-safe:group-hover/cta:translate-x-0.5 motion-safe:group-hover/cta:-translate-y-0.5"
-                      aria-hidden="true"
-                    />
-                  </Link>
-
-                  <div className="flex flex-nowrap gap-1 sm:gap-2 md:gap-3">
-                    {socialButtons.map(({ buttonName, href }) => (
-                      <a
-                        key={buttonName}
-                        href={href}
+                    <p className="mt-7 max-w-xl font-nm-book text-base leading-7 text-white/70 md:text-lg">
+                      Full-stack Software Engineer and currently working as a
+                      UI/UX Designer at{" "}
+                      <Link
+                        href="https://www.linkedin.com/company/paysophl/posts/?feedView=all"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center justify-center gap-1 whitespace-nowrap rounded-[8px] border border-white/20 bg-white/[0.06] px-1.5 py-2 font-nm-book text-[10px] text-white/80 transition-all duration-300 hover:border-white/35 hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white motion-safe:hover:-translate-y-0.5 sm:gap-1.5 sm:px-2 sm:text-[11px] md:gap-2 md:px-3 md:text-xs xl:px-4 xl:text-sm"
+                        className="font-nm-medium font-medium text-white underline decoration-white/40 underline-offset-4 transition-colors hover:decoration-white"
                       >
-                        <SocialBrandIcon name={buttonName} />
-                        {buttonName}
-                      </a>
-                    ))}
+                        Payso
+                      </Link>
+                      {", "}designing high-impact digital experiences for
+                      fintech products.
+                    </p>
+
+                    <div className="mt-8 flex flex-wrap gap-2.5">
+                      {capabilities.map((capability) => (
+                        <span
+                          key={capability}
+                          className="rounded-full border border-white/15 bg-white/[0.06] px-3 py-2 font-nm-book text-xs text-white/75 backdrop-blur-sm md:text-sm"
+                        >
+                          {capability}
+                        </span>
+                      ))}
+                    </div>
+
+                    <div className="mt-12 flex flex-col items-start gap-5 xl:mt-auto xl:pt-12">
+                      <Link
+                        href="https://tally.so/r/Y5gQDz"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="group/cta inline-flex w-full items-center justify-center gap-2 rounded-[10px] bg-white px-5 py-3 font-nm-medium text-sm font-medium text-black transition-all duration-300 hover:bg-[#E8E8E8] hover:shadow-lg focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white motion-safe:hover:-translate-y-0.5 sm:w-fit"
+                      >
+                        Share your project
+                        <ArrowUpRightIcon
+                          className="h-4 w-4 transition-transform duration-300 motion-safe:group-hover/cta:translate-x-0.5 motion-safe:group-hover/cta:-translate-y-0.5"
+                          aria-hidden="true"
+                        />
+                      </Link>
+
+                      <div className="flex flex-nowrap gap-1 sm:gap-2 md:gap-3">
+                        {socialButtons.map(({ buttonName, href }) => (
+                          <a
+                            key={buttonName}
+                            href={href}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center justify-center gap-1 whitespace-nowrap rounded-[8px] border border-white/20 bg-white/[0.06] px-1.5 py-2 font-nm-book text-[10px] text-white/80 transition-all duration-300 hover:border-white/35 hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white motion-safe:hover:-translate-y-0.5 sm:gap-1.5 sm:px-2 sm:text-[11px] md:gap-2 md:px-3 md:text-xs xl:px-4 xl:text-sm"
+                          >
+                            <SocialBrandIcon name={buttonName} />
+                            {buttonName}
+                          </a>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div
+                  aria-hidden={!isTechVisible}
+                  inert={!isTechVisible ? true : undefined}
+                  className="relative col-start-1 row-start-1 flex h-full min-h-0 min-w-0 flex-col overflow-hidden rounded-[20px] bg-[#0B0B0B] p-5 text-white shadow-[0_28px_70px_rgba(0,0,0,0.16)] sm:p-7 md:p-8 lg:p-10"
+                  style={{
+                    backfaceVisibility: "hidden",
+                    WebkitBackfaceVisibility: "hidden",
+                    transform: "rotateY(180deg)",
+                  }}
+                >
+                  <div
+                    aria-hidden="true"
+                    className="absolute -left-24 -top-24 h-72 w-72 rounded-full bg-white/[0.07] blur-3xl"
+                  />
+                  <div
+                    aria-hidden="true"
+                    className="absolute -bottom-24 -right-24 h-72 w-72 rounded-full bg-white/[0.05] blur-3xl"
+                  />
+
+                  <div className="relative flex h-full min-h-0 flex-col">
+                    <div className="pr-28 font-nm-medium text-[11px] font-medium uppercase tracking-[0.16em] text-white/80 sm:pr-32 sm:text-xs">
+                      Tech stack / Steven Cabugos
+                    </div>
+
+                    <h3 className="mt-12 max-w-xl font-nm-medium text-[clamp(2.5rem,5vw,4.5rem)] font-medium leading-[0.9] tracking-[-0.045em] text-white sm:mt-14">
+                      My tech <span className="text-white/45">stack.</span>
+                    </h3>
+
+                    <div className="mt-9 min-h-0 flex-1 overflow-y-auto overscroll-contain pr-1 [scrollbar-color:rgba(255,255,255,0.24)_transparent] [scrollbar-width:thin]">
+                      <div className="grid gap-4 pb-1 sm:grid-cols-2 sm:gap-5">
+                        {aboutTechStack.map((group, index) => (
+                          <section
+                            key={group.category}
+                            className="rounded-[14px] border border-white/10 bg-white/[0.045] p-4 backdrop-blur-sm"
+                          >
+                            <div className="flex items-center justify-between gap-4">
+                              <h4 className="font-nm-medium text-sm font-medium text-white sm:text-base">
+                                {group.category}
+                              </h4>
+                              <span className="font-nm-book text-[10px] tracking-[0.12em] text-white/35">
+                                0{index + 1}
+                              </span>
+                            </div>
+                            <div className="mt-3 flex flex-wrap gap-1.5">
+                              {group.tags.map(
+                                ({ label, icon: TechIcon, color }) => (
+                                  <span
+                                    key={label}
+                                    className="inline-flex items-center gap-1.5 rounded-full border border-white/10 bg-white/[0.055] px-2.5 py-1.5 font-nm-book text-[10px] leading-none text-white/70 transition-colors duration-200 hover:border-white/20 hover:bg-white/[0.09] hover:text-white sm:text-[11px]"
+                                  >
+                                    <TechIcon
+                                      aria-hidden="true"
+                                      className="h-3.5 w-3.5 shrink-0"
+                                      style={{ color }}
+                                    />
+                                    {label}
+                                  </span>
+                                ),
+                              )}
+                            </div>
+                          </section>
+                        ))}
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
