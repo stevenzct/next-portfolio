@@ -24,7 +24,7 @@ const About = () => {
           <div className="grid grid-cols-1 items-start gap-6 md:gap-8 xl:grid-cols-[0.9fr_1.1fr] xl:items-stretch xl:gap-10">
             <div className="group relative mx-auto w-full max-w-[520px] overflow-hidden rounded-[20px] border border-black/[0.06] bg-[#F4F4F2] shadow-[0_24px_60px_rgba(0,0,0,0.06)] xl:h-full xl:max-w-none">
               <Image
-                src="/images/about/StevenCabugos.png"
+                src="/images/about/steve-profile.png"
                 alt="Steven Cabugos"
                 width={1086}
                 height={1448}

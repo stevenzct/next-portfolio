@@ -8,7 +8,7 @@ export const siteConfig = {
   url: SITE_URL,
   locale: "en_US",
   email: "stevencabugos138@gmail.com",
-  profileImage: "/images/about/StevenCabugos.png",
+  profileImage: "/images/about/steve-profile.png",
   socialImage: "/images/hero.jpg",
   socialLinks: [
     "https://github.com/stevenzct",
