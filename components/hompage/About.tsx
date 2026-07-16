@@ -31,7 +31,7 @@ const SocialBrandIcon = ({ name }: { name: string }) => {
       <svg
         viewBox="0 0 448 512"
         aria-hidden="true"
-        className="h-3.5 w-3.5 shrink-0 fill-current md:h-4 md:w-4"
+        className="h-3 w-3 shrink-0 fill-current sm:h-3.5 sm:w-3.5 md:h-4 md:w-4"
       >
         <path d="M100.28 448H7.4V148.9h92.88zm-46.49-340.7C50.07 107.3 26 83.2 26 53.6A53.6 53.6 0 0 1 79.6 0c29.7 0 53.7 24.1 53.7 53.6 0 29.6-24.1 53.7-53.7 53.7zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z" />
       </svg>
@@ -43,7 +43,7 @@ const SocialBrandIcon = ({ name }: { name: string }) => {
       <svg
         viewBox="0 0 24 24"
         aria-hidden="true"
-        className="h-3.5 w-3.5 shrink-0 fill-current md:h-4 md:w-4"
+        className="h-3 w-3 shrink-0 fill-current sm:h-3.5 sm:w-3.5 md:h-4 md:w-4"
       >
         <path d="M12 .3a12 12 0 0 0-3.79 23.39c.6.11.82-.26.82-.58v-2.04c-3.34.73-4.04-1.61-4.04-1.61-.55-1.39-1.33-1.76-1.33-1.76-1.09-.74.08-.73.08-.73 1.21.08 1.84 1.24 1.84 1.24 1.07 1.84 2.81 1.31 3.5 1 .11-.78.42-1.31.76-1.61-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.13-.3-.54-1.52.1-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.29-1.55 3.3-1.23 3.3-1.23.64 1.66.23 2.88.11 3.18.77.84 1.24 1.91 1.24 3.22 0 4.61-2.81 5.62-5.48 5.92.43.37.81 1.1.81 2.22v3.29c0 .32.22.7.83.58A12 12 0 0 0 12 .3z" />
       </svg>
@@ -54,7 +54,7 @@ const SocialBrandIcon = ({ name }: { name: string }) => {
     <svg
       viewBox="0 0 320 512"
       aria-hidden="true"
-      className="h-3.5 w-3.5 shrink-0 fill-current md:h-4 md:w-4"
+      className="h-3 w-3 shrink-0 fill-current sm:h-3.5 sm:w-3.5 md:h-4 md:w-4"
     >
       <path d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06H297V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z" />
     </svg>
@@ -278,14 +278,14 @@ const About = () => {
                         />
                       </Link>
 
-                      <div className="flex flex-nowrap gap-1 sm:gap-2 md:gap-3">
+                      <div className="flex w-full max-w-full flex-nowrap items-center gap-1 sm:w-auto sm:gap-2 md:gap-3">
                         {socialButtons.map(({ buttonName, href }) => (
                           <a
                             key={buttonName}
                             href={href}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="inline-flex items-center justify-center gap-1 whitespace-nowrap rounded-[8px] border border-white/20 bg-white/[0.06] px-1.5 py-2 font-nm-book text-[10px] text-white/80 transition-all duration-300 hover:border-white/35 hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white motion-safe:hover:-translate-y-0.5 sm:gap-1.5 sm:px-2 sm:text-[11px] md:gap-2 md:px-3 md:text-xs xl:px-4 xl:text-sm"
+                            className="inline-flex min-h-10 min-w-0 flex-1 items-center justify-center gap-1 whitespace-nowrap rounded-[8px] border border-white/20 bg-white/[0.06] px-1 py-2 font-nm-book text-[10px] text-white/80 transition-all duration-300 hover:border-white/35 hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white motion-safe:hover:-translate-y-0.5 sm:min-h-0 sm:flex-none sm:gap-1.5 sm:px-2 sm:text-[11px] md:gap-2 md:px-3 md:text-xs xl:px-4 xl:text-sm"
                           >
                             <SocialBrandIcon name={buttonName} />
                             {buttonName}
