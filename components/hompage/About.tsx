@@ -7,16 +7,22 @@ import Link from "next/link";
 import {
   ArrowPathIcon,
   ArrowUpRightIcon,
+  CodeBracketIcon,
+  CpuChipIcon,
+  CreditCardIcon,
+  CursorArrowRaysIcon,
+  SparklesIcon,
 } from "@heroicons/react/24/outline";
 import gsap from "gsap";
 import { prefersReducedMotion } from "../../utils/motion";
 import { aboutTechStack } from "../../constants/aboutTechStack";
 
 const capabilities = [
-  "Product design",
-  "Full-stack build",
-  "Fintech products",
-  "Codex + Claude",
+  { label: "Product design", icon: CursorArrowRaysIcon },
+  { label: "Full-stack build", icon: CodeBracketIcon },
+  { label: "Fintech products", icon: CreditCardIcon },
+  { label: "AI engineering", icon: SparklesIcon },
+  { label: "Codex + Claude", icon: CpuChipIcon },
 ] as const;
 
 const SocialBrandIcon = ({ name }: { name: string }) => {
@@ -241,13 +247,19 @@ const About = () => {
                       fintech products.
                     </p>
 
-                    <div className="mt-8 flex flex-wrap gap-2.5">
-                      {capabilities.map((capability) => (
+                    <div className="mt-6 flex flex-wrap gap-2 sm:mt-8 sm:gap-2.5">
+                      {capabilities.map(({ label, icon: CapabilityIcon }) => (
                         <span
-                          key={capability}
-                          className="rounded-full border border-white/15 bg-white/[0.06] px-3 py-2 font-nm-book text-xs text-white/75 backdrop-blur-sm md:text-sm"
+                          key={label}
+                          className="inline-flex max-w-full items-center gap-1.5 whitespace-nowrap rounded-full border border-white/15 bg-white/[0.06] px-2.5 py-1.5 font-nm-book text-[11px] text-white/75 backdrop-blur-sm sm:gap-2 sm:px-3 sm:py-2 sm:text-xs md:text-sm"
                         >
-                          {capability}
+                          <span className="flex size-4 shrink-0 items-center justify-center rounded-full bg-white/10 text-white sm:size-5">
+                            <CapabilityIcon
+                              aria-hidden="true"
+                              className="size-3 sm:size-3.5"
+                            />
+                          </span>
+                          {label}
                         </span>
                       ))}
                     </div>
