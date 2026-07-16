@@ -12,6 +12,7 @@ import ProjectDetailMotion from "../../../../components/projects/ProjectDetailMo
 import {
   projectDetails,
   type ProjectDetails,
+  type ProjectGalleryImage,
 } from "../../../../constants/projectDetails";
 import { siteConfig } from "../../../../constants/site";
 import { createPageMetadata } from "../../../../utils/metadata";
@@ -27,6 +28,21 @@ const getProjectByTitle = (title: string) => {
   return projectDetails.find(
     (project) => project.title.toLowerCase() === decodedTitle
   );
+};
+
+const normalizeGalleryImage = (
+  image: ProjectDetails["imageSrcUi"][number],
+  projectTitle: string,
+  index: number
+): ProjectGalleryImage => {
+  if (typeof image !== "string") return image;
+
+  return {
+    src: image,
+    width: 1200,
+    height: 800,
+    alt: `${projectTitle} interface ${index + 1}`,
+  };
 };
 
 export const generateStaticParams = () =>
@@ -71,6 +87,10 @@ const ProjectPage = async ({ params }: PageProps) => {
       </div>
     );
   }
+
+  const hasEditorialGallery = project.imageSrcUi.some(
+    (image) => typeof image !== "string" && Boolean(image.title)
+  );
 
   const currentProjectIndex = projectDetails.findIndex(
     (item) => item.title === project.title
@@ -265,41 +285,129 @@ const ProjectPage = async ({ params }: PageProps) => {
           </section>
 
           <section>
-            <div
-              data-project-detail-reveal
-              className="mb-6 flex items-end justify-between gap-6 md:mb-8"
-            >
-              <div>
-                <p className="font-nm-book text-sm uppercase tracking-[0.14em] text-[#777777]">
-                  Selected Work
+            {!hasEditorialGallery && (
+              <div
+                data-project-detail-reveal
+                className="mb-6 flex flex-wrap items-end justify-between gap-3 sm:gap-6 md:mb-8"
+              >
+                <div>
+                  <p className="font-nm-book text-sm uppercase tracking-[0.14em] text-[#777777]">
+                    Selected Work
+                  </p>
+                  <h2 className="mt-2 font-nm-medium text-[32px] font-medium leading-[1.05] tracking-[-0.025em] text-black md:text-[52px]">
+                    Interface Gallery
+                  </h2>
+                </div>
+                <p className="shrink-0 font-nm-book text-sm text-[#777777]">
+                  {project.imageSrcUi.length}{" "}
+                  {project.imageSrcUi.length === 1 ? "image" : "images"}
                 </p>
-                <h2 className="mt-2 font-nm-medium text-[32px] font-medium leading-[1.05] tracking-[-0.025em] text-black md:text-[52px]">
-                  Interface Gallery
-                </h2>
               </div>
-              <p className="shrink-0 font-nm-book text-sm text-[#777777]">
-                {project.imageSrcUi.length}{" "}
-                {project.imageSrcUi.length === 1 ? "image" : "images"}
-              </p>
-            </div>
+            )}
 
-            <div className="grid grid-cols-1 gap-6 md:gap-10">
-              {project.imageSrcUi.map((src, index) => (
-                <figure
-                  key={src}
-                  data-project-detail-reveal
-                  className="overflow-hidden rounded-[16px] border border-black/[0.06] bg-[#F5F5F3] p-1.5 md:rounded-[20px] md:p-2"
-                >
-                  <Image
-                    src={src}
-                    alt={`${project.title} interface ${index + 1}`}
-                    width={1200}
-                    height={800}
-                    sizes="(max-width: 767px) calc(100vw - 60px), (max-width: 1023px) calc(100vw - 112px), 1200px"
-                    className="h-auto w-full rounded-[12px] object-contain md:rounded-[14px]"
-                  />
-                </figure>
-              ))}
+            <div
+              className={
+                hasEditorialGallery
+                  ? "grid grid-cols-1 gap-16 md:gap-24 lg:gap-32"
+                  : "grid grid-cols-1 gap-6 md:gap-10"
+              }
+            >
+              {project.imageSrcUi.map((image, index) => {
+                const galleryImage = normalizeGalleryImage(
+                  image,
+                  project.title,
+                  index
+                );
+                const hasCaption = Boolean(
+                  galleryImage.label ||
+                    galleryImage.title ||
+                    galleryImage.subtitle ||
+                    galleryImage.description ||
+                    galleryImage.points?.length
+                );
+                return (
+                  <figure
+                    key={galleryImage.src}
+                    data-project-detail-reveal
+                    className={
+                      hasEditorialGallery
+                        ? "min-w-0"
+                        : "overflow-hidden rounded-[16px] border border-black/[0.06] bg-[#F5F5F3] p-1.5 md:rounded-[20px] md:p-2"
+                    }
+                  >
+                    {hasCaption && (
+                      <figcaption className="mb-8 text-left sm:mb-10 md:mb-12 lg:mb-16">
+                        <div className="max-w-[1120px]">
+                          {galleryImage.label && (
+                            <p className="font-nm-book text-[11px] uppercase tracking-[0.16em] text-[#666666] sm:text-xs">
+                              {galleryImage.label}
+                            </p>
+                          )}
+
+                          {galleryImage.title && (
+                            <h3 className="mt-4 max-w-[15ch] break-words text-left text-balance font-nm-medium text-[clamp(2.65rem,6.5vw,5.5rem)] font-medium leading-[0.92] tracking-[-0.05em] text-black">
+                              {galleryImage.title}
+                            </h3>
+                          )}
+                          {galleryImage.subtitle && (
+                            <p className="mt-5 max-w-3xl text-left text-pretty font-nm-book text-lg leading-7 text-[#545454] sm:text-xl sm:leading-8 md:text-2xl md:leading-9">
+                              {galleryImage.subtitle}
+                            </p>
+                          )}
+
+                          {galleryImage.description && (
+                            <p className="mt-7 max-w-[70ch] text-left text-pretty font-nm-book text-base leading-7 text-[#333333] sm:text-lg sm:leading-8 md:mt-9">
+                              {galleryImage.description}
+                            </p>
+                          )}
+
+                          {galleryImage.points?.length ? (
+                            <ol className="mt-10 divide-y divide-black/[0.12] border-y border-black/[0.12] lg:mt-14">
+                              {galleryImage.points.map((point, pointIndex) => (
+                                <li
+                                  key={point.title}
+                                  className="grid grid-cols-[36px_minmax(0,1fr)] gap-x-4 gap-y-2 py-5 sm:grid-cols-[44px_minmax(0,1fr)] sm:py-6 lg:grid-cols-[56px_210px_minmax(0,1fr)] lg:gap-x-8 lg:py-8"
+                                >
+                                  <span className="col-start-1 row-start-1 pt-0.5 font-nm-book text-[11px] tracking-[0.14em] text-[#6A6A6A] sm:text-xs">
+                                    {String(pointIndex + 1).padStart(2, "0")}
+                                  </span>
+                                  <h4 className="col-start-2 row-start-1 text-left font-nm-medium text-lg font-medium leading-tight text-black sm:text-xl lg:text-2xl">
+                                    {point.title}
+                                  </h4>
+                                  <p className="col-start-2 row-start-2 max-w-[68ch] text-left font-nm-book text-sm leading-6 text-[#454545] sm:text-base sm:leading-7 lg:col-start-3 lg:row-start-1 lg:text-lg lg:leading-8">
+                                    {point.description}
+                                  </p>
+                                </li>
+                              ))}
+                            </ol>
+                          ) : null}
+                        </div>
+                      </figcaption>
+                    )}
+
+                    <div
+                      className={
+                        hasEditorialGallery
+                          ? "overflow-hidden rounded-[16px] bg-[#F5F5F3] md:rounded-[24px]"
+                          : ""
+                      }
+                    >
+                      <Image
+                        src={galleryImage.src}
+                        alt={galleryImage.alt}
+                        width={galleryImage.width}
+                        height={galleryImage.height}
+                        sizes="(max-width: 767px) calc(100vw - 60px), (max-width: 1023px) calc(100vw - 112px), 1200px"
+                        className={
+                          hasEditorialGallery
+                            ? "h-auto w-full object-contain"
+                            : "h-auto w-full rounded-[12px] object-contain md:rounded-[14px]"
+                        }
+                      />
+                    </div>
+                  </figure>
+                );
+              })}
             </div>
           </section>
         </div>

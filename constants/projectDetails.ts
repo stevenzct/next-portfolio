@@ -9,11 +9,26 @@ export type ProjectDetails = {
   assignment: string;
   objectives: string;
   projectIncludes: string[];
-  imageSrcUi: string[];
+  imageSrcUi: Array<string | ProjectGalleryImage>;
   nextImage?: string;
   nextTitle?: string;
   nextDescription?: string;
   linkItems?: LinkItem[];
+};
+
+export type ProjectGalleryImage = {
+  src: string;
+  width: number;
+  height: number;
+  alt: string;
+  label?: string;
+  title?: string;
+  subtitle?: string;
+  description?: string;
+  points?: Array<{
+    title: string;
+    description: string;
+  }>;
 };
 
 export type LinkItem = {
@@ -40,12 +55,94 @@ export const projectDetails: ProjectDetails[] = [
       "Collaboration Work",
     ],
     imageSrcUi: [
-      "/images/projectDetails/PaysoCashier/1.png",
-      "/images/projectDetails/PaysoCashier/2.png",
-      "/images/projectDetails/PaysoCashier/3.png",
-      "/images/projectDetails/PaysoCashier/4.png",
-      "/images/projectDetails/PaysoCashier/5.png",
-      "/images/projectDetails/PaysoCashier/6.png",
+      {
+        src: "/images/projectDetails/PaysoCashier/1.png",
+        width: 2400,
+        height: 4588,
+        alt: "Bilingual Payso Cashier product process and workflow diagrams",
+        label: "Product strategy",
+        title: "Product Process",
+        subtitle: "Planning before pixels.",
+        description:
+          "Product Manager Ms. Fayalina Chen led planning, system, page flow diagram and wireframing, shaping the shared product direction. English and Chinese source notes supported collaboration and handoff.",
+      },
+      {
+        src: "/images/projectDetails/PaysoCashier/pageflow-diagram.png",
+        width: 2400,
+        height: 1958,
+        alt: "Payso Cashier page flow across payment methods and merchant callbacks",
+        label: "Experience architecture",
+        title: "Page Flow Diagram",
+        subtitle: "One map for every payment route.",
+        description:
+          "Mapped payment methods, confirmations, redirects, and merchant callbacks for product and engineering.",
+      },
+      {
+        src: "/images/projectDetails/PaysoCashier/2.png",
+        width: 2400,
+        height: 3702,
+        alt: "Bilingual low-fidelity Payso Cashier wireframes and transaction states",
+        label: "Interaction structure",
+        title: "Wireframes",
+        subtitle: "Testing structure before styling.",
+        description:
+          "Ms. Fayalina Chen created and validated the hierarchy, payment flows, and transaction states through low-fidelity wireframes, allowing me to focus on the UI’s visual direction.",
+      },
+      {
+        src: "/images/projectDetails/PaysoCashier/3.png",
+        width: 2400,
+        height: 2536,
+        alt: "Payso brand colors and five cashier interface style explorations",
+        label: "Visual direction",
+        title: "UI Exploration",
+        subtitle: "Comparing brand-led directions.",
+        description:
+          "Compared Payso brand colors and layouts with the product team to select the best user experience.",
+      },
+      {
+        src: "/images/projectDetails/PaysoCashier/4.png",
+        width: 2400,
+        height: 5772,
+        alt: "Final Payso Cashier Style 5 screens and payment states",
+        label: "Final experience",
+        title: "Final Design",
+        subtitle: "Why Style 5 won.",
+        description: "Selected for three practical reasons.",
+        points: [
+          {
+            title: "Color adaptability",
+            description:
+              "Soft pink better matched the preferences of the Philippine target market.",
+          },
+          {
+            title: "Visual comfort",
+            description:
+              "Balanced contrast kept screens soft while emphasizing amounts and payment options.",
+          },
+          {
+            title: "Brand perception",
+            description:
+              "The warmer palette felt safer and more approachable than cool purple during payment.",
+          },
+        ],
+      },
+      {
+        src: "/images/projectDetails/PaysoCashier/5.png",
+        width: 2398,
+        height: 2362,
+        alt: "Figma Dev Mode annotations for the Payso Cashier interface",
+        label: "Developer handoff",
+        title: "Figma Dev Mode Annotation",
+        subtitle: "Clear specifications for handoff.",
+        description:
+          "Documented spacing, color, typography, sizing, weight, and styles for accurate implementation.",
+      },
+      {
+        src: "/images/projectDetails/PaysoCashier/6.png",
+        width: 1672,
+        height: 941,
+        alt: "Payso Cashier Phase 2 notice for upcoming payment methods",
+      },
     ],
     nextImage: "/images/projectDetails/PaysoCashier/nextImage.png",
     nextTitle: "Payso Merchant",
