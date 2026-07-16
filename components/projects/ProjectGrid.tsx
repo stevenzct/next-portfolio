@@ -28,6 +28,7 @@ const ProjectGrid = ({ projects }: ProjectGridProps) => {
                   height={482}
                   width={589}
                   alt={imageAlt}
+                  sizes="(max-width: 767px) calc(100vw - 48px), (max-width: 1279px) calc((100vw - 128px) / 2), 589px"
                 />
                 <Image
                   className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full opacity-0 transition-opacity duration-300 group-hover:opacity-100"
@@ -37,7 +38,7 @@ const ProjectGrid = ({ projects }: ProjectGridProps) => {
                   alt=""
                   aria-hidden="true"
                 />
-                <div className="absolute inset-0 flex flex-col justify-end rounded-lg p-8 text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                <div className="absolute inset-0 flex flex-col justify-end rounded-lg p-5 text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100 lg:p-6 xl:p-8">
                   <span className="font-nm-medium text-[18px] font-medium">
                     {title}
                   </span>
@@ -47,7 +48,7 @@ const ProjectGrid = ({ projects }: ProjectGridProps) => {
             </div>
             <div className="projects-title">
               <div className="mt-4 flex items-start justify-between gap-4 md:mt-6">
-                <h2 className="mb-0 font-nm-medium text-2xl font-medium text-black md:text-3xl lg:text-4xl">
+                <h2 className="mb-0 font-nm-medium text-2xl font-medium text-black md:text-[28px] xl:text-4xl">
                   {title}
                 </h2>
                 <time
@@ -57,7 +58,7 @@ const ProjectGrid = ({ projects }: ProjectGridProps) => {
                   {year}
                 </time>
               </div>
-              <p className="font-nm-book text-base leading-normal md:text-2xl">
+              <p className="font-nm-book text-base leading-normal md:text-xl xl:text-2xl">
                 {description}
               </p>
             </div>

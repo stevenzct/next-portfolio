@@ -108,26 +108,26 @@ const Pricing = ({ initialCountry, initialCurrency }: PricingProps) => {
     <section
       id="pricing"
       aria-labelledby="pricing-heading"
-      className="relative overflow-hidden bg-white py-[80px] md:py-[120px]"
+      className="relative overflow-hidden border-y border-black/[0.06] bg-white py-[80px] md:py-24 lg:py-[120px]"
     >
       <div
         aria-hidden="true"
-        className="absolute -left-32 top-24 h-80 w-80 rounded-full bg-[#EFEFED] blur-3xl"
+        className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_12%_18%,rgba(0,0,0,0.045),transparent_30%),radial-gradient(circle_at_88%_76%,rgba(0,0,0,0.035),transparent_32%)]"
       />
       <div
         aria-hidden="true"
-        className="absolute -right-32 bottom-10 h-96 w-96 rounded-full bg-[#F1F1EF] blur-3xl"
+        className="pointer-events-none absolute inset-x-0 bottom-0 h-24 bg-[linear-gradient(to_bottom,transparent,rgba(0,0,0,0.035))]"
       />
 
-      <div className="container-wrapper relative w-full">
+      <div className="container-wrapper relative z-10 w-full">
         <div className="app-container mx-6 w-auto max-w-[1200px] md:mx-12 lg:mx-auto lg:w-[90%] xl:w-[88%] 2xl:w-[75%]">
-          <div className="mb-10 md:mb-14 lg:mb-16">
-            <p className="mb-2 font-nm-book text-base md:text-2xl">
+          <div className="mb-10 md:mb-12 lg:mb-16">
+            <p className="mb-2 font-nm-book text-base md:text-xl lg:text-2xl">
               Flexible Partnership
             </p>
             <h2
               id="pricing-heading"
-              className="text-[32px] font-nm-medium font-medium leading-[30px] text-black md:text-7xl md:leading-20 lg:text-8xl lg:leading-[77px]"
+              className="text-[32px] font-nm-medium font-medium leading-[30px] text-black md:text-6xl md:leading-[0.95] lg:text-7xl xl:text-8xl xl:leading-[77px]"
             >
               Pricing
             </h2>

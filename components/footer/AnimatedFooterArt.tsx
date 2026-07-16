@@ -185,7 +185,7 @@ const AnimatedFooterArt = () => {
           src="/images/footer/creative-system-art.png"
           alt=""
           fill
-          sizes="(max-width: 1023px) 100vw, 70vw"
+          sizes="(max-width: 767px) calc(100vw - 48px), (max-width: 1279px) calc(100vw - 96px), 70vw"
           quality={90}
           className={styles["contact-art-image"]}
         />

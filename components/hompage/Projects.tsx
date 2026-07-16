@@ -10,12 +10,12 @@ const Projects = () => {
   const featuredProjects = projects.slice(0, FEATURED_PROJECT_COUNT);
 
   return (
-    <section id="projects" className="projects-section py-[80px] md:py-[120px]">
+    <section id="projects" className="projects-section py-[80px] md:py-24 lg:py-[120px]">
       <div className="container-wrapper w-full h-auto">
-        <div className="app-container lg:w-[75%] max-w-[1200px] w-auto mx-6 md:mx-12 lg:mx-auto">
-          <p className="font-nm-book text-base md:text-2xl mb-2">Projects</p>
-          <div className="mb-8 flex flex-col gap-6 md:mb-16 md:flex-row md:items-end md:justify-between">
-            <h2 className="w-auto text-start font-nm-medium text-[32px] font-medium leading-[30px] text-black md:text-7xl md:leading-20 lg:text-8xl lg:leading-[77px]">
+        <div className="app-container mx-6 w-auto max-w-[1200px] md:mx-12 lg:mx-auto lg:w-[90%] xl:w-[88%] 2xl:w-[75%]">
+          <p className="mb-2 font-nm-book text-base md:text-xl lg:text-2xl">Projects</p>
+          <div className="mb-8 flex flex-col gap-6 md:mb-12 md:flex-row md:items-end md:justify-between lg:mb-16">
+            <h2 className="w-auto text-start font-nm-medium text-[32px] font-medium leading-[30px] text-black md:text-6xl md:leading-[0.95] lg:text-7xl xl:text-8xl xl:leading-[77px]">
               Where Ideas
               <br />
               Become Interfaces

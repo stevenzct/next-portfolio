@@ -64,8 +64,10 @@ const ProjectPage = async ({ params }: PageProps) => {
 
   if (!project) {
     return (
-      <div className="pt-[120px] container-wrapper">
-        <h1 className="text-center">Project details coming soon</h1>
+      <div className="container-wrapper flex min-h-screen items-center justify-center px-6 pt-[120px] md:px-12 md:pt-36">
+        <h1 className="text-center font-nm-medium text-3xl font-medium text-black md:text-5xl">
+          Project details coming soon
+        </h1>
       </div>
     );
   }
@@ -106,7 +108,7 @@ const ProjectPage = async ({ params }: PageProps) => {
   };
 
   return (
-    <ProjectDetailMotion className="overflow-x-clip bg-white pt-[120px] md:pt-[160px]">
+    <ProjectDetailMotion className="overflow-x-clip bg-white pt-[120px] md:pt-36 lg:pt-[160px]">
       <JsonLd data={projectJsonLd} />
       <div className="container-wrapper h-auto w-full">
         <div className="app-container mx-6 w-auto max-w-[1200px] pb-8 md:mx-12 md:pb-12 lg:mx-auto lg:w-[90%] xl:w-[88%] 2xl:w-[75%]">
@@ -133,14 +135,14 @@ const ProjectPage = async ({ params }: PageProps) => {
           </h1>
           <p
             data-project-detail-intro
-            className="mt-5 max-w-4xl text-start font-nm-book text-base leading-7 text-[#4A4A4A] md:text-2xl md:leading-9"
+            className="mt-5 max-w-4xl text-start font-nm-book text-base leading-7 text-[#4A4A4A] md:text-xl md:leading-8 lg:text-2xl lg:leading-9"
           >
             {project.description}
           </p>
 
           <dl
             data-project-detail-intro
-            className="relative z-30 mt-10 grid grid-cols-1 gap-x-8 gap-y-6 border-t border-[#D6D6D6] py-6 sm:grid-cols-2 md:mt-12 md:py-8 lg:grid-cols-4 lg:gap-y-0"
+            className="relative z-30 mt-10 grid grid-cols-1 gap-x-8 gap-y-6 border-t border-[#D6D6D6] py-6 sm:grid-cols-2 md:mt-12 md:py-8 xl:grid-cols-4 xl:gap-y-0"
           >
             <div className="min-w-0">
               <dt className="font-nm-book text-xs uppercase tracking-[0.12em] text-[#777777]">
@@ -211,7 +213,7 @@ const ProjectPage = async ({ params }: PageProps) => {
           />
         </div>
 
-        <div className="app-container mx-6 mb-[120px] w-auto max-w-[1200px] md:mx-12 lg:mx-auto lg:w-[90%] xl:w-[88%] 2xl:w-[75%]">
+        <div className="app-container mx-6 mb-20 w-auto max-w-[1200px] md:mx-12 md:mb-24 lg:mx-auto lg:mb-[120px] lg:w-[90%] xl:w-[88%] 2xl:w-[75%]">
           <section className="py-[64px] md:py-[88px] lg:py-[104px]">
             <div data-project-detail-reveal>
               <p className="font-nm-book text-sm uppercase tracking-[0.14em] text-[#777777]">
@@ -224,9 +226,9 @@ const ProjectPage = async ({ params }: PageProps) => {
 
             <div
               data-project-detail-reveal
-              className="mt-8 grid grid-cols-1 border-y border-[#D6D6D6] md:mt-12 md:grid-cols-2 lg:grid-cols-[1fr_1fr_0.72fr]"
+              className="mt-8 grid grid-cols-1 border-y border-[#D6D6D6] md:mt-12 md:grid-cols-2 xl:grid-cols-[1fr_1fr_0.72fr]"
             >
-              <article className="py-6 md:pr-8 md:py-8 lg:pr-10">
+              <article className="py-6 md:pr-8 md:py-8 xl:pr-10">
                 <h3 className="font-nm-medium text-lg font-medium text-black">
                   Assignment
                 </h3>
@@ -235,7 +237,7 @@ const ProjectPage = async ({ params }: PageProps) => {
                 </p>
               </article>
 
-              <article className="border-t border-[#D6D6D6] py-6 md:border-l md:border-t-0 md:px-8 md:py-8 lg:px-10">
+              <article className="border-t border-[#D6D6D6] py-6 md:border-l md:border-t-0 md:px-8 md:py-8 xl:px-10">
                 <h3 className="font-nm-medium text-lg font-medium text-black">
                   Objective
                 </h3>
@@ -244,11 +246,11 @@ const ProjectPage = async ({ params }: PageProps) => {
                 </p>
               </article>
 
-              <article className="border-t border-[#D6D6D6] py-6 md:col-span-2 md:py-8 lg:col-span-1 lg:border-l lg:border-t-0 lg:pl-10">
+              <article className="border-t border-[#D6D6D6] py-6 md:col-span-2 md:py-8 xl:col-span-1 xl:border-l xl:border-t-0 xl:pl-10">
                 <h3 className="font-nm-medium text-lg font-medium text-black">
                   Project Includes
                 </h3>
-                <ul className="mt-3 font-nm-book text-base leading-7 text-[#4A4A4A] sm:grid sm:grid-cols-2 sm:gap-x-8 lg:grid-cols-1 lg:gap-x-0">
+                <ul className="mt-3 font-nm-book text-base leading-7 text-[#4A4A4A] sm:grid sm:grid-cols-2 sm:gap-x-8 xl:grid-cols-1 xl:gap-x-0">
                   {project.projectIncludes.map((item) => (
                     <li
                       key={item}
@@ -305,7 +307,7 @@ const ProjectPage = async ({ params }: PageProps) => {
         {(nextProject || previousProject) && (
           <div
             data-next-project
-            className="relative min-h-[72svh] w-full overflow-hidden bg-black shadow-[0_-18px_60px_rgba(0,0,0,0.12)] md:min-h-[82svh]"
+            className="relative min-h-[72svh] w-full overflow-hidden bg-black shadow-[0_-18px_60px_rgba(0,0,0,0.12)] lg:min-h-[82svh]"
           >
             <div className="absolute inset-0 z-10 bg-gradient-to-t from-black/80 via-black/45 to-black/25" />
             <Image
@@ -315,7 +317,7 @@ const ProjectPage = async ({ params }: PageProps) => {
               sizes="100vw"
               className="object-cover transition-transform duration-[1200ms] motion-safe:hover:scale-[1.02]"
             />
-            <div className="relative z-20 flex min-h-[72svh] flex-col items-center justify-center px-6 py-20 text-white md:min-h-[82svh] md:px-12">
+            <div className="relative z-20 flex min-h-[72svh] flex-col items-center justify-center px-6 py-20 text-white md:px-12 lg:min-h-[82svh]">
               <p
                 data-next-project-content
                 className="mb-4 font-nm-book text-xs uppercase tracking-[0.18em] text-white/70 md:text-sm"
@@ -330,7 +332,7 @@ const ProjectPage = async ({ params }: PageProps) => {
               </h2>
               <p
                 data-next-project-content
-                className="mt-5 max-w-3xl text-center font-nm-book text-base leading-7 text-white/80 md:text-2xl md:leading-9"
+                className="mt-5 max-w-3xl text-center font-nm-book text-base leading-7 text-white/80 md:text-xl md:leading-8 lg:text-2xl lg:leading-9"
               >
                 {navigationDescription}
               </p>

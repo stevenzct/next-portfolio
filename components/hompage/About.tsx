@@ -139,29 +139,29 @@ const About = () => {
   return (
     <div
       id="about"
-      className="about bg-white pb-8 pt-[80px] md:pb-[88px] md:pt-[120px]"
+      className="about bg-white pb-8 pt-[80px] md:pb-24 md:pt-24 lg:pt-[120px]"
     >
       <div className="container-wrapper w-full h-auto">
         <div className="app-container mx-6 w-auto max-w-[1200px] md:mx-12 lg:mx-auto lg:w-[90%] xl:w-[88%] 2xl:w-[75%]">
-          <div className="mb-8 md:mb-12 lg:mb-16">
-            <h2 className="w-auto text-start font-nm-medium text-[32px] font-medium leading-[30px] text-black md:text-7xl md:leading-20 lg:text-8xl lg:leading-[77px]">
+          <div className="mb-8 md:mb-10 lg:mb-16">
+            <h2 className="w-auto text-start font-nm-medium text-[32px] font-medium leading-[30px] text-black md:text-6xl md:leading-[0.95] lg:text-7xl xl:text-8xl xl:leading-[77px]">
               About Me
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 items-start gap-6 md:gap-8 xl:grid-cols-[0.9fr_1.1fr] xl:items-stretch xl:gap-10">
-            <div className="group relative mx-auto w-full max-w-[520px] overflow-hidden rounded-[20px] border border-black/[0.06] bg-[#F4F4F2] shadow-[0_24px_60px_rgba(0,0,0,0.06)] xl:h-full xl:max-w-none">
+          <div className="grid grid-cols-1 items-start gap-6 md:gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-stretch lg:gap-8 xl:gap-10">
+            <div className="group relative mx-auto w-full max-w-[520px] overflow-hidden rounded-[20px] border border-black/[0.06] bg-[#F4F4F2] shadow-[0_24px_60px_rgba(0,0,0,0.06)] md:h-[680px] md:max-w-[640px] lg:max-w-none xl:h-[720px]">
               <Image
                 src="/images/about/steve-profile.png"
                 alt="Steven Cabugos"
                 width={1086}
                 height={1448}
-                sizes="(max-width: 767px) calc(100vw - 48px), (max-width: 1023px) 520px, 480px"
-                className="h-auto w-full object-cover transition-transform duration-700 ease-out motion-safe:group-hover:scale-[1.015] xl:h-full xl:object-top"
+                sizes="(max-width: 767px) calc(100vw - 48px), (max-width: 1023px) 640px, (max-width: 1279px) 42vw, 480px"
+                className="h-auto w-full object-cover transition-transform duration-700 ease-out motion-safe:group-hover:scale-[1.015] md:h-full md:object-top"
               />
             </div>
 
-            <div className="relative mx-auto h-[660px] min-w-0 w-full [perspective:1600px] sm:h-[680px] xl:h-[720px]">
+            <div className="relative mx-auto h-[660px] min-w-0 w-full [perspective:1600px] sm:h-[680px] md:max-w-[640px] lg:max-w-none xl:h-[720px]">
               <button
                 type="button"
                 onClick={handleCardFlip}

@@ -37,7 +37,7 @@ const TechSwiper = () => {
   return (
     <div className="TechSwiper-section">
       <div className="container-wrapper w-full h-auto">
-        <div className="app-container lg:w-[75%] max-w-[1200px] w-auto mx-6 md:mx-12 lg:mx-auto pb-[80px] md:pb-[120px]">
+        <div className="app-container mx-6 w-auto max-w-[1200px] pb-[80px] md:mx-12 md:pb-24 lg:mx-auto lg:w-[90%] lg:pb-[120px] xl:w-[88%] 2xl:w-[75%]">
           <Swiper
             slidesPerView="auto"
             spaceBetween={16}

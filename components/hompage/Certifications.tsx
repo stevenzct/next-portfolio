@@ -19,15 +19,15 @@ function Certifications() {
   return (
     <div
       id="certifications"
-      className="certifications pt-[80px] pb-[80px] md:pt-[120px] md:pb-[120px] bg-[#F8F8F8]"
+      className="certifications bg-[#F8F8F8] py-[80px] md:py-24 lg:py-[120px]"
     >
       <div className="container-wrapper w-full h-auto">
-        <div className="app-container lg:w-[75%] max-w-[1200px] w-auto mx-6 md:mx-12 lg:mx-auto">
-          <p className="font-nm-book text-base md:text-2xl mb-2">
+        <div className="app-container mx-6 w-auto max-w-[1200px] md:mx-12 lg:mx-auto lg:w-[90%] xl:w-[88%] 2xl:w-[75%]">
+          <p className="mb-2 font-nm-book text-base md:text-xl lg:text-2xl">
             Certifications
           </p>
-          <div className="mb-8 flex items-center justify-between gap-4 md:mb-16">
-            <h2 className="text-[32px] md:text-7xl lg:text-8xl text-start font-nm-medium font-medium text-black w-auto leading-[30px] md:leading-20 lg:leading-[77px]">
+          <div className="mb-8 flex items-center justify-between gap-4 md:mb-12 lg:mb-16">
+            <h2 className="w-auto text-start font-nm-medium text-[32px] font-medium leading-[30px] text-black md:text-6xl md:leading-[0.95] lg:text-7xl xl:text-8xl xl:leading-[77px]">
               Learning &amp; Growth
             </h2>
             <div className="flex shrink-0 justify-end gap-3">
@@ -62,7 +62,7 @@ function Certifications() {
                   768: {
                     slidesPerView: 2,
                   },
-                  1024: {
+                  1280: {
                     slidesPerView: 3,
                   },
                 }}
@@ -86,7 +86,7 @@ function Certifications() {
                     certificateUrl,
                   }) => (
                     <SwiperSlide key={certificateName} className="!h-auto">
-                      <div className="h-full max-w-full p-6 lg:p-8 rounded-[13px] bg-white">
+                      <div className="h-full max-w-full rounded-[13px] bg-white p-6 xl:p-8">
                         {logoSrc ? (
                           <Image
                             className="rounded-lg"

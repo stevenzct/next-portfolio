@@ -9,9 +9,11 @@ export const metadata = createPageMetadata({
 
 export default function Resources() {
   return (
-    <div className="container-wrapper w-full bg-black">
-      <div className="app-container w-auto mx-6 md:mx-12 lg:mx-auto">
-         <h1>hello</h1>
+    <div className="container-wrapper min-h-screen w-full bg-black pb-20 pt-28 text-white md:pb-24 md:pt-36 lg:pb-28">
+      <div className="app-container mx-6 w-auto max-w-[1200px] md:mx-12 lg:mx-auto lg:w-[90%] xl:w-[88%] 2xl:w-[75%]">
+        <h1 className="font-nm-medium text-[42px] font-medium leading-[0.95] md:text-6xl lg:text-7xl xl:text-8xl">
+          Resources
+        </h1>
       </div>
     </div>
   );

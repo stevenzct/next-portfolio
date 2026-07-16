@@ -26,7 +26,7 @@ const SwiperUi = () => {
   return (
     <div className="SwiperUi-section bg-black">
       <div className="container-wrapper w-full h-auto">
-        <div className="app-container lg:w-[75%] max-w-[1200px] w-auto mx-6 md:mx-12 lg:mx-auto py-[80px] md:py-[120px]">
+        <div className="app-container mx-6 w-auto max-w-[1200px] py-[80px] md:mx-12 md:py-24 lg:mx-auto lg:w-[90%] lg:py-[120px] xl:w-[88%] 2xl:w-[75%]">
           <Swiper
             slidesPerView="auto"
             spaceBetween={16}

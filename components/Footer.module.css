@@ -105,7 +105,7 @@
   will-change: transform;
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 1280px) {
   .contact-feature {
     display: flex;
     min-height: clamp(31rem, 48vw, 39rem);

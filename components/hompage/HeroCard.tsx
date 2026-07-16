@@ -109,7 +109,7 @@ const HeroCard = () => {
       ref={shellRef}
       onPointerMove={handlePointerMove}
       onPointerLeave={handlePointerLeave}
-      className="relative z-20 isolate mx-auto flex w-full max-w-[215px] items-center justify-center [perspective:1000px] min-[375px]:max-w-[235px] sm:max-w-[300px] min-[900px]:mx-0 min-[900px]:max-w-[275px] lg:max-w-[325px] xl:max-w-[345px]"
+      className="relative z-20 isolate mx-auto flex w-full max-w-[215px] items-center justify-center [perspective:1000px] min-[375px]:max-w-[235px] sm:max-w-[300px] lg:max-w-[325px] xl:mx-0 xl:max-w-[345px]"
     >
       <div
         className="absolute left-1/2 top-1/2 -z-20 aspect-square w-[132%] -translate-x-1/2 -translate-y-1/2 rounded-full border border-black/[0.055]"
@@ -131,7 +131,7 @@ const HeroCard = () => {
           width={712}
           height={884}
           priority
-          sizes="(min-width: 1280px) 345px, (min-width: 1024px) 325px, (min-width: 900px) 275px, (min-width: 640px) 300px, (min-width: 375px) 235px, 215px"
+          sizes="(min-width: 1280px) 345px, (min-width: 1024px) 325px, (min-width: 640px) 300px, (min-width: 375px) 235px, 215px"
           className="h-auto w-full will-change-transform"
           style={{ filter: RESTING_SHADOW }}
         />

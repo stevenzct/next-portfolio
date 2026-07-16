@@ -43,13 +43,13 @@ export default async function Home() {
       <SwiperUi />
       <Projects />
       <Experience />
-      <About />
-      <TechSwiper />
-      <Certifications />
       <Pricing
         initialCountry={initialCountry}
         initialCurrency={initialCurrency}
       />
+      <About />
+      <TechSwiper />
+      <Certifications />
       <Footer />
     </div>
   );

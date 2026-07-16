@@ -90,7 +90,7 @@ const ProjectLinksMenu = ({ links }: ProjectLinksMenuProps) => {
         aria-controls="project-links-menu"
         onClick={() => setIsOpen((open) => !open)}
         onKeyDown={handleButtonKeyDown}
-        className="inline-flex min-h-10 items-center gap-2 rounded-[8px] border border-[#D6D6D6] bg-white px-3.5 py-2 font-nm-book text-sm text-[#222222] transition-colors duration-300 hover:border-[#BDBDBD] hover:bg-[#F8F8F8] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+        className="inline-flex min-h-11 touch-manipulation items-center gap-2 rounded-[8px] border border-[#D6D6D6] bg-white px-3.5 py-2 font-nm-book text-sm text-[#222222] transition-colors duration-300 hover:border-[#BDBDBD] hover:bg-[#F8F8F8] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
       >
         Select Links
         <ChevronDownIcon
@@ -123,7 +123,7 @@ const ProjectLinksMenu = ({ links }: ProjectLinksMenuProps) => {
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => setIsOpen(false)}
-                className="flex items-center justify-between gap-4 rounded-[8px] px-3 py-2.5 font-nm-book text-sm text-[#242424] transition-colors hover:bg-[#F3F3F3] focus:bg-[#F3F3F3] focus:outline-none"
+                className="flex min-h-11 touch-manipulation items-center justify-between gap-4 rounded-[8px] px-3 py-2.5 font-nm-book text-sm text-[#242424] transition-colors hover:bg-[#F3F3F3] focus:bg-[#F3F3F3] focus:outline-none"
               >
                 <span>{item.label}</span>
                 <ArrowUpRightIcon

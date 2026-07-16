@@ -164,6 +164,24 @@ export const Navbar = () => {
     };
   }, []);
 
+  useEffect(() => {
+    const desktopNavigation = window.matchMedia(
+      "(min-width: 1280px) and (hover: hover) and (pointer: fine)"
+    );
+    const closeDrawerAtDesktop = () => {
+      if (!desktopNavigation.matches) return;
+
+      setMobileMenuOpen(false);
+      setMobileAboutOpen(false);
+    };
+
+    closeDrawerAtDesktop();
+    desktopNavigation.addEventListener("change", closeDrawerAtDesktop);
+    return () => {
+      desktopNavigation.removeEventListener("change", closeDrawerAtDesktop);
+    };
+  }, []);
+
   return (
     <header
       className={`fixed inset-x-0 top-0 z-50 py-4 transition-colors duration-300 ${
@@ -173,12 +191,12 @@ export const Navbar = () => {
       }`}
     >
       <div className="container-wrapper w-full">
-        <div className="app-container lg:w-[75%] max-w-[1200px] w-auto mx-6 md:mx-12 lg:mx-auto">
+        <div className="app-container mx-6 w-auto max-w-[1200px] md:mx-12 lg:mx-auto lg:w-[90%] xl:w-[88%] 2xl:w-[75%]">
           <nav
             aria-label="Global"
             className="flex items-center justify-between"
           >
-            <div className="flex lg:flex-1">
+            <div className="nav-brand-shell">
               <Link
                 href="/#home"
                 className="-m-1.5 p-1.5 font-nm-bold font-bold text-black"
@@ -186,7 +204,7 @@ export const Navbar = () => {
                 STEVEN
               </Link>
             </div>
-            <div className="flex lg:hidden">
+            <div className="tablet-nav-toggle">
               <button
                 type="button"
                 onClick={() => {
@@ -199,7 +217,7 @@ export const Navbar = () => {
                 <Bars3Icon aria-hidden="true" className="size-6 text-black" />
               </button>
             </div>
-            <div className="hidden lg:flex divide-x divide-[#E5E7EB] bg-white py-[8px] px-[14px] rounded-lg items-center">
+            <div className="desktop-navigation items-center divide-x divide-[#E5E7EB] rounded-lg bg-white px-[14px] py-[8px]">
               {navigation.map((item) => {
                 const isAboutItem = item.sectionId === "about";
                 const isAboutGroupActive = aboutDropdown.some(
@@ -261,7 +279,7 @@ export const Navbar = () => {
           <Dialog
             open={mobileMenuOpen}
             onClose={closeMobileMenu}
-            className="lg:hidden"
+            className="mobile-navigation-dialog"
           >
             <div
               ref={mobileMenuBackdropRef}

@@ -33,7 +33,7 @@ const CalBooker = () => {
         calLink={`${CAL_USERNAME}/${EVENT_SLUG}`}
         config={{ layout: "month_view" }}
         className="min-h-[720px] w-full"
-        style={{ width: "100%", height: "100%", overflow: "scroll" }}
+        style={{ width: "100%", height: "100%", overflow: "auto" }}
       />
     </div>
   );

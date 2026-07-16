@@ -15,7 +15,7 @@ const Footer = () => {
     <footer
       id="contact"
       aria-labelledby="contact-heading"
-      className={`${styles["contact-section"]} contact relative overflow-hidden bg-[#090909] pb-8 pt-[80px] text-white md:pb-10 md:pt-[120px]`}
+      className={`${styles["contact-section"]} contact relative overflow-hidden bg-[#090909] pb-8 pt-[80px] text-white md:pb-10 md:pt-24 lg:pt-[120px]`}
     >
       <div className={styles["contact-grid"]} aria-hidden="true" />
       <div className={styles["contact-glow"]} aria-hidden="true" />
@@ -95,7 +95,7 @@ const Footer = () => {
             </span>
           </a>
 
-          <div className="mt-5 grid gap-5 lg:grid-cols-[1fr_1fr_1.15fr]">
+          <div className="mt-5 grid gap-5 md:grid-cols-2 xl:grid-cols-[1fr_1fr_1.15fr]">
             <Link
               href="https://tally.so/r/Y5gQDz"
               target="_blank"
@@ -141,7 +141,7 @@ const Footer = () => {
               </div>
             </Link>
 
-            <div className="flex min-h-[230px] flex-col justify-between rounded-[20px] border border-white/15 bg-[#111111] p-5 sm:p-7">
+            <div className="flex min-h-[230px] flex-col justify-between rounded-[20px] border border-white/15 bg-[#111111] p-5 sm:p-7 md:col-span-2 xl:col-span-1">
               <div className="flex items-start justify-between gap-4">
                 <span className="font-nm-book text-xs uppercase tracking-[0.16em] text-white/45">
                   03 / Elsewhere

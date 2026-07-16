@@ -13,8 +13,8 @@ export const metadata = createPageMetadata({
 
 export default function BookMeetingPage() {
   return (
-    <div className="min-h-screen bg-[#F8F8F8] pb-20 pt-28 md:pb-28 md:pt-36">
-      <div className="mx-6 w-auto max-w-[1200px] md:mx-12 lg:mx-auto lg:w-[75%]">
+    <div className="min-h-screen bg-[#F8F8F8] pb-20 pt-28 md:pb-24 md:pt-36 lg:pb-28">
+      <div className="mx-6 w-auto max-w-[1200px] md:mx-12 lg:mx-auto lg:w-[90%] xl:w-[88%] 2xl:w-[75%]">
         <Link
           href="/#pricing"
           className="inline-flex items-center gap-2 rounded-lg border border-[#D6D6D6] bg-white px-4 py-2 font-nm-book text-sm text-[#242424] transition-colors duration-300 hover:bg-black hover:text-white"
@@ -24,10 +24,10 @@ export default function BookMeetingPage() {
         </Link>
 
         <div className="mb-8 mt-10 md:mb-12">
-          <p className="mb-2 font-nm-book text-base md:text-2xl">
+          <p className="mb-2 font-nm-book text-base md:text-xl lg:text-2xl">
             Let&apos;s connect
           </p>
-          <h1 className="font-nm-medium text-[42px] font-medium leading-[0.95] text-black md:text-7xl lg:text-8xl">
+          <h1 className="font-nm-medium text-[42px] font-medium leading-[0.95] text-black md:text-6xl lg:text-7xl xl:text-8xl">
             Book a Meeting
           </h1>
           <p className="mt-5 max-w-2xl font-nm-book text-base leading-6 text-[#4A4A4A] md:text-lg md:leading-7">

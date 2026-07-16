@@ -20,16 +20,16 @@ const Hero = () => {
         alt=""
         fill
         quality={82}
-        sizes="(min-width: 1024px) 180vw, 100vw"
-        className="pointer-events-none -z-20 hidden object-cover object-center opacity-75 lg:block"
+        sizes="100vw"
+        className="pointer-events-none -z-20 hidden object-cover object-center opacity-75 xl:block"
       />
 
       <div className="container-wrapper relative z-10 h-auto w-full">
         <div className="app-container mx-6 flex min-h-[calc(100svh-132px)] w-auto max-w-[1200px] flex-col md:mx-12 md:min-h-[calc(100svh-160px)] lg:mx-auto lg:min-h-[calc(100svh-168px)] lg:w-[90%] xl:w-[88%] 2xl:w-[75%]">
-          <div className="grid flex-1 items-center gap-y-12 py-8 sm:gap-y-14 sm:py-10 min-[900px]:grid-cols-[minmax(0,1.18fr)_minmax(320px,0.82fr)] min-[900px]:gap-x-8 min-[900px]:py-6 lg:grid-cols-[minmax(0,1.2fr)_minmax(360px,0.8fr)] lg:gap-x-12 lg:py-8 xl:grid-cols-[minmax(0,1.15fr)_minmax(400px,0.85fr)] xl:gap-x-16">
-            <div className="relative z-10 max-w-[640px]">
+          <div className="grid flex-1 content-center items-center gap-y-12 py-8 sm:gap-y-14 sm:py-10 xl:grid-cols-[minmax(0,1.15fr)_minmax(400px,0.85fr)] xl:gap-x-16 xl:py-8">
+            <div className="relative z-10 mx-auto w-full max-w-[640px] xl:mx-0">
               <p
-                className={`${styles["hero-reveal"]} ${styles["hero-reveal-delay"]} mx-auto mb-5 flex w-fit items-center gap-2 rounded-full border border-black/10 bg-white/55 px-3 py-1.5 font-nm-medium text-[9px] font-medium uppercase tracking-[0.2em] text-black/65 shadow-[inset_0_1px_0_rgba(255,255,255,0.85)] backdrop-blur-sm sm:mx-0 sm:text-[10px]`}
+                className={`${styles["hero-reveal"]} ${styles["hero-reveal-delay"]} mx-auto mb-5 flex w-fit items-center gap-2 rounded-full border border-black/10 bg-white/55 px-3 py-1.5 font-nm-medium text-[9px] font-medium uppercase tracking-[0.2em] text-black/65 shadow-[inset_0_1px_0_rgba(255,255,255,0.85)] backdrop-blur-sm sm:text-[10px] xl:mx-0`}
               >
                 <span
                   className="h-1.5 w-1.5 rounded-full bg-black"
@@ -41,7 +41,7 @@ const Hero = () => {
 
               <h1
                 id="hero-title"
-                className="max-w-[940px] text-center font-nm-medium text-[clamp(2.75rem,13vw,3.25rem)] font-medium leading-[0.9] tracking-[-0.05em] text-black sm:text-left sm:text-[clamp(3.75rem,8vw,4.5rem)] min-[900px]:text-[clamp(3.75rem,6.2vw,4.5rem)] lg:text-[clamp(4.5rem,6.4vw,7rem)] lg:leading-[0.96]"
+                className="max-w-[940px] text-center font-nm-medium text-[clamp(2.75rem,13vw,3.25rem)] font-medium leading-[0.9] tracking-[-0.05em] text-black sm:text-[clamp(3.75rem,8vw,4.5rem)] lg:text-[clamp(4.5rem,6.4vw,7rem)] lg:leading-[0.96] xl:text-left"
               >
                 <span className={styles["hero-title-line"]}>
                   Designed
@@ -54,7 +54,7 @@ const Hero = () => {
               </h1>
 
               <div
-                className={`${styles["hero-reveal"]} ${styles["hero-reveal-late"]} mx-auto mt-7 max-w-[540px] text-center sm:mx-0 sm:text-left lg:mt-6`}
+                className={`${styles["hero-reveal"]} ${styles["hero-reveal-late"]} mx-auto mt-7 max-w-[540px] text-center lg:mt-6 xl:mx-0 xl:text-left`}
               >
                 <p className="text-balance font-nm-book text-[17px] leading-[1.5] text-black/65 sm:text-[21px] sm:leading-8">
                   Building clean, user-focused websites and apps that turn
@@ -63,7 +63,7 @@ const Hero = () => {
               </div>
 
               <div
-                className={`${styles["hero-reveal"]} ${styles["hero-reveal-later"]} cta mt-7 grid w-full max-w-[380px] grid-cols-2 gap-3`}
+                className={`${styles["hero-reveal"]} ${styles["hero-reveal-later"]} cta mx-auto mt-7 grid w-full max-w-[380px] grid-cols-2 gap-3 xl:mx-0`}
               >
                 <Link
                   href="/#projects"
@@ -89,10 +89,10 @@ const Hero = () => {
             </div>
 
             <div
-              className={`${styles["hero-visual-reveal"]} relative flex w-full items-center justify-center min-[900px]:justify-self-end`}
+              className={`${styles["hero-visual-reveal"]} relative flex w-full items-center justify-center xl:justify-self-end`}
             >
               <div
-                className={`${styles["hero-artboard"]} flex aspect-square w-full max-w-[340px] items-center justify-center rounded-full sm:max-w-[420px] min-[900px]:max-w-[380px] lg:max-w-[430px] xl:max-w-[440px]`}
+                className={`${styles["hero-artboard"]} flex aspect-square w-full max-w-[340px] items-center justify-center rounded-full sm:max-w-[420px] xl:max-w-[440px]`}
               >
                 <HeroCard />
               </div>
