@@ -79,6 +79,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <meta name="color-scheme" content="only light" />
+      </head>
       <body
         className={`${PPNeueMontrealBold.variable} ${PPNeueMontrealBook.variable} ${PPNeueMontrealMedium.variable}`}
       >

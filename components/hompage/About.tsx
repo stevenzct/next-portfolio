@@ -57,6 +57,7 @@ const SocialBrandIcon = ({ name }: { name: string }) => {
 
 const About = () => {
   const flipCardRef = useRef<HTMLDivElement>(null);
+  const techScrollRef = useRef<HTMLDivElement>(null);
   const [isTechVisible, setIsTechVisible] = useState(false);
 
   useEffect(() => {
@@ -75,11 +76,49 @@ const About = () => {
     };
   }, []);
 
+  useEffect(() => {
+    const techScroll = techScrollRef.current;
+    if (!techScroll) return;
+
+    const passScrollToPageAtBoundary = (event: WheelEvent) => {
+      const isAtTop = techScroll.scrollTop <= 1;
+      const isAtBottom =
+        techScroll.scrollTop + techScroll.clientHeight >=
+        techScroll.scrollHeight - 1;
+      const isLeavingTop = event.deltaY < 0 && isAtTop;
+      const isLeavingBottom = event.deltaY > 0 && isAtBottom;
+
+      if (!isLeavingTop && !isLeavingBottom) return;
+
+      const pageScrollDelta =
+        event.deltaMode === WheelEvent.DOM_DELTA_LINE
+          ? event.deltaY * 16
+          : event.deltaMode === WheelEvent.DOM_DELTA_PAGE
+            ? event.deltaY * window.innerHeight
+            : event.deltaY;
+
+      event.preventDefault();
+      window.scrollBy({ top: pageScrollDelta, behavior: "auto" });
+    };
+
+    techScroll.addEventListener("wheel", passScrollToPageAtBoundary, {
+      passive: false,
+    });
+
+    return () => {
+      techScroll.removeEventListener("wheel", passScrollToPageAtBoundary);
+    };
+  }, []);
+
   const handleCardFlip = () => {
     const flipCard = flipCardRef.current;
     const nextFaceIsTech = !isTechVisible;
 
     setIsTechVisible(nextFaceIsTech);
+
+    if (nextFaceIsTech) {
+      techScrollRef.current?.scrollTo({ top: 0 });
+    }
 
     if (!flipCard) return;
 
@@ -100,7 +139,7 @@ const About = () => {
   return (
     <div
       id="about"
-      className="about bg-white pb-[56px] pt-[80px] md:pb-[88px] md:pt-[120px]"
+      className="about bg-white pb-8 pt-[80px] md:pb-[88px] md:pt-[120px]"
     >
       <div className="container-wrapper w-full h-auto">
         <div className="app-container mx-6 w-auto max-w-[1200px] md:mx-12 lg:mx-auto lg:w-[90%] xl:w-[88%] 2xl:w-[75%]">
@@ -122,7 +161,7 @@ const About = () => {
               />
             </div>
 
-            <div className="relative mx-auto h-[720px] min-w-0 w-full [perspective:1600px] sm:h-[680px] xl:h-[720px]">
+            <div className="relative mx-auto h-[660px] min-w-0 w-full [perspective:1600px] sm:h-[680px] xl:h-[720px]">
               <button
                 type="button"
                 onClick={handleCardFlip}
@@ -210,7 +249,7 @@ const About = () => {
                       ))}
                     </div>
 
-                    <div className="mt-12 flex flex-col items-start gap-5 xl:mt-auto xl:pt-12">
+                    <div className="mt-auto flex flex-col items-start gap-5 pt-8 xl:pt-12">
                       <Link
                         href="https://tally.so/r/Y5gQDz"
                         target="_blank"
@@ -261,16 +300,21 @@ const About = () => {
                     className="absolute -bottom-24 -right-24 h-72 w-72 rounded-full bg-white/[0.05] blur-3xl"
                   />
 
-                  <div className="relative flex h-full min-h-0 flex-col">
+                  <div
+                    ref={techScrollRef}
+                    tabIndex={isTechVisible ? 0 : -1}
+                    aria-label="Technology stack cards. Scroll to explore all categories."
+                    className="relative h-full min-h-0 overflow-y-auto overscroll-y-auto pr-1 outline-none [scrollbar-color:rgba(255,255,255,0.28)_transparent] [scrollbar-width:thin] focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-white/60"
+                  >
                     <div className="pr-28 font-nm-medium text-[11px] font-medium uppercase tracking-[0.16em] text-white/80 sm:pr-32 sm:text-xs">
-                      Tech stack / Steven Cabugos
+                      Steven Cabugos
                     </div>
 
                     <h3 className="mt-12 max-w-xl font-nm-medium text-[clamp(2.5rem,5vw,4.5rem)] font-medium leading-[0.9] tracking-[-0.045em] text-white sm:mt-14">
                       My tech <span className="text-white/45">stack.</span>
                     </h3>
 
-                    <div className="mt-9 min-h-0 flex-1 overflow-y-auto overscroll-contain pr-1 [scrollbar-color:rgba(255,255,255,0.24)_transparent] [scrollbar-width:thin]">
+                    <div className="mt-9">
                       <div className="grid gap-4 pb-1 sm:grid-cols-2 sm:gap-5">
                         {aboutTechStack.map((group, index) => (
                           <section

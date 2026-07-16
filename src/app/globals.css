@@ -3,6 +3,7 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  color-scheme: only light;
   --font-nm-bold: var(--font-NeueMontreal-bold);
   --font-nm-book: var(--font-NeueMontreal-book);
   --font-nm-medium: var(--font-NeueMontreal-medium);
@@ -18,13 +19,6 @@
   --font-nm-medium: var(--font-NeueMontreal-medium);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
 body {
   background: var(--background);
   color: var(--foreground);
@@ -37,5 +31,7 @@ body {
 }
 
 html {
+  background: #ffffff;
+  color-scheme: only light;
   scroll-behavior: smooth;
 }
