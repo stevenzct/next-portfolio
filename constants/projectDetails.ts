@@ -64,7 +64,7 @@ export const projectDetails: ProjectDetails[] = [
         title: "Product Process",
         subtitle: "Planning before pixels.",
         description:
-          "Product Manager Ms. Fayalina Chen created and led planning, system, page flow diagram and wireframing, shaping the shared product direction. English and Chinese source notes supported collaboration and handoff.",
+          "Product Manager Ms. Fayalina Chen created and led planning, system flow, page flow diagram and wireframing, shaping the shared product direction. English and Chinese source notes supported collaboration and handoff.",
       },
       {
         src: "/images/projectDetails/PaysoCashier/pageflow-diagram.png",
