@@ -175,9 +175,39 @@ export const projectDetails: ProjectDetails[] = [
       "Collaboration Work",
     ],
     imageSrcUi: [
-      "/images/projectDetails/PaysoMerchant/1.png",
-      "/images/projectDetails/PaysoMerchant/22.png",
-      "/images/projectDetails/PaysoMerchant/3.png",
+      {
+        src: "/images/projectDetails/PaysoMerchant/1.png",
+        width: 2400,
+        height: 3222,
+        alt: "Bilingual Payso Merchant product and page flow diagrams",
+        label: "Experience architecture",
+        title: "Page Flow Diagram",
+        subtitle: "One map for the merchant journey.",
+        description:
+          "Product Manager Ms. Fayalina Chen created and shaped the product flow, page diagrams, and wireframes. English and Chinese notes supported collaboration.",
+      },
+      {
+        src: "/images/projectDetails/PaysoMerchant/22.png",
+        width: 2400,
+        height: 4942,
+        alt: "Payso Merchant low-fidelity wireframes and transaction states",
+        label: "Interaction structure",
+        title: "Wireframes",
+        subtitle: "Testing structure before styling.",
+        description:
+          "Ms. Fayalina Chen created and validated hierarchy, payment flows, and transaction states, allowing me to focus on visual direction.",
+      },
+      {
+        src: "/images/projectDetails/PaysoMerchant/3.png",
+        width: 2400,
+        height: 8584,
+        alt: "Final Payso Merchant screens using the shared Payso color palette",
+        label: "Final experience",
+        title: "Final Design",
+        subtitle: "One visual system across Payso.",
+        description:
+          "Since Payso Merchant and Payso Cashier are connected products, the Product Department chose the same colour palette to create a consistent, comfortable, and easy-to-navigate experience.",
+      },
     ],
     nextImage: "/images/projectDetails/PaysoGraphics/image1.png",
     nextTitle: "Payso Graphics",
