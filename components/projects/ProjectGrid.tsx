@@ -12,7 +12,11 @@ const ProjectGrid = ({ projects }: ProjectGridProps) => {
     <div className="projects-content grid gap-x-8 gap-y-12 md:grid-cols-2 md:gap-y-16">
       {projects.map(
         ({ title, year, description, imageSrc, imageAlt, category }) => (
-          <article className="projects-wrapper" key={title}>
+          <article
+            data-project-detail-reveal
+            className="projects-wrapper"
+            key={title}
+          >
             <div className="projects-images group relative">
               <Link
                 href={`/projects/${encodeURIComponent(title)}`}

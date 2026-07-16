@@ -1,6 +1,193 @@
 .contact-section {
-    background: url("/images/hero.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
+  isolation: isolate;
+}
+
+.contact-section::before {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  background:
+    radial-gradient(circle at 12% 8%, rgba(255, 255, 255, 0.1), transparent 28%),
+    radial-gradient(circle at 88% 74%, rgba(118, 118, 118, 0.11), transparent 32%),
+    #090909;
+  content: "";
+}
+
+.contact-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+  background-size: 64px 64px;
+  mask-image: linear-gradient(to bottom, black, transparent 74%);
+  opacity: 0.55;
+  pointer-events: none;
+}
+
+.contact-glow {
+  position: absolute;
+  top: 18%;
+  right: -14rem;
+  width: 34rem;
+  height: 34rem;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.06);
+  filter: blur(90px);
+  pointer-events: none;
+}
+
+.contact-feature {
+  position: relative;
+  overflow: hidden;
+  padding-block: 2.75rem 3.5rem;
+  isolation: isolate;
+}
+
+.contact-copy {
+  position: relative;
+  z-index: 3;
+}
+
+.contact-copy h2 {
+  text-shadow: 0 4px 34px rgba(0, 0, 0, 0.78);
+}
+
+.contact-art {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  aspect-ratio: 1.85 / 1;
+  margin-top: 2.5rem;
+  overflow: hidden;
+  visibility: visible;
+  opacity: 1;
+  border-radius: 20px;
+  background: #050505;
+  will-change: clip-path;
+}
+
+.contact-art::before {
+  position: absolute;
+  z-index: 2;
+  inset: 0;
+  background:
+    linear-gradient(90deg, #090909 0%, rgba(9, 9, 9, 0.65) 10%, transparent 34%),
+    linear-gradient(180deg, transparent 62%, rgba(9, 9, 9, 0.28) 100%);
+  content: "";
+  pointer-events: none;
+}
+
+.contact-art::after {
+  position: absolute;
+  z-index: 3;
+  inset: 0;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: inherit;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+  background-size: 42px 42px;
+  content: "";
+  pointer-events: none;
+}
+
+.contact-art-media {
+  position: absolute;
+  inset: -1.5%;
+  will-change: transform;
+}
+
+.contact-art-image {
+  object-fit: cover;
+  object-position: 55% center;
+  filter: grayscale(1) saturate(0) contrast(1.14) brightness(0.96);
+  will-change: transform;
+}
+
+@media (min-width: 1024px) {
+  .contact-feature {
+    display: flex;
+    min-height: clamp(31rem, 48vw, 39rem);
+    align-items: center;
+    margin-bottom: 1.25rem;
+    padding-block: 4rem 6rem;
+  }
+
+  .contact-copy {
+    width: min(72%, 60rem);
+  }
+
+  .contact-art {
+    position: absolute;
+    top: 7%;
+    right: 0;
+    bottom: 3.75rem;
+    width: min(72%, 54rem);
+    aspect-ratio: auto;
+    margin-top: 0;
+  }
+
+  .contact-art::before {
+    background:
+      linear-gradient(
+        90deg,
+        #090909 0%,
+        #090909 16%,
+        rgba(9, 9, 9, 0.97) 31%,
+        rgba(9, 9, 9, 0.78) 48%,
+        rgba(9, 9, 9, 0.28) 66%,
+        transparent 78%
+      ),
+      linear-gradient(180deg, transparent 62%, rgba(9, 9, 9, 0.28) 100%);
+  }
+
+  .contact-art::after {
+    -webkit-mask-image: linear-gradient(
+      to right,
+      transparent 0%,
+      rgba(0, 0, 0, 0.18) 24%,
+      black 55%,
+      black 100%
+    );
+    mask-image: linear-gradient(
+      to right,
+      transparent 0%,
+      rgba(0, 0, 0, 0.18) 24%,
+      black 55%,
+      black 100%
+    );
+  }
+}
+
+@media (max-width: 639px) {
+  .contact-grid {
+    background-size: 40px 40px;
+  }
+
+  .contact-glow {
+    top: 24%;
+    right: -20rem;
+  }
+
+  .contact-feature {
+    padding-block: 2.5rem 3rem;
+  }
+
+  .contact-art {
+    width: calc(100% + 1rem);
+    aspect-ratio: 1.25 / 1;
+    margin-top: 2rem;
+    margin-left: -0.5rem;
+  }
+
+  .contact-art::before {
+    background:
+      linear-gradient(90deg, #090909 0%, transparent 27%),
+      linear-gradient(180deg, transparent 60%, rgba(9, 9, 9, 0.22) 100%);
+  }
+
+  .contact-art-image {
+    object-position: 60% center;
+  }
 }
