@@ -221,7 +221,8 @@ const About = () => {
                   <div className="relative flex h-full flex-col">
                     <div className="about-card-eyebrow flex items-center pr-28 font-nm-book text-[11px] uppercase tracking-[0.16em] text-white/55 sm:pr-32 sm:text-xs">
                       <span className="font-nm-medium font-medium text-white/90">
-                        About / Steven Cabugos
+                        <span className="hidden sm:inline">About /{" "}</span>
+                        Steven Cabugos
                       </span>
                     </div>
 
