@@ -127,7 +127,7 @@ const Pricing = ({ initialCountry, initialCurrency }: PricingProps) => {
             </p>
             <h2
               id="pricing-heading"
-              className="text-[32px] font-nm-medium font-medium leading-[30px] text-black md:text-6xl md:leading-[0.95] lg:text-7xl xl:text-8xl xl:leading-[77px]"
+              className="font-nm-medium text-[clamp(2rem,6vw,4.75rem)] font-medium leading-[0.96] tracking-[-0.035em] text-black"
             >
               Pricing
             </h2>

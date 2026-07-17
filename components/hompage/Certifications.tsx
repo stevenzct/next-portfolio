@@ -35,7 +35,7 @@ function Certifications() {
             Certifications
           </p>
           <div className="mb-7 flex items-end justify-between gap-2.5 sm:gap-3 md:mb-12 lg:mb-16">
-            <h2 className="min-w-0 text-start font-nm-medium text-[28px] font-medium leading-[28px] text-black sm:text-[32px] sm:leading-[30px] md:text-6xl md:leading-[0.95] lg:text-7xl xl:text-8xl xl:leading-[77px]">
+            <h2 className="min-w-0 text-start font-nm-medium text-[28px] font-medium leading-[0.96] tracking-[-0.035em] text-black sm:text-[32px] md:text-[clamp(2.75rem,6vw,4.75rem)]">
               Learning &amp; Growth
             </h2>
             <div className="flex shrink-0 justify-end gap-2 sm:gap-3">

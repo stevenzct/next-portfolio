@@ -149,13 +149,13 @@ const ProjectPage = async ({ params }: PageProps) => {
           </p>
           <h1
             data-project-detail-intro
-            className="max-w-5xl break-words text-start font-nm-medium text-[clamp(2.8rem,8vw,6rem)] font-medium leading-[0.94] tracking-[-0.035em] text-[var(--project-ink)]"
+            className="max-w-5xl break-words text-start font-nm-medium text-[clamp(2.5rem,6.5vw,5rem)] font-medium leading-[0.95] tracking-[-0.035em] text-[var(--project-ink)]"
           >
             {project.title}
           </h1>
           <p
             data-project-detail-intro
-            className="mt-5 max-w-4xl text-start font-nm-book text-base leading-7 text-[var(--project-copy)] md:text-xl md:leading-8 lg:text-2xl lg:leading-9"
+            className="mt-5 max-w-3xl text-start font-nm-book text-base leading-7 text-[var(--project-copy)] md:text-lg md:leading-8 lg:text-xl"
           >
             {project.description}
           </p>
@@ -239,7 +239,7 @@ const ProjectPage = async ({ params }: PageProps) => {
               <p className="font-nm-book text-sm uppercase tracking-[0.14em] text-[var(--project-kicker)]">
                 Project Overview
               </p>
-              <h2 className="mt-3 max-w-3xl font-nm-medium text-[32px] font-medium leading-[1.05] tracking-[-0.025em] text-[var(--project-ink)] md:text-[52px]">
+              <h2 className="mt-3 max-w-3xl font-nm-medium text-[30px] font-medium leading-[1.05] tracking-[-0.025em] text-[var(--project-ink)] md:text-[46px]">
                 The thinking behind the work.
               </h2>
             </div>
@@ -294,7 +294,7 @@ const ProjectPage = async ({ params }: PageProps) => {
                   <p className="font-nm-book text-sm uppercase tracking-[0.14em] text-[var(--project-kicker)]">
                     Selected Work
                   </p>
-                  <h2 className="mt-2 font-nm-medium text-[32px] font-medium leading-[1.05] tracking-[-0.025em] text-[var(--project-ink)] md:text-[52px]">
+                  <h2 className="mt-2 font-nm-medium text-[30px] font-medium leading-[1.05] tracking-[-0.025em] text-[var(--project-ink)] md:text-[46px]">
                     Interface Gallery
                   </h2>
                 </div>
@@ -345,7 +345,7 @@ const ProjectPage = async ({ params }: PageProps) => {
                           )}
 
                           {galleryImage.title && (
-                            <h3 className="mt-4 max-w-[15ch] break-words text-left text-balance font-nm-medium text-[clamp(2.65rem,6.5vw,5.5rem)] font-medium leading-[0.92] tracking-[-0.05em] text-[var(--project-ink)]">
+                            <h3 className="mt-4 max-w-[15ch] break-words text-left text-balance font-nm-medium text-[clamp(2.25rem,5.4vw,4.5rem)] font-medium leading-[0.94] tracking-[-0.045em] text-[var(--project-ink)]">
                               {galleryImage.title}
                             </h3>
                           )}
@@ -434,13 +434,13 @@ const ProjectPage = async ({ params }: PageProps) => {
               </p>
               <h2
                 data-next-project-content
-                className="max-w-5xl break-words text-center font-nm-medium text-[clamp(2.8rem,8vw,6rem)] font-medium leading-[0.94] tracking-[-0.035em] text-white"
+                className="max-w-5xl break-words text-center font-nm-medium text-[clamp(2.5rem,6.5vw,5rem)] font-medium leading-[0.95] tracking-[-0.035em] text-white"
               >
                 {navigationTitle}
               </h2>
               <p
                 data-next-project-content
-                className="mt-5 max-w-3xl text-center font-nm-book text-base leading-7 text-white/80 md:text-xl md:leading-8 lg:text-2xl lg:leading-9"
+                className="mt-5 max-w-3xl text-center font-nm-book text-base leading-7 text-white/80 md:text-lg md:leading-8 lg:text-xl"
               >
                 {navigationDescription}
               </p>

@@ -41,24 +41,23 @@ const Hero = () => {
 
               <h1
                 id="hero-title"
-                className={`${styles["hero-heading"]} max-w-[940px] text-center font-nm-medium text-[clamp(2.75rem,13vw,3.25rem)] font-medium leading-[0.9] tracking-[-0.05em] text-black sm:text-[clamp(3.75rem,8vw,4.5rem)] lg:text-[clamp(4.5rem,6.4vw,7rem)] lg:leading-[0.96] xl:text-left`}
+                className={`${styles["hero-heading"]} mx-auto max-w-max text-center font-nm-medium text-[clamp(1.875rem,9vw,3.1rem)] font-medium leading-[0.92] tracking-[-0.055em] text-black sm:text-[clamp(3.2rem,7.1vw,4.3rem)] sm:leading-[0.94] xl:mx-0 xl:text-left xl:text-[clamp(3.55rem,4.3vw,4.65rem)]`}
               >
                 <span className={styles["hero-title-line"]}>
-                  Designed
+                  Designed to Impress.
                 </span>
                 <span
-                  className={styles["hero-title-line"]}
+                  className={`${styles["hero-title-line"]} ${styles["hero-title-emphasis"]}`}
                 >
-                  With Purpose
+                  Built to Convert.
                 </span>
               </h1>
 
               <div
-                className={`${styles["hero-reveal"]} ${styles["hero-reveal-late"]} mx-auto mt-7 max-w-[540px] text-center lg:mt-6 xl:mx-0 xl:text-left`}
+                className={`${styles["hero-reveal"]} ${styles["hero-reveal-late"]} mx-auto mt-6 max-w-[500px] text-center sm:mt-7 xl:mx-0 xl:text-left`}
               >
-                <p className={`${styles["hero-copy"]} text-balance font-nm-book text-[17px] leading-[1.5] text-black/65 sm:text-[21px] sm:leading-8`}>
-                  Building clean, user-focused websites and apps that turn
-                  ideas into polished digital products
+                <p className={`${styles["hero-copy"]} text-pretty font-nm-book text-base leading-[1.55] text-black/65 sm:text-lg sm:leading-[1.6]`}>
+                  I create custom websites, mobile apps, and software solutions that help businesses stand out, connect with customers, and achieve real results.
                 </p>
               </div>
 

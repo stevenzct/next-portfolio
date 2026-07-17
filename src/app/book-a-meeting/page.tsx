@@ -24,10 +24,10 @@ export default function BookMeetingPage() {
         </Link>
 
         <div className="mb-8 mt-10 md:mb-12">
-          <p className="booking-kicker mb-2 font-nm-book text-base md:text-xl lg:text-2xl">
+          <p className="booking-kicker mb-2 font-nm-book text-sm md:text-base">
             Let&apos;s connect
           </p>
-          <h1 className="booking-title font-nm-medium text-[42px] font-medium leading-[0.95] text-black md:text-6xl lg:text-7xl xl:text-8xl">
+          <h1 className="booking-title font-nm-medium text-[clamp(2.625rem,6vw,4.75rem)] font-medium leading-[0.96] tracking-[-0.035em] text-black">
             Book a Meeting
           </h1>
           <p className="booking-copy mt-5 max-w-2xl font-nm-book text-base leading-6 text-[#4A4A4A] md:text-lg md:leading-7">

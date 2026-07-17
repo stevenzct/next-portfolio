@@ -49,7 +49,7 @@ const ProjectGrid = ({ projects }: ProjectGridProps) => {
             </div>
             <div className="projects-title">
               <div className="mt-4 flex items-start justify-between gap-4 md:mt-6">
-                <h2 className="project-card-title mb-0 font-nm-medium text-2xl font-medium text-[var(--project-ink)] md:text-[28px] xl:text-4xl">
+                <h2 className="project-card-title mb-0 font-nm-medium text-2xl font-medium leading-tight text-[var(--project-ink)] md:text-[28px] xl:text-[32px]">
                   {title}
                 </h2>
                 <time
@@ -59,7 +59,7 @@ const ProjectGrid = ({ projects }: ProjectGridProps) => {
                   {year}
                 </time>
               </div>
-              <p className="project-card-description font-nm-book text-base leading-normal text-[var(--project-card-copy)] md:text-xl xl:text-2xl">
+              <p className="project-card-description font-nm-book text-base leading-relaxed text-[var(--project-card-copy)] md:text-lg xl:text-xl">
                 {description}
               </p>
             </div>

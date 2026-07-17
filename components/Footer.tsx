@@ -45,7 +45,7 @@ const Footer = () => {
 
               <h2
                 id="contact-heading"
-                className="max-w-[820px] font-nm-medium text-[clamp(2.85rem,12vw,4.25rem)] font-medium leading-[0.96] tracking-[-0.05em] text-white sm:text-[clamp(4rem,8vw,6rem)] lg:text-[clamp(4.75rem,6.6vw,6.75rem)]"
+                className="max-w-[820px] font-nm-medium text-[clamp(2.5rem,10.5vw,3.75rem)] font-medium leading-[0.96] tracking-[-0.05em] text-white sm:text-[clamp(3.75rem,7vw,5rem)] lg:text-[clamp(4.5rem,5.5vw,5.5rem)]"
               >
                 Let&apos;s build
                 <span className={`${styles["contact-heading-accent"]} block text-white/70`}>

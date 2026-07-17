@@ -19,13 +19,13 @@ const AllProjectsPage = () => {
           <div className="app-container mx-6 w-auto max-w-[1200px] md:mx-12 lg:mx-auto lg:w-[90%] xl:w-[88%] 2xl:w-[75%]">
             <p
               data-project-detail-intro
-              className="projects-index-kicker mb-2 font-nm-book text-base text-[var(--project-index-kicker)] md:text-xl lg:text-2xl"
+              className="projects-index-kicker mb-2 font-nm-book text-sm text-[var(--project-index-kicker)] md:text-base"
             >
               Case Studies
             </p>
             <h1
               data-project-detail-intro
-              className="mb-8 w-auto text-start font-nm-medium text-[45px] font-medium leading-[0.98] text-[var(--project-ink)] md:mb-12 md:text-6xl lg:mb-16 lg:text-7xl xl:text-8xl"
+              className="mb-8 w-auto text-start font-nm-medium text-[clamp(2.625rem,6vw,4.75rem)] font-medium leading-[0.96] tracking-[-0.035em] text-[var(--project-ink)] md:mb-12 lg:mb-16"
             >
               Featured Projects
             </h1>

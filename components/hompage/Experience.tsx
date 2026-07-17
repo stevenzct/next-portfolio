@@ -34,7 +34,7 @@ function Experience() {
             Work
           </p>
           <div className="mb-7 flex items-end justify-between gap-3 md:mb-12 lg:mb-16">
-            <h2 className="min-w-0 text-start font-nm-medium text-[32px] font-medium leading-[30px] text-black md:text-6xl md:leading-[0.95] lg:text-7xl xl:text-8xl xl:leading-[77px]">
+            <h2 className="min-w-0 text-start font-nm-medium text-[clamp(2rem,6vw,4.75rem)] font-medium leading-[0.96] tracking-[-0.035em] text-black">
               Experience
             </h2>
 
