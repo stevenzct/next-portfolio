@@ -90,12 +90,12 @@ const ProjectLinksMenu = ({ links }: ProjectLinksMenuProps) => {
         aria-controls="project-links-menu"
         onClick={() => setIsOpen((open) => !open)}
         onKeyDown={handleButtonKeyDown}
-        className="inline-flex min-h-11 touch-manipulation items-center gap-2 rounded-[8px] border border-[#D6D6D6] bg-white px-3.5 py-2 font-nm-book text-sm text-[#222222] transition-colors duration-300 hover:border-[#BDBDBD] hover:bg-[#F8F8F8] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+        className="portfolio-project-links-trigger inline-flex min-h-11 touch-manipulation items-center gap-2 rounded-[8px] border border-[var(--project-line)] bg-[var(--project-canvas)] px-3.5 py-2 font-nm-book text-sm text-[var(--project-control-ink)] transition-colors duration-300 hover:border-[var(--project-line-strong)] hover:bg-[var(--project-surface-hover)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--project-focus)]"
       >
         Select Links
         <ChevronDownIcon
           aria-hidden="true"
-          className={`-mr-1 size-5 text-gray-400 transition-transform duration-200 ${
+          className={`-mr-1 size-5 text-[var(--project-chevron)] transition-transform duration-200 ${
             isOpen ? "rotate-180" : ""
           }`}
         />
@@ -110,7 +110,7 @@ const ProjectLinksMenu = ({ links }: ProjectLinksMenuProps) => {
             role="menu"
             aria-label="Project links"
             onKeyDown={handleMenuKeyDown}
-            className="origin-top-left rounded-[12px] border border-black/10 bg-white p-1.5 shadow-[0_18px_45px_rgba(0,0,0,0.14)] outline-none md:origin-top-right"
+            className="portfolio-project-links-panel origin-top-left rounded-[12px] border border-[var(--project-line-soft)] bg-[var(--project-canvas)] p-1.5 shadow-[0_18px_45px_var(--project-menu-shadow)] outline-none md:origin-top-right"
           >
             {links.map((item, index) => (
               <a
@@ -123,11 +123,11 @@ const ProjectLinksMenu = ({ links }: ProjectLinksMenuProps) => {
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => setIsOpen(false)}
-                className="flex min-h-11 touch-manipulation items-center justify-between gap-4 rounded-[8px] px-3 py-2.5 font-nm-book text-sm text-[#242424] transition-colors hover:bg-[#F3F3F3] focus:bg-[#F3F3F3] focus:outline-none"
+                className="portfolio-project-links-item flex min-h-11 touch-manipulation items-center justify-between gap-4 rounded-[8px] px-3 py-2.5 font-nm-book text-sm text-[var(--project-value)] transition-colors hover:bg-[var(--project-surface-hover)] focus:bg-[var(--project-surface-hover)] focus:outline-none"
               >
                 <span>{item.label}</span>
                 <ArrowUpRightIcon
-                  className="h-4 w-4 shrink-0 text-[#777777]"
+                  className="h-4 w-4 shrink-0 text-[var(--project-muted)]"
                   aria-hidden="true"
                 />
               </a>

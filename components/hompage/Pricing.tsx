@@ -112,11 +112,11 @@ const Pricing = ({ initialCountry, initialCurrency }: PricingProps) => {
     >
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_12%_18%,rgba(0,0,0,0.045),transparent_30%),radial-gradient(circle_at_88%_76%,rgba(0,0,0,0.035),transparent_32%)]"
+        className="pricing-atmosphere pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_12%_18%,rgba(0,0,0,0.045),transparent_30%),radial-gradient(circle_at_88%_76%,rgba(0,0,0,0.035),transparent_32%)]"
       />
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-x-0 bottom-0 h-24 bg-[linear-gradient(to_bottom,transparent,rgba(0,0,0,0.035))]"
+        className="pricing-atmosphere pointer-events-none absolute inset-x-0 bottom-0 h-24 bg-[linear-gradient(to_bottom,transparent,rgba(0,0,0,0.035))]"
       />
 
       <div className="container-wrapper relative z-10 w-full">
@@ -134,22 +134,22 @@ const Pricing = ({ initialCountry, initialCurrency }: PricingProps) => {
           </div>
 
           <div className="grid items-stretch gap-6 md:gap-8 xl:grid-cols-[0.82fr_1.18fr] xl:gap-10">
-            <div className="relative flex h-full flex-col overflow-hidden rounded-[20px] border border-black/[0.06] bg-white p-5 shadow-[0_24px_60px_rgba(0,0,0,0.06)] sm:p-7 md:p-10">
+            <div className="pricing-summary-card relative flex h-full flex-col overflow-hidden rounded-[20px] border border-black/[0.06] bg-white p-5 shadow-[0_24px_60px_rgba(0,0,0,0.06)] sm:p-7 md:p-10">
               <div
                 aria-hidden="true"
-                className="absolute -right-20 -top-20 h-64 w-64 rounded-full bg-[#F0F0ED] blur-3xl"
+                className="pricing-summary-glow absolute -right-20 -top-20 h-64 w-64 rounded-full bg-[#F0F0ED] blur-3xl"
               />
 
               <div className="relative flex h-full flex-col">
-                <span className="inline-flex w-fit items-center gap-2 rounded-full border border-[#DEDEDA] bg-[#F7F7F5] px-3 py-1.5 font-nm-medium text-[10px] font-medium uppercase tracking-[0.14em] text-[#242424] sm:text-xs">
-                  <span className="h-2 w-2 rounded-full bg-black" />
+                <span className="pricing-kicker inline-flex w-fit items-center gap-2 rounded-full border border-[#DEDEDA] bg-[#F7F7F5] px-3 py-1.5 font-nm-medium text-[10px] font-medium uppercase tracking-[0.14em] text-[#242424] sm:text-xs">
+                  <span className="pricing-kicker-dot h-2 w-2 rounded-full bg-black" />
                   Monthly creative partner
                 </span>
 
-                <h3 className="mt-6 max-w-xl font-nm-medium text-[30px] font-medium leading-[1.05] tracking-[-0.025em] text-black sm:text-[38px] md:text-[46px]">
+                <h3 className="pricing-summary-heading mt-6 max-w-xl font-nm-medium text-[30px] font-medium leading-[1.05] tracking-[-0.025em] text-black sm:text-[38px] md:text-[46px]">
                   One plan for design, product, and development.
                 </h3>
-                <p className="mt-5 max-w-xl font-nm-book text-base leading-6 text-[#555555] md:text-lg md:leading-7">
+                <p className="pricing-summary-copy mt-5 max-w-xl font-nm-book text-base leading-6 text-[#555555] md:text-lg md:leading-7">
                   Move from idea to launch with one focused partner across your
                   product experience&mdash;without juggling separate design and
                   development retainers.
@@ -160,9 +160,9 @@ const Pricing = ({ initialCountry, initialCurrency }: PricingProps) => {
                     (benefit) => (
                       <div
                         key={benefit}
-                        className="flex min-h-14 items-center gap-3 rounded-[10px] border border-[#E5E5E1] bg-[#F7F7F5] px-3.5 py-3 font-nm-book text-sm text-[#242424] transition-colors duration-300 hover:border-[#CFCFCA] hover:bg-white"
+                        className="pricing-benefit flex min-h-14 items-center gap-3 rounded-[10px] border border-[#E5E5E1] bg-[#F7F7F5] px-3.5 py-3 font-nm-book text-sm text-[#242424] transition-colors duration-300 hover:border-[#CFCFCA] hover:bg-white"
                       >
-                        <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-black text-white">
+                        <span className="pricing-benefit-icon flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-black text-white">
                           <CheckIcon
                             className="h-3.5 w-3.5"
                             strokeWidth={2.2}
@@ -177,49 +177,49 @@ const Pricing = ({ initialCountry, initialCurrency }: PricingProps) => {
               </div>
             </div>
 
-            <div className="relative flex h-full flex-col overflow-hidden rounded-[20px] bg-black p-5 text-white shadow-[0_28px_70px_rgba(0,0,0,0.18)] sm:p-7 md:p-10">
+            <div className="pricing-offer-card relative flex h-full flex-col overflow-hidden rounded-[20px] bg-black p-5 text-white shadow-[0_28px_70px_rgba(0,0,0,0.18)] sm:p-7 md:p-10">
               <div
                 aria-hidden="true"
-                className="absolute -right-24 -top-24 h-80 w-80 rounded-full bg-white/[0.12] blur-3xl"
+                className="pricing-offer-glow absolute -right-24 -top-24 h-80 w-80 rounded-full bg-white/[0.12] blur-3xl"
               />
               <div
                 aria-hidden="true"
-                className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,rgba(255,255,255,0.08),transparent_38%)]"
+                className="pricing-offer-atmosphere absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,rgba(255,255,255,0.08),transparent_38%)]"
               />
 
               <div className="relative flex h-full flex-col">
                 <div className="flex flex-col gap-5 sm:flex-row sm:items-start sm:justify-between">
                   <div>
-                    <p className="font-nm-book text-xs uppercase tracking-[0.14em] text-white/50">
+                    <p className="pricing-offer-eyebrow font-nm-book text-xs uppercase tracking-[0.14em] text-white/50">
                       Main offer
                     </p>
-                    <p className="mt-2 font-nm-medium text-xl font-medium">
+                    <p className="pricing-offer-name mt-2 font-nm-medium text-xl font-medium">
                       Full-service monthly plan
                     </p>
                   </div>
 
-                  <div className="inline-flex w-fit items-center gap-2 rounded-full border border-white/15 bg-white/[0.08] px-3 py-2 font-nm-book text-xs text-white/75 backdrop-blur-sm sm:text-sm">
-                    <span className="h-2 w-2 rounded-full bg-emerald-400 shadow-[0_0_0_4px_rgba(52,211,153,0.12)]" />
+                  <div className="pricing-location-pill inline-flex w-fit items-center gap-2 rounded-full border border-white/15 bg-white/[0.08] px-3 py-2 font-nm-book text-xs text-white/75 backdrop-blur-sm sm:text-sm">
+                    <span className="pricing-status-dot h-2 w-2 rounded-full bg-emerald-400 shadow-[0_0_0_4px_rgba(52,211,153,0.12)]" />
                     Location-based &middot; {currency}
                   </div>
                 </div>
 
-                <div className="mt-8 rounded-[16px] border border-white/10 bg-white/[0.06] p-4 sm:p-5 md:mt-10 md:p-6">
-                  <p className="mb-3 font-nm-book text-xs uppercase tracking-[0.14em] text-white/50">
+                <div className="pricing-investment-card mt-8 rounded-[16px] border border-white/10 bg-white/[0.06] p-4 sm:p-5 md:mt-10 md:p-6">
+                  <p className="pricing-offer-eyebrow mb-3 font-nm-book text-xs uppercase tracking-[0.14em] text-white/50">
                     Monthly investment
                   </p>
                   <div
                     aria-live="polite"
                     className="flex min-w-0 flex-wrap items-end gap-x-3 gap-y-1"
                   >
-                    <span className="min-w-0 break-words font-nm-medium text-[clamp(2.25rem,7vw,4.5rem)] font-medium leading-none tracking-[-0.045em] tabular-nums">
+                    <span className="pricing-price min-w-0 break-words font-nm-medium text-[clamp(2.25rem,7vw,4.5rem)] font-medium leading-none tracking-[-0.045em] tabular-nums">
                       {formattedPrice}
                     </span>
-                    <span className="pb-1 font-nm-book text-sm text-white/55 md:pb-2 md:text-lg">
+                    <span className="pricing-price-suffix pb-1 font-nm-book text-sm text-white/55 md:pb-2 md:text-lg">
                       / month
                     </span>
                   </div>
-                  <p className="mt-3 min-h-5 font-nm-book text-xs leading-5 text-white/50 sm:text-sm">
+                  <p className="pricing-rate-copy mt-3 min-h-5 font-nm-book text-xs leading-5 text-white/50 sm:text-sm">
                     {currency === "PHP"
                       ? "Base monthly price in Philippine pesos"
                       : `Converted from ${basePrice}/month. Exchange rates are indicative.`}
@@ -228,10 +228,10 @@ const Pricing = ({ initialCountry, initialCurrency }: PricingProps) => {
 
                 <div className="py-8 md:py-10">
                   <div className="flex items-center justify-between gap-4">
-                    <p className="font-nm-medium text-lg font-medium">
+                    <p className="pricing-included-heading font-nm-medium text-lg font-medium">
                       Everything included
                     </p>
-                    <span className="shrink-0 rounded-full border border-white/10 bg-white/[0.06] px-2.5 py-1 font-nm-book text-xs text-white/55">
+                    <span className="pricing-service-count shrink-0 rounded-full border border-white/10 bg-white/[0.06] px-2.5 py-1 font-nm-book text-xs text-white/55">
                       {PRICING_SERVICES.length} services
                     </span>
                   </div>
@@ -243,15 +243,15 @@ const Pricing = ({ initialCountry, initialCurrency }: PricingProps) => {
                       return (
                         <li
                           key={title}
-                          className="group/service flex min-h-16 items-center gap-3 rounded-[10px] border border-white/10 bg-white/[0.055] px-3.5 py-3 transition-colors duration-300 hover:border-white/20 hover:bg-white/[0.09]"
+                          className="pricing-service-item group/service flex min-h-16 items-center gap-3 rounded-[10px] border border-white/10 bg-white/[0.055] px-3.5 py-3 transition-colors duration-300 hover:border-white/20 hover:bg-white/[0.09]"
                         >
-                          <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-white text-black transition-transform duration-300 motion-safe:group-hover/service:scale-105">
+                          <span className="pricing-service-icon flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-white text-black transition-transform duration-300 motion-safe:group-hover/service:scale-105">
                             <ServiceIcon
                               aria-hidden="true"
                               className="h-[18px] w-[18px]"
                             />
                           </span>
-                          <span className="font-nm-book text-sm leading-5 text-white/80">
+                          <span className="pricing-service-label font-nm-book text-sm leading-5 text-white/80">
                             {title}
                           </span>
                         </li>
@@ -265,7 +265,7 @@ const Pricing = ({ initialCountry, initialCurrency }: PricingProps) => {
                     href="https://tally.so/r/Y5gQDz"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="group/primary inline-flex h-12 cursor-pointer items-center justify-center gap-2 rounded-[10px] bg-white px-5 font-nm-medium font-medium text-black transition-all duration-300 hover:bg-[#E8E8E8] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white motion-safe:hover:-translate-y-0.5"
+                    className="pricing-primary-cta group/primary inline-flex h-12 cursor-pointer items-center justify-center gap-2 rounded-[10px] bg-white px-5 font-nm-medium font-medium text-black transition-all duration-300 hover:bg-[#E8E8E8] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white motion-safe:hover:-translate-y-0.5"
                   >
                     Start a Project
                     <ArrowUpRightIcon
@@ -275,7 +275,7 @@ const Pricing = ({ initialCountry, initialCurrency }: PricingProps) => {
                   </Link>
                   <Link
                     href="/book-a-meeting"
-                    className="inline-flex h-12 items-center justify-center gap-2 rounded-[10px] border border-white/20 px-5 font-nm-medium font-medium text-white transition-colors duration-300 hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+                    className="pricing-secondary-cta inline-flex h-12 items-center justify-center gap-2 rounded-[10px] border border-white/20 px-5 font-nm-medium font-medium text-white transition-colors duration-300 hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
                   >
                     <CalendarDaysIcon className="h-4 w-4" aria-hidden="true" />
                     Book a Meeting

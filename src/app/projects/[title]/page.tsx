@@ -80,8 +80,8 @@ const ProjectPage = async ({ params }: PageProps) => {
 
   if (!project) {
     return (
-      <div className="container-wrapper flex min-h-screen items-center justify-center px-6 pt-[120px] md:px-12 md:pt-36">
-        <h1 className="text-center font-nm-medium text-3xl font-medium text-black md:text-5xl">
+      <div className="project-detail-empty container-wrapper flex min-h-screen items-center justify-center bg-[var(--project-canvas)] px-6 pt-[120px] md:px-12 md:pt-36">
+        <h1 className="text-center font-nm-medium text-3xl font-medium text-[var(--project-ink)] md:text-5xl">
           Project details coming soon
         </h1>
       </div>
@@ -128,14 +128,14 @@ const ProjectPage = async ({ params }: PageProps) => {
   };
 
   return (
-    <ProjectDetailMotion className="overflow-x-clip bg-white pt-[120px] md:pt-36 lg:pt-[160px]">
+    <ProjectDetailMotion className="project-detail-page overflow-x-clip bg-[var(--project-canvas)] pt-[120px] md:pt-36 lg:pt-[160px]">
       <JsonLd data={projectJsonLd} />
       <div className="container-wrapper h-auto w-full">
         <div className="app-container mx-6 w-auto max-w-[1200px] pb-8 md:mx-12 md:pb-12 lg:mx-auto lg:w-[90%] xl:w-[88%] 2xl:w-[75%]">
           <Link
             data-project-detail-intro
             href="/projects"
-            className="mb-8 inline-flex items-center gap-2 rounded-lg border border-[#D6D6D6] px-3.5 py-2 font-nm-book text-sm text-[#242424] transition-colors duration-300 hover:bg-[#F8F8F8] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black md:mb-10"
+            className="project-detail-back mb-8 inline-flex items-center gap-2 rounded-lg border border-[var(--project-line)] px-3.5 py-2 font-nm-book text-sm text-[var(--project-value)] transition-colors duration-300 hover:bg-[var(--project-surface-hover)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--project-focus)] md:mb-10"
           >
             <ArrowLeftIcon className="h-4 w-4" aria-hidden="true" />
             All Projects
@@ -143,64 +143,64 @@ const ProjectPage = async ({ params }: PageProps) => {
 
           <p
             data-project-detail-intro
-            className="mb-3 font-nm-book text-sm uppercase tracking-[0.14em] text-[#666666] md:text-base"
+            className="mb-3 font-nm-book text-sm uppercase tracking-[0.14em] text-[var(--project-eyebrow)] md:text-base"
           >
             Case Study
           </p>
           <h1
             data-project-detail-intro
-            className="max-w-5xl break-words text-start font-nm-medium text-[clamp(2.8rem,8vw,6rem)] font-medium leading-[0.94] tracking-[-0.035em] text-black"
+            className="max-w-5xl break-words text-start font-nm-medium text-[clamp(2.8rem,8vw,6rem)] font-medium leading-[0.94] tracking-[-0.035em] text-[var(--project-ink)]"
           >
             {project.title}
           </h1>
           <p
             data-project-detail-intro
-            className="mt-5 max-w-4xl text-start font-nm-book text-base leading-7 text-[#4A4A4A] md:text-xl md:leading-8 lg:text-2xl lg:leading-9"
+            className="mt-5 max-w-4xl text-start font-nm-book text-base leading-7 text-[var(--project-copy)] md:text-xl md:leading-8 lg:text-2xl lg:leading-9"
           >
             {project.description}
           </p>
 
           <dl
             data-project-detail-intro
-            className="relative z-30 mt-10 grid grid-cols-1 gap-x-8 gap-y-6 border-t border-[#D6D6D6] py-6 sm:grid-cols-2 md:mt-12 md:py-8 xl:grid-cols-4 xl:gap-y-0"
+            className="project-detail-meta relative z-30 mt-10 grid grid-cols-1 gap-x-8 gap-y-6 border-t border-[var(--project-line)] py-6 sm:grid-cols-2 md:mt-12 md:py-8 xl:grid-cols-4 xl:gap-y-0"
           >
             <div className="min-w-0">
-              <dt className="font-nm-book text-xs uppercase tracking-[0.12em] text-[#777777]">
+              <dt className="font-nm-book text-xs uppercase tracking-[0.12em] text-[var(--project-kicker)]">
                 Role
               </dt>
-              <dd className="mt-2 font-nm-medium text-base font-medium leading-6 text-[#242424]">
+              <dd className="mt-2 font-nm-medium text-base font-medium leading-6 text-[var(--project-value)]">
                 {project.role}
               </dd>
             </div>
 
             <div className="min-w-0">
-              <dt className="font-nm-book text-xs uppercase tracking-[0.12em] text-[#777777]">
+              <dt className="font-nm-book text-xs uppercase tracking-[0.12em] text-[var(--project-kicker)]">
                 Tech
               </dt>
-              <dd className="mt-2 font-nm-medium text-base font-medium leading-6 text-[#242424]">
+              <dd className="mt-2 font-nm-medium text-base font-medium leading-6 text-[var(--project-value)]">
                 {project.tech}
               </dd>
             </div>
 
             <div className="min-w-0">
-              <dt className="font-nm-book text-xs uppercase tracking-[0.12em] text-[#777777]">
+              <dt className="font-nm-book text-xs uppercase tracking-[0.12em] text-[var(--project-kicker)]">
                 Year
               </dt>
-              <dd className="mt-2 font-nm-medium text-base font-medium leading-6 text-[#242424]">
+              <dd className="mt-2 font-nm-medium text-base font-medium leading-6 text-[var(--project-value)]">
                 {project.year}
               </dd>
             </div>
 
             <div className="min-w-0">
-              <dt className="font-nm-book text-xs uppercase tracking-[0.12em] text-[#777777]">
+              <dt className="font-nm-book text-xs uppercase tracking-[0.12em] text-[var(--project-kicker)]">
                 Link
               </dt>
-              <dd className="mt-2 min-h-10 font-nm-medium text-base font-medium leading-6 text-[#242424]">
+              <dd className="mt-2 min-h-10 font-nm-medium text-base font-medium leading-6 text-[var(--project-value)]">
                 {project.linkItem &&
                 project.linkItem.href &&
                 project.linkItem.label ? (
                   <a
-                    className="text-[#242424] underline underline-offset-4 decoration-[#242424]"
+                    className="text-[var(--project-link)] underline decoration-[var(--project-link)] underline-offset-4"
                     href={project.linkItem.href}
                     target="_blank"
                     rel="noopener noreferrer"
@@ -221,7 +221,7 @@ const ProjectPage = async ({ params }: PageProps) => {
 
         <div
           data-project-detail-hero
-          className="relative z-0 mx-4 aspect-[4/3] overflow-hidden rounded-[16px] bg-[#F3F3F3] shadow-[0_24px_70px_rgba(0,0,0,0.10)] sm:mx-6 sm:aspect-[16/10] md:mx-8 md:rounded-[20px] lg:mx-auto lg:aspect-[16/9] lg:w-[calc(100%_-_96px)] xl:max-w-[1600px]"
+          className="project-detail-hero relative z-0 mx-4 aspect-[4/3] overflow-hidden rounded-[16px] bg-[var(--project-hero-surface)] shadow-[0_24px_70px_var(--project-shadow)] sm:mx-6 sm:aspect-[16/10] md:mx-8 md:rounded-[20px] lg:mx-auto lg:aspect-[16/9] lg:w-[calc(100%_-_96px)] xl:max-w-[1600px]"
         >
           <Image
             src={project.imageSrcMockup}
@@ -234,47 +234,47 @@ const ProjectPage = async ({ params }: PageProps) => {
         </div>
 
         <div className="app-container mx-6 mb-20 w-auto max-w-[1200px] md:mx-12 md:mb-24 lg:mx-auto lg:mb-[120px] lg:w-[90%] xl:w-[88%] 2xl:w-[75%]">
-          <section className="py-[64px] md:py-[88px] lg:py-[104px]">
+          <section className="project-detail-overview py-[64px] md:py-[88px] lg:py-[104px]">
             <div data-project-detail-reveal>
-              <p className="font-nm-book text-sm uppercase tracking-[0.14em] text-[#777777]">
+              <p className="font-nm-book text-sm uppercase tracking-[0.14em] text-[var(--project-kicker)]">
                 Project Overview
               </p>
-              <h2 className="mt-3 max-w-3xl font-nm-medium text-[32px] font-medium leading-[1.05] tracking-[-0.025em] text-black md:text-[52px]">
+              <h2 className="mt-3 max-w-3xl font-nm-medium text-[32px] font-medium leading-[1.05] tracking-[-0.025em] text-[var(--project-ink)] md:text-[52px]">
                 The thinking behind the work.
               </h2>
             </div>
 
             <div
               data-project-detail-reveal
-              className="mt-8 grid grid-cols-1 border-y border-[#D6D6D6] md:mt-12 md:grid-cols-2 xl:grid-cols-[1fr_1fr_0.72fr]"
+              className="mt-8 grid grid-cols-1 border-y border-[var(--project-line)] md:mt-12 md:grid-cols-2 xl:grid-cols-[1fr_1fr_0.72fr]"
             >
               <article className="py-6 md:pr-8 md:py-8 xl:pr-10">
-                <h3 className="font-nm-medium text-lg font-medium text-black">
+                <h3 className="font-nm-medium text-lg font-medium text-[var(--project-ink)]">
                   Assignment
                 </h3>
-                <p className="mt-3 font-nm-book text-base leading-7 text-[#4A4A4A]">
+                <p className="mt-3 font-nm-book text-base leading-7 text-[var(--project-copy)]">
                   {project.assignment}
                 </p>
               </article>
 
-              <article className="border-t border-[#D6D6D6] py-6 md:border-l md:border-t-0 md:px-8 md:py-8 xl:px-10">
-                <h3 className="font-nm-medium text-lg font-medium text-black">
+              <article className="border-t border-[var(--project-line)] py-6 md:border-l md:border-t-0 md:px-8 md:py-8 xl:px-10">
+                <h3 className="font-nm-medium text-lg font-medium text-[var(--project-ink)]">
                   Objective
                 </h3>
-                <p className="mt-3 font-nm-book text-base leading-7 text-[#4A4A4A]">
+                <p className="mt-3 font-nm-book text-base leading-7 text-[var(--project-copy)]">
                   {project.objectives}
                 </p>
               </article>
 
-              <article className="border-t border-[#D6D6D6] py-6 md:col-span-2 md:py-8 xl:col-span-1 xl:border-l xl:border-t-0 xl:pl-10">
-                <h3 className="font-nm-medium text-lg font-medium text-black">
+              <article className="border-t border-[var(--project-line)] py-6 md:col-span-2 md:py-8 xl:col-span-1 xl:border-l xl:border-t-0 xl:pl-10">
+                <h3 className="font-nm-medium text-lg font-medium text-[var(--project-ink)]">
                   Project Includes
                 </h3>
-                <ul className="mt-3 font-nm-book text-base leading-7 text-[#4A4A4A] sm:grid sm:grid-cols-2 sm:gap-x-8 xl:grid-cols-1 xl:gap-x-0">
+                <ul className="mt-3 font-nm-book text-base leading-7 text-[var(--project-copy)] sm:grid sm:grid-cols-2 sm:gap-x-8 xl:grid-cols-1 xl:gap-x-0">
                   {project.projectIncludes.map((item) => (
                     <li
                       key={item}
-                      className="border-t border-[#E5E5E5] py-2.5 first:border-t-0 first:pt-0"
+                      className="border-t border-[var(--project-line-soft)] py-2.5 first:border-t-0 first:pt-0"
                     >
                       {item}
                     </li>
@@ -284,21 +284,21 @@ const ProjectPage = async ({ params }: PageProps) => {
             </div>
           </section>
 
-          <section>
+          <section className="project-detail-gallery">
             {!hasEditorialGallery && (
               <div
                 data-project-detail-reveal
                 className="mb-6 flex flex-wrap items-end justify-between gap-3 sm:gap-6 md:mb-8"
               >
                 <div>
-                  <p className="font-nm-book text-sm uppercase tracking-[0.14em] text-[#777777]">
+                  <p className="font-nm-book text-sm uppercase tracking-[0.14em] text-[var(--project-kicker)]">
                     Selected Work
                   </p>
-                  <h2 className="mt-2 font-nm-medium text-[32px] font-medium leading-[1.05] tracking-[-0.025em] text-black md:text-[52px]">
+                  <h2 className="mt-2 font-nm-medium text-[32px] font-medium leading-[1.05] tracking-[-0.025em] text-[var(--project-ink)] md:text-[52px]">
                     Interface Gallery
                   </h2>
                 </div>
-                <p className="shrink-0 font-nm-book text-sm text-[#777777]">
+                <p className="shrink-0 font-nm-book text-sm text-[var(--project-muted)]">
                   {project.imageSrcUi.length}{" "}
                   {project.imageSrcUi.length === 1 ? "image" : "images"}
                 </p>
@@ -332,49 +332,49 @@ const ProjectPage = async ({ params }: PageProps) => {
                     className={
                       hasEditorialGallery
                         ? "min-w-0"
-                        : "overflow-hidden rounded-[16px] border border-black/[0.06] bg-[#F5F5F3] p-1.5 md:rounded-[20px] md:p-2"
+                        : "project-gallery-frame overflow-hidden rounded-[16px] border border-[var(--project-line-soft)] bg-[var(--project-surface)] p-1.5 md:rounded-[20px] md:p-2"
                     }
                   >
                     {hasCaption && (
                       <figcaption className="mb-8 text-left sm:mb-10 md:mb-12 lg:mb-16">
                         <div className="max-w-[1120px]">
                           {galleryImage.label && (
-                            <p className="font-nm-book text-[11px] uppercase tracking-[0.16em] text-[#666666] sm:text-xs">
+                            <p className="font-nm-book text-[11px] uppercase tracking-[0.16em] text-[var(--project-eyebrow)] sm:text-xs">
                               {galleryImage.label}
                             </p>
                           )}
 
                           {galleryImage.title && (
-                            <h3 className="mt-4 max-w-[15ch] break-words text-left text-balance font-nm-medium text-[clamp(2.65rem,6.5vw,5.5rem)] font-medium leading-[0.92] tracking-[-0.05em] text-black">
+                            <h3 className="mt-4 max-w-[15ch] break-words text-left text-balance font-nm-medium text-[clamp(2.65rem,6.5vw,5.5rem)] font-medium leading-[0.92] tracking-[-0.05em] text-[var(--project-ink)]">
                               {galleryImage.title}
                             </h3>
                           )}
                           {galleryImage.subtitle && (
-                            <p className="mt-5 max-w-3xl text-left text-pretty font-nm-book text-lg leading-7 text-[#545454] sm:text-xl sm:leading-8 md:text-2xl md:leading-9">
+                            <p className="mt-5 max-w-3xl text-left text-pretty font-nm-book text-lg leading-7 text-[var(--project-copy-soft)] sm:text-xl sm:leading-8 md:text-2xl md:leading-9">
                               {galleryImage.subtitle}
                             </p>
                           )}
 
                           {galleryImage.description && (
-                            <p className="mt-7 max-w-[70ch] text-left text-pretty font-nm-book text-base leading-7 text-[#333333] sm:text-lg sm:leading-8 md:mt-9">
+                            <p className="mt-7 max-w-[70ch] text-left text-pretty font-nm-book text-base leading-7 text-[var(--project-copy-strong)] sm:text-lg sm:leading-8 md:mt-9">
                               {galleryImage.description}
                             </p>
                           )}
 
                           {galleryImage.points?.length ? (
-                            <ol className="mt-10 divide-y divide-black/[0.12] border-y border-black/[0.12] lg:mt-14">
+                            <ol className="mt-10 divide-y divide-[var(--project-line)] border-y border-[var(--project-line)] lg:mt-14">
                               {galleryImage.points.map((point, pointIndex) => (
                                 <li
                                   key={point.title}
                                   className="grid grid-cols-[36px_minmax(0,1fr)] gap-x-4 gap-y-2 py-5 sm:grid-cols-[44px_minmax(0,1fr)] sm:py-6 lg:grid-cols-[56px_210px_minmax(0,1fr)] lg:gap-x-8 lg:py-8"
                                 >
-                                  <span className="col-start-1 row-start-1 pt-0.5 font-nm-book text-[11px] tracking-[0.14em] text-[#6A6A6A] sm:text-xs">
+                                  <span className="col-start-1 row-start-1 pt-0.5 font-nm-book text-[11px] tracking-[0.14em] text-[var(--project-index)] sm:text-xs">
                                     {String(pointIndex + 1).padStart(2, "0")}
                                   </span>
-                                  <h4 className="col-start-2 row-start-1 text-left font-nm-medium text-lg font-medium leading-tight text-black sm:text-xl lg:text-2xl">
+                                  <h4 className="col-start-2 row-start-1 text-left font-nm-medium text-lg font-medium leading-tight text-[var(--project-ink)] sm:text-xl lg:text-2xl">
                                     {point.title}
                                   </h4>
-                                  <p className="col-start-2 row-start-2 max-w-[68ch] text-left font-nm-book text-sm leading-6 text-[#454545] sm:text-base sm:leading-7 lg:col-start-3 lg:row-start-1 lg:text-lg lg:leading-8">
+                                  <p className="col-start-2 row-start-2 max-w-[68ch] text-left font-nm-book text-sm leading-6 text-[var(--project-copy-point)] sm:text-base sm:leading-7 lg:col-start-3 lg:row-start-1 lg:text-lg lg:leading-8">
                                     {point.description}
                                   </p>
                                 </li>
@@ -388,7 +388,7 @@ const ProjectPage = async ({ params }: PageProps) => {
                     <div
                       className={
                         hasEditorialGallery
-                          ? "overflow-hidden rounded-[16px] bg-[#F5F5F3] md:rounded-[24px]"
+                          ? "project-gallery-frame overflow-hidden rounded-[16px] bg-[var(--project-surface)] md:rounded-[24px]"
                           : ""
                       }
                     >
@@ -415,9 +415,9 @@ const ProjectPage = async ({ params }: PageProps) => {
         {(nextProject || previousProject) && (
           <div
             data-next-project
-            className="relative min-h-[72svh] w-full overflow-hidden bg-black shadow-[0_-18px_60px_rgba(0,0,0,0.12)] lg:min-h-[82svh]"
+            className="project-next-panel relative min-h-[72svh] w-full overflow-hidden bg-[var(--project-feature-bg)] shadow-[0_-18px_60px_rgba(0,0,0,0.12)] lg:min-h-[82svh]"
           >
-            <div className="absolute inset-0 z-10 bg-gradient-to-t from-black/80 via-black/45 to-black/25" />
+            <div className="project-next-overlay absolute inset-0 z-10 bg-gradient-to-t from-black/80 via-black/45 to-black/25" />
             <Image
               src={navigationImage}
               alt={navigationTitle}
@@ -457,7 +457,7 @@ const ProjectPage = async ({ params }: PageProps) => {
                     href={`/projects/${encodeURIComponent(
                       previousProject.title
                     )}`}
-                    className="inline-flex h-11 w-full cursor-pointer items-center justify-center gap-1.5 rounded-[10px] border border-white bg-white px-4 text-black transition-colors duration-300 hover:bg-transparent hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+                    className="project-next-cta inline-flex h-11 w-full cursor-pointer items-center justify-center gap-1.5 rounded-[10px] border border-white bg-white px-4 text-black transition-colors duration-300 hover:bg-transparent hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
                   >
                     <ArrowLeftIcon className="h-3.5 w-3.5" aria-hidden="true" />
                     <span className="font-nm-medium text-sm font-medium">
@@ -468,7 +468,7 @@ const ProjectPage = async ({ params }: PageProps) => {
                 {nextProject && (
                   <Link
                     href={`/projects/${encodeURIComponent(nextProject.title)}`}
-                    className="inline-flex h-11 w-full cursor-pointer items-center justify-center gap-1.5 rounded-[10px] border border-white bg-white px-4 text-black transition-colors duration-300 hover:bg-transparent hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+                    className="project-next-cta inline-flex h-11 w-full cursor-pointer items-center justify-center gap-1.5 rounded-[10px] border border-white bg-white px-4 text-black transition-colors duration-300 hover:bg-transparent hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
                   >
                     <span className="font-nm-medium text-sm font-medium">
                       Next

@@ -159,7 +159,7 @@ const About = () => {
           </div>
 
           <div className="grid grid-cols-1 items-start gap-6 md:gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-stretch lg:gap-8 xl:gap-10">
-            <div className="group relative mx-auto w-full max-w-[520px] overflow-hidden rounded-[20px] border border-black/[0.06] bg-[#F4F4F2] shadow-[0_24px_60px_rgba(0,0,0,0.06)] md:h-[680px] md:max-w-[640px] lg:max-w-none xl:h-[720px]">
+            <div className="about-portrait-card group relative mx-auto w-full max-w-[520px] overflow-hidden rounded-[20px] border border-black/[0.06] bg-[#F4F4F2] shadow-[0_24px_60px_rgba(0,0,0,0.06)] md:h-[680px] md:max-w-[640px] lg:max-w-none xl:h-[720px]">
               <Image
                 src="/images/about/steve-profile.png"
                 alt="Steven Cabugos"
@@ -180,9 +180,9 @@ const About = () => {
                     ? "Show About information"
                     : "Show my technology stack"
                 }
-                className="group/flip absolute right-5 top-5 z-30 inline-flex items-center gap-2 rounded-full border border-white/15 bg-black/35 px-2.5 py-1.5 font-nm-medium text-[10px] font-medium uppercase tracking-[0.12em] text-white/75 backdrop-blur-md transition-all duration-300 hover:border-white/30 hover:bg-white/10 hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white sm:right-7 sm:top-7 sm:px-3 sm:py-2 sm:text-[11px] md:right-8 md:top-8 lg:right-10 lg:top-10"
+                className="about-flip-trigger group/flip absolute right-5 top-5 z-30 inline-flex items-center gap-2 rounded-full border border-white/15 bg-black/35 px-2.5 py-1.5 font-nm-medium text-[10px] font-medium uppercase tracking-[0.12em] text-white/75 backdrop-blur-md transition-all duration-300 hover:border-white/30 hover:bg-white/10 hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white sm:right-7 sm:top-7 sm:px-3 sm:py-2 sm:text-[11px] md:right-8 md:top-8 lg:right-10 lg:top-10"
               >
-                <span className="text-white/45">01</span>
+                <span className="about-flip-index text-white/45">01</span>
                 <span
                   className="h-3 w-px bg-white/20"
                   aria-hidden="true"
@@ -203,7 +203,7 @@ const About = () => {
                 <div
                   aria-hidden={isTechVisible}
                   inert={isTechVisible ? true : undefined}
-                  className="relative col-start-1 row-start-1 flex h-full min-w-0 flex-col overflow-hidden rounded-[20px] bg-black p-5 text-white shadow-[0_28px_70px_rgba(0,0,0,0.16)] sm:p-7 md:p-8 lg:p-10"
+                  className="about-profile-card relative col-start-1 row-start-1 flex h-full min-w-0 flex-col overflow-hidden rounded-[20px] bg-black p-5 text-white shadow-[0_28px_70px_rgba(0,0,0,0.16)] sm:p-7 md:p-8 lg:p-10"
                   style={{
                     backfaceVisibility: "hidden",
                     WebkitBackfaceVisibility: "hidden",
@@ -211,15 +211,15 @@ const About = () => {
                 >
                   <div
                     aria-hidden="true"
-                    className="absolute -right-24 -top-24 h-72 w-72 rounded-full bg-white/10 blur-3xl"
+                    className="about-profile-glow-top absolute -right-24 -top-24 h-72 w-72 rounded-full bg-white/10 blur-3xl"
                   />
                   <div
                     aria-hidden="true"
-                    className="absolute -bottom-32 -left-28 h-80 w-80 rounded-full bg-white/[0.06] blur-3xl"
+                    className="about-profile-glow-bottom absolute -bottom-32 -left-28 h-80 w-80 rounded-full bg-white/[0.06] blur-3xl"
                   />
 
                   <div className="relative flex h-full flex-col">
-                    <div className="flex items-center pr-28 font-nm-book text-[11px] uppercase tracking-[0.16em] text-white/55 sm:pr-32 sm:text-xs">
+                    <div className="about-card-eyebrow flex items-center pr-28 font-nm-book text-[11px] uppercase tracking-[0.16em] text-white/55 sm:pr-32 sm:text-xs">
                       <span className="font-nm-medium font-medium text-white/90">
                         About / Steven Cabugos
                       </span>
@@ -227,12 +227,12 @@ const About = () => {
 
                     <h3 className="mt-12 max-w-2xl font-nm-medium text-[clamp(2.75rem,6vw,5rem)] font-medium leading-[0.9] tracking-[-0.045em] text-white sm:mt-16">
                       Building{" "}
-                      <span className="text-white/45">
+                      <span className="about-card-heading-muted text-white/45">
                         useful digital products.
                       </span>
                     </h3>
 
-                    <p className="mt-7 max-w-xl font-nm-book text-base leading-7 text-white/70 md:text-lg">
+                    <p className="about-card-copy mt-7 max-w-xl font-nm-book text-base leading-7 text-white/70 md:text-lg">
                       Full-stack Software Engineer and currently working as a
                       UI/UX Designer at{" "}
                       <Link
@@ -251,9 +251,9 @@ const About = () => {
                       {capabilities.map(({ label, icon: CapabilityIcon }) => (
                         <span
                           key={label}
-                          className="inline-flex max-w-full items-center gap-1.5 whitespace-nowrap rounded-full border border-white/15 bg-white/[0.06] px-2.5 py-1.5 font-nm-book text-[11px] text-white/75 backdrop-blur-sm sm:gap-2 sm:px-3 sm:py-2 sm:text-xs md:text-sm"
+                          className="about-capability-chip inline-flex max-w-full items-center gap-1.5 whitespace-nowrap rounded-full border border-white/15 bg-white/[0.06] px-2.5 py-1.5 font-nm-book text-[11px] text-white/75 backdrop-blur-sm sm:gap-2 sm:px-3 sm:py-2 sm:text-xs md:text-sm"
                         >
-                          <span className="flex size-4 shrink-0 items-center justify-center rounded-full bg-white/10 text-white sm:size-5">
+                          <span className="about-capability-icon flex size-4 shrink-0 items-center justify-center rounded-full bg-white/10 text-white sm:size-5">
                             <CapabilityIcon
                               aria-hidden="true"
                               className="size-3 sm:size-3.5"
@@ -269,7 +269,7 @@ const About = () => {
                         href="https://tally.so/r/Y5gQDz"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="group/cta inline-flex w-full items-center justify-center gap-2 rounded-[10px] bg-white px-5 py-3 font-nm-medium text-sm font-medium text-black transition-all duration-300 hover:bg-[#E8E8E8] hover:shadow-lg focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white motion-safe:hover:-translate-y-0.5 sm:w-fit"
+                        className="about-primary-cta group/cta inline-flex w-full items-center justify-center gap-2 rounded-[10px] bg-white px-5 py-3 font-nm-medium text-sm font-medium text-black transition-all duration-300 hover:bg-[#E8E8E8] hover:shadow-lg focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white motion-safe:hover:-translate-y-0.5 sm:w-fit"
                       >
                         Share your project
                         <ArrowUpRightIcon
@@ -285,7 +285,7 @@ const About = () => {
                             href={href}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="inline-flex min-h-10 min-w-0 flex-1 items-center justify-center gap-1 whitespace-nowrap rounded-[8px] border border-white/20 bg-white/[0.06] px-1 py-2 font-nm-book text-[10px] text-white/80 transition-all duration-300 hover:border-white/35 hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white motion-safe:hover:-translate-y-0.5 sm:min-h-0 sm:flex-none sm:gap-1.5 sm:px-2 sm:text-[11px] md:gap-2 md:px-3 md:text-xs xl:px-4 xl:text-sm"
+                            className="about-social-link inline-flex min-h-10 min-w-0 flex-1 items-center justify-center gap-1 whitespace-nowrap rounded-[8px] border border-white/20 bg-white/[0.06] px-1 py-2 font-nm-book text-[10px] text-white/80 transition-all duration-300 hover:border-white/35 hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white motion-safe:hover:-translate-y-0.5 sm:min-h-0 sm:flex-none sm:gap-1.5 sm:px-2 sm:text-[11px] md:gap-2 md:px-3 md:text-xs xl:px-4 xl:text-sm"
                           >
                             <SocialBrandIcon name={buttonName} />
                             {buttonName}
@@ -299,7 +299,7 @@ const About = () => {
                 <div
                   aria-hidden={!isTechVisible}
                   inert={!isTechVisible ? true : undefined}
-                  className="relative col-start-1 row-start-1 flex h-full min-h-0 min-w-0 flex-col overflow-hidden rounded-[20px] bg-[#0B0B0B] p-5 text-white shadow-[0_28px_70px_rgba(0,0,0,0.16)] sm:p-7 md:p-8 lg:p-10"
+                  className="about-tech-card relative col-start-1 row-start-1 flex h-full min-h-0 min-w-0 flex-col overflow-hidden rounded-[20px] bg-[#0B0B0B] p-5 text-white shadow-[0_28px_70px_rgba(0,0,0,0.16)] sm:p-7 md:p-8 lg:p-10"
                   style={{
                     backfaceVisibility: "hidden",
                     WebkitBackfaceVisibility: "hidden",
@@ -308,11 +308,11 @@ const About = () => {
                 >
                   <div
                     aria-hidden="true"
-                    className="absolute -left-24 -top-24 h-72 w-72 rounded-full bg-white/[0.07] blur-3xl"
+                    className="about-tech-glow-top absolute -left-24 -top-24 h-72 w-72 rounded-full bg-white/[0.07] blur-3xl"
                   />
                   <div
                     aria-hidden="true"
-                    className="absolute -bottom-24 -right-24 h-72 w-72 rounded-full bg-white/[0.05] blur-3xl"
+                    className="about-tech-glow-bottom absolute -bottom-24 -right-24 h-72 w-72 rounded-full bg-white/[0.05] blur-3xl"
                   />
 
                   <div
@@ -321,12 +321,15 @@ const About = () => {
                     aria-label="Technology stack cards. Scroll to explore all categories."
                     className="relative h-full min-h-0 overflow-y-auto overscroll-y-auto pr-1 outline-none [scrollbar-color:rgba(255,255,255,0.28)_transparent] [scrollbar-width:thin] focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-white/60"
                   >
-                    <div className="pr-28 font-nm-medium text-[11px] font-medium uppercase tracking-[0.16em] text-white/80 sm:pr-32 sm:text-xs">
+                    <div className="about-card-eyebrow pr-28 font-nm-medium text-[11px] font-medium uppercase tracking-[0.16em] text-white/80 sm:pr-32 sm:text-xs">
                       Steven Cabugos
                     </div>
 
                     <h3 className="mt-12 max-w-xl font-nm-medium text-[clamp(2.5rem,5vw,4.5rem)] font-medium leading-[0.9] tracking-[-0.045em] text-white sm:mt-14">
-                      My tech <span className="text-white/45">stack.</span>
+                      My tech{" "}
+                      <span className="about-card-heading-muted text-white/45">
+                        stack.
+                      </span>
                     </h3>
 
                     <div className="mt-9">
@@ -334,13 +337,13 @@ const About = () => {
                         {aboutTechStack.map((group, index) => (
                           <section
                             key={group.category}
-                            className="rounded-[14px] border border-white/10 bg-white/[0.045] p-4 backdrop-blur-sm"
+                            className="about-tech-group rounded-[14px] border border-white/10 bg-white/[0.045] p-4 backdrop-blur-sm"
                           >
                             <div className="flex items-center justify-between gap-4">
                               <h4 className="font-nm-medium text-sm font-medium text-white sm:text-base">
                                 {group.category}
                               </h4>
-                              <span className="font-nm-book text-[10px] tracking-[0.12em] text-white/35">
+                              <span className="about-tech-index font-nm-book text-[10px] tracking-[0.12em] text-white/35">
                                 0{index + 1}
                               </span>
                             </div>
@@ -349,7 +352,7 @@ const About = () => {
                                 ({ label, icon: TechIcon, color }) => (
                                   <span
                                     key={label}
-                                    className="inline-flex items-center gap-1.5 rounded-full border border-white/10 bg-white/[0.055] px-2.5 py-1.5 font-nm-book text-[10px] leading-none text-white/70 transition-colors duration-200 hover:border-white/20 hover:bg-white/[0.09] hover:text-white sm:text-[11px]"
+                                    className="about-tech-tag inline-flex items-center gap-1.5 rounded-full border border-white/10 bg-white/[0.055] px-2.5 py-1.5 font-nm-book text-[10px] leading-none text-white/70 transition-colors duration-200 hover:border-white/20 hover:bg-white/[0.09] hover:text-white sm:text-[11px]"
                                   >
                                     <TechIcon
                                       aria-hidden="true"

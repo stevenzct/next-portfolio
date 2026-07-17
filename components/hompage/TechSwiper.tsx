@@ -38,27 +38,39 @@ const TechSwiper = () => {
     <div className="TechSwiper-section">
       <div className="container-wrapper w-full h-auto">
         <div className="app-container mx-6 w-auto max-w-[1200px] pb-[80px] md:mx-12 md:pb-24 lg:mx-auto lg:w-[90%] lg:pb-[120px] xl:w-[88%] 2xl:w-[75%]">
-          <Swiper
-            slidesPerView="auto"
-            spaceBetween={16}
-            pagination={{ clickable: false }}
-            autoplay={{
-              delay: 0,
-              disableOnInteraction: false,
-            }}
-            modules={[Autoplay]}
-            allowTouchMove={false}
-            loop={true}
-            speed={3000}
-            className="mySwiper"
-          >
-            {/* Duplicate slides to create seamless loop */}
-            {[...images, ...images].map((src, index) => (
-              <SwiperSlide key={index} style={{ width: 250 }}>
-                <Image className="rounded-lg" src={src} width={250} height={125} alt={`tech${index}`} />
-              </SwiperSlide>
-            ))}
-          </Swiper>
+          <div className="tech-marquee-window" aria-hidden="true">
+            <Swiper
+              slidesPerView="auto"
+              spaceBetween={16}
+              pagination={{ clickable: false }}
+              autoplay={{
+                delay: 0,
+                disableOnInteraction: false,
+              }}
+              modules={[Autoplay]}
+              allowTouchMove={false}
+              loop={true}
+              speed={3000}
+              className="mySwiper tech-marquee"
+            >
+              {/* Duplicate slides to create seamless loop */}
+              {[...images, ...images].map((src, index) => (
+                <SwiperSlide
+                  className="tech-logo-card"
+                  key={index}
+                  style={{ width: 250 }}
+                >
+                  <Image
+                    className="tech-logo-image rounded-lg"
+                    src={src}
+                    width={250}
+                    height={125}
+                    alt=""
+                  />
+                </SwiperSlide>
+              ))}
+            </Swiper>
+          </div>
         </div>
       </div>
     </div>

@@ -191,3 +191,193 @@
     object-position: 60% center;
   }
 }
+
+:global(html[data-color-theme="color"]) .contact-section {
+  background: #032b3c;
+}
+
+:global(html[data-color-theme="color"]) .contact-section::before {
+  background:
+    radial-gradient(circle at 14% 8%, rgba(99, 199, 219, 0.22), transparent 30%),
+    radial-gradient(circle at 88% 72%, rgba(10, 111, 145, 0.2), transparent 34%),
+    linear-gradient(135deg, #032b3c 0%, #043e55 48%, #07536c 100%);
+}
+
+:global(html[data-color-theme="color"]) .contact-grid {
+  background-image:
+    linear-gradient(rgba(99, 199, 219, 0.055) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(99, 199, 219, 0.055) 1px, transparent 1px);
+}
+
+:global(html[data-color-theme="color"]) .contact-glow {
+  background: rgba(99, 199, 219, 0.22);
+}
+
+:global(html[data-color-theme="color"]) .contact-topline,
+:global(html[data-color-theme="color"]) .contact-footer-meta {
+  border-color: rgba(99, 199, 219, 0.18);
+}
+
+:global(html[data-color-theme="color"]) .contact-status-pill {
+  border-color: rgba(99, 199, 219, 0.28);
+  background: rgba(3, 43, 60, 0.34);
+  color: #e1f0f1;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.07);
+}
+
+:global(html[data-color-theme="color"]) .contact-status-ring,
+:global(html[data-color-theme="color"]) .contact-status-dot {
+  background: var(--color-lime);
+}
+
+:global(html[data-color-theme="color"]) .contact-location,
+:global(html[data-color-theme="color"]) .contact-kicker,
+:global(html[data-color-theme="color"]) .contact-card-label {
+  color: #b9d7dc;
+}
+
+:global(html[data-color-theme="color"]) .contact-heading-accent {
+  color: #dceff0;
+}
+
+:global(html[data-color-theme="color"]) .contact-intro,
+:global(html[data-color-theme="color"]) .contact-social-link {
+  color: #d3e8eb;
+}
+
+:global(html[data-color-theme="color"]) .contact-disciplines {
+  color: #9edce7;
+}
+
+:global(html[data-color-theme="color"]) .contact-card-copy {
+  color: #c6e0e3;
+}
+
+:global(html[data-color-theme="color"]) .contact-card-meta,
+:global(html[data-color-theme="color"]) .contact-footer-meta {
+  color: #a9cdd3;
+}
+
+:global(html[data-color-theme="color"]) .contact-copy h2 {
+  text-shadow: 0 8px 36px rgba(2, 31, 44, 0.55);
+}
+
+:global(html[data-color-theme="color"]) .contact-feature {
+  isolation: auto;
+}
+
+:global(html[data-color-theme="color"]) .contact-art {
+  background: transparent;
+  box-shadow: none;
+}
+
+:global(html[data-color-theme="color"]) .contact-art::before {
+  background: none;
+}
+
+:global(html[data-color-theme="color"]) .contact-art::after {
+  border-color: transparent;
+  background-image: none;
+}
+
+:global(html[data-color-theme="color"]) .contact-art-media {
+  opacity: 0.88;
+  mix-blend-mode: screen;
+}
+
+:global(html[data-color-theme="color"]) .contact-art-image {
+  filter: hue-rotate(28deg) saturate(1.12) contrast(1.05) brightness(0.88);
+}
+
+:global(html[data-color-theme="color"]) .contact-email-card {
+  border-color: rgba(99, 199, 219, 0.3);
+  background:
+    radial-gradient(circle at 88% 12%, rgba(99, 199, 219, 0.16), transparent 32%),
+    linear-gradient(145deg, #075b78 0%, #043e55 58%, #032b3c 100%);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.08),
+    0 24px 64px rgba(2, 31, 44, 0.3);
+}
+
+:global(html[data-color-theme="color"]) .contact-email-card:hover {
+  border-color: rgba(99, 199, 219, 0.48);
+  background:
+    radial-gradient(circle at 88% 12%, rgba(99, 199, 219, 0.22), transparent 34%),
+    linear-gradient(145deg, #086987 0%, #064b66 58%, #03334a 100%);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.1),
+    0 28px 72px rgba(2, 31, 44, 0.36);
+}
+
+:global(html[data-color-theme="color"]) .contact-card-icon {
+  background: var(--color-lime);
+  color: var(--color-ink);
+}
+
+:global(html[data-color-theme="color"]) .contact-brief-card {
+  background: linear-gradient(145deg, #e4ff94 0%, var(--color-lime) 52%, #c7ef55 100%);
+  color: var(--color-ink);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.42),
+    0 22px 54px rgba(2, 31, 44, 0.28);
+}
+
+:global(html[data-color-theme="color"]) .contact-brief-label {
+  color: rgba(7, 59, 80, 0.68);
+}
+
+:global(html[data-color-theme="color"]) .contact-brief-copy {
+  color: rgba(7, 59, 80, 0.78);
+}
+
+:global(html[data-color-theme="color"]) .contact-call-card {
+  border-color: rgba(99, 199, 219, 0.25);
+  background: linear-gradient(145deg, #064b66 0%, #032b3c 100%);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.06),
+    0 20px 48px rgba(2, 31, 44, 0.24);
+}
+
+:global(html[data-color-theme="color"]) .contact-call-card:hover {
+  border-color: rgba(99, 199, 219, 0.42);
+  background: linear-gradient(145deg, #075b78 0%, #03334a 100%);
+}
+
+:global(html[data-color-theme="color"]) .contact-social-card {
+  border-color: rgba(99, 199, 219, 0.22);
+  background: linear-gradient(145deg, #07536c 0%, #04384e 100%);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.06),
+    0 20px 48px rgba(2, 31, 44, 0.22);
+}
+
+:global(html[data-color-theme="color"]) .contact-social-link {
+  border-color: rgba(99, 199, 219, 0.24);
+}
+
+:global(html[data-color-theme="color"]) .contact-social-link:hover {
+  border-color: rgba(214, 255, 98, 0.58);
+  background: rgba(214, 255, 98, 0.1);
+  color: #f3fbf9;
+}
+
+@media (min-width: 1280px) {
+  :global(html[data-color-theme="color"]) .contact-art-media {
+    -webkit-mask-image: linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(0, 0, 0, 0.08) 22%,
+      rgba(0, 0, 0, 0.42) 48%,
+      rgba(0, 0, 0, 0.82) 70%,
+      #000000 86%
+    );
+    mask-image: linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(0, 0, 0, 0.08) 22%,
+      rgba(0, 0, 0, 0.42) 48%,
+      rgba(0, 0, 0, 0.82) 70%,
+      #000000 86%
+    );
+  }
+}
