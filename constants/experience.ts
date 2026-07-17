@@ -17,7 +17,7 @@ export const experiences: Experience[] = [
     company: "Payso Inc.",
     startDate: "November 2025",
     endDate: "Present",
-    location: "The Finance Centre, BGC, Taguig, NCR, Philippines",
+    location: "BGC, Taguig, NCR, Philippines",
     logoSrc: "/images/experience/payso-logo.png",
     logoAlt: "Payso Logo",
     imageSrc: "/images/experience/payso-team.png",

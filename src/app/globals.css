@@ -380,7 +380,7 @@ html[data-color-theme="color"] #pricing .pricing-summary-card {
   color: var(--color-ink);
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.9),
-    0 28px 68px rgba(7, 59, 80, 0.12);
+    0 10px 34px rgba(7, 59, 80, 0.105);
 }
 
 html[data-color-theme="color"] #pricing .pricing-summary-glow {
@@ -437,7 +437,7 @@ html[data-color-theme="color"] #pricing .pricing-offer-card {
   outline-offset: -1px;
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.08),
-    0 30px 74px rgba(3, 44, 64, 0.26);
+    0 12px 40px rgba(3, 44, 64, 0.2);
 }
 
 html[data-color-theme="color"] #pricing .pricing-offer-glow {
@@ -737,6 +737,132 @@ html[data-color-theme="color"] #certifications .swiper-slide a {
 html[data-color-theme="color"] #work .swiper-slide p,
 html[data-color-theme="color"] #certifications .swiper-slide p {
   color: var(--color-muted);
+}
+
+html[data-color-theme="color"] #work .experience-kicker {
+  color: var(--color-muted);
+}
+
+html[data-color-theme="color"] #work .experience-card {
+  background: rgba(255, 255, 252, 0.96);
+  box-shadow: 0 4px 18px rgba(7, 59, 80, 0.085);
+}
+
+html[data-color-theme="color"] #work .experience-card:hover {
+  box-shadow: 0 8px 26px rgba(7, 59, 80, 0.11);
+}
+
+html[data-color-theme="color"] #work .experience-card-media {
+  background: var(--color-surface-blue);
+}
+
+html[data-color-theme="color"] #work .experience-card-shade {
+  background: linear-gradient(
+    to bottom,
+    rgba(7, 59, 80, 0.08),
+    transparent 48%,
+    rgba(3, 44, 64, 0.16)
+  );
+}
+
+html[data-color-theme="color"] #work .experience-card-logo {
+  border-color: rgba(99, 199, 219, 0.3);
+  box-shadow: 0 10px 30px rgba(3, 44, 64, 0.18);
+}
+
+html[data-color-theme="color"] #work .experience-card-role,
+html[data-color-theme="color"] #work .experience-card-location,
+html[data-color-theme="color"] #work .experience-card-period,
+html[data-color-theme="color"] #work .experience-card-location-icon {
+  color: var(--color-muted);
+}
+
+html[data-color-theme="color"] #work .experience-card-link {
+  border-color: transparent;
+  background: #ffffff;
+  color: var(--color-ink);
+  box-shadow:
+    0 2px 8px rgba(3, 44, 64, 0.075),
+    inset 0 0 0 1px rgba(10, 111, 145, 0.08);
+}
+
+html[data-color-theme="color"] #work .experience-card-link:hover {
+  border-color: transparent;
+  background: #ffffff;
+  color: var(--color-ink);
+  box-shadow:
+    0 4px 12px rgba(3, 44, 64, 0.11),
+    inset 0 0 0 1px rgba(10, 111, 145, 0.11);
+}
+
+html[data-color-theme="color"]
+  #certifications
+  .certification-card-action-icon {
+  background: #ffffff;
+  color: var(--color-ink);
+  box-shadow: 0 1px 4px rgba(3, 44, 64, 0.08);
+}
+
+html[data-color-theme="color"]
+  #certifications
+  .certification-card-action-arrow {
+  background: var(--color-blue);
+  color: #ffffff;
+}
+
+html[data-color-theme="color"]
+  #certifications
+  .certification-card-link:hover
+  .certification-card-action-arrow {
+  background: var(--color-navy-deep);
+}
+
+html[data-color-theme="color"] #certifications .certification-card {
+  background: rgba(255, 255, 252, 0.96);
+  box-shadow: 0 4px 18px rgba(7, 59, 80, 0.085);
+}
+
+html[data-color-theme="color"] #certifications .certification-card:hover {
+  box-shadow: 0 8px 26px rgba(7, 59, 80, 0.11);
+}
+
+html[data-color-theme="color"] #certifications .certification-card-media {
+  background: var(--color-surface-blue);
+}
+
+html[data-color-theme="color"] #certifications .certification-card-logo {
+  background: #ffffff;
+  box-shadow: 0 1px 4px rgba(3, 44, 64, 0.07);
+}
+
+html[data-color-theme="color"] #certifications .certification-card-artwork-frame {
+  box-shadow: 0 7px 22px rgba(3, 44, 64, 0.13);
+}
+
+html[data-color-theme="color"] #certifications .certification-card-company,
+html[data-color-theme="color"] #certifications .certification-card-issued {
+  color: var(--color-muted);
+}
+
+html[data-color-theme="color"] #certifications .certification-card-link {
+  border-color: transparent;
+  background: rgba(99, 199, 219, 0.1);
+  color: var(--color-ink);
+  box-shadow: inset 0 0 0 1px rgba(10, 111, 145, 0.12);
+}
+
+html[data-color-theme="color"] #certifications .certification-card-link:hover {
+  border-color: transparent;
+  background: rgba(99, 199, 219, 0.17);
+  color: var(--color-ink);
+  box-shadow: inset 0 0 0 1px rgba(10, 111, 145, 0.18);
+}
+
+html[data-color-theme="color"] #work .experience-card-link:focus-visible,
+html[data-color-theme="color"]
+  #certifications
+  .certification-card-link:focus-visible {
+  outline-color: var(--color-blue);
 }
 
 html[data-color-theme="color"] .projects-index-page {

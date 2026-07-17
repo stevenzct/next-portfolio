@@ -70,10 +70,9 @@ const ColorThemeToggle = ({
       role="switch"
       aria-label={label}
       aria-checked={colorThemeEnabled}
-      title={label}
       data-color-theme-control={theme}
       onClick={onToggle}
-      className={`portfolio-color-theme-toggle portfolio-color-theme-toggle--${theme} group inline-flex h-11 shrink-0 items-center justify-center rounded-full outline-none transition-opacity duration-300 hover:opacity-80 focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-2 ${
+      className={`portfolio-color-theme-toggle portfolio-color-theme-toggle--${theme} group relative inline-flex h-11 shrink-0 items-center justify-center rounded-full outline-none transition-opacity duration-300 hover:opacity-80 focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-2 ${
         compact ? "w-14" : "w-16"
       }`}
     >
@@ -87,6 +86,13 @@ const ColorThemeToggle = ({
         >
           <span className="portfolio-color-theme-toggle__halo pointer-events-none absolute -inset-1 rounded-full" />
         </span>
+      </span>
+      <span
+        role="tooltip"
+        className="pointer-events-none absolute left-1/2 top-full z-[80] mt-2 -translate-x-1/2 translate-y-1 whitespace-nowrap rounded-[6px] bg-[#073B50] px-2.5 py-1.5 font-nm-book text-[11px] leading-none text-white opacity-0 shadow-[0_8px_24px_rgba(3,44,64,0.18)] transition-[opacity,transform] duration-200 group-hover:translate-y-0 group-hover:opacity-100 group-focus-visible:translate-y-0 group-focus-visible:opacity-100"
+      >
+        <span className="absolute left-1/2 top-[-3px] h-1.5 w-1.5 -translate-x-1/2 rotate-45 bg-[#073B50]" />
+        {label}
       </span>
     </button>
   );

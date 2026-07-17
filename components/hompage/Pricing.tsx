@@ -121,8 +121,8 @@ const Pricing = ({ initialCountry, initialCurrency }: PricingProps) => {
 
       <div className="container-wrapper relative z-10 w-full">
         <div className="app-container mx-6 w-auto max-w-[1200px] md:mx-12 lg:mx-auto lg:w-[90%] xl:w-[88%] 2xl:w-[75%]">
-          <div className="mb-10 md:mb-12 lg:mb-16">
-            <p className="mb-2 font-nm-book text-base md:text-xl lg:text-2xl">
+          <div className="mb-7 md:mb-12 lg:mb-16">
+            <p className="mb-1 font-nm-book text-base leading-5 md:mb-2 md:text-xl md:leading-normal lg:text-2xl">
               Flexible Partnership
             </p>
             <h2
@@ -133,8 +133,8 @@ const Pricing = ({ initialCountry, initialCurrency }: PricingProps) => {
             </h2>
           </div>
 
-          <div className="grid items-stretch gap-6 md:gap-8 xl:grid-cols-[0.82fr_1.18fr] xl:gap-10">
-            <div className="pricing-summary-card relative flex h-full flex-col overflow-hidden rounded-[20px] border border-black/[0.06] bg-white p-5 shadow-[0_24px_60px_rgba(0,0,0,0.06)] sm:p-7 md:p-10">
+          <div className="grid items-stretch gap-7 md:gap-8 xl:grid-cols-[0.82fr_1.18fr] xl:gap-10">
+            <div className="pricing-summary-card relative flex h-full flex-col overflow-hidden rounded-[20px] border border-black/[0.06] bg-white p-6 shadow-[0_8px_28px_rgba(0,0,0,0.065)] sm:p-8 md:p-10">
               <div
                 aria-hidden="true"
                 className="pricing-summary-glow absolute -right-20 -top-20 h-64 w-64 rounded-full bg-[#F0F0ED] blur-3xl"
@@ -177,7 +177,7 @@ const Pricing = ({ initialCountry, initialCurrency }: PricingProps) => {
               </div>
             </div>
 
-            <div className="pricing-offer-card relative flex h-full flex-col overflow-hidden rounded-[20px] bg-black p-5 text-white shadow-[0_28px_70px_rgba(0,0,0,0.18)] sm:p-7 md:p-10">
+            <div className="pricing-offer-card relative flex h-full flex-col overflow-hidden rounded-[20px] bg-black p-6 text-white shadow-[0_12px_38px_rgba(0,0,0,0.15)] sm:p-8 md:p-10">
               <div
                 aria-hidden="true"
                 className="pricing-offer-glow absolute -right-24 -top-24 h-80 w-80 rounded-full bg-white/[0.12] blur-3xl"
