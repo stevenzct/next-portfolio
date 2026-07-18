@@ -15,10 +15,14 @@ const ProjectGrid = ({ projects }: ProjectGridProps) => {
         ({ title, year, description, imageSrc, imageAlt, category }) => (
           <article
             data-project-detail-reveal
+            data-home-motion-card
             className="project-card projects-wrapper"
             key={title}
           >
-            <div className="project-card-media projects-images group relative">
+            <div
+              data-home-motion-media
+              className="project-card-media projects-images group relative"
+            >
               <Link
                 href={`/projects/${encodeURIComponent(title)}`}
                 aria-label={`View ${title} project`}

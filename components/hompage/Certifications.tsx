@@ -27,18 +27,28 @@ function Certifications() {
   return (
     <div
       id="certifications"
+      data-home-motion-section
       className="certifications bg-[#F8F8F8] py-[80px] md:py-24 lg:py-[120px]"
     >
       <div className="container-wrapper w-full h-auto">
         <div className="app-container mx-6 w-auto max-w-[1200px] md:mx-12 lg:mx-auto lg:w-[90%] xl:w-[88%] 2xl:w-[75%]">
-          <p className="mb-1 font-nm-book text-base leading-5 md:mb-2 md:text-xl md:leading-normal lg:text-2xl">
+          <p
+            data-home-motion-copy
+            className="mb-1 font-nm-book text-base leading-5 md:mb-2 md:text-xl md:leading-normal lg:text-2xl"
+          >
             Certifications
           </p>
           <div className="mb-7 flex items-end justify-between gap-2.5 sm:gap-3 md:mb-12 lg:mb-16">
-            <h2 className="min-w-0 text-start font-nm-medium text-[28px] font-medium leading-[0.96] tracking-[-0.035em] text-black sm:text-[32px] md:text-[clamp(2.75rem,6vw,4.75rem)]">
+            <h2
+              data-home-motion-heading
+              className="min-w-0 text-start font-nm-medium text-[28px] font-medium leading-[0.96] tracking-[-0.035em] text-black sm:text-[32px] md:text-[clamp(2.75rem,6vw,4.75rem)]"
+            >
               Learning &amp; Growth
             </h2>
-            <div className="flex shrink-0 justify-end gap-2 sm:gap-3">
+            <div
+              data-home-motion-action
+              className="flex shrink-0 justify-end gap-2 sm:gap-3"
+            >
               <button
                 type="button"
                 aria-label="Previous certification"
@@ -104,9 +114,15 @@ function Certifications() {
                     certificateUrl,
                   }) => (
                     <SwiperSlide key={certificateName} className="!h-auto">
-                      <article className="certification-card group flex h-full max-w-full flex-col overflow-hidden rounded-[13px] bg-white shadow-[0_4px_18px_rgba(0,0,0,0.065)] transition-shadow duration-500 ease-out motion-safe:hover:shadow-[0_8px_26px_rgba(0,0,0,0.085)]">
+                      <article
+                        data-home-motion-card
+                        className="certification-card group flex h-full max-w-full flex-col overflow-hidden rounded-[13px] bg-white shadow-[0_4px_18px_rgba(0,0,0,0.065)] transition-shadow duration-500 ease-out motion-safe:hover:shadow-[0_8px_26px_rgba(0,0,0,0.085)]"
+                      >
                         <div className="certification-card-media relative aspect-[4/3] bg-[#E8E8E3] p-3 sm:p-4">
-                          <div className="certification-card-artwork-frame relative h-full w-full overflow-hidden rounded-[10px] bg-white shadow-[0_7px_22px_rgba(0,0,0,0.1)] transition-transform duration-700 ease-out motion-safe:group-hover:scale-[1.015]">
+                          <div
+                            data-home-motion-media
+                            className="certification-card-artwork-frame relative h-full w-full overflow-hidden rounded-[10px] bg-white shadow-[0_7px_22px_rgba(0,0,0,0.1)] transition-transform duration-700 ease-out motion-safe:group-hover:scale-[1.015]"
+                          >
                             <Image
                               className="certification-card-artwork object-cover"
                               src={imageSrc}

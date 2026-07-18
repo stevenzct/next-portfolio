@@ -26,19 +26,29 @@ function Experience() {
   return (
     <section
       id="work"
+      data-home-motion-section
       className="experience bg-[#F8F8F8] py-[80px] md:py-24 lg:py-[120px]"
     >
       <div className="container-wrapper h-auto w-full">
         <div className="app-container mx-6 w-auto max-w-[1200px] md:mx-12 lg:mx-auto lg:w-[90%] xl:w-[88%] 2xl:w-[75%]">
-          <p className="experience-kicker mb-1 font-nm-book text-base leading-5 md:mb-2 md:text-xl md:leading-normal lg:text-2xl">
+          <p
+            data-home-motion-copy
+            className="experience-kicker mb-1 font-nm-book text-base leading-5 md:mb-2 md:text-xl md:leading-normal lg:text-2xl"
+          >
             Work
           </p>
           <div className="mb-7 flex items-end justify-between gap-3 md:mb-12 lg:mb-16">
-            <h2 className="min-w-0 text-start font-nm-medium text-[clamp(2rem,6vw,4.75rem)] font-medium leading-[0.96] tracking-[-0.035em] text-black">
+            <h2
+              data-home-motion-heading
+              className="min-w-0 text-start font-nm-medium text-[clamp(2rem,6vw,4.75rem)] font-medium leading-[0.96] tracking-[-0.035em] text-black"
+            >
               Experience
             </h2>
 
-            <div className="flex shrink-0 justify-end gap-2 sm:gap-3">
+            <div
+              data-home-motion-action
+              className="flex shrink-0 justify-end gap-2 sm:gap-3"
+            >
               <button
                 type="button"
                 aria-label="Previous experience"
@@ -108,8 +118,14 @@ function Experience() {
                       key={`${company}-${role}`}
                       className="!h-auto"
                     >
-                      <article className="experience-card group flex h-auto max-w-full flex-col overflow-hidden rounded-[13px] bg-white shadow-[0_4px_18px_rgba(0,0,0,0.065)] transition-shadow duration-500 ease-out motion-safe:hover:shadow-[0_8px_26px_rgba(0,0,0,0.085)]">
-                        <div className="experience-card-media relative aspect-[4/3] overflow-hidden bg-[#E8E8E3]">
+                      <article
+                        data-home-motion-card
+                        className="experience-card group flex h-auto max-w-full flex-col overflow-hidden rounded-[13px] bg-white shadow-[0_4px_18px_rgba(0,0,0,0.065)] transition-shadow duration-500 ease-out motion-safe:hover:shadow-[0_8px_26px_rgba(0,0,0,0.085)]"
+                      >
+                        <div
+                          data-home-motion-media
+                          className="experience-card-media relative aspect-[4/3] overflow-hidden bg-[#E8E8E3]"
+                        >
                           {imageSrc ? (
                             <Image
                               className="object-cover transition-transform duration-700 ease-out motion-safe:group-hover:scale-[1.035]"

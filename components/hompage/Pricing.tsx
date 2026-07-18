@@ -108,6 +108,7 @@ const Pricing = ({ initialCountry, initialCurrency }: PricingProps) => {
     <section
       id="pricing"
       aria-labelledby="pricing-heading"
+      data-home-motion-section
       className="relative overflow-hidden border-y border-black/[0.06] bg-white py-[80px] md:py-24 lg:py-[120px]"
     >
       <div
@@ -122,11 +123,15 @@ const Pricing = ({ initialCountry, initialCurrency }: PricingProps) => {
       <div className="container-wrapper relative z-10 w-full">
         <div className="app-container mx-6 w-auto max-w-[1200px] md:mx-12 lg:mx-auto lg:w-[90%] xl:w-[88%] 2xl:w-[75%]">
           <div className="mb-7 md:mb-12 lg:mb-16">
-            <p className="mb-1 font-nm-book text-base leading-5 md:mb-2 md:text-xl md:leading-normal lg:text-2xl">
+            <p
+              data-home-motion-copy
+              className="mb-1 font-nm-book text-base leading-5 md:mb-2 md:text-xl md:leading-normal lg:text-2xl"
+            >
               Flexible Partnership
             </p>
             <h2
               id="pricing-heading"
+              data-home-motion-heading
               className="font-nm-medium text-[clamp(2rem,6vw,4.75rem)] font-medium leading-[0.96] tracking-[-0.035em] text-black"
             >
               Pricing
@@ -134,7 +139,10 @@ const Pricing = ({ initialCountry, initialCurrency }: PricingProps) => {
           </div>
 
           <div className="grid items-stretch gap-7 md:gap-8 xl:grid-cols-[0.82fr_1.18fr] xl:gap-10">
-            <div className="pricing-summary-card relative flex h-full flex-col overflow-hidden rounded-[20px] border border-black/[0.06] bg-white p-6 shadow-[0_8px_28px_rgba(0,0,0,0.065)] sm:p-8 md:p-10">
+            <div
+              data-home-motion-card
+              className="pricing-summary-card relative flex h-full flex-col overflow-hidden rounded-[20px] border border-black/[0.06] bg-white p-6 shadow-[0_8px_28px_rgba(0,0,0,0.065)] sm:p-8 md:p-10"
+            >
               <div
                 aria-hidden="true"
                 className="pricing-summary-glow absolute -right-20 -top-20 h-64 w-64 rounded-full bg-[#F0F0ED] blur-3xl"
@@ -177,7 +185,10 @@ const Pricing = ({ initialCountry, initialCurrency }: PricingProps) => {
               </div>
             </div>
 
-            <div className="pricing-offer-card relative flex h-full flex-col overflow-hidden rounded-[20px] bg-black p-6 text-white shadow-[0_12px_38px_rgba(0,0,0,0.15)] sm:p-8 md:p-10">
+            <div
+              data-home-motion-card
+              className="pricing-offer-card relative flex h-full flex-col overflow-hidden rounded-[20px] bg-black p-6 text-white shadow-[0_12px_38px_rgba(0,0,0,0.15)] sm:p-8 md:p-10"
+            >
               <div
                 aria-hidden="true"
                 className="pricing-offer-glow absolute -right-24 -top-24 h-80 w-80 rounded-full bg-white/[0.12] blur-3xl"

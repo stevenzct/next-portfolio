@@ -10,17 +10,30 @@ const Projects = () => {
   const featuredProjects = projects.slice(0, FEATURED_PROJECT_COUNT);
 
   return (
-    <section id="projects" className="projects-section py-[80px] md:py-24 lg:py-[120px]">
+    <section
+      id="projects"
+      data-home-motion-section
+      className="projects-section py-[80px] md:py-24 lg:py-[120px]"
+    >
       <div className="container-wrapper w-full h-auto">
         <div className="app-container mx-6 w-auto max-w-[1200px] md:mx-12 lg:mx-auto lg:w-[90%] xl:w-[88%] 2xl:w-[75%]">
-          <p className="mb-2 font-nm-book text-base md:text-xl lg:text-2xl">Projects</p>
+          <p
+            data-home-motion-copy
+            className="mb-2 font-nm-book text-base md:text-xl lg:text-2xl"
+          >
+            Projects
+          </p>
           <div className="mb-8 flex flex-col gap-6 md:mb-12 md:flex-row md:items-end md:justify-between lg:mb-16">
-            <h2 className="w-auto text-start font-nm-medium text-[clamp(2rem,6vw,4.75rem)] font-medium leading-[0.96] tracking-[-0.035em] text-black">
+            <h2
+              data-home-motion-heading
+              className="w-auto text-start font-nm-medium text-[clamp(2rem,6vw,4.75rem)] font-medium leading-[0.96] tracking-[-0.035em] text-black"
+            >
               Where Ideas
               <br />
               Become Interfaces
             </h2>
             <Link
+              data-home-motion-action
               href="/projects"
               className="inline-flex h-12 w-fit shrink-0 items-center justify-center gap-2 rounded-lg bg-black px-5 font-nm-medium text-base font-medium text-white transition-colors duration-300 hover:bg-[#242424]"
             >

@@ -13,6 +13,7 @@ const Hero = () => {
     <section
       id="home"
       aria-labelledby="hero-title"
+      data-home-motion-section
       className={`${styles["hero-section"]} min-h-[100svh] overflow-hidden pb-8 pt-[100px] sm:pt-[112px] md:pb-10 md:pt-[120px] lg:pb-12 lg:pt-[120px]`}
     >
       <Image
@@ -29,7 +30,8 @@ const Hero = () => {
           <div className="grid flex-1 content-center items-center gap-y-12 py-8 sm:gap-y-14 sm:py-10 xl:grid-cols-[minmax(0,1.15fr)_minmax(400px,0.85fr)] xl:gap-x-16 xl:py-8">
             <div className="relative z-10 mx-auto w-full max-w-[640px] xl:mx-0">
               <p
-                className={`${styles["hero-reveal"]} ${styles["hero-reveal-delay"]} ${styles["hero-eyebrow"]} mx-auto mb-5 flex w-fit items-center gap-2 rounded-full border border-black/10 bg-white/55 px-3 py-1.5 font-nm-medium text-[9px] font-medium uppercase tracking-[0.2em] text-black/65 shadow-[inset_0_1px_0_rgba(255,255,255,0.85)] backdrop-blur-sm sm:text-[10px] xl:mx-0`}
+                data-home-motion-copy
+                className={`${styles["hero-eyebrow"]} mx-auto mb-5 flex w-fit items-center gap-2 rounded-full border border-black/10 bg-white/55 px-3 py-1.5 font-nm-medium text-[9px] font-medium uppercase tracking-[0.2em] text-black/65 shadow-[inset_0_1px_0_rgba(255,255,255,0.85)] backdrop-blur-sm sm:text-[10px] xl:mx-0`}
               >
                 <span
                   className={`${styles["hero-accent"]} h-1.5 w-1.5 rounded-full bg-black`}
@@ -43,10 +45,14 @@ const Hero = () => {
                 id="hero-title"
                 className={`${styles["hero-heading"]} mx-auto max-w-max text-center font-nm-medium text-[clamp(1.875rem,9vw,3.1rem)] font-medium leading-[0.92] tracking-[-0.055em] text-black sm:text-[clamp(3.2rem,7.1vw,4.3rem)] sm:leading-[0.94] xl:mx-0 xl:text-left xl:text-[clamp(3.55rem,4.3vw,4.65rem)]`}
               >
-                <span className={styles["hero-title-line"]}>
+                <span
+                  data-home-motion-heading
+                  className={styles["hero-title-line"]}
+                >
                   Designed to Impress.
                 </span>
                 <span
+                  data-home-motion-heading
                   className={`${styles["hero-title-line"]} ${styles["hero-title-emphasis"]}`}
                 >
                   Built to Convert.
@@ -54,7 +60,8 @@ const Hero = () => {
               </h1>
 
               <div
-                className={`${styles["hero-reveal"]} ${styles["hero-reveal-late"]} mx-auto mt-6 max-w-[500px] text-center sm:mt-7 xl:mx-0 xl:text-left`}
+                data-home-motion-copy
+                className="mx-auto mt-6 max-w-[500px] text-center sm:mt-7 xl:mx-0 xl:text-left"
               >
                 <p className={`${styles["hero-copy"]} text-pretty font-nm-book text-base leading-[1.55] text-black/65 sm:text-lg sm:leading-[1.6]`}>
                   I create custom websites, mobile apps, and software solutions that help businesses stand out, connect with customers, and achieve real results.
@@ -62,7 +69,8 @@ const Hero = () => {
               </div>
 
               <div
-                className={`${styles["hero-reveal"]} ${styles["hero-reveal-later"]} cta mx-auto mt-7 grid w-full max-w-[380px] grid-cols-2 gap-3 xl:mx-0`}
+                data-home-motion-action
+                className="cta mx-auto mt-7 grid w-full max-w-[380px] grid-cols-2 gap-3 xl:mx-0"
               >
                 <Link
                   href="/#projects"
@@ -88,7 +96,7 @@ const Hero = () => {
             </div>
 
             <div
-              className={`${styles["hero-visual-reveal"]} relative flex w-full items-center justify-center xl:justify-self-end`}
+              className="relative flex w-full items-center justify-center xl:justify-self-end"
             >
               <div
                 className={`${styles["hero-artboard"]} flex aspect-square w-full max-w-[340px] items-center justify-center rounded-full sm:max-w-[420px] xl:max-w-[440px]`}

@@ -145,21 +145,31 @@ const About = () => {
   return (
     <div
       id="about"
+      data-home-motion-section
       className="about bg-white pb-8 pt-[80px] md:pb-24 md:pt-24 lg:pt-[120px]"
     >
       <div className="container-wrapper w-full h-auto">
         <div className="app-container mx-6 w-auto max-w-[1200px] md:mx-12 lg:mx-auto lg:w-[90%] xl:w-[88%] 2xl:w-[75%]">
           <div className="mb-8 md:mb-10 lg:mb-16">
-            <p className="mb-2 font-nm-book text-base md:text-xl lg:text-2xl">
+            <p
+              data-home-motion-copy
+              className="mb-2 font-nm-book text-base md:text-xl lg:text-2xl"
+            >
               My Expertise
             </p>
-            <h2 className="w-auto text-start font-nm-medium text-[clamp(2rem,6vw,4.75rem)] font-medium leading-[0.96] tracking-[-0.035em] text-black">
+            <h2
+              data-home-motion-heading
+              className="w-auto text-start font-nm-medium text-[clamp(2rem,6vw,4.75rem)] font-medium leading-[0.96] tracking-[-0.035em] text-black"
+            >
               About Me
             </h2>
           </div>
 
           <div className="grid grid-cols-1 items-start gap-6 md:gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-stretch lg:gap-8 xl:gap-10">
-            <div className="about-portrait-card group relative mx-auto w-full max-w-[520px] overflow-hidden rounded-[20px] border border-black/[0.06] bg-[#F4F4F2] shadow-[0_24px_60px_rgba(0,0,0,0.06)] md:h-[680px] md:max-w-[640px] lg:max-w-none xl:h-[720px]">
+            <div
+              data-home-motion-media
+              className="about-portrait-card group relative mx-auto w-full max-w-[520px] overflow-hidden rounded-[20px] border border-black/[0.06] bg-[#F4F4F2] shadow-[0_24px_60px_rgba(0,0,0,0.06)] md:h-[680px] md:max-w-[640px] lg:max-w-none xl:h-[720px]"
+            >
               <Image
                 src="/images/about/steve-profile.png"
                 alt="Steven Cabugos"
@@ -170,7 +180,10 @@ const About = () => {
               />
             </div>
 
-            <div className="relative mx-auto h-[660px] min-w-0 w-full [perspective:1600px] sm:h-[680px] md:max-w-[640px] lg:max-w-none xl:h-[720px]">
+            <div
+              data-home-motion-card
+              className="relative mx-auto h-[660px] min-w-0 w-full [perspective:1600px] sm:h-[680px] md:max-w-[640px] lg:max-w-none xl:h-[720px]"
+            >
               <button
                 type="button"
                 onClick={handleCardFlip}

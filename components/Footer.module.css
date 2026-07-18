@@ -272,7 +272,13 @@
 }
 
 :global(html[data-color-theme="color"]) .contact-art::before {
-  background: none;
+  background: linear-gradient(
+    90deg,
+    transparent 58%,
+    rgba(7, 83, 108, 0.14) 70%,
+    rgba(7, 83, 108, 0.68) 90%,
+    #07536c 100%
+  );
 }
 
 :global(html[data-color-theme="color"]) .contact-art::after {

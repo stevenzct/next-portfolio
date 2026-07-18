@@ -144,7 +144,7 @@ const Footer = () => {
             <div className={`${styles["contact-social-card"]} flex min-h-[230px] flex-col justify-between rounded-[20px] border border-white/15 bg-[#111111] p-5 sm:p-7 md:col-span-2 xl:col-span-1`}>
               <div className="flex items-start justify-between gap-4">
                 <span className={`${styles["contact-card-label"]} font-nm-book text-xs uppercase tracking-[0.16em] text-white/45`}>
-                  03 / Elsewhere
+                  03 / Socials
                 </span>
                 <span className={`${styles["contact-card-meta"]} font-nm-book text-xs text-white/25`}>SC&copy;</span>
               </div>
