@@ -262,7 +262,7 @@ export const projectDetails: ProjectDetails[] = [
     description:
       "RV Rioflorido is a civil engineer-led construction company in the Philippines, specializing in residential and commercial projects with modern finishes and comprehensive services.",
     role: "Designer, Developer",
-    tech: "Figma, Vue.js, Nuxt.js, Tailwind, Supabase",
+    tech: "Figma, Vue.js, Nuxt.js, Tailwind, Supabase, OpenAI Codex",
     linkItem: {
       label: "rvriofloridocon.com",
       href: "https://rvriofloridocon.com"
