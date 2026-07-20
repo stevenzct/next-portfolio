@@ -134,7 +134,7 @@ export const aboutTechStack = [
     ],
   },
   {
-    category: "AI",
+    category: "AI and Automation",
     tags: [
       { label: "OpenAI", icon: TbBrandOpenai, color: "#FFFFFF" },
       { label: "Claude", icon: SiClaude, color: "#D97757" },
