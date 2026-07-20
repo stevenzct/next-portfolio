@@ -182,9 +182,9 @@ function Experience() {
                                 />
                                 <span
                                   role="tooltip"
-                                  className="pointer-events-none absolute right-0 top-full z-30 mt-2 translate-y-1 whitespace-nowrap rounded-[6px] bg-[#073B50] px-2.5 py-1.5 font-nm-book text-[11px] leading-none text-white opacity-0 shadow-[0_8px_24px_rgba(3,44,64,0.18)] transition-[opacity,transform] duration-200 group-hover/linkedin:translate-y-0 group-hover/linkedin:opacity-100 group-focus-visible/linkedin:translate-y-0 group-focus-visible/linkedin:opacity-100"
+                                  className="pointer-events-none absolute right-0 top-full z-30 mt-3 translate-y-1 whitespace-nowrap rounded-lg border border-white/15 bg-[#052F40] px-3 py-2 font-nm-medium text-xs font-medium leading-[1.25] tracking-[0.01em] text-white opacity-0 shadow-[0_10px_28px_rgba(3,32,43,0.28)] transition-[opacity,transform] duration-200 group-hover/linkedin:translate-y-0 group-hover/linkedin:opacity-100 group-focus-visible/linkedin:translate-y-0 group-focus-visible/linkedin:opacity-100"
                                 >
-                                  <span className="absolute right-[15px] top-[-3px] h-1.5 w-1.5 rotate-45 bg-[#073B50]" />
+                                  <span className="absolute right-[15px] top-[-4px] size-2 rotate-45 border-l border-t border-white/15 bg-[#052F40]" />
                                   View LinkedIn
                                 </span>
                               </a>
