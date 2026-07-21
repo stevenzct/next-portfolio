@@ -37,22 +37,22 @@ export const reviews: Review[] = [
   },
   {
     quote:
-      "He has a great eye for design and knows how to turn ideas into practical, well-made solutions.",
-    attribution: "Gerald Pagsuyoin",
-    context: "Social Media & Full-Stack Developer",
-    imageSrc: "/images/reviews/gerald-pagsuyoin.jpg",
-    imageAlt: "Gerald Pagsuyoin profile",
-    profileUrl: "https://www.linkedin.com/in/gerald-pagsuyoin-89964739b/",
-    platform: "linkedin",
-  },
-  {
-    quote:
-      "If you need someone who can handle both website design  and development, Steven is a reliable person to work with.",
+      "Steven is a skilled developer and designer who creates clean, user-friendly products and consistently delivers quality work.",
     attribution: "Martin Ditalo",
     context: "Full-Stack Software Engineer",
     imageSrc: "/images/reviews/martin-ditalo.jpg",
     imageAlt: "Martin Ditalo profile",
     profileUrl: "https://www.linkedin.com/in/martinditalo/",
+    platform: "linkedin",
+  },
+  {
+    quote:
+      "If you need someone who can handle both website design and development, Steven is a reliable person to work with.",
+    attribution: "Gerald Pagsuyoin",
+    context: "Social Media & Full-Stack Developer",
+    imageSrc: "/images/reviews/gerald-pagsuyoin.jpg",
+    imageAlt: "Gerald Pagsuyoin profile",
+    profileUrl: "https://www.linkedin.com/in/gerald-pagsuyoin-89964739b/",
     platform: "linkedin",
   },
 ];
