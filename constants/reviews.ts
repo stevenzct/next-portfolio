@@ -49,7 +49,7 @@ export const reviews: Review[] = [
     quote:
       "If you need someone who can handle both website design and development, Steven is a reliable person to work with.",
     attribution: "Gerald Pagsuyoin",
-    context: "Social Media & Full-Stack Developer",
+    context: "TL Social Media & Full-Stack Developer",
     imageSrc: "/images/reviews/gerald-pagsuyoin.jpg",
     imageAlt: "Gerald Pagsuyoin profile",
     profileUrl: "https://www.linkedin.com/in/gerald-pagsuyoin-89964739b/",
