@@ -41,7 +41,7 @@ export const projectDetails: ProjectDetails[] = [
     title: "Payso Cashier",
     description: "H5-based cashier product designed to facilitate digital payment processing, merchant transactions, and streamlined cashier operations for businesses.",
     role: "UI/UX Designer and QA",  
-    tech: "Figma", 
+    tech: "Figma, OpenAI", 
     year: 2025,
     imageSrcMockup: "/images/projectDetails/PaysoCashier/PaysoCashierMockup.png",
     assignment:
@@ -161,7 +161,7 @@ export const projectDetails: ProjectDetails[] = [
     title: "Payso Merchant",
     description: "H5 mobile product focused on merchant payment workflows, responsive mobile experiences, and seamless transaction interfaces.",
     role: "UI/UX Designer and QA",  
-    tech: "Figma", 
+    tech: "Figma, OpenAI", 
     year: 2026,
     imageSrcMockup: "/images/projectDetails/PaysoMerchant/PaysoMerchantMockup.png",
     assignment:

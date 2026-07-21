@@ -11,6 +11,7 @@ import { Dialog, DialogPanel } from "@headlessui/react";
 import gsap from "gsap";
 import {
   Bars3Icon,
+  ChatBubbleLeftRightIcon,
   ChevronDownIcon,
   DocumentCheckIcon,
   EnvelopeIcon,
@@ -115,6 +116,12 @@ const aboutDropdown = [
     Icon: UserCircleIcon,
   },
   {
+    name: "Reviews",
+    href: "/#reviews",
+    sectionId: "reviews",
+    Icon: ChatBubbleLeftRightIcon,
+  },
+  {
     name: "Certifications",
     href: "/#certifications",
     sectionId: "certifications",
@@ -136,6 +143,7 @@ const getActiveSectionFromPath = (path: string): string => {
   if (path === "/" || path === "") return "home";
   if (path.includes("/book-a-meeting")) return "pricing";
   if (path.includes("/projects")) return "projects";
+  if (path.includes("/reviews")) return "reviews";
   if (path.includes("/work")) return "work";
   if (path.includes("/about")) return "about";
   if (path.includes("/certifications")) return "certifications";
@@ -191,6 +199,7 @@ const useActiveSection = () => {
     const sectionIds = [
       "home",
       "projects",
+      "reviews",
       "work",
       "about",
       "certifications",

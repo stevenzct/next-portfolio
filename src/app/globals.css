@@ -329,6 +329,153 @@ html[data-color-theme="color"] .TechSwiper-section {
     var(--color-canvas);
 }
 
+html[data-color-theme="color"] #reviews.reviews-section {
+  border-color: rgba(10, 111, 145, 0.12);
+  background:
+    radial-gradient(circle at 90% 12%, rgba(99, 199, 219, 0.12), transparent 28%),
+    var(--color-surface);
+}
+
+html[data-color-theme="color"] #reviews .reviews-atmosphere {
+  background-image: linear-gradient(
+    to right,
+    rgba(10, 111, 145, 0.08) 1px,
+    transparent 1px
+  );
+}
+
+html[data-color-theme="color"] #reviews .reviews-kicker {
+  color: var(--color-muted);
+}
+
+html[data-color-theme="color"] #reviews h2 {
+  color: var(--color-ink);
+}
+
+html[data-color-theme="color"] #reviews .review-ticket--light {
+  --ticket-surface: #fffffc;
+  --ticket-ink: var(--color-ink);
+  --ticket-hover: var(--color-navy-deep);
+  --ticket-hover-ink: #ffffff;
+  --ticket-border: rgba(10, 111, 145, 0.16);
+}
+
+html[data-color-theme="color"] #reviews .review-ticket--dark {
+  --ticket-surface: var(--color-navy-deep);
+  --ticket-ink: #ffffff;
+  --ticket-hover: var(--color-lime);
+  --ticket-hover-ink: var(--color-ink);
+  --ticket-border: rgba(255, 255, 255, 0.16);
+}
+
+html[data-color-theme="color"] #reviews .review-nav-button:hover {
+  border-color: var(--color-navy-deep);
+  background: var(--color-navy-deep);
+  color: #ffffff;
+}
+
+.reviews-atmosphere {
+  background-image: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0.055) 1px,
+    transparent 1px
+  );
+  background-size: 25% 100%;
+  mask-image: linear-gradient(
+    to bottom,
+    transparent,
+    black 16%,
+    black 84%,
+    transparent
+  );
+}
+
+.review-ticket {
+  --ticket-surface: #ebe9e2;
+  --ticket-ink: #111111;
+  --ticket-hover: #111111;
+  --ticket-hover-ink: #ffffff;
+  --ticket-border: rgba(0, 0, 0, 0.12);
+  border-radius: 13px;
+  overflow: hidden;
+  background: var(--ticket-surface);
+  box-shadow: inset 0 0 0 1px var(--ticket-border);
+  color: var(--ticket-ink);
+  transition:
+    color 550ms cubic-bezier(0.22, 1, 0.36, 1),
+    transform 550ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.review-ticket--dark {
+  --ticket-surface: #111111;
+  --ticket-ink: #ffffff;
+  --ticket-hover: #d6ff62;
+  --ticket-hover-ink: #111111;
+  --ticket-border: rgba(255, 255, 255, 0.15);
+}
+
+.review-ticket::before {
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+  border-radius: inherit;
+  background: var(--ticket-hover);
+  content: "";
+  transform: translateY(calc(100% - 3px));
+  transition: transform 650ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.review-ticket:hover {
+  color: var(--ticket-hover-ink);
+}
+
+.review-ticket:hover::before {
+  transform: translateY(0);
+}
+
+.review-ticket-link {
+  color: inherit;
+}
+
+.review-card-platform {
+  border-color: color-mix(in srgb, currentColor 20%, transparent);
+  background: color-mix(in srgb, currentColor 6%, transparent);
+}
+
+.review-card-footer {
+  border-color: color-mix(in srgb, currentColor 15%, transparent);
+}
+
+.review-card-profile {
+  border-color: color-mix(in srgb, currentColor 18%, transparent);
+}
+
+.review-card-arrow {
+  border-color: transparent;
+  background: var(--ticket-ink);
+  color: var(--ticket-surface);
+}
+
+.review-ticket:hover .review-card-arrow {
+  background: var(--ticket-hover-ink);
+  color: var(--ticket-hover);
+}
+
+@media (min-width: 768px) and (pointer: fine) {
+  .review-ticket:hover {
+    transform: translateY(-4px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .review-ticket,
+  .review-ticket::before,
+  .review-card-arrow,
+  .review-card-arrow svg {
+    transition-duration: 0.01ms !important;
+  }
+}
+
 html[data-color-theme="color"] .tech-marquee-window {
   overflow: hidden;
   margin-block: -10px;
