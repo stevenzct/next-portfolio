@@ -226,7 +226,7 @@ export const projectDetails: ProjectDetails[] = [
     title: "Payso Graphics",
     description: "Sales materials, trifolds, and banners.",
     role: "Graphics Designer",  
-    tech: "Figma, Adobe XD, Photoshop, AI Tools", 
+    tech: "Figma, Adobe XD, OpenAI", 
     year: 2026,
     imageSrcMockup: "/images/projectDetails/PaysoGraphics/image1.png",
     assignment:
