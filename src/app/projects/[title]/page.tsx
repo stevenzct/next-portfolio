@@ -88,6 +88,39 @@ const ProjectPage = async ({ params }: PageProps) => {
     );
   }
 
+  if (project.status === "in-progress" && project.linkItem) {
+    return (
+      <main className="project-detail-page min-h-screen bg-[var(--project-canvas)] pt-[120px] md:pt-36 lg:pt-[160px]">
+        <div className="container-wrapper h-auto w-full">
+          <div className="app-container mx-6 w-auto max-w-[1200px] pb-16 md:mx-12 lg:mx-auto lg:w-[90%] xl:w-[88%] 2xl:w-[75%]">
+            <Link
+              href="/projects"
+              className="project-detail-back mb-8 inline-flex items-center gap-2 rounded-lg border border-[var(--project-line)] px-3.5 py-2 font-nm-book text-sm text-[var(--project-value)] transition-colors duration-300 hover:bg-[var(--project-surface-hover)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--project-focus)] md:mb-10"
+            >
+              <ArrowLeftIcon className="h-4 w-4" aria-hidden="true" />
+              All Projects
+            </Link>
+            <h1 className="max-w-5xl break-words text-start font-nm-medium text-[clamp(2.5rem,6.5vw,5rem)] font-medium leading-[0.95] tracking-[-0.035em] text-[var(--project-ink)]">
+              {project.title}
+            </h1>
+            <p className="mt-5 max-w-3xl text-start font-nm-book text-base leading-7 text-[var(--project-copy)] md:text-lg md:leading-8 lg:text-xl">
+              This project is in progress. For UI exploration,{" "}
+              <a
+                className="text-[var(--project-link)] underline decoration-[var(--project-link)] underline-offset-4"
+                href={project.linkItem.href}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                visit this link
+              </a>
+              .
+            </p>
+          </div>
+        </div>
+      </main>
+    );
+  }
+
   const hasEditorialGallery = project.imageSrcUi.some(
     (image) => typeof image !== "string" && Boolean(image.title)
   );

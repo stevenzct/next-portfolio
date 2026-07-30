@@ -14,6 +14,7 @@ export type ProjectDetails = {
   nextTitle?: string;
   nextDescription?: string;
   linkItems?: LinkItem[];
+  status?: "in-progress";
 };
 
 export type ProjectGalleryImage = {
@@ -209,10 +210,9 @@ export const projectDetails: ProjectDetails[] = [
           "Since Payso Merchant and Payso Cashier are connected products, the Product Department chose the same colour palette to create a consistent, comfortable, and easy-to-navigate experience.",
       },
     ],
-    nextImage:
-      "/images/projectDetails/PaysoGraphics/payso-business-cards.png",
-    nextTitle: "Payso Graphics",
-    nextDescription: "Sales materials, trifolds, and banners",
+    nextImage: "/images/projects/PaysoRemittance1.png",
+    nextTitle: "Remittance App",
+    nextDescription: "Fast, secure, and convenient money transfers",
      linkItem: {
       label: "",
       href: ""
@@ -223,7 +223,29 @@ export const projectDetails: ProjectDetails[] = [
       { label: "Design System", href: "https://www.figma.com/design/hBdm1zdfThaZss1TAjgvbw/Payso-Merchant?node-id=298-702&p=f&t=s9BW3z4ZJJJLEVqS-0" },
     ],
   },
-   {
+  {
+    title: "Remittance App",
+    description:
+      "This project is in progress. For UI exploration, visit this link.",
+    role: "",
+    tech: "",
+    linkItem: {
+      label: "visit this link",
+      href: "https://remittance-ui-exploration-gjnm.vercel.app/",
+    },
+    status: "in-progress",
+    year: 2026,
+    imageSrcMockup: "/images/projects/PaysoRemittance1.png",
+    assignment: "",
+    objectives: "",
+    projectIncludes: [],
+    imageSrcUi: [],
+    nextImage:
+      "/images/projectDetails/PaysoGraphics/payso-business-cards.png",
+    nextTitle: "Payso Graphics",
+    nextDescription: "Sales materials, trifolds, and banners",
+  },
+  {
     title: "Payso Graphics",
     description: "Sales materials, trifolds, and banners.",
     role: "Graphics Designer",  
