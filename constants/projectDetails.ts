@@ -209,7 +209,8 @@ export const projectDetails: ProjectDetails[] = [
           "Since Payso Merchant and Payso Cashier are connected products, the Product Department chose the same colour palette to create a consistent, comfortable, and easy-to-navigate experience.",
       },
     ],
-    nextImage: "/images/projectDetails/PaysoGraphics/image1.png",
+    nextImage:
+      "/images/projectDetails/PaysoGraphics/payso-business-cards.png",
     nextTitle: "Payso Graphics",
     nextDescription: "Sales materials, trifolds, and banners",
      linkItem: {
@@ -240,6 +241,13 @@ export const projectDetails: ProjectDetails[] = [
       "Sales Materials",
     ],
     imageSrcUi: [
+      {
+        src: "/images/projectDetails/PaysoGraphics/payso-business-cards.png",
+        width: 1672,
+        height: 941,
+        alt: "Payso and Jinyi Holdings business card graphic designs",
+        title: "Business Cards",
+      },
       "/images/projectDetails/PaysoGraphics/image2.png",
       "/images/projectDetails/PaysoGraphics/image3.png",
       "/images/projectDetails/PaysoGraphics/image4.png",

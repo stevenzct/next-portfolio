@@ -4,6 +4,9 @@ export type Project = {
   description: string;
   imageSrc: string;
   imageAlt: string;
+  imageWidth?: number;
+  imageHeight?: number;
+  imageFit?: "cover" | "contain";
   category: string;
 };
 
@@ -36,8 +39,12 @@ export const projects: Project[] = [
     title: "Payso Graphics",
     year: 2026,
     description: "Sales materials, trifolds, and banners",
-    imageSrc: "/images/projects/PaysoGraphics.png",
-    imageAlt: "PaysoGraphics Project",
+    imageSrc:
+      "/images/projectDetails/PaysoGraphics/payso-business-cards.png",
+    imageAlt: "Payso business card graphic designs",
+    imageWidth: 1672,
+    imageHeight: 941,
+    imageFit: "contain",
     category: "Graphics Design",
   },
   {

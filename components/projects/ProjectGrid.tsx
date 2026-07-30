@@ -12,7 +12,17 @@ const ProjectGrid = ({ projects }: ProjectGridProps) => {
   return (
     <div className="projects-content grid gap-x-8 gap-y-12 md:grid-cols-2 md:gap-y-16">
       {projects.map(
-        ({ title, year, description, imageSrc, imageAlt, category }) => (
+        ({
+          title,
+          year,
+          description,
+          imageSrc,
+          imageAlt,
+          imageWidth,
+          imageHeight,
+          imageFit,
+          category,
+        }) => (
           <article
             data-project-detail-reveal
             data-home-motion-card
@@ -26,12 +36,17 @@ const ProjectGrid = ({ projects }: ProjectGridProps) => {
               <Link
                 href={`/projects/${encodeURIComponent(title)}`}
                 aria-label={`View ${title} project`}
+                className="relative block aspect-[589/482] overflow-hidden rounded-lg"
               >
                 <Image
-                  className="project-card-image content-projects w-full rounded-lg filter transition duration-300 group-hover:brightness-30"
+                  className={`project-card-image content-projects h-full w-full rounded-lg filter transition duration-300 group-hover:brightness-30 ${
+                    imageFit === "contain"
+                      ? "bg-[#e8e4df] object-contain"
+                      : "object-cover"
+                  }`}
                   src={imageSrc}
-                  height={482}
-                  width={589}
+                  height={imageHeight ?? 482}
+                  width={imageWidth ?? 589}
                   alt={imageAlt}
                   sizes="(max-width: 767px) calc(100vw - 48px), (max-width: 1279px) calc((100vw - 128px) / 2), 589px"
                 />
