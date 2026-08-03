@@ -9,8 +9,17 @@ const SECTION_SELECTOR = "[data-home-motion-section]";
 const HEADING_SELECTOR = "[data-home-motion-heading]";
 const COPY_SELECTOR = "[data-home-motion-copy]";
 const MEDIA_SELECTOR = "[data-home-motion-media]";
+const MEDIA_SURFACE_SELECTOR = "[data-home-motion-media-surface]";
 const CARD_SELECTOR = "[data-home-motion-card]";
 const ACTION_SELECTOR = "[data-home-motion-action]";
+const BADGE_SELECTOR = "[data-home-motion-badge]";
+
+const getMediaTargets = (section: HTMLElement) =>
+  Array.from(
+    section.querySelectorAll<HTMLElement>(MEDIA_SELECTOR),
+    (media) =>
+      media.querySelector<HTMLElement>(MEDIA_SURFACE_SELECTOR) ?? media,
+  );
 
 type HomepageMotionProps = {
   children: ReactNode;
@@ -36,9 +45,10 @@ const HomepageMotion = ({ children }: HomepageMotionProps) => {
       sections.forEach((section) => {
         const headings = section.querySelectorAll<HTMLElement>(HEADING_SELECTOR);
         const copy = section.querySelectorAll<HTMLElement>(COPY_SELECTOR);
-        const media = section.querySelectorAll<HTMLElement>(MEDIA_SELECTOR);
+        const media = getMediaTargets(section);
         const cards = section.querySelectorAll<HTMLElement>(CARD_SELECTOR);
         const actions = section.querySelectorAll<HTMLElement>(ACTION_SELECTOR);
+        const badges = section.querySelectorAll<HTMLElement>(BADGE_SELECTOR);
 
         gsap.set(headings, {
           yPercent: 112,
@@ -71,6 +81,16 @@ const HomepageMotion = ({ children }: HomepageMotionProps) => {
           autoAlpha: 0,
           willChange: "transform,opacity",
         });
+        gsap.set(badges, {
+          x: 14,
+          y: -14,
+          scale: 0.88,
+          rotation: 3,
+          autoAlpha: 0,
+          force3D: true,
+          transformOrigin: "100% 0%",
+          willChange: "transform,opacity",
+        });
       });
     }, container);
 
@@ -82,9 +102,10 @@ const HomepageMotion = ({ children }: HomepageMotionProps) => {
           const section = entry.target as HTMLElement;
           const headings = section.querySelectorAll<HTMLElement>(HEADING_SELECTOR);
           const copy = section.querySelectorAll<HTMLElement>(COPY_SELECTOR);
-          const media = section.querySelectorAll<HTMLElement>(MEDIA_SELECTOR);
+          const media = getMediaTargets(section);
           const cards = section.querySelectorAll<HTMLElement>(CARD_SELECTOR);
           const actions = section.querySelectorAll<HTMLElement>(ACTION_SELECTOR);
+          const badges = section.querySelectorAll<HTMLElement>(BADGE_SELECTOR);
 
           const timeline = gsap
             .timeline({ defaults: { overwrite: "auto" } })
@@ -147,6 +168,22 @@ const HomepageMotion = ({ children }: HomepageMotionProps) => {
                 clearProps: "transform,opacity,visibility,willChange",
               },
               0.3,
+            )
+            .to(
+              badges,
+              {
+                x: 0,
+                y: 0,
+                scale: 1,
+                rotation: 0,
+                autoAlpha: 1,
+                force3D: true,
+                duration: 0.85,
+                stagger: 0.08,
+                ease: "power3.out",
+                clearProps: "transform,opacity,visibility,willChange",
+              },
+              0.38,
             );
 
           timelines.push(timeline);

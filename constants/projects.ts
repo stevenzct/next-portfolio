@@ -8,6 +8,7 @@ export type Project = {
   imageHeight?: number;
   imageFit?: "cover" | "contain";
   category: string;
+  status?: string;
 };
 
 export const projects: Project[] = [
@@ -34,6 +35,7 @@ export const projects: Project[] = [
     imageSrc: "/images/projects/PaysoRemittance1.png",
     imageAlt: "Remittance app Project",
     category: "UI/UX DESIGN",
+    status: "In progress",
   },
    {
     title: "Payso Graphics",

@@ -41,7 +41,7 @@ const Projects = () => {
               <ArrowRightIcon className="h-4 w-4" aria-hidden="true" />
             </Link>
           </div>
-          <ProjectGrid projects={featuredProjects} />
+          <ProjectGrid projects={featuredProjects} showStatusRibbon />
         </div>
       </div>
     </section>

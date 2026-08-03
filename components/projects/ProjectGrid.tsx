@@ -3,12 +3,17 @@ import Link from "next/link";
 import { ArrowUpRightIcon } from "@heroicons/react/24/outline";
 
 import type { Project } from "../../constants/projects";
+import styles from "./ProjectGrid.module.css";
 
 type ProjectGridProps = {
   projects: readonly Project[];
+  showStatusRibbon?: boolean;
 };
 
-const ProjectGrid = ({ projects }: ProjectGridProps) => {
+const ProjectGrid = ({
+  projects,
+  showStatusRibbon = false,
+}: ProjectGridProps) => {
   return (
     <div className="projects-content grid gap-x-8 gap-y-12 md:grid-cols-2 md:gap-y-16">
       {projects.map(
@@ -22,6 +27,7 @@ const ProjectGrid = ({ projects }: ProjectGridProps) => {
           imageHeight,
           imageFit,
           category,
+          status,
         }) => (
           <article
             data-project-detail-reveal
@@ -31,11 +37,16 @@ const ProjectGrid = ({ projects }: ProjectGridProps) => {
           >
             <div
               data-home-motion-media
-              className="project-card-media projects-images group relative"
+              className={`project-card-media projects-images group relative ${
+                showStatusRibbon && status
+                  ? styles["status-ribbon-media"]
+                  : ""
+              }`}
             >
               <Link
+                data-home-motion-media-surface
                 href={`/projects/${encodeURIComponent(title)}`}
-                aria-label={`View ${title} project`}
+                aria-label={`View ${title} project${showStatusRibbon && status ? ` - ${status}` : ""}`}
                 className="relative block aspect-[589/482] overflow-hidden rounded-lg"
               >
                 <Image
@@ -65,6 +76,17 @@ const ProjectGrid = ({ projects }: ProjectGridProps) => {
                   </span>
                 </div>
               </Link>
+              {showStatusRibbon && status ? (
+                <span
+                  data-home-motion-badge
+                  aria-hidden="true"
+                  className={styles["status-ribbon"]}
+                >
+                  <span className={styles["status-ribbon-label"]}>
+                    {status}
+                  </span>
+                </span>
+              ) : null}
             </div>
             <div className="projects-title">
               <div className="mt-4 flex items-start justify-between gap-4 md:mt-6">

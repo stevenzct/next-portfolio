@@ -29,7 +29,7 @@ const AllProjectsPage = () => {
             >
               Featured Projects
             </h1>
-            <ProjectGrid projects={projects} />
+            <ProjectGrid projects={projects} showStatusRibbon />
           </div>
         </div>
       </ProjectDetailMotion>
