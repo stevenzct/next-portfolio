@@ -63,6 +63,7 @@
   visibility: visible;
   opacity: 1;
   border-radius: 20px;
+  clip-path: inset(0 round 20px);
   background: #050505;
   will-change: clip-path;
 }
@@ -175,10 +176,10 @@
   }
 
   .contact-art {
-    width: calc(100% + 1rem);
+    width: 100%;
     aspect-ratio: 1.25 / 1;
     margin-top: 2rem;
-    margin-left: -0.5rem;
+    margin-left: 0;
   }
 
   .contact-art::before {
