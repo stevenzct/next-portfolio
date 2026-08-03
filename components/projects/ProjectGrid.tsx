@@ -58,6 +58,7 @@ const ProjectGrid = ({
                   src={imageSrc}
                   height={imageHeight ?? 482}
                   width={imageWidth ?? 589}
+                  quality={90}
                   alt={imageAlt}
                   sizes="(max-width: 767px) calc(100vw - 48px), (max-width: 1279px) calc((100vw - 128px) / 2), 589px"
                 />
