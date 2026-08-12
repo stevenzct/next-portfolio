@@ -113,7 +113,7 @@ const ProjectExplorer = ({ projects }: ProjectExplorerProps) => {
         data-project-detail-intro
         role="search"
         aria-label="Search and filter projects"
-        className="mb-10 border-y border-[var(--project-line-soft)] py-5 md:mb-12 md:py-6 lg:mb-16"
+        className="mb-10 border-t border-[var(--project-line-soft)] py-5 md:mb-12 md:py-6 lg:mb-16"
       >
         <div className="flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between lg:gap-8">
           <div className="w-full lg:max-w-[35rem]">
@@ -137,7 +137,7 @@ const ProjectExplorer = ({ projects }: ProjectExplorerProps) => {
                 placeholder="Search by title, category, or keyword"
                 aria-controls="project-search-results"
                 autoComplete="off"
-                className="h-12 w-full appearance-none rounded-full border border-[var(--project-line)] bg-[var(--project-canvas)] py-3 pl-12 pr-12 font-nm-book text-base text-[var(--project-ink)] outline-none transition-[border-color,box-shadow] placeholder:text-[var(--project-muted)] focus:border-[var(--project-focus)] focus:shadow-[0_0_0_3px_var(--project-line-soft)]"
+                className="h-12 w-full appearance-none rounded-full border border-[var(--project-line)] bg-[var(--project-canvas)] py-3 pl-12 pr-12 font-nm-book text-base text-[var(--project-ink)] outline-none transition-[border-color,box-shadow] placeholder:text-[var(--project-muted)] focus:border-[var(--project-focus)] focus:shadow-[0_0_0_3px_var(--project-line-soft)] [&::-webkit-search-cancel-button]:hidden"
               />
               {query.length > 0 ? (
                 <button
