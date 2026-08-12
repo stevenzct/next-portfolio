@@ -1,6 +1,6 @@
 import Footer from "../../../components/Footer";
 import ProjectDetailMotion from "../../../components/projects/ProjectDetailMotion";
-import ProjectGrid from "../../../components/projects/ProjectGrid";
+import ProjectExplorer from "../../../components/projects/ProjectExplorer";
 import { projects } from "../../../constants/projects";
 import { createPageMetadata } from "../../../utils/metadata";
 
@@ -29,7 +29,7 @@ const AllProjectsPage = () => {
             >
               Featured Projects
             </h1>
-            <ProjectGrid projects={projects} showStatusRibbon />
+            <ProjectExplorer projects={projects} />
           </div>
         </div>
       </ProjectDetailMotion>

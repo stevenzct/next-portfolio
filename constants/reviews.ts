@@ -55,4 +55,34 @@ export const reviews: Review[] = [
     profileUrl: "https://www.linkedin.com/in/gerald-pagsuyoin-89964739b/",
     platform: "linkedin",
   },
+  {
+    quote:
+      "Steven is highly receptive to feedback, easy to work with, and consistently applies guidance to improve his design skills and deliver stronger UI/UX work.",
+    attribution: "Nigel Moncado",
+    context: "Marketing & Partnership Manager",
+    imageSrc: "/images/reviews/nigel-moncado.png",
+    imageAlt: "Nigel Moncado profile photo",
+    profileUrl: "https://www.linkedin.com/in/nigelmoncado/",
+    platform: "linkedin",
+  },
+  {
+    quote:
+      "Steven combines full-stack development expertise with a strong eye for UI/UX, creating intuitive and functional digital products. He’s proactive, collaborative, and passionate about fintech innovation.",
+    attribution: "Ma. Jecca",
+    context: "Bank Channel Manager",
+    imageSrc: "/images/reviews/ma-jecca.png",
+    imageAlt: "Ma. Jecca profile photo",
+    profileUrl: "https://www.linkedin.com/in/majecca/",
+    platform: "linkedin",
+  },
+  {
+    quote:
+      "Steven may be the quiet type, but he consistently gets the job done, often before anyone even asks. His initiative, reliability, and strong work ethic make him a valuable member of any team.",
+    attribution: "Joshua Bullecer",
+    context: "Engineer & Sales Manager",
+    imageSrc: "/images/reviews/joshua-bullecer.png",
+    imageAlt: "Joshua Bullecer profile photo",
+    profileUrl: "https://www.linkedin.com/in/joshuabullecer/",
+    platform: "linkedin",
+  },
 ];
