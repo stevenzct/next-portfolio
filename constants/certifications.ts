@@ -67,7 +67,7 @@ export const certifications: Certification[] = [
     certificateUrl: "https://www.codecademy.com/profiles/Steven232/certificates/eb1ffda40f347629dcef6de33d3f9741",
   },
   {
-    certificateName: "Javascript Course",
+    certificateName: "JavaScript Course",
     Company: "Codecademy",
     Issued: "Issued Jul 2024",
     credentialType: "certificate",
@@ -78,7 +78,7 @@ export const certifications: Certification[] = [
     certificateUrl: "https://www.codecademy.com/profiles/Steven232/certificates/705dcb15de0da4dd9d9fc4f3274b430e",
   },
   {
-    certificateName: "Html Course",
+    certificateName: "HTML Course",
     Company: "Codecademy",
     Issued: "Issued Jul 2024",
     credentialType: "certificate",
@@ -89,7 +89,7 @@ export const certifications: Certification[] = [
     certificateUrl: "https://www.codecademy.com/profiles/Steven232/certificates/9eb0741e5ebef1f9f58a53bfac67d3a7",
   },
   {
-    certificateName: "Build Website Github..",
+    certificateName: "Build a Website with GitHub Pages",
     Company: "Codecademy",
     Issued: "Issued Jul 2024",
     credentialType: "certificate",

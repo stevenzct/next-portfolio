@@ -14,6 +14,57 @@ import { certifications } from "../../constants/certifications";
 
 import "swiper/css";
 
+const certificationAccents = [
+  {
+    surface: "#FFF0E7",
+    surfaceSoft: "#FFF9F4",
+    line: "#F5B99A",
+    accent: "#F26A2E",
+    glow: "rgba(242, 106, 46, 0.18)",
+    shadow: "rgba(156, 75, 34, 0.13)",
+  },
+  {
+    surface: "#EAF6FA",
+    surfaceSoft: "#F6FBFD",
+    line: "#A8D2DF",
+    accent: "#247D96",
+    glow: "rgba(36, 125, 150, 0.17)",
+    shadow: "rgba(30, 91, 108, 0.13)",
+  },
+  {
+    surface: "#F3EEFF",
+    surfaceSoft: "#FBF9FF",
+    line: "#CDBAF2",
+    accent: "#7C50C9",
+    glow: "rgba(124, 80, 201, 0.16)",
+    shadow: "rgba(94, 62, 146, 0.13)",
+  },
+  {
+    surface: "#EAF7F0",
+    surfaceSoft: "#F7FCF9",
+    line: "#ADD8C1",
+    accent: "#2F8B64",
+    glow: "rgba(47, 139, 100, 0.16)",
+    shadow: "rgba(38, 104, 76, 0.13)",
+  },
+  {
+    surface: "#FFF1F6",
+    surfaceSoft: "#FFF9FB",
+    line: "#EDBAD0",
+    accent: "#B95780",
+    glow: "rgba(185, 87, 128, 0.15)",
+    shadow: "rgba(127, 62, 89, 0.12)",
+  },
+  {
+    surface: "#FFF7D9",
+    surfaceSoft: "#FFFCF1",
+    line: "#E7CE76",
+    accent: "#A77712",
+    glow: "rgba(167, 119, 18, 0.14)",
+    shadow: "rgba(118, 84, 15, 0.12)",
+  },
+];
+
 function Certifications() {
   const swiperRef = React.useRef<SwiperType | null>(null);
   const [isBeginning, setIsBeginning] = React.useState(true);
@@ -71,7 +122,7 @@ function Certifications() {
           </div>
 
           <div className="certifications-content">
-            <div className="certifications-wrapper">
+            <div className="certifications-wrapper -mx-6 overflow-hidden px-6 py-3 sm:-mx-8 sm:px-8">
               <Swiper
                 onSwiper={(swiper) => {
                   swiperRef.current = swiper;
@@ -99,7 +150,7 @@ function Certifications() {
                 grabCursor={true}
                 slidesPerGroup={1}
                 speed={550}
-                className="certification-cards !pb-7"
+                className="certification-cards !overflow-visible !pb-8"
               >
                 {certifications.map(
                   ({
@@ -112,19 +163,40 @@ function Certifications() {
                     imageSrc,
                     imageAlt,
                     certificateUrl,
-                  }) => (
-                    <SwiperSlide key={certificateName} className="!h-auto">
-                      <article
-                        data-home-motion-card
-                        className="certification-card group flex h-full max-w-full flex-col overflow-hidden rounded-[13px] bg-white shadow-[0_4px_18px_rgba(0,0,0,0.065)] transition-shadow duration-500 ease-out motion-safe:hover:shadow-[0_8px_26px_rgba(0,0,0,0.085)]"
-                      >
-                        <div className="certification-card-media relative aspect-[4/3] bg-[#E8E8E3] p-3 sm:p-4">
+                  }, index) => {
+                    const palette =
+                      certificationAccents[index % certificationAccents.length];
+                    const cardStyle = {
+                      "--cert-surface": palette.surface,
+                      "--cert-surface-soft": palette.surfaceSoft,
+                      "--cert-line": palette.line,
+                      "--cert-accent": palette.accent,
+                      "--cert-glow": palette.glow,
+                      "--cert-shadow": palette.shadow,
+                    } as React.CSSProperties;
+
+                    return (
+                      <SwiperSlide key={certificateName} className="!h-auto">
+                        <article
+                          data-home-motion-card
+                          style={cardStyle}
+                          className="certification-card group flex h-full max-w-full flex-col overflow-hidden rounded-[24px] border border-black/[0.07] bg-white shadow-[0_8px_24px_var(--cert-shadow)] transition-[transform,box-shadow,border-color] duration-500 ease-out motion-safe:hover:-translate-y-1 motion-safe:hover:border-[var(--cert-line)] motion-safe:hover:shadow-[0_14px_36px_var(--cert-shadow)]"
+                        >
+                        <div className="certification-card-media relative aspect-[1.27/1] overflow-hidden border-b border-black/[0.06] bg-[var(--cert-surface)] p-3.5 sm:p-4">
+                          <div
+                            aria-hidden="true"
+                            className="certification-card-glow absolute -right-12 -top-16 h-52 w-52 rounded-full bg-[var(--cert-glow)] blur-[18px]"
+                          />
+                          <div
+                            aria-hidden="true"
+                            className="absolute -bottom-16 -left-16 h-44 w-44 rounded-full bg-white/80 blur-2xl"
+                          />
                           <div
                             data-home-motion-media
-                            className="certification-card-artwork-frame relative h-full w-full overflow-hidden rounded-[10px] bg-white shadow-[0_7px_22px_rgba(0,0,0,0.1)] transition-transform duration-700 ease-out motion-safe:group-hover:scale-[1.015]"
+                            className="certification-card-artwork-frame relative h-full w-full overflow-hidden rounded-[17px] border border-white/80 bg-white/70 shadow-[0_14px_34px_var(--cert-shadow)] backdrop-blur-sm transition-transform duration-700 ease-out motion-safe:group-hover:scale-[1.012]"
                           >
                             <Image
-                              className="certification-card-artwork object-cover"
+                              className="certification-card-artwork object-cover mix-blend-multiply"
                               src={imageSrc}
                               fill
                               sizes="(max-width: 767px) calc(100vw - 72px), (max-width: 1279px) 40vw, 27vw"
@@ -134,58 +206,59 @@ function Certifications() {
                         </div>
 
                         <div className="flex flex-1 flex-col p-5 sm:p-6 xl:p-7">
-                          <div className="mb-5 flex items-center justify-between gap-3">
-                            <div className="certification-card-logo flex h-10 w-10 shrink-0 items-center justify-center overflow-hidden rounded-[4px] bg-white p-1 shadow-[0_1px_4px_rgba(0,0,0,0.055)] sm:h-11 sm:w-11">
+                          <div className="mb-6 flex min-w-0 items-center gap-2.5">
+                            <div className="certification-card-logo flex h-10 w-10 shrink-0 items-center justify-center overflow-hidden rounded-[11px] border border-[var(--cert-line)] bg-[var(--cert-surface-soft)] p-1.5 shadow-[0_4px_12px_var(--cert-shadow)] sm:h-11 sm:w-11">
                               {logoSrc ? (
                                 <Image
-                                  className="h-full w-full rounded-[2px] object-contain"
+                                  className="h-full w-full rounded-[5px] object-contain"
                                   src={logoSrc}
                                   height={51}
                                   width={51}
                                   alt={logoAlt ?? `${certificateName} Logo`}
                                 />
                               ) : (
-                                <span className="portfolio-color-avatar flex h-full w-full items-center justify-center rounded-[2px] bg-black font-nm-medium text-base font-medium text-white">
+                                <span className="flex h-full w-full items-center justify-center rounded-[5px] bg-[var(--cert-accent)] font-nm-medium text-base font-medium text-white">
                                   {certificateName.charAt(0)}
                                 </span>
                               )}
                             </div>
-                            <p className="certification-card-issued text-right font-nm-book text-[11px] uppercase leading-4 tracking-[0.11em] text-black/45 md:text-xs">
+                            <p className="certification-card-issued min-w-0 rounded-full bg-[var(--cert-surface-soft)] px-3 py-2 font-nm-book text-[10px] uppercase leading-4 tracking-[0.09em] text-black/55 shadow-[inset_0_0_0_1px_rgba(0,0,0,0.035)] sm:text-[11px]">
                               {Issued}
                             </p>
                           </div>
 
-                          <h3 className="certification-card-name font-nm-medium text-[28px] font-medium leading-[0.98] tracking-[-0.035em] text-black md:text-[30px]">
+                          <h3 className="certification-card-name max-w-[15ch] font-nm-medium text-[28px] font-medium leading-[1.01] tracking-[-0.04em] text-black md:text-[30px]">
                             {certificateName}
                           </h3>
                           <h4 className="certification-card-company mt-2 font-nm-book text-base leading-5 text-black/60 md:text-lg md:leading-6">
                             {Company}
                           </h4>
 
-                          <div className="mt-auto pt-6">
+                          <div className="mt-auto pt-7">
                             <a
                               href={certificateUrl ?? imageSrc}
                               target="_blank"
                               rel="noopener noreferrer"
-                              className="certification-card-link group/action inline-flex h-11 w-full items-center justify-between rounded-[8px] border border-transparent bg-[#F3F3F0] px-2.5 font-nm-medium text-sm font-medium text-black shadow-[inset_0_0_0_1px_rgba(0,0,0,0.045)] transition-[background-color,box-shadow] duration-300 hover:bg-[#EAEAE6] hover:shadow-[inset_0_0_0_1px_rgba(0,0,0,0.07)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+                              className="certification-card-link group/action inline-flex h-12 w-full items-center justify-between rounded-[13px] border border-[var(--cert-line)] bg-white/90 px-2.5 font-nm-medium text-sm font-medium text-black shadow-[0_6px_18px_var(--cert-shadow)] transition-[background-color,box-shadow,border-color] duration-300 hover:bg-[var(--cert-surface-soft)] hover:shadow-[0_9px_24px_var(--cert-shadow)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--cert-accent)]"
                             >
                               <span className="inline-flex items-center gap-2.5">
-                                <span className="certification-card-action-icon flex h-7 w-7 items-center justify-center rounded-[6px] bg-white shadow-[0_1px_4px_rgba(0,0,0,0.08)]">
+                                <span className="certification-card-action-icon flex h-8 w-8 items-center justify-center rounded-[9px] bg-[var(--cert-surface)] text-[var(--cert-accent)] shadow-[inset_0_0_0_1px_var(--cert-line)]">
                                   <DocumentCheckIcon className="h-4 w-4 shrink-0" />
                                 </span>
                                 {credentialType === "badge"
                                   ? "View Badge"
                                   : "View Certificate"}
                               </span>
-                              <span className="certification-card-action-arrow flex h-7 w-7 items-center justify-center rounded-full bg-black text-white transition-transform duration-300 motion-safe:group-hover/action:-translate-y-0.5 motion-safe:group-hover/action:translate-x-0.5">
-                                <ArrowUpRightIcon className="h-3.5 w-3.5" />
+                              <span className="certification-card-action-arrow flex h-8 w-8 items-center justify-center rounded-full bg-[var(--cert-accent)] text-white shadow-[0_5px_14px_var(--cert-shadow)] transition-transform duration-300 motion-safe:group-hover/action:-translate-y-0.5 motion-safe:group-hover/action:translate-x-0.5">
+                                <ArrowUpRightIcon className="h-4 w-4" />
                               </span>
                             </a>
                           </div>
                         </div>
-                      </article>
-                    </SwiperSlide>
-                  )
+                        </article>
+                      </SwiperSlide>
+                    );
+                  }
                 )}
               </Swiper>
             </div>

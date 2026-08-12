@@ -35,7 +35,7 @@ const Reviews = () => {
       id="reviews"
       aria-labelledby="reviews-heading"
       data-home-motion-section
-      className="reviews-section relative overflow-hidden border-y border-black/[0.06] bg-[#F1F0EA] py-[80px] md:py-24 lg:py-[120px]"
+      className="reviews-section relative overflow-hidden border-y border-[#EFE1DC] bg-[#FFFDF9] py-[80px] md:py-24 lg:py-[120px]"
     >
       <div
         aria-hidden="true"

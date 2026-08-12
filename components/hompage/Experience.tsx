@@ -153,7 +153,7 @@ function Experience() {
                                 alt={logoAlt ?? `${company} Logo`}
                               />
                             ) : (
-                              <span className="portfolio-color-avatar flex h-full w-full items-center justify-center rounded-[7px] bg-black font-nm-medium text-lg font-medium text-white">
+                              <span className="flex h-full w-full items-center justify-center rounded-[7px] bg-black font-nm-medium text-lg font-medium text-white">
                                 {company.charAt(0)}
                               </span>
                             )}

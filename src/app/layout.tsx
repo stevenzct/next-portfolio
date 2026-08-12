@@ -5,22 +5,6 @@ import { Navbar } from "../../components/Navbar";
 import { siteConfig } from "../../constants/site";
 import "./globals.css";
 
-const colorThemeScript = `
-  (function () {
-    var theme = "classic";
-
-    try {
-      theme = window.localStorage.getItem("portfolio-color-theme") === "color"
-        ? "color"
-        : "classic";
-    } catch (error) {
-      theme = "classic";
-    }
-
-    document.documentElement.dataset.colorTheme = theme;
-  })();
-`;
-
 const PPNeueMontrealBold = localFont({
   src: "../../public/fonts/PPNeueMontreal-Bold.otf",
   variable: "--font-NeueMontreal-bold",
@@ -94,10 +78,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" data-color-theme="classic" suppressHydrationWarning>
+    <html lang="en">
       <head>
         <meta name="color-scheme" content="only light" />
-        <script dangerouslySetInnerHTML={{ __html: colorThemeScript }} />
       </head>
       <body
         className={`${PPNeueMontrealBold.variable} ${PPNeueMontrealBook.variable} ${PPNeueMontrealMedium.variable}`}

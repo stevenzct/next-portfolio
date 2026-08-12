@@ -19,7 +19,6 @@ const HeroCard = () => {
   const shellRef = useRef<HTMLDivElement>(null);
   const floatRef = useRef<HTMLDivElement>(null);
   const cardVisualRef = useRef<HTMLDivElement>(null);
-  const colorLayerRef = useRef<HTMLDivElement>(null);
   const reducedMotionRef = useRef(false);
   const motionRef = useRef<CardMotion | null>(null);
 
@@ -66,52 +65,6 @@ const HeroCard = () => {
     return () => {
       motionRef.current = null;
       context.revert();
-    };
-  }, []);
-
-  useEffect(() => {
-    const colorLayer = colorLayerRef.current;
-    if (!colorLayer) return;
-
-    const getColorLayerState = () => {
-      const colorThemeEnabled =
-        document.documentElement.dataset.colorTheme === "color";
-
-      return {
-        autoAlpha: colorThemeEnabled ? 1 : 0,
-        clipPath: colorThemeEnabled
-          ? "inset(0 0% 0 0)"
-          : "inset(0 100% 0 0)",
-      };
-    };
-
-    gsap.set(colorLayer, getColorLayerState());
-
-    const syncColorLayer = () => {
-      const nextState = getColorLayerState();
-
-      if (prefersReducedMotion()) {
-        gsap.set(colorLayer, nextState);
-        return;
-      }
-
-      gsap.to(colorLayer, {
-        ...nextState,
-        duration: 0.72,
-        ease: "power3.inOut",
-        overwrite: "auto",
-      });
-    };
-
-    const themeObserver = new MutationObserver(syncColorLayer);
-    themeObserver.observe(document.documentElement, {
-      attributes: true,
-      attributeFilter: ["data-color-theme"],
-    });
-
-    return () => {
-      themeObserver.disconnect();
-      gsap.killTweensOf(colorLayer);
     };
   }, []);
 
@@ -184,11 +137,6 @@ const HeroCard = () => {
             priority
             sizes="(min-width: 1280px) 345px, (min-width: 1024px) 325px, (min-width: 640px) 300px, (min-width: 375px) 235px, 215px"
             className="relative z-0 h-auto w-full"
-          />
-          <div
-            ref={colorLayerRef}
-            className="portfolio-hero-card-color-layer absolute inset-0 z-10"
-            aria-hidden="true"
           />
         </div>
       </div>
