@@ -15,7 +15,7 @@ export const projects: Project[] = [
   {
     title: "Payso Cashier",
     year: 2025,
-    description: "H5-based mobile product cashier",
+    description: "Mobile payment checkout experience",
     imageSrc: "/images/projects/PaysoCashier1.png",
     imageAlt: "PaysoCashier Project",
     category: "UI/UX DESIGN",
@@ -23,7 +23,7 @@ export const projects: Project[] = [
   {
     title: "Payso Merchant",
     year: 2026,
-    description: "H5-based mobile product merchant",
+    description: "Mobile merchant payment experience",
     imageSrc: "/images/projects/PaysoMerchant1.png",
     imageAlt: "PaysoMerchant Project",
     category: "UI/UX DESIGN",
