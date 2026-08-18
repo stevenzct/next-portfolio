@@ -93,9 +93,16 @@ body {
   }
 }
 
-.swiper-wrapper {
+.tech-marquee .swiper-wrapper,
+.SwiperUi-section .swiper-wrapper {
   transition-timing-function: linear !important;
-  -webkit-transition-timing-function:linear!important;
+  -webkit-transition-timing-function: linear !important;
+}
+
+.experience-cards .swiper-wrapper {
+  align-items: stretch;
+  transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1) !important;
+  -webkit-transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1) !important;
 }
 
 html {

@@ -1,4 +1,4 @@
-export type Experience = { 
+export type Experience = {
   role: string;
   company: string;
   startDate: string;
@@ -9,7 +9,7 @@ export type Experience = {
   imageSrc?: string;
   imageAlt?: string;
   linkedinUrl?: string;
-}
+};
 
 export const experiences: Experience[] = [
   {
@@ -38,8 +38,8 @@ export const experiences: Experience[] = [
   },
   {
     role: "Designer | Developer",
-    company: "Freelance/ Self-Employed",
-    startDate: "October 2022 ",
+    company: "Freelance / Self-Employed",
+    startDate: "October 2022",
     endDate: "Present",
     location: "Teresa Rizal, Philippines",
     logoSrc: "/images/experience/Freelance1.jpg",
@@ -49,10 +49,10 @@ export const experiences: Experience[] = [
   },
   {
     role: "UI/UX Designer Intern",
-    company: "Pixel8 Web Solutions and Consultancy",
-    startDate: "Jun 2023",
+    company: "Pixel8 Web Solutions",
+    startDate: "June 2023",
     endDate: "July 2023 · 2 mos",
-    location: "Corner Albay 647, Legazpi City, Albay , Philippines",
+    location: "Legazpi City, Albay, Philippines",
     logoSrc: "/images/experience/Pixel8-1.jpg",
     logoAlt: "Pixel8 Logo",
     imageSrc: "/images/experience/Pixel8-2.jpg",

@@ -26,6 +26,7 @@ function Experience() {
   return (
     <section
       id="work"
+      aria-labelledby="experience-heading"
       data-home-motion-section
       className="experience bg-[#F8F8F8] py-[80px] md:py-24 lg:py-[120px]"
     >
@@ -39,6 +40,7 @@ function Experience() {
           </p>
           <div className="mb-7 flex items-end justify-between gap-3 md:mb-12 lg:mb-16">
             <h2
+              id="experience-heading"
               data-home-motion-heading
               className="min-w-0 text-start font-nm-medium text-[clamp(2rem,6vw,4.75rem)] font-medium leading-[0.96] tracking-[-0.035em] text-black"
             >
@@ -116,11 +118,11 @@ function Experience() {
                   }) => (
                     <SwiperSlide
                       key={`${company}-${role}`}
-                      className="!h-auto"
+                      className="!flex !h-auto"
                     >
                       <article
                         data-home-motion-card
-                        className="experience-card group flex h-auto max-w-full flex-col overflow-hidden rounded-[13px] bg-white shadow-[0_4px_18px_rgba(0,0,0,0.065)] transition-shadow duration-500 ease-out motion-safe:hover:shadow-[0_8px_26px_rgba(0,0,0,0.085)]"
+                        className="experience-card group flex h-full w-full max-w-full flex-col overflow-hidden rounded-[13px] bg-white shadow-[0_4px_18px_rgba(0,0,0,0.065)] ring-1 ring-inset ring-black/[0.05] transition-shadow duration-500 ease-out motion-safe:hover:shadow-[0_8px_26px_rgba(0,0,0,0.085)]"
                       >
                         <div
                           data-home-motion-media
@@ -161,8 +163,8 @@ function Experience() {
                         </div>
 
                         <div className="flex flex-1 flex-col p-5 sm:p-6 xl:p-7">
-                          <div className="flex items-center justify-between gap-3">
-                            <p className="experience-card-period min-w-0 font-nm-book text-[11px] uppercase leading-4 tracking-[0.1em] text-black/50 md:text-xs">
+                          <div className="flex min-h-10 items-center justify-between gap-3">
+                            <p className="experience-card-period min-w-0 font-nm-book text-[11px] uppercase leading-4 tracking-[0.08em] text-black/55 md:text-xs">
                               {startDate} &mdash; {endDate}
                             </p>
 
@@ -172,7 +174,7 @@ function Experience() {
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 aria-label={`View ${company} on LinkedIn`}
-                                className="experience-card-link group/linkedin relative inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-[8px] border border-transparent bg-white text-black shadow-[0_2px_8px_rgba(0,0,0,0.06)] transition-[background-color,box-shadow,transform] duration-300 hover:bg-white hover:shadow-[0_4px_12px_rgba(0,0,0,0.09)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black motion-safe:hover:-translate-y-0.5"
+                                className="experience-card-link group/linkedin relative inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-[8px] border border-black/[0.06] bg-[#F7F7F5] text-black shadow-[0_2px_8px_rgba(0,0,0,0.05)] transition-[background-color,box-shadow,transform] duration-300 hover:bg-white hover:shadow-[0_4px_12px_rgba(0,0,0,0.09)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black motion-safe:hover:-translate-y-0.5"
                               >
                                 <Image
                                   src="/images/icons/linkedin.png"
@@ -191,10 +193,10 @@ function Experience() {
                             )}
                           </div>
 
-                          <h3 className="experience-card-company mt-2.5 break-words font-nm-medium text-[24px] font-medium leading-[1.02] tracking-[-0.025em] text-black sm:text-[27px] md:mt-3 md:text-[29px]">
+                          <h3 className="experience-card-company mt-2.5 break-words font-nm-medium text-[clamp(1.4rem,2.2vw,1.75rem)] font-medium leading-[1.08] tracking-[-0.025em] text-black md:mt-3">
                             {company}
                           </h3>
-                          <h4 className="experience-card-role mt-1.5 font-nm-book text-[15px] leading-5 text-black/65 sm:text-base md:text-[17px] md:leading-6">
+                          <h4 className="experience-card-role mt-1.5 font-nm-book text-[15px] leading-5 text-black/60 sm:text-base sm:leading-[22px]">
                             {role}
                           </h4>
 
