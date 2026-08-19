@@ -38,7 +38,7 @@ export const experiences: Experience[] = [
   },
   {
     role: "Designer | Developer",
-    company: "Freelance / Self-Employed",
+    company: "Independent",
     startDate: "October 2022",
     endDate: "Present",
     location: "Teresa Rizal, Philippines",
