@@ -38,13 +38,13 @@ const Hero = () => {
                   data-home-motion-heading
                   className={styles["hero-title-line"]}
                 >
-                  Designed to Impress.
+                  Designed to Impress
                 </span>
                 <span
                   data-home-motion-heading
                   className={`${styles["hero-title-line"]} ${styles["hero-title-emphasis"]}`}
                 >
-                  Built to Convert.
+                  Built to Convert
                 </span>
               </h1>
 
