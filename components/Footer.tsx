@@ -53,9 +53,6 @@ const Footer = () => {
                 Have a product idea, a design challenge, or a team that needs a
                 focused creative partner? Tell me where you want to go.
               </p>
-              <p className={`${styles["contact-disciplines"]} mt-5 font-nm-book text-xs uppercase tracking-[0.16em] text-white/50`}>
-                Design &middot; Engineering &middot; AI
-              </p>
             </div>
 
             <AnimatedFooterArt />
