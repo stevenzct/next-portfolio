@@ -130,7 +130,7 @@ const HeroCard = () => {
           style={{ filter: RESTING_SHADOW }}
         >
           <Image
-            src="/images/hero/concept-to-conversion.png"
+            src="/images/hero/concept-to-conversion-clean.png"
             alt="From concept to conversion - brand, UI/UX, and web development"
             width={712}
             height={884}
