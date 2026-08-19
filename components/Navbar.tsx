@@ -18,7 +18,7 @@ import { useMobileMenuAnimation } from "../hooks/useMobileMenuAnimation";
 // Define the navigation array
 const navigation = [
   { name: "Home", href: "/#home", sectionId: "home" },
-  { name: "Projects", href: "/projects", sectionId: "projects" },
+  { name: "Projects", href: "/#projects", sectionId: "projects" },
   { name: "Work", href: "/#work", sectionId: "work" },
   { name: "Pricing", href: "/#pricing", sectionId: "pricing" },
   { name: "About", href: "/#about", sectionId: "about" },

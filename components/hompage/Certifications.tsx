@@ -14,56 +14,14 @@ import { certifications } from "../../constants/certifications";
 
 import "swiper/css";
 
-const certificationAccents = [
-  {
-    surface: "#FFF0E7",
-    surfaceSoft: "#FFF9F4",
-    line: "#F5B99A",
-    accent: "#F26A2E",
-    glow: "rgba(242, 106, 46, 0.18)",
-    shadow: "rgba(156, 75, 34, 0.13)",
-  },
-  {
-    surface: "#EAF6FA",
-    surfaceSoft: "#F6FBFD",
-    line: "#A8D2DF",
-    accent: "#247D96",
-    glow: "rgba(36, 125, 150, 0.17)",
-    shadow: "rgba(30, 91, 108, 0.13)",
-  },
-  {
-    surface: "#F3EEFF",
-    surfaceSoft: "#FBF9FF",
-    line: "#CDBAF2",
-    accent: "#7C50C9",
-    glow: "rgba(124, 80, 201, 0.16)",
-    shadow: "rgba(94, 62, 146, 0.13)",
-  },
-  {
-    surface: "#EAF7F0",
-    surfaceSoft: "#F7FCF9",
-    line: "#ADD8C1",
-    accent: "#2F8B64",
-    glow: "rgba(47, 139, 100, 0.16)",
-    shadow: "rgba(38, 104, 76, 0.13)",
-  },
-  {
-    surface: "#FFF1F6",
-    surfaceSoft: "#FFF9FB",
-    line: "#EDBAD0",
-    accent: "#B95780",
-    glow: "rgba(185, 87, 128, 0.15)",
-    shadow: "rgba(127, 62, 89, 0.12)",
-  },
-  {
-    surface: "#FFF7D9",
-    surfaceSoft: "#FFFCF1",
-    line: "#E7CE76",
-    accent: "#A77712",
-    glow: "rgba(167, 119, 18, 0.14)",
-    shadow: "rgba(118, 84, 15, 0.12)",
-  },
-];
+const certificationCardStyle = {
+  "--cert-surface": "var(--ios-grouped-background)",
+  "--cert-surface-soft": "#f9f9fb",
+  "--cert-line": "var(--ios-separator)",
+  "--cert-accent": "var(--ios-accent)",
+  "--cert-glow": "rgba(28, 28, 30, 0.1)",
+  "--cert-shadow": "rgba(28, 28, 30, 0.1)",
+} as React.CSSProperties;
 
 function Certifications() {
   const swiperRef = React.useRef<SwiperType | null>(null);
@@ -79,7 +37,7 @@ function Certifications() {
     <div
       id="certifications"
       data-home-motion-section
-      className="certifications bg-[#F8F8F8] py-[80px] md:py-24 lg:py-[120px]"
+      className="certifications bg-[var(--ios-grouped-background)] py-[80px] md:py-24 lg:py-[120px]"
     >
       <div className="container-wrapper w-full h-auto">
         <div className="app-container mx-6 w-auto max-w-[1200px] md:mx-12 lg:mx-auto lg:w-[90%] xl:w-[88%] 2xl:w-[75%]">
@@ -105,7 +63,7 @@ function Certifications() {
                 aria-label="Previous certification"
                 onClick={() => swiperRef.current?.slidePrev()}
                 disabled={isBeginning}
-                className="certification-nav-button flex h-10 w-10 items-center justify-center rounded-lg border border-[#D6D6D6] bg-white text-black transition-colors duration-300 hover:bg-black hover:text-white disabled:pointer-events-none disabled:opacity-25 sm:h-11 sm:w-11"
+                className="certification-nav-button flex h-10 w-10 items-center justify-center rounded-lg border border-[var(--ios-separator)] bg-white text-[var(--ios-label)] transition-colors duration-300 hover:border-[var(--ios-accent)] hover:bg-[var(--ios-accent)] hover:text-white disabled:pointer-events-none disabled:opacity-25 sm:h-11 sm:w-11"
               >
                 <ChevronLeftIcon className="h-5 w-5" />
               </button>
@@ -114,7 +72,7 @@ function Certifications() {
                 aria-label="Next certification"
                 onClick={() => swiperRef.current?.slideNext()}
                 disabled={isEnd}
-                className="certification-nav-button flex h-10 w-10 items-center justify-center rounded-lg border border-[#D6D6D6] bg-white text-black transition-colors duration-300 hover:bg-black hover:text-white disabled:pointer-events-none disabled:opacity-25 sm:h-11 sm:w-11"
+                className="certification-nav-button flex h-10 w-10 items-center justify-center rounded-lg border border-[var(--ios-separator)] bg-white text-[var(--ios-label)] transition-colors duration-300 hover:border-[var(--ios-accent)] hover:bg-[var(--ios-accent)] hover:text-white disabled:pointer-events-none disabled:opacity-25 sm:h-11 sm:w-11"
               >
                 <ChevronRightIcon className="h-5 w-5" />
               </button>
@@ -163,24 +121,13 @@ function Certifications() {
                     imageSrc,
                     imageAlt,
                     certificateUrl,
-                  }, index) => {
-                    const palette =
-                      certificationAccents[index % certificationAccents.length];
-                    const cardStyle = {
-                      "--cert-surface": palette.surface,
-                      "--cert-surface-soft": palette.surfaceSoft,
-                      "--cert-line": palette.line,
-                      "--cert-accent": palette.accent,
-                      "--cert-glow": palette.glow,
-                      "--cert-shadow": palette.shadow,
-                    } as React.CSSProperties;
-
+                  }) => {
                     return (
                       <SwiperSlide key={certificateName} className="!h-auto">
                         <article
                           data-home-motion-card
-                          style={cardStyle}
-                          className="certification-card group flex h-full max-w-full flex-col overflow-hidden rounded-[24px] border border-black/[0.07] bg-white shadow-[0_8px_24px_var(--cert-shadow)] transition-[transform,box-shadow,border-color] duration-500 ease-out motion-safe:hover:-translate-y-1 motion-safe:hover:border-[var(--cert-line)] motion-safe:hover:shadow-[0_14px_36px_var(--cert-shadow)]"
+                          style={certificationCardStyle}
+                          className="certification-card group flex h-full max-w-full flex-col overflow-hidden rounded-[24px] border border-[var(--cert-line)] bg-white shadow-[0_8px_24px_var(--cert-shadow)] transition-[transform,box-shadow,border-color] duration-500 ease-out motion-safe:hover:-translate-y-1 motion-safe:hover:border-[var(--ios-accent)] motion-safe:hover:shadow-[0_14px_36px_var(--cert-shadow)]"
                         >
                         <div className="certification-card-media relative aspect-[1.27/1] overflow-hidden border-b border-black/[0.06] bg-[var(--cert-surface)] p-3.5 sm:p-4">
                           <div

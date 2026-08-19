@@ -35,7 +35,7 @@ const Reviews = () => {
       id="reviews"
       aria-labelledby="reviews-heading"
       data-home-motion-section
-      className="reviews-section relative overflow-hidden border-y border-[#EFE1DC] bg-[#FFFDF9] py-[80px] md:py-24 lg:py-[120px]"
+      className="reviews-section relative overflow-hidden border-y border-[var(--ios-separator)] bg-[var(--ios-grouped-background)] py-[80px] md:py-24 lg:py-[120px]"
     >
       <div
         aria-hidden="true"
@@ -69,7 +69,7 @@ const Reviews = () => {
                 aria-label="Previous review"
                 onClick={() => swiperRef.current?.slidePrev()}
                 disabled={isBeginning}
-                className="review-nav-button flex h-10 w-10 items-center justify-center rounded-lg border border-[#D6D6D6] bg-white text-black transition-colors duration-300 hover:bg-black hover:text-white disabled:pointer-events-none disabled:opacity-25 sm:h-11 sm:w-11"
+                className="review-nav-button flex h-10 w-10 items-center justify-center rounded-lg border border-[var(--ios-separator)] bg-white text-[var(--ios-label)] transition-colors duration-300 hover:border-[var(--ios-accent)] hover:bg-[var(--ios-accent)] hover:text-white disabled:pointer-events-none disabled:opacity-25 sm:h-11 sm:w-11"
               >
                 <ChevronLeftIcon className="h-5 w-5" />
               </button>
@@ -78,7 +78,7 @@ const Reviews = () => {
                 aria-label="Next review"
                 onClick={() => swiperRef.current?.slideNext()}
                 disabled={isEnd}
-                className="review-nav-button flex h-10 w-10 items-center justify-center rounded-lg border border-[#D6D6D6] bg-white text-black transition-colors duration-300 hover:bg-black hover:text-white disabled:pointer-events-none disabled:opacity-25 sm:h-11 sm:w-11"
+                className="review-nav-button flex h-10 w-10 items-center justify-center rounded-lg border border-[var(--ios-separator)] bg-white text-[var(--ios-label)] transition-colors duration-300 hover:border-[var(--ios-accent)] hover:bg-[var(--ios-accent)] hover:text-white disabled:pointer-events-none disabled:opacity-25 sm:h-11 sm:w-11"
               >
                 <ChevronRightIcon className="h-5 w-5" />
               </button>

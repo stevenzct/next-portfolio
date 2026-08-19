@@ -35,6 +35,15 @@
   --project-menu-shadow: rgba(0, 0, 0, 0.14);
   --project-arrow-bg: #ffffff;
   --project-arrow-ink: #000000;
+  --ios-accent: #1c1c1e;
+  --ios-accent-pressed: #000000;
+  --ios-grouped-background: #f2f2f7;
+  --ios-surface: #ffffff;
+  --ios-secondary-surface: #e5e5ea;
+  --ios-separator: #d1d1d6;
+  --ios-label: #1c1c1e;
+  --ios-dark-surface: #1c1c1e;
+  --ios-dark-elevated: #2c2c2e;
   color-scheme: only light;
   --font-nm-bold: var(--font-NeueMontreal-bold);
   --font-nm-book: var(--font-NeueMontreal-book);
@@ -114,7 +123,7 @@ html {
 .reviews-atmosphere {
   background-image: linear-gradient(
     to right,
-    rgba(132, 101, 125, 0.075) 1px,
+    rgba(60, 60, 67, 0.07) 1px,
     transparent 1px
   );
   background-size: 25% 100%;
@@ -128,11 +137,11 @@ html {
 }
 
 .review-ticket {
-  --ticket-surface: #ebe9e2;
-  --ticket-ink: #111111;
-  --ticket-hover: #111111;
-  --ticket-hover-ink: #ffffff;
-  --ticket-border: rgba(0, 0, 0, 0.12);
+  --ticket-surface: var(--ios-surface);
+  --ticket-ink: var(--ios-label);
+  --ticket-hover: var(--ios-secondary-surface);
+  --ticket-hover-ink: var(--ios-label);
+  --ticket-border: rgba(60, 60, 67, 0.18);
   border-radius: 13px;
   overflow: hidden;
   background: var(--ticket-surface);
@@ -144,73 +153,11 @@ html {
 }
 
 .review-ticket--dark {
-  --ticket-surface: #111111;
+  --ticket-surface: var(--ios-dark-surface);
   --ticket-ink: #ffffff;
-  --ticket-hover: #d6ff62;
-  --ticket-hover-ink: #111111;
+  --ticket-hover: var(--ios-dark-elevated);
+  --ticket-hover-ink: #ffffff;
   --ticket-border: rgba(255, 255, 255, 0.15);
-}
-
-.reviews-cards .swiper-slide:nth-child(7n + 1) .review-ticket {
-  --ticket-surface: #fff0e7;
-  --ticket-ink: #4b3329;
-  --ticket-hover: #f7cfbb;
-  --ticket-hover-ink: #3f2a22;
-  --ticket-border: #f2c7b0;
-}
-
-.reviews-cards .swiper-slide:nth-child(7n + 2) .review-ticket {
-  --ticket-surface: #eaf6fa;
-  --ticket-ink: #29444d;
-  --ticket-hover: #cbe8ef;
-  --ticket-hover-ink: #223a42;
-  --ticket-border: #b9dce5;
-}
-
-.reviews-cards .swiper-slide:nth-child(7n + 3) .review-ticket {
-  --ticket-surface: #f3eeff;
-  --ticket-ink: #403653;
-  --ticket-hover: #ded2f5;
-  --ticket-hover-ink: #352c47;
-  --ticket-border: #d5c6ef;
-}
-
-.reviews-cards .swiper-slide:nth-child(7n + 4) .review-ticket {
-  --ticket-surface: #eaf7f0;
-  --ticket-ink: #30493e;
-  --ticket-hover: #cee9da;
-  --ticket-hover-ink: #273d34;
-  --ticket-border: #bfdfcd;
-}
-
-.reviews-cards .swiper-slide:nth-child(7n + 5) .review-ticket {
-  --ticket-surface: #fff1f6;
-  --ticket-ink: #50343f;
-  --ticket-hover: #f5d1df;
-  --ticket-hover-ink: #432b35;
-  --ticket-border: #efc9d8;
-}
-
-.reviews-cards .swiper-slide:nth-child(7n + 6) .review-ticket {
-  --ticket-surface: #fff7d9;
-  --ticket-ink: #4c4125;
-  --ticket-hover: #f2e2aa;
-  --ticket-hover-ink: #40371f;
-  --ticket-border: #eadb9e;
-}
-
-.reviews-cards .swiper-slide:nth-child(7n) .review-ticket {
-  --ticket-surface: #eef3ff;
-  --ticket-ink: #35415a;
-  --ticket-hover: #d5def4;
-  --ticket-hover-ink: #2b354b;
-  --ticket-border: #c8d3ec;
-}
-
-.reviews-section .review-nav-button:hover {
-  border-color: #cdbbd8;
-  background: #eadff1;
-  color: #49384f;
 }
 
 .review-ticket::before {
@@ -251,13 +198,13 @@ html {
 
 .review-card-arrow {
   border-color: transparent;
-  background: var(--ticket-ink);
-  color: var(--ticket-surface);
+  background: var(--ios-accent);
+  color: #ffffff;
 }
 
 .review-ticket:hover .review-card-arrow {
-  background: var(--ticket-hover-ink);
-  color: var(--ticket-hover);
+  background: var(--ios-accent-pressed);
+  color: #ffffff;
 }
 
 @media (min-width: 768px) and (pointer: fine) {
