@@ -23,13 +23,9 @@ const Footer = () => {
       <div className="container-wrapper relative z-10 w-full">
         <div className="app-container mx-6 w-auto max-w-[1200px] md:mx-12 lg:mx-auto lg:w-[90%] xl:w-[88%] 2xl:w-[75%]">
           <div className={`${styles["contact-topline"]} flex flex-col gap-4 border-b border-white/10 pb-6 sm:flex-row sm:items-center sm:justify-between`}>
-            <div className={`${styles["contact-status-pill"]} inline-flex w-fit items-center gap-2.5 rounded-full border border-white/15 bg-white/[0.06] px-3 py-2 font-nm-book text-[11px] uppercase tracking-[0.14em] text-white/75 backdrop-blur-sm sm:text-xs`}>
-              <span className="relative flex h-2 w-2">
-                <span className={`${styles["contact-status-ring"]} absolute inline-flex h-full w-full animate-ping rounded-full bg-white opacity-45 motion-reduce:animate-none`} />
-                <span className={`${styles["contact-status-dot"]} relative inline-flex h-2 w-2 rounded-full bg-white`} />
-              </span>
-              Available for freelance projects
-            </div>
+            <p className="w-fit font-nm-book text-base leading-5 text-white md:text-xl md:leading-normal lg:text-2xl">
+              Available for Freelance Projects
+            </p>
 
             <p className={`${styles["contact-location"]} font-nm-book text-xs uppercase tracking-[0.14em] text-white/45 sm:text-right`}>
               Philippines <span className="mx-1.5 text-white/20">/</span>

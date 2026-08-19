@@ -29,17 +29,6 @@ const Hero = () => {
         <div className="app-container mx-6 flex min-h-[calc(100svh-132px)] w-auto max-w-[1200px] flex-col md:mx-12 md:min-h-[calc(100svh-160px)] lg:mx-auto lg:min-h-[calc(100svh-168px)] lg:w-[90%] xl:w-[88%] 2xl:w-[75%]">
           <div className="grid flex-1 content-center items-center gap-y-12 py-8 sm:gap-y-14 sm:py-10 xl:grid-cols-[minmax(0,1.15fr)_minmax(400px,0.85fr)] xl:gap-x-16 xl:py-8">
             <div className="relative z-10 mx-auto w-full max-w-[640px] xl:mx-0">
-              <p
-                data-home-motion-copy
-                className={`${styles["hero-eyebrow"]} mx-auto mb-5 flex w-fit items-center gap-2 rounded-full border border-black/10 bg-white/55 px-3 py-1.5 font-nm-medium text-[9px] font-medium uppercase tracking-[0.2em] text-black/65 shadow-[inset_0_1px_0_rgba(255,255,255,0.85)] backdrop-blur-sm sm:text-[10px] xl:mx-0`}
-              >
-                <span
-                  className={`${styles["hero-accent"]} h-1.5 w-1.5 rounded-full bg-black`}
-                  aria-hidden="true"
-                />
-                Design <span aria-hidden="true">/</span> Engineering{" "}
-                <span aria-hidden="true">/</span> AI
-              </p>
 
               <h1
                 id="hero-title"
