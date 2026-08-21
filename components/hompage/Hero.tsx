@@ -19,7 +19,7 @@ const Hero = () => {
       <div className="container-wrapper relative z-10 h-auto w-full xl:h-full">
         <div className="app-container mx-6 flex min-h-[calc(100svh-132px)] w-auto max-w-[1200px] flex-col md:mx-12 md:min-h-[calc(100svh-160px)] lg:mx-auto lg:min-h-[calc(100svh-168px)] lg:w-[90%] xl:h-full xl:min-h-0 xl:w-[88%] 2xl:w-[75%]">
           <div
-            className={`${styles["hero-layout"]} grid flex-1 content-center items-center gap-y-12 py-8 sm:gap-y-14 sm:py-10 xl:h-full xl:min-h-0 xl:content-stretch xl:grid-cols-2 xl:items-stretch xl:gap-x-16 xl:py-0`}
+            className={`${styles["hero-layout"]} grid flex-1 content-center items-center gap-y-4 py-8 sm:gap-y-5 sm:py-10 xl:h-full xl:min-h-0 xl:content-stretch xl:grid-cols-2 xl:items-stretch xl:gap-x-16 xl:gap-y-0 xl:py-0`}
           >
             <div className="flex items-center">
               <div className="relative z-10 mx-auto w-full max-w-[640px] xl:mx-0">
@@ -54,7 +54,7 @@ const Hero = () => {
 
                 <div
                   data-home-motion-action
-                  className="mx-auto mt-7 grid w-full max-w-[380px] grid-cols-1 gap-3 min-[390px]:grid-cols-2 xl:mx-0"
+                  className="mx-auto mt-7 grid w-full max-w-[380px] grid-cols-2 gap-3 xl:mx-0"
                 >
                   <Link
                     href="/#projects"
