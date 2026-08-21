@@ -1,5 +1,3 @@
-import { headers } from "next/headers";
-
 import Footer from "../../components/Footer";
 import JsonLd from "../../components/JsonLd";
 import About from "../../components/hompage/About";
@@ -7,21 +5,13 @@ import Certifications from "../../components/hompage/Certifications";
 import Experience from "../../components/hompage/Experience";
 import Hero from "../../components/hompage/Hero";
 import HomepageMotion from "../../components/hompage/HomepageMotion";
-import Pricing from "../../components/hompage/Pricing";
 import Projects from "../../components/hompage/Projects";
 import Reviews from "../../components/hompage/Reviews";
 import SwiperUi from "../../components/hompage/SwiperUi";
 import TechSwiper from "../../components/hompage/TechSwiper";
 import { siteConfig } from "../../constants/site";
-import {
-  detectCountryFromHeaders,
-  getCurrencyForCountry,
-} from "../../utils/currency";
 
-export default async function Home() {
-  const requestHeaders = await headers();
-  const initialCountry = detectCountryFromHeaders(requestHeaders);
-  const initialCurrency = getCurrencyForCountry(initialCountry);
+export default function Home() {
   const profilePageJsonLd = {
     "@context": "https://schema.org",
     "@type": "ProfilePage",
@@ -47,10 +37,6 @@ export default async function Home() {
         <Projects />
         <Reviews />
         <Experience />
-        <Pricing
-          initialCountry={initialCountry}
-          initialCurrency={initialCurrency}
-        />
         <About />
         <TechSwiper />
         <Certifications />

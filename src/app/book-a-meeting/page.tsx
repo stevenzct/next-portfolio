@@ -17,11 +17,11 @@ export default function BookMeetingPage() {
       <div className="mx-6 w-auto max-w-[1200px] md:mx-12 lg:mx-auto lg:w-[90%] xl:w-[88%] 2xl:w-[75%]">
         <Link
           data-page-motion-action
-          href="/#pricing"
+          href="/#home"
           className="booking-back-link inline-flex items-center gap-2 rounded-lg border border-[#D6D6D6] bg-white px-4 py-2 font-nm-book text-sm text-[#242424] transition-colors duration-300 hover:bg-black hover:text-white"
         >
           <ArrowLeftIcon className="h-4 w-4" aria-hidden="true" />
-          Back to pricing
+          Back to home
         </Link>
 
         <div className="mb-8 mt-10 md:mb-12">

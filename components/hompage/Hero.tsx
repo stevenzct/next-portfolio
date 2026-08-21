@@ -63,7 +63,7 @@ const Hero = () => {
               >
                 <Link
                   href="/#projects"
-                  className={`${styles["hero-primary"]} inline-flex h-12 w-full items-center justify-center gap-2 rounded-lg border border-white bg-white px-3 font-nm-medium text-sm font-medium text-black transition-colors duration-300 hover:bg-[#F8F8F8] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-2 sm:text-base`}
+                  className={`${styles["hero-primary"]} inline-flex h-12 w-full items-center justify-center gap-2 rounded-lg border border-black bg-black px-3 font-nm-medium text-sm font-medium text-white transition-colors duration-300 hover:bg-[#242424] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-2 sm:text-base`}
                 >
                   View Projects
                   <ArrowRightIcon
@@ -72,10 +72,10 @@ const Hero = () => {
                   />
                 </Link>
                 <Link
-                  href="/#pricing"
-                  className={`${styles["hero-secondary"]} inline-flex h-12 w-full items-center justify-center gap-2 rounded-lg border border-black bg-black px-3 font-nm-medium text-sm font-medium text-white transition-colors duration-300 hover:bg-[#242424] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-2 sm:text-base`}
+                  href="/#reviews"
+                  className={`${styles["hero-secondary"]} inline-flex h-12 w-full items-center justify-center gap-2 rounded-lg border border-white bg-white px-3 font-nm-medium text-sm font-medium text-black transition-colors duration-300 hover:bg-[#F8F8F8] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-2 sm:text-base`}
                 >
-                  See Pricing
+                  See Reviews
                   <SparklesIcon
                     className="h-4 w-4 shrink-0"
                     aria-hidden="true"

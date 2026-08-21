@@ -4,7 +4,6 @@ import { usePathname } from "next/navigation";
 import { Dialog, DialogPanel } from "@headlessui/react";
 import {
   Bars3Icon,
-  ChatBubbleLeftRightIcon,
   ChevronDownIcon,
   DocumentCheckIcon,
   EnvelopeIcon,
@@ -19,8 +18,8 @@ import { useMobileMenuAnimation } from "../hooks/useMobileMenuAnimation";
 const navigation = [
   { name: "Home", href: "/#home", sectionId: "home" },
   { name: "Projects", href: "/#projects", sectionId: "projects" },
+  { name: "Reviews", href: "/#reviews", sectionId: "reviews" },
   { name: "Work", href: "/#work", sectionId: "work" },
-  { name: "Pricing", href: "/#pricing", sectionId: "pricing" },
   { name: "About", href: "/#about", sectionId: "about" },
 ];
 
@@ -30,12 +29,6 @@ const aboutDropdown = [
     href: "/#about",
     sectionId: "about",
     Icon: UserCircleIcon,
-  },
-  {
-    name: "Reviews",
-    href: "/#reviews",
-    sectionId: "reviews",
-    Icon: ChatBubbleLeftRightIcon,
   },
   {
     name: "Certifications",
@@ -57,13 +50,11 @@ const mobileAboutDropdown = aboutDropdown.filter(
 
 const getActiveSectionFromPath = (path: string): string => {
   if (path === "/" || path === "") return "home";
-  if (path.includes("/book-a-meeting")) return "pricing";
   if (path.includes("/projects")) return "projects";
   if (path.includes("/reviews")) return "reviews";
   if (path.includes("/work")) return "work";
   if (path.includes("/about")) return "about";
   if (path.includes("/certifications")) return "certifications";
-  if (path.includes("/pricing")) return "pricing";
   if (path.includes("/contact")) return "contact";
   return "home";
 };
@@ -119,7 +110,6 @@ const useActiveSection = () => {
       "work",
       "about",
       "certifications",
-      "pricing",
       "contact",
     ];
     let observedCount = 0;
