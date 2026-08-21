@@ -97,13 +97,9 @@ body {
     display: none;
   }
 
-  .nav-brand-shell {
-    flex: 1;
-  }
 }
 
-.tech-marquee .swiper-wrapper,
-.SwiperUi-section .swiper-wrapper {
+.tech-marquee .swiper-wrapper {
   transition-timing-function: linear !important;
   -webkit-transition-timing-function: linear !important;
 }
@@ -118,6 +114,7 @@ html {
   background: #ffffff;
   color-scheme: only light;
   scroll-behavior: smooth;
+  scroll-padding-top: 96px;
 }
 
 .reviews-atmosphere {
@@ -214,6 +211,10 @@ html {
 }
 
 @media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
   .review-ticket,
   .review-ticket::before,
   .review-card-arrow,

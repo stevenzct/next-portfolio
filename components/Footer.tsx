@@ -15,6 +15,7 @@ const Footer = () => {
     <footer
       id="contact"
       aria-labelledby="contact-heading"
+      data-nav-theme="dark"
       className={`${styles["contact-section"]} contact relative overflow-hidden bg-[#090909] pb-8 pt-[80px] text-white md:pb-10 md:pt-24 lg:pt-[120px]`}
     >
       <div className={styles["contact-grid"]} aria-hidden="true" />

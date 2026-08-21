@@ -12,6 +12,7 @@ const Projects = () => {
   return (
     <section
       id="projects"
+      data-nav-theme="light"
       data-home-motion-section
       className="projects-section py-[80px] md:py-24 lg:py-[120px]"
     >

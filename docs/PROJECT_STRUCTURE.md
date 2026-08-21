@@ -37,19 +37,18 @@ Root metadata in `src/app/layout.tsx` uses `constants/site.ts` for the canonical
 
 `src/app/page.tsx` is an async server component. It reads country headers, chooses an initial currency, and renders the sections in this order:
 
-1. Hero
-2. Visual work carousel
-3. Projects
+1. Hero with integrated project gallery
+2. Projects
+3. Reviews
 4. Experience
 5. About
 6. Technology carousel
 7. Certifications
-8. Pricing
-9. Contact footer
+8. Contact footer
 
 The section IDs are also used by the navigation's active-section observer.
 
-The hero keeps its layout and copy in the server-rendered `components/hompage/Hero.tsx` component. Its artwork is isolated in the client-side `HeroCard.tsx` component, which uses GSAP for the idle float, pointer-position 3D tilt, shadow transition, and reduced-motion fallback. The source image is `public/images/hero/concept-to-conversion.png`.
+The hero keeps its layout and copy in the server-rendered `components/hompage/Hero.tsx` component. Its project gallery is isolated in the client-side `SwiperUi.tsx` component. Desktop uses two clipped, continuously moving lanes of unique project visuals that stop when hidden or reduced motion is requested; smaller screens use a manual horizontal swiper with progress and navigation controls. Both layouts source only `public/images/Image1.jpg` through `public/images/Image9.jpg`.
 
 ### Project catalog
 
@@ -108,9 +107,8 @@ The navigation's active-section observer remains co-located in `Navbar.tsx`. Mob
 
 | Component | Responsibility |
 | --- | --- |
-| `Hero.tsx` | Responsive hero layout, introduction, artwork placement, and project/pricing calls to action |
-| `HeroCard.tsx` | Client-side GSAP float and pointer-responsive 3D interaction for the hero artwork |
-| `SwiperUi.tsx` | Continuous visual portfolio strip |
+| `Hero.tsx` | Responsive split hero layout, introduction, gallery placement, and primary calls to action |
+| `SwiperUi.tsx` | Desktop two-lane project wall and mobile touch carousel |
 | `Projects.tsx` | Six featured projects and the call to action for the complete catalog |
 | `Experience.tsx` | Responsive work-history carousel |
 | `About.tsx` | Responsive biography, portrait, project call to action, and social links |

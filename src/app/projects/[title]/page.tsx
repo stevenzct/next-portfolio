@@ -448,6 +448,7 @@ const ProjectPage = async ({ params }: PageProps) => {
         {(nextProject || previousProject) && (
           <div
             data-next-project
+            data-nav-theme="dark"
             className="project-next-panel relative min-h-[72svh] w-full overflow-hidden bg-[var(--project-feature-bg)] shadow-[0_-18px_60px_rgba(0,0,0,0.12)] lg:min-h-[82svh]"
           >
             <div className="project-next-overlay absolute inset-0 z-10 bg-gradient-to-t from-black/80 via-black/45 to-black/25" />

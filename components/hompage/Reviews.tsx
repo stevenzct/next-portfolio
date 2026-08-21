@@ -34,6 +34,7 @@ const Reviews = () => {
     <section
       id="reviews"
       aria-labelledby="reviews-heading"
+      data-nav-theme="light"
       data-home-motion-section
       className="reviews-section relative overflow-hidden border-y border-[var(--ios-separator)] bg-[var(--ios-grouped-background)] py-[80px] md:py-24 lg:py-[120px]"
     >

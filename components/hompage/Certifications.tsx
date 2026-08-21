@@ -36,6 +36,7 @@ function Certifications() {
   return (
     <div
       id="certifications"
+      data-nav-theme="light"
       data-home-motion-section
       className="certifications bg-[var(--ios-grouped-background)] py-[80px] md:py-24 lg:py-[120px]"
     >

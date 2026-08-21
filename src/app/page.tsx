@@ -7,7 +7,6 @@ import Hero from "../../components/hompage/Hero";
 import HomepageMotion from "../../components/hompage/HomepageMotion";
 import Projects from "../../components/hompage/Projects";
 import Reviews from "../../components/hompage/Reviews";
-import SwiperUi from "../../components/hompage/SwiperUi";
 import TechSwiper from "../../components/hompage/TechSwiper";
 import { siteConfig } from "../../constants/site";
 
@@ -33,7 +32,6 @@ export default function Home() {
       <JsonLd data={profilePageJsonLd} />
       <HomepageMotion>
         <Hero />
-        <SwiperUi />
         <Projects />
         <Reviews />
         <Experience />

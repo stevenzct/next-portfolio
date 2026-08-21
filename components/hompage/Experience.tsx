@@ -27,6 +27,7 @@ function Experience() {
     <section
       id="work"
       aria-labelledby="experience-heading"
+      data-nav-theme="light"
       data-home-motion-section
       className="experience bg-[#F8F8F8] py-[80px] md:py-24 lg:py-[120px]"
     >

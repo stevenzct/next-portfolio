@@ -1,0 +1,195 @@
+.showcase {
+  position: relative;
+  width: 100%;
+  min-width: 0;
+}
+
+.showcase-surface {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  border: 0;
+  border-radius: 0;
+  background: #000000;
+  box-shadow: none;
+  transform: translateZ(0);
+}
+
+.desktop-gallery {
+  display: none;
+}
+
+.mobile-gallery {
+  position: relative;
+  z-index: 5;
+  padding: 80px 0;
+}
+
+.mobile-gallery:focus-visible {
+  outline: 2px solid rgba(255, 255, 255, 0.9);
+  outline-offset: -2px;
+}
+
+.mobile-swiper {
+  overflow: hidden;
+  overscroll-behavior-x: contain;
+  touch-action: pan-y;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.mobile-swiper :global(.swiper-wrapper) {
+  transition-timing-function: linear !important;
+  -webkit-transition-timing-function: linear !important;
+}
+
+.mobile-swiper :global(.swiper-slide) {
+  width: min(272px, calc(100vw - 80px));
+}
+
+.mobile-visual,
+.desktop-visual {
+  position: relative;
+  overflow: hidden;
+  background: #1c1c1e;
+}
+
+.mobile-visual {
+  aspect-ratio: 1.3077 / 1;
+  border: 0;
+  border-radius: 8px;
+  box-shadow: none;
+}
+
+.desktop-visual::after {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.06);
+  content: "";
+  pointer-events: none;
+}
+
+.visual-image {
+  object-fit: cover;
+  -webkit-user-drag: none;
+}
+
+@media (min-width: 640px) {
+  .mobile-gallery {
+    padding: 96px 0;
+  }
+}
+
+@media (min-width: 1024px) and (max-width: 1279px) {
+  .mobile-gallery {
+    padding: 120px 0;
+  }
+}
+
+@media (min-width: 1280px) {
+  .showcase {
+    height: 100%;
+  }
+
+  .showcase-surface {
+    height: 100%;
+    min-height: 0;
+    border: 0;
+    border-radius: 0;
+    background: #000000;
+    box-shadow: none;
+  }
+
+  .desktop-gallery {
+    position: absolute;
+    z-index: 5;
+    inset: 0;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+    overflow: hidden;
+  }
+
+  .desktop-rail {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
+
+  .desktop-track {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    will-change: transform;
+  }
+
+  .desktop-track-forward {
+    animation: desktop-gallery-up 66.67s linear infinite;
+  }
+
+  .desktop-track-reverse {
+    animation: desktop-gallery-down 53.33s linear infinite;
+  }
+
+  .desktop-track-paused {
+    animation-play-state: paused;
+  }
+
+  .desktop-track-group {
+    display: flex;
+    flex: 0 0 auto;
+    flex-direction: column;
+    gap: 12px;
+    padding-bottom: 12px;
+  }
+
+  .desktop-visual {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1.3077 / 1;
+    min-height: calc(25svh - 26px);
+    flex: 0 0 auto;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    box-shadow:
+      0 16px 38px rgba(0, 0, 0, 0.34),
+      inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  }
+
+  .mobile-gallery {
+    display: none;
+  }
+}
+
+@keyframes desktop-gallery-up {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+
+  to {
+    transform: translate3d(0, -50%, 0);
+  }
+}
+
+@keyframes desktop-gallery-down {
+  from {
+    transform: translate3d(0, -50%, 0);
+  }
+
+  to {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mobile-swiper :global(.swiper-wrapper) {
+    transition-duration: 0.01ms !important;
+  }
+
+  .desktop-track-forward,
+  .desktop-track-reverse {
+    animation: none;
+  }
+
+}

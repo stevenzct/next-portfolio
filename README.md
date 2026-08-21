@@ -28,7 +28,7 @@ This project uses the Next.js App Router and a data-driven content structure. Mo
 ## Key Features
 
 - Responsive homepage sections for featured projects, experience, about, certifications, pricing, and contact.
-- Responsive hero composition with local concept-card artwork, GSAP floating motion, and pointer-responsive 3D tilt.
+- Responsive split hero with a continuously moving two-lane desktop project wall and a touch-enabled mobile gallery.
 - Global GSAP route entrances through the App Router template, with reduced-motion support and no page-opacity flash behind the transparent navigation.
 - Route-specific canonical, Open Graph, Twitter, robots, sitemap, and JSON-LD metadata generated through the App Router Metadata API.
 - Dedicated all-projects page backed by the same typed project catalog as the six featured homepage cards.
@@ -62,7 +62,7 @@ Project routes are matched against `constants/projectDetails.ts`. If a card has 
 next-portfolio/
 |-- components/
 |   |-- booking/              # Cal.com booking embed
-|   |-- hompage/              # Homepage sections and interactive HeroCard
+|   |-- hompage/              # Homepage sections and responsive hero gallery
 |   |-- projects/             # Project grid and project-detail motion boundary
 |   |-- Navbar.tsx            # Responsive navigation and active-section logic
 |   |-- Footer.tsx            # Contact section
@@ -155,7 +155,7 @@ Most content updates do not require editing page components:
 | Certifications | `constants/certifications.ts` |
 | Social profiles | `constants/socialButton.ts` |
 | Pricing services, currencies, and fallbacks | `constants/pricing.ts` |
-| Hero concept-card artwork | `public/images/hero/concept-to-conversion.png` |
+| Hero showcase images | `public/images/Image1.jpg` through `public/images/Image9.jpg` |
 | Portfolio images | `public/images/` |
 
 When adding a project, keep the project title consistent between `projects.ts` and `projectDetails.ts`; the title is used to build and resolve the dynamic route. Every entry in `projects.ts` appears on `/projects`, while the first six entries are featured on the homepage.

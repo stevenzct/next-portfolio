@@ -145,6 +145,7 @@ const About = () => {
   return (
     <div
       id="about"
+      data-nav-theme="light"
       data-home-motion-section
       className="about bg-white pb-8 pt-[80px] md:pb-24 md:pt-24 lg:pt-[120px]"
     >

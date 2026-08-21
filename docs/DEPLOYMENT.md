@@ -82,7 +82,7 @@ If the exchange-rate request fails, the API route returns the static rates from 
 ## Post-deployment Checks
 
 - Confirm the homepage and all section navigation links load correctly.
-- Confirm the hero concept card loads from `/images/hero/concept-to-conversion.png`, floats smoothly, tilts on pointer movement, and remains static when reduced motion is enabled.
+- Confirm the hero project gallery renders as two animated lanes on desktop, becomes a touch-enabled horizontal swiper on smaller screens, and remains static when reduced motion is enabled.
 - Navigate between standalone routes and confirm the global GSAP entrance runs without hiding the page, flashing a white background behind the Navbar, or introducing horizontal scrolling.
 - Open `/robots.txt` and confirm it references the production `/sitemap.xml`; verify the sitemap contains `/`, `/projects`, `/book-a-meeting`, and every valid project-detail URL.
 - Inspect the homepage, Projects, booking, and several project-detail pages for unique titles, descriptions, canonical URLs, and Open Graph/Twitter tags.
