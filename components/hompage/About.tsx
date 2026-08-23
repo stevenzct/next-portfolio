@@ -22,7 +22,7 @@ const capabilities = [
   { label: "Full-stack build", icon: CodeBracketIcon },
   { label: "Fintech products", icon: CreditCardIcon },
   { label: "AI engineering", icon: SparklesIcon },
-  { label: "Codex + Claude", icon: CpuChipIcon },
+  { label: "OpenAI + Claude", icon: CpuChipIcon },
 ] as const;
 
 const SocialBrandIcon = ({ name }: { name: string }) => {
@@ -79,40 +79,6 @@ const About = () => {
 
     return () => {
       gsap.killTweensOf(flipCard);
-    };
-  }, []);
-
-  useEffect(() => {
-    const techScroll = techScrollRef.current;
-    if (!techScroll) return;
-
-    const passScrollToPageAtBoundary = (event: WheelEvent) => {
-      const isAtTop = techScroll.scrollTop <= 1;
-      const isAtBottom =
-        techScroll.scrollTop + techScroll.clientHeight >=
-        techScroll.scrollHeight - 1;
-      const isLeavingTop = event.deltaY < 0 && isAtTop;
-      const isLeavingBottom = event.deltaY > 0 && isAtBottom;
-
-      if (!isLeavingTop && !isLeavingBottom) return;
-
-      const pageScrollDelta =
-        event.deltaMode === WheelEvent.DOM_DELTA_LINE
-          ? event.deltaY * 16
-          : event.deltaMode === WheelEvent.DOM_DELTA_PAGE
-            ? event.deltaY * window.innerHeight
-            : event.deltaY;
-
-      event.preventDefault();
-      window.scrollBy({ top: pageScrollDelta, behavior: "auto" });
-    };
-
-    techScroll.addEventListener("wheel", passScrollToPageAtBoundary, {
-      passive: false,
-    });
-
-    return () => {
-      techScroll.removeEventListener("wheel", passScrollToPageAtBoundary);
     };
   }, []);
 
