@@ -27,7 +27,7 @@ export const reviews: Review[] = [
   },
   {
     quote:
-      "I’ve worked with Steven and seen how quickly he adapts to new technologies. He has a strong eye for design, coding, learns fast, and is genuinely great to work with.",
+      "Steven is a rare hybrid talent, combining strong design instincts with solid technical skills. He learns quickly, adapts easily, and is always collaborative and great to work with.",
     attribution: "Kludy Ramirez",
     context: "AI Ops Engineer",
     imageSrc: "/images/reviews/kludy-ramirez.jpg",

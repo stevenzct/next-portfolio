@@ -58,7 +58,7 @@ const Reviews = () => {
               data-home-motion-heading
               className="min-w-0 font-nm-medium text-[clamp(2rem,6vw,4.75rem)] font-medium leading-[0.96] tracking-[-0.035em] text-black"
             >
-              What People Say
+              What They Say
             </h2>
 
             <div
