@@ -153,7 +153,7 @@ const Footer = () => {
                       key={buttonName}
                       href={href}
                       target="_blank"
-                      rel="noopener noreferrer"
+                      rel="me noopener noreferrer"
                       className={`${styles["contact-social-link"]} group/social inline-flex items-center gap-2 rounded-full border border-white/15 px-3.5 py-2 font-nm-book text-sm text-white/65 transition-colors duration-300 hover:border-white/30 hover:bg-white/10 hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white`}
                     >
                       {buttonName}

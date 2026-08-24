@@ -4,7 +4,7 @@ This guide explains how the portfolio is assembled, where content lives, and how
 
 ## Application Model
 
-The project uses the Next.js App Router. Server components handle the initial page composition and request-derived country detection. Interactive features are isolated in client components.
+The project uses the Next.js App Router. Server components handle initial page composition, metadata, and structured data. Interactive features are isolated in client components.
 
 ```text
 Request
@@ -35,7 +35,7 @@ Root metadata in `src/app/layout.tsx` uses `constants/site.ts` for the canonical
 
 ### Homepage
 
-`src/app/page.tsx` is an async server component. It reads country headers, chooses an initial currency, and renders the sections in this order:
+`src/app/page.tsx` is a server component. It emits the homepage `WebSite` entity and renders the sections in this order:
 
 1. Hero with integrated project gallery
 2. Projects
@@ -49,6 +49,10 @@ Root metadata in `src/app/layout.tsx` uses `constants/site.ts` for the canonical
 The section IDs are also used by the navigation's active-section observer.
 
 The hero keeps its layout and copy in the server-rendered `components/hompage/Hero.tsx` component. Its project gallery is isolated in the client-side `SwiperUi.tsx` component. Desktop uses two clipped, continuously moving lanes of unique project visuals that stop when hidden or reduced motion is requested; smaller screens use a manual horizontal swiper with progress and navigation controls. Both layouts source only `public/images/Image1.jpg` through `public/images/Image9.jpg`.
+
+### About profile
+
+`src/app/about/page.tsx` is the canonical professional profile for Steven Cabugos. It server-renders the biography, crawlable portrait, current specialization, experience, selected projects, credentials, aliases, and social links from the same local constants used elsewhere. The route has page-specific canonical and social metadata and emits a `ProfilePage` whose `mainEntity` is the matching `Person` node.
 
 ### Project catalog
 
@@ -96,7 +100,7 @@ Project card and detail titles should stay synchronized because titles form the 
 | `Navbar.tsx` | Desktop navigation, responsive full-height mobile sheet, scroll appearance, dropdowns, homepage section tracking, and route-aware active states |
 | `Footer.tsx` | Contact copy and email action |
 | `Button.tsx` | Shared call-to-action button |
-| `JsonLd.tsx` | Escaped JSON-LD output for visible profile and project data |
+| `JsonLd.tsx` | Escaped JSON-LD output for website, profile, person, and project data |
 | `ProjectLinksMenu.tsx` | Click and keyboard-controlled project links menu |
 | `projects/ProjectGrid.tsx` | Reusable project-card grid for the homepage and complete catalog |
 | `projects/ProjectDetailMotion.tsx` | GSAP lifecycle for project intro, case-study, and next-project reveals |
@@ -114,7 +118,7 @@ The navigation's active-section observer remains co-located in `Navbar.tsx`. Mob
 | `About.tsx` | Responsive biography, portrait, project call to action, and social links |
 | `TechSwiper.tsx` | Continuous technology-logo carousel |
 | `Certifications.tsx` | Responsive credentials carousel with external certificate links |
-| `Pricing.tsx` | Location-aware converted price, included services, intake, and booking links |
+| `Pricing.tsx` | Optional pricing component retained in the codebase but not mounted by a current route |
 
 ## Data and Content
 
@@ -136,28 +140,21 @@ Images are served from `public/images/`. Hero artwork is grouped under `public/i
 
 - `constants/site.ts` is the source of truth for the production URL, creator identity, default descriptions, social profiles, and preview imagery.
 - `utils/metadata.ts` creates consistent static and dynamic page metadata without duplicating title, canonical, Open Graph, Twitter, or `noindex` logic.
-- The homepage emits `ProfilePage` and `Person` JSON-LD that matches the visible portfolio content.
+- `utils/structuredData.ts` keeps stable IDs and shared identity fields aligned across routes.
+- The homepage emits `WebSite` JSON-LD. `/about` emits a `ProfilePage` with `Person` as its main entity, matching the visible profile content.
+- `scripts/verify-seo.mjs` checks the rendered production output for exact metadata, entity fields, crawl directives, sitemap coverage, and the profile image.
 - Project-detail routes emit page-specific metadata and `CreativeWork` JSON-LD using `constants/projectDetails.ts`.
 - `/resources` remains accessible but is excluded from indexing while it contains placeholder content.
 - `src/app/sitemap.ts` includes only canonical pages intended for search results; `/api/*` is excluded through `src/app/robots.ts`.
 - The homepage keeps one primary `<h1>`; section titles use `<h2>` and visual eyebrow labels use paragraphs.
 
-## Pricing Data Flow
+## Optional Pricing Support
 
-```text
-Request country headers
-  -> choose initial currency on the server
-  -> render Pricing with static fallback rates
-  -> client requests /api/exchange-rates
-  -> API returns live or fallback rates
-  -> converted monthly price is formatted for the selected currency
-```
-
-Country detection checks Vercel, Cloudflare, and generic country headers. If none are available, the browser locale is used; PHP is the final fallback.
+The repository retains `components/hompage/Pricing.tsx`, its typed pricing constants, country/currency utilities, and the `/api/exchange-rates` server route. No current page renders the pricing component. If it is re-enabled, document its placement and country-detection behavior at that time; the API currently returns live or static fallback rates independently.
 
 ## Navigation and Routing
 
-- The Projects navigation item links to `/projects`; the remaining homepage sections use hash links such as `/#work`.
+- The About navigation item links to `/about`; homepage sections such as Projects and Work use hash links.
 - Smooth scrolling is enabled globally in `src/app/globals.css`.
 - `IntersectionObserver` marks the section nearest the viewport center as active on the homepage.
 - Pathname state takes priority on standalone routes, keeping Projects active across `/projects` and project detail pages.

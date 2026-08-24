@@ -16,6 +16,7 @@ import {
 import gsap from "gsap";
 import { prefersReducedMotion } from "../../utils/motion";
 import { aboutTechStack } from "../../constants/aboutTechStack";
+import { siteConfig } from "../../constants/site";
 
 const capabilities = [
   { label: "Product design", icon: CursorArrowRaysIcon },
@@ -109,8 +110,9 @@ const About = () => {
   };
 
   return (
-    <div
+    <section
       id="about"
+      aria-labelledby="homepage-about-heading"
       data-nav-theme="light"
       data-home-motion-section
       className="about bg-white pb-8 pt-[80px] md:pb-24 md:pt-24 lg:pt-[120px]"
@@ -125,6 +127,7 @@ const About = () => {
               My Expertise
             </p>
             <h2
+              id="homepage-about-heading"
               data-home-motion-heading
               className="w-auto text-start font-nm-medium text-[clamp(2rem,6vw,4.75rem)] font-medium leading-[0.96] tracking-[-0.035em] text-black"
             >
@@ -139,7 +142,7 @@ const About = () => {
             >
               <Image
                 src="/images/about/steve-profile.png"
-                alt="Steven Cabugos"
+                alt={siteConfig.profileImageAlt}
                 width={1086}
                 height={1448}
                 sizes="(max-width: 767px) calc(100vw - 48px), (max-width: 1023px) 640px, (max-width: 1279px) 42vw, 480px"
@@ -265,7 +268,7 @@ const About = () => {
                             key={buttonName}
                             href={href}
                             target="_blank"
-                            rel="noopener noreferrer"
+                            rel="me noopener noreferrer"
                             className="about-social-link inline-flex min-h-10 min-w-0 flex-1 items-center justify-center gap-1 whitespace-nowrap rounded-[8px] border border-white/20 bg-white/[0.06] px-1 py-2 font-nm-book text-[10px] text-white/80 transition-all duration-300 hover:border-white/35 hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white motion-safe:hover:-translate-y-0.5 sm:min-h-0 sm:flex-none sm:gap-1.5 sm:px-2 sm:text-[11px] md:gap-2 md:px-3 md:text-xs xl:px-4 xl:text-sm"
                           >
                             <SocialBrandIcon name={buttonName} />
@@ -356,7 +359,7 @@ const About = () => {
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

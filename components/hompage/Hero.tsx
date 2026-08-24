@@ -48,7 +48,9 @@ const Hero = () => {
                   <p
                     className={`${styles["hero-copy"]} text-pretty font-nm-book text-base leading-[1.55] sm:text-lg sm:leading-[1.6]`}
                   >
-                    I create custom websites, mobile apps, and software solutions that help businesses stand out, connect with customers, and achieve real results.
+                    I&apos;m Steven Cabugos, a Philippines-based full-stack
+                    software engineer and UI/UX designer specializing in
+                    fintech, payments, and digital products.
                   </p>
                 </div>
 

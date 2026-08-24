@@ -1,12 +1,12 @@
 # Steven Cabugos Portfolio
 
-A responsive portfolio for Steven Cabugos, a software developer and UI/UX designer. The site presents selected projects, professional experience, certifications, services, location-aware pricing, and ways to start a project or book a meeting.
+A responsive portfolio for Steven Cabugos, a Philippines-based full-stack software engineer and UI/UX designer specializing in fintech, payments, and digital products. The site presents selected projects, professional experience, credentials, and ways to start a project or book a meeting.
 
 > **Live demo:** [stevencabugos.me](https://stevencabugos.me/)
 
 ## Overview
 
-This project uses the Next.js App Router and a data-driven content structure. Most portfolio content lives in TypeScript files under `constants/`, while reusable UI is organized under `components/`. The home page combines server-rendered location detection with interactive client components for navigation, GSAP motion, carousels, pricing, and booking.
+This project uses the Next.js App Router and a data-driven content structure. Most portfolio content lives in TypeScript files under `constants/`, while reusable UI is organized under `components/`. Server-rendered routes provide indexable portfolio content and metadata, while client components handle navigation, GSAP motion, carousels, and booking.
 
 ## Tech Stack
 
@@ -27,16 +27,17 @@ This project uses the Next.js App Router and a data-driven content structure. Mo
 
 ## Key Features
 
-- Responsive homepage sections for featured projects, experience, about, certifications, pricing, and contact.
+- Responsive homepage sections for featured projects, experience, about, certifications, and contact.
 - Responsive split hero with a continuously moving two-lane desktop project wall and a touch-enabled mobile gallery.
 - Global GSAP route entrances through the App Router template, with reduced-motion support and no page-opacity flash behind the transparent navigation.
 - Route-specific canonical, Open Graph, Twitter, robots, sitemap, and JSON-LD metadata generated through the App Router Metadata API.
+- Dedicated `/about` profile with a visible biography, portrait, experience, selected projects, credentials, and accessible social links.
+- A homepage `WebSite` entity plus matching `/about` `ProfilePage` and `Person` structured data.
 - Dedicated all-projects page backed by the same typed project catalog as the six featured homepage cards.
 - Shared project cards with compact year metadata pills that preserve title hierarchy.
 - Dynamic project detail routes with a priority-loaded hero, scroll-based content reveals, and animated previous/next project navigation.
 - Desktop navigation plus a responsive mobile dialog with GSAP open/close motion, expandable About links, large touch targets, and route-aware active states.
 - Responsive Swiper carousels for visual work, experience, certifications, and technology logos.
-- Location-aware pricing based on deployment headers or browser locale.
 - Server-side exchange-rate proxy with six-hour caching and static fallback rates.
 - Cal.com booking page with timezone-aware scheduling.
 - External project intake through Tally and direct contact through email links.
@@ -48,6 +49,7 @@ This project uses the Next.js App Router and a data-driven content structure. Mo
 | Route | Purpose |
 | --- | --- |
 | `/` | Main portfolio and all homepage sections |
+| `/about` | Indexable professional profile for Steven Cabugos |
 | `/projects` | Complete project catalog |
 | `/projects/[title]` | Data-driven project case study and previous/next navigation |
 | `/book-a-meeting` | Embedded 30-minute Cal.com booking flow |
@@ -75,7 +77,10 @@ next-portfolio/
 |-- public/
 |   |-- fonts/                # Local PP Neue Montreal font files
 |   `-- images/               # Portfolio assets, including images/hero concept artwork
+|-- scripts/
+|   `-- verify-seo.mjs        # Production-output SEO assertions
 |-- src/app/
+|   |-- about/                # Professional profile and Person entity page
 |   |-- api/exchange-rates/   # Server route for currency conversion data
 |   |-- book-a-meeting/       # Booking page
 |   |-- projects/             # All-projects index and dynamic project details
@@ -85,9 +90,9 @@ next-portfolio/
 |   |-- globals.css           # Tailwind import and global styles
 |   |-- layout.tsx            # Root metadata, fonts, and navigation
 |   |-- template.tsx          # Global GSAP route entrance
-|   `-- page.tsx              # Homepage composition and location detection
+|   `-- page.tsx              # Homepage composition and WebSite structured data
 |-- types/                    # Shared TypeScript types
-|-- utils/                    # Currency, metadata, country detection, and motion helpers
+|-- utils/                    # Currency, metadata, structured-data, and motion helpers
 |-- next.config.ts
 |-- package.json
 `-- tsconfig.json
@@ -139,6 +144,7 @@ If private integrations are added later, store local values in `.env.local`, doc
 | `npm run build` | Create a production build |
 | `npm run start` | Serve the production build |
 | `npm run lint` | Run the lint command defined by the project |
+| `npm run verify:seo -- <url>` | Verify rendered metadata, JSON-LD, crawlability, and index directives |
 | `npx tsc --noEmit` | Run a standalone TypeScript check |
 
 > `next.config.ts` currently sets `typescript.ignoreBuildErrors` to `true`. Run the standalone TypeScript check before deployment because a successful production build alone does not guarantee a clean type check.
@@ -154,7 +160,7 @@ Most content updates do not require editing page components:
 | Work experience | `constants/experience.ts` |
 | Certifications | `constants/certifications.ts` |
 | Social profiles | `constants/socialButton.ts` |
-| Pricing services, currencies, and fallbacks | `constants/pricing.ts` |
+| Optional pricing services, currencies, and fallbacks | `constants/pricing.ts` |
 | Hero showcase images | `public/images/Image1.jpg` through `public/images/Image9.jpg` |
 | Portfolio images | `public/images/` |
 
@@ -171,7 +177,7 @@ npm run build
 npm run start
 ```
 
-The application requires a Next.js-compatible server runtime because it uses request headers and the `/api/exchange-rates` route. Vercel is the simplest deployment target, but any Node.js host capable of running `next start` can be used.
+The application requires a Next.js-compatible server runtime because it exposes the `/api/exchange-rates` route. Vercel is the simplest deployment target, but any Node.js host capable of running `next start` can be used.
 
 See [Deployment Guide](docs/DEPLOYMENT.md) for Vercel, generic Node.js hosting, external service requirements, and post-deployment checks.
 
@@ -196,7 +202,7 @@ Example Markdown after the files are added:
 Designed and developed by **Steven Cabugos**.
 
 - [GitHub](https://github.com/stevenzct)
-- [LinkedIn](https://www.linkedin.com/in/cabugos-steven/)
+- [LinkedIn](https://ph.linkedin.com/in/cabugos-steven)
 
 Built with Next.js, React, Tailwind CSS, GSAP, Swiper, Headless UI, Heroicons, Cal.com, and the Frankfurter exchange-rate service.
 

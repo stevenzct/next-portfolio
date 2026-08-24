@@ -16,7 +16,7 @@ export const createPageMetadata = ({
   description,
   path,
   image = siteConfig.socialImage,
-  imageAlt = `${siteConfig.name} portfolio`,
+  imageAlt = siteConfig.socialImageAlt,
   noIndex = false,
 }: PageMetadataOptions): Metadata => {
   const socialTitle = `${title} | ${siteConfig.name}`;

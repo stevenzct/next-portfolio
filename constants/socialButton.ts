@@ -1,3 +1,5 @@
+import { socialProfiles } from "./site";
+
 export type SocialButtonType = {
   buttonName: string;
   href: string;
@@ -8,19 +10,19 @@ export type SocialButtonType = {
 export const socialButtons: SocialButtonType[] = [
   {
     buttonName: "LinkedIn",
-    href: "https://www.linkedin.com/in/cabugos-steven/",
+    href: socialProfiles.linkedin,
     icon: "/images/icons/linkedin.png",
     iconAlt: "LinkedIn",
   },
   {
     buttonName: "GitHub",
-    href: "https://github.com/stevenzct",
+    href: socialProfiles.github,
     icon: "/images/icons/github.png",
     iconAlt: "GitHub",
   },
   {
     buttonName: "Facebook",
-    href: "https://www.facebook.com/stevenzct/",
+    href: socialProfiles.facebook,
     icon: "/images/icons/facebook.png",
     iconAlt: "Facebook",
   },

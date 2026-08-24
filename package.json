@@ -6,7 +6,8 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "verify:seo": "node scripts/verify-seo.mjs"
   },
   "dependencies": {
     "@calcom/embed-react": "^1.5.3",

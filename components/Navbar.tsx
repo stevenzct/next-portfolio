@@ -20,13 +20,13 @@ const navigation = [
   { name: "Projects", href: "/#projects", sectionId: "projects" },
   { name: "Reviews", href: "/#reviews", sectionId: "reviews" },
   { name: "Work", href: "/#work", sectionId: "work" },
-  { name: "About", href: "/#about", sectionId: "about" },
+  { name: "About", href: "/about", sectionId: "about" },
 ];
 
 const aboutDropdown = [
   {
     name: "About Me",
-    href: "/#about",
+    href: "/about",
     sectionId: "about",
     Icon: UserCircleIcon,
   },
@@ -51,7 +51,9 @@ type NavTheme = "dark" | "light";
 const DEFAULT_HEADER_HEIGHT = 80;
 
 const getRouteTheme = (path: string): NavTheme =>
-  path === "/" || path.startsWith("/resources") ? "dark" : "light";
+  path === "/" || path === "/about" || path.startsWith("/resources")
+    ? "dark"
+    : "light";
 
 const getActiveSectionFromPath = (path: string): string => {
   if (path === "/" || path === "") return "home";

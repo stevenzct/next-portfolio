@@ -45,7 +45,7 @@ export const metadata: Metadata = {
         url: siteConfig.socialImage,
         width: 2880,
         height: 1096,
-        alt: `${siteConfig.name} portfolio`,
+        alt: siteConfig.socialImageAlt,
       },
     ],
   },
