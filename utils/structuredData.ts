@@ -1,8 +1,8 @@
 import { siteConfig } from "../constants/site";
 
 const websiteId = `${siteConfig.url}/#website`;
-const profilePageId = `${siteConfig.url}/about#profile-page`;
-const personId = `${siteConfig.url}/about#person`;
+const profilePageId = `${siteConfig.url}/#profile-page`;
+const personId = `${siteConfig.url}/#person`;
 
 const personEntity = {
   "@type": "Person",
@@ -24,8 +24,7 @@ const personEntity = {
   },
 };
 
-export const websiteJsonLd = {
-  "@context": "https://schema.org",
+const websiteEntity = {
   "@type": "WebSite",
   "@id": websiteId,
   url: siteConfig.url,
@@ -43,23 +42,26 @@ export const websiteJsonLd = {
   },
 };
 
-export const aboutProfileJsonLd = {
+const profilePageEntity = {
+  "@type": "ProfilePage",
+  "@id": profilePageId,
+  url: siteConfig.url,
+  name: siteConfig.title,
+  description: siteConfig.description,
+  inLanguage: siteConfig.language,
+  isPartOf: {
+    "@id": websiteId,
+  },
+  mainEntity: {
+    "@id": personId,
+  },
+};
+
+export const homepageJsonLd = {
   "@context": "https://schema.org",
   "@graph": [
-    {
-      "@type": "ProfilePage",
-      "@id": profilePageId,
-      url: `${siteConfig.url}/about`,
-      name: `About ${siteConfig.name}`,
-      description: siteConfig.description,
-      inLanguage: siteConfig.language,
-      isPartOf: {
-        "@id": websiteId,
-      },
-      mainEntity: {
-        "@id": personId,
-      },
-    },
+    websiteEntity,
+    profilePageEntity,
     personEntity,
   ],
 };

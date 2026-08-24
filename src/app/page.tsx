@@ -8,12 +8,12 @@ import HomepageMotion from "../../components/hompage/HomepageMotion";
 import Projects from "../../components/hompage/Projects";
 import Reviews from "../../components/hompage/Reviews";
 import TechSwiper from "../../components/hompage/TechSwiper";
-import { websiteJsonLd } from "../../utils/structuredData";
+import { homepageJsonLd } from "../../utils/structuredData";
 
 export default function Home() {
   return (
     <div className="homepage-wrapper">
-      <JsonLd data={websiteJsonLd} />
+      <JsonLd data={homepageJsonLd} />
       <HomepageMotion>
         <Hero />
         <Projects />

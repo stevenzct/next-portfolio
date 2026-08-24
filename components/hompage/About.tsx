@@ -228,7 +228,8 @@ const About = () => {
                         Payso
                       </Link>
                       {", "}designing high-impact digital experiences for
-                      fintech products.
+                      fintech products. Also known as John Steven A. Cabugos
+                      and stevenzct.
                     </p>
 
                     <div className="mt-6 flex flex-wrap gap-2 sm:mt-8 sm:gap-2.5">

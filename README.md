@@ -31,8 +31,8 @@ This project uses the Next.js App Router and a data-driven content structure. Mo
 - Responsive split hero with a continuously moving two-lane desktop project wall and a touch-enabled mobile gallery.
 - Global GSAP route entrances through the App Router template, with reduced-motion support and no page-opacity flash behind the transparent navigation.
 - Route-specific canonical, Open Graph, Twitter, robots, sitemap, and JSON-LD metadata generated through the App Router Metadata API.
-- Dedicated `/about` profile with a visible biography, portrait, experience, selected projects, credentials, and accessible social links.
-- A homepage `WebSite` entity plus matching `/about` `ProfilePage` and `Person` structured data.
+- The existing homepage About section provides the visible biography, portrait, experience, projects, credentials, and accessible social links without duplicating the content on another route.
+- A homepage graph connects `WebSite`, `ProfilePage`, and `Person` structured data to that visible profile content.
 - Dedicated all-projects page backed by the same typed project catalog as the six featured homepage cards.
 - Shared project cards with compact year metadata pills that preserve title hierarchy.
 - Dynamic project detail routes with a priority-loaded hero, scroll-based content reveals, and animated previous/next project navigation.
@@ -49,7 +49,6 @@ This project uses the Next.js App Router and a data-driven content structure. Mo
 | Route | Purpose |
 | --- | --- |
 | `/` | Main portfolio and all homepage sections |
-| `/about` | Indexable professional profile for Steven Cabugos |
 | `/projects` | Complete project catalog |
 | `/projects/[title]` | Data-driven project case study and previous/next navigation |
 | `/book-a-meeting` | Embedded 30-minute Cal.com booking flow |
@@ -80,7 +79,6 @@ next-portfolio/
 |-- scripts/
 |   `-- verify-seo.mjs        # Production-output SEO assertions
 |-- src/app/
-|   |-- about/                # Professional profile and Person entity page
 |   |-- api/exchange-rates/   # Server route for currency conversion data
 |   |-- book-a-meeting/       # Booking page
 |   |-- projects/             # All-projects index and dynamic project details
@@ -90,7 +88,7 @@ next-portfolio/
 |   |-- globals.css           # Tailwind import and global styles
 |   |-- layout.tsx            # Root metadata, fonts, and navigation
 |   |-- template.tsx          # Global GSAP route entrance
-|   `-- page.tsx              # Homepage composition and WebSite structured data
+|   `-- page.tsx              # Homepage composition and identity structured data
 |-- types/                    # Shared TypeScript types
 |-- utils/                    # Currency, metadata, structured-data, and motion helpers
 |-- next.config.ts

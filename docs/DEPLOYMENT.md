@@ -80,10 +80,10 @@ If the exchange-rate request fails, the API route returns the static rates from 
 - Confirm the homepage and all section navigation links load correctly.
 - Confirm the hero project gallery renders as two animated lanes on desktop, becomes a touch-enabled horizontal swiper on smaller screens, and remains static when reduced motion is enabled.
 - Navigate between standalone routes and confirm the global GSAP entrance runs without hiding the page, flashing a white background behind the Navbar, or introducing horizontal scrolling.
-- Open `/robots.txt` and confirm it references the production `/sitemap.xml`; verify the sitemap contains `/`, `/about`, `/projects`, `/book-a-meeting`, and every valid project-detail URL.
-- Inspect the homepage, About, Projects, booking, and several project-detail pages for unique titles, descriptions, canonical URLs, and Open Graph/Twitter tags.
-- Validate the homepage `WebSite`, About `ProfilePage` and `Person`, and project `CreativeWork` JSON-LD with an appropriate structured-data testing tool.
-- Confirm `/images/about/steve-profile.png` is publicly reachable and the About portrait has descriptive alternative text.
+- Open `/robots.txt` and confirm it references the production `/sitemap.xml`; verify the sitemap contains `/`, `/projects`, `/book-a-meeting`, and every valid project-detail URL.
+- Inspect the homepage, Projects, booking, and several project-detail pages for unique titles, descriptions, canonical URLs, and Open Graph/Twitter tags.
+- Validate the homepage `WebSite`, `ProfilePage`, and `Person` graph plus project `CreativeWork` JSON-LD with an appropriate structured-data testing tool.
+- Confirm `/images/about/steve-profile.png` is publicly reachable and the homepage About portrait has descriptive alternative text.
 - Confirm `https://www.stevencabugos.me/<path>` returns a permanent redirect to the matching apex URL.
 - Confirm `/resources` outputs `noindex` while it remains placeholder content.
 - Confirm the Projects navigation scrolls to the homepage project section and that **View All Projects** opens the complete `/projects` catalog.
@@ -100,10 +100,10 @@ If the exchange-rate request fails, the API route returns the static rates from 
 ## Google Search Console
 
 1. Add or select the **Domain** property `stevencabugos.me`. Verify it with Google's DNS TXT record and leave that record in DNS. Use a URL-prefix property for `https://stevencabugos.me/` only when DNS access is unavailable. See [Add a property](https://support.google.com/webmasters/answer/34592?hl=en) and [Verify ownership](https://support.google.com/webmasters/answer/9008080?hl=en).
-2. In **Sitemaps**, submit `https://stevencabugos.me/sitemap.xml`. Confirm **Status: Success** and verify that the deployed sitemap contains `/about`. See the [Sitemaps report guide](https://support.google.com/webmasters/answer/7451001?hl=en).
-3. Use **URL Inspection** for `https://stevencabugos.me/` and `https://stevencabugos.me/about`. Run **Test live URL**, confirm crawling, fetching, and indexing are allowed, then select **Request indexing**. See the [URL Inspection guide](https://support.google.com/webmasters/answer/9012289?hl=en).
-4. After Google recrawls the pages, inspect both URLs again. Confirm the user-declared and Google-selected canonicals match the apex homepage and exact `/about` URL, and that the last crawl occurred after deployment.
-5. Test `/about` in the [Rich Results Test](https://search.google.com/test/rich-results) and monitor **Enhancements > Profile pages** after indexing. `WebSite` site-name markup does not appear in that test; validate its syntax with the validator linked from Google's [site-name documentation](https://developers.google.com/search/docs/appearance/site-names) and confirm the homepage is renderable through URL Inspection.
+2. In **Sitemaps**, submit `https://stevencabugos.me/sitemap.xml` and confirm **Status: Success**. See the [Sitemaps report guide](https://support.google.com/webmasters/answer/7451001?hl=en).
+3. Use **URL Inspection** for `https://stevencabugos.me/`. Run **Test live URL**, confirm crawling, fetching, and indexing are allowed, then select **Request indexing**. See the [URL Inspection guide](https://support.google.com/webmasters/answer/9012289?hl=en).
+4. After Google recrawls the homepage, inspect it again. Confirm the user-declared and Google-selected canonicals both match the apex homepage and that the last crawl occurred after deployment.
+5. Test the homepage in the [Rich Results Test](https://search.google.com/test/rich-results) and monitor **Enhancements > Profile pages** after indexing. `WebSite` site-name markup does not appear in that test; validate its syntax with the validator linked from Google's [site-name documentation](https://developers.google.com/search/docs/appearance/site-names) and confirm the homepage is renderable through URL Inspection.
 
 Valid structured data makes a page eligible for supported search features, but it does not guarantee indexing, a rich result, a chosen site name, or a knowledge panel.
 

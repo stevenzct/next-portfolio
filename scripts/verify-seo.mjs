@@ -61,7 +61,7 @@ const getJsonLd = (html) => {
   return JSON.parse(source);
 };
 
-const [homepage, about, resources, robots, sitemap, profileImage, api] =
+const [homepage, removedAbout, resources, robots, sitemap, profileImage, api] =
   await Promise.all([
     fetchText("/"),
     fetchText("/about"),
@@ -73,11 +73,13 @@ const [homepage, about, resources, robots, sitemap, profileImage, api] =
   ]);
 
 const homepageJsonLd = getJsonLd(homepage.text);
-const aboutJsonLd = getJsonLd(about.text);
-const profilePage = aboutJsonLd["@graph"].find(
+const website = homepageJsonLd["@graph"].find(
+  (entity) => entity["@type"] === "WebSite",
+);
+const profilePage = homepageJsonLd["@graph"].find(
   (entity) => entity["@type"] === "ProfilePage",
 );
-const person = aboutJsonLd["@graph"].find(
+const person = homepageJsonLd["@graph"].find(
   (entity) => entity["@type"] === "Person",
 );
 
@@ -133,35 +135,12 @@ check(
       expectedSocialImage,
   "Homepage Twitter sharing metadata is exact",
 );
-check(homepageJsonLd["@type"] === "WebSite", "Homepage JSON-LD is WebSite");
-check(
-  (homepage.text.match(/<h1[ >]/g) ?? []).length === 1,
-  "Homepage has one H1",
-);
-check(
-  ["Steven Cabugos", "full-stack", "UI/UX designer", "fintech", "payments"].every(
-    (value) => homepage.text.includes(value),
-  ),
-  "Homepage visibly states the core identity",
-);
 
-check(about.response.status === 200, "About returns 200");
+check(website?.url === "https://stevencabugos.me", "WebSite entity is present");
 check(
-  about.text.match(/<link rel="canonical" href="([^"]*)"/)?.[1] ===
-    "https://stevencabugos.me/about",
-  "About canonical is exact",
-);
-check(
-  getMetaContent(about.text, "name", "robots") === "index, follow",
-  "About is indexable",
-);
-check(
-  (about.text.match(/<h1[ >]/g) ?? []).length === 1,
-  "About has one H1",
-);
-check(
-  profilePage?.mainEntity?.["@id"] === person?.["@id"],
-  "ProfilePage mainEntity resolves to Person",
+  profilePage?.url === "https://stevencabugos.me" &&
+    profilePage?.mainEntity?.["@id"] === person?.["@id"],
+  "Homepage ProfilePage resolves to Person",
 );
 check(person?.name === "Steven Cabugos", "Person name is exact");
 check(
@@ -191,28 +170,41 @@ check(
   person?.sameAs?.join("|") === expectedSocialProfiles.join("|"),
   "Person social profiles are exact",
 );
+
 check(
-  about.text.includes(
+  (homepage.text.match(/<h1[ >]/g) ?? []).length === 1,
+  "Homepage has one H1",
+);
+check(
+  ["Steven Cabugos", "full-stack", "UI/UX designer", "fintech", "payments"].every(
+    (value) => homepage.text.includes(value),
+  ),
+  "Homepage visibly states the core identity",
+);
+check(
+  homepage.text.includes(
+    "Also known as John Steven A. Cabugos and stevenzct.",
+  ),
+  "Person aliases are visible in the homepage About section",
+);
+check(
+  homepage.text.includes(
     'alt="Portrait of Steven Cabugos, full-stack software engineer and UI/UX designer"',
   ),
-  "Portrait has descriptive alternative text",
+  "Homepage portrait has descriptive alternative text",
 );
 check(
-  about.text.includes(expectedDescription) &&
-    about.text.includes("Also known as John Steven A. Cabugos and stevenzct."),
-  "Structured identity facts are visible",
-);
-check(
-  ["Experience", "Selected Projects", "Credentials"].every((value) =>
-    about.text.includes(value),
+  ["Projects", "Experience", "Learning &amp; Growth"].every(
+    (value) => homepage.text.includes(value),
   ),
-  "Required About sections are visible",
+  "Projects, experience, and credentials remain visible",
 );
 check(
-  about.text.includes('rel="me noopener noreferrer"'),
+  homepage.text.includes('rel="me noopener noreferrer"'),
   "Social identity links use rel=me",
 );
 
+check(removedAbout.response.status === 404, "Standalone About route is removed");
 check(
   getMetaContent(resources.text, "name", "robots") === "noindex, nofollow",
   "Placeholder resources remain noindex",
@@ -223,8 +215,8 @@ check(
   "robots.txt advertises the sitemap and blocks the API",
 );
 check(
-  sitemap.text.includes("<loc>https://stevencabugos.me/about</loc>"),
-  "Sitemap contains About",
+  !sitemap.text.includes("<loc>https://stevencabugos.me/about</loc>"),
+  "Sitemap does not advertise a duplicate About route",
 );
 check(
   profileImage.status === 200 &&
