@@ -26,7 +26,7 @@ export const certifications: Certification[] = [
     certificateName: "Generative AI Fundamentals",
     Company: "Databricks",
     credentialType: "certificate",
-    Issued: "Issued Jun 2025 · Expires Jun 2027",
+    Issued: "Issued Jun 2025",
     logoSrc: "/images/certifications/databricks.png",
     logoAlt: "Databricks Logo",
     imageSrc: "/images/certifications/genAi.png",
