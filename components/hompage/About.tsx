@@ -157,29 +157,31 @@ const About = () => {
               <button
                 type="button"
                 onClick={handleCardFlip}
-                aria-pressed={isTechVisible}
+                aria-controls="about-card-content"
                 aria-label={
                   isTechVisible
-                    ? "Show About information"
-                    : "Show my technology stack"
+                    ? "Back to About information"
+                    : "View my technology stack"
                 }
-                className="about-flip-trigger group/flip absolute right-5 top-5 z-30 inline-flex items-center gap-2 rounded-full border border-white/15 bg-black/35 px-2.5 py-1.5 font-nm-medium text-[10px] font-medium uppercase tracking-[0.12em] text-white/75 backdrop-blur-md transition-all duration-300 hover:border-white/30 hover:bg-white/10 hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white sm:right-7 sm:top-7 sm:px-3 sm:py-2 sm:text-[11px] md:right-8 md:top-8 lg:right-10 lg:top-10"
+                className="about-flip-trigger group/flip absolute right-5 top-5 z-30 inline-flex h-10 w-32 cursor-pointer touch-manipulation items-center gap-2 rounded-full border border-white bg-white py-1.5 pl-3.5 pr-1.5 font-nm-medium text-[10px] font-medium uppercase tracking-[0.1em] text-black shadow-[0_8px_24px_rgba(0,0,0,0.3)] transition-[transform,background-color,box-shadow] duration-300 hover:bg-[#EEEEEC] hover:shadow-[0_12px_30px_rgba(0,0,0,0.38)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white motion-safe:hover:-translate-y-0.5 motion-safe:active:translate-y-0 motion-safe:active:scale-[0.98] sm:right-7 sm:top-7 sm:text-[11px] md:right-8 md:top-8 lg:right-10 lg:top-10"
               >
-                <span className="about-flip-index text-white/45">01</span>
+                <span className="min-w-0 flex-1 whitespace-nowrap text-center">
+                  {isTechVisible ? "About" : "My stack"}
+                </span>
                 <span
-                  className="h-3 w-px bg-white/20"
+                  className="grid size-7 shrink-0 place-items-center rounded-full bg-black text-white shadow-[inset_0_0_0_1px_rgba(255,255,255,0.12)] transition-transform duration-300 motion-safe:group-hover/flip:scale-105"
                   aria-hidden="true"
-                />
-                <span>{isTechVisible ? "About" : "My Tech"}</span>
-                <ArrowPathIcon
-                  className={`h-3.5 w-3.5 transition-transform duration-500 ${
-                    isTechVisible ? "rotate-180" : ""
-                  }`}
-                  aria-hidden="true"
-                />
+                >
+                  <ArrowPathIcon
+                    className={`size-3.5 transition-transform duration-500 ${
+                      isTechVisible ? "rotate-180" : ""
+                    }`}
+                  />
+                </span>
               </button>
 
               <div
+                id="about-card-content"
                 ref={flipCardRef}
                 className="grid h-full min-h-0 w-full [transform-style:preserve-3d] will-change-transform"
               >
@@ -228,8 +230,7 @@ const About = () => {
                         Payso
                       </Link>
                       {", "}designing high-impact digital experiences for
-                      fintech products. Also known as John Steven A. Cabugos
-                      and stevenzct.
+                      fintech products.
                     </p>
 
                     <div className="mt-6 flex flex-wrap gap-2 sm:mt-8 sm:gap-2.5">
