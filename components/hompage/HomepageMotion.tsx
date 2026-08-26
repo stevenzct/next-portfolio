@@ -50,47 +50,59 @@ const HomepageMotion = ({ children }: HomepageMotionProps) => {
         const actions = section.querySelectorAll<HTMLElement>(ACTION_SELECTOR);
         const badges = section.querySelectorAll<HTMLElement>(BADGE_SELECTOR);
 
-        gsap.set(headings, {
-          yPercent: 112,
-          clipPath: "inset(0 0 100% 0)",
-          autoAlpha: 0,
-          willChange: "transform,clip-path,opacity",
-        });
-        gsap.set(copy, {
-          y: 26,
-          autoAlpha: 0,
-          willChange: "transform,opacity",
-        });
-        gsap.set(media, {
-          y: 38,
-          scale: 1.055,
-          clipPath: "inset(7% 0 7% 0 round 18px)",
-          autoAlpha: 0,
-          transformOrigin: "50% 50%",
-          willChange: "transform,clip-path,opacity",
-        });
-        gsap.set(cards, {
-          y: 48,
-          scale: 0.985,
-          autoAlpha: 0,
-          transformOrigin: "50% 100%",
-          willChange: "transform,opacity",
-        });
-        gsap.set(actions, {
-          y: 20,
-          autoAlpha: 0,
-          willChange: "transform,opacity",
-        });
-        gsap.set(badges, {
-          x: 14,
-          y: -14,
-          scale: 0.88,
-          rotation: 3,
-          autoAlpha: 0,
-          force3D: true,
-          transformOrigin: "100% 0%",
-          willChange: "transform,opacity",
-        });
+        if (headings.length > 0) {
+          gsap.set(headings, {
+            yPercent: 112,
+            clipPath: "inset(0 0 100% 0)",
+            autoAlpha: 0,
+            willChange: "transform,clip-path,opacity",
+          });
+        }
+        if (copy.length > 0) {
+          gsap.set(copy, {
+            y: 26,
+            autoAlpha: 0,
+            willChange: "transform,opacity",
+          });
+        }
+        if (media.length > 0) {
+          gsap.set(media, {
+            y: 38,
+            scale: 1.055,
+            clipPath: "inset(7% 0 7% 0 round 18px)",
+            autoAlpha: 0,
+            transformOrigin: "50% 50%",
+            willChange: "transform,clip-path,opacity",
+          });
+        }
+        if (cards.length > 0) {
+          gsap.set(cards, {
+            y: 48,
+            scale: 0.985,
+            autoAlpha: 0,
+            transformOrigin: "50% 100%",
+            willChange: "transform,opacity",
+          });
+        }
+        if (actions.length > 0) {
+          gsap.set(actions, {
+            y: 20,
+            autoAlpha: 0,
+            willChange: "transform,opacity",
+          });
+        }
+        if (badges.length > 0) {
+          gsap.set(badges, {
+            x: 14,
+            y: -14,
+            scale: 0.88,
+            rotation: 3,
+            autoAlpha: 0,
+            force3D: true,
+            transformOrigin: "100% 0%",
+            willChange: "transform,opacity",
+          });
+        }
       });
     }, container);
 
@@ -107,9 +119,12 @@ const HomepageMotion = ({ children }: HomepageMotionProps) => {
           const actions = section.querySelectorAll<HTMLElement>(ACTION_SELECTOR);
           const badges = section.querySelectorAll<HTMLElement>(BADGE_SELECTOR);
 
-          const timeline = gsap
-            .timeline({ defaults: { overwrite: "auto" } })
-            .to(headings, {
+          const timeline = gsap.timeline({
+            defaults: { overwrite: "auto" },
+          });
+
+          if (headings.length > 0) {
+            timeline.to(headings, {
               yPercent: 0,
               clipPath: "inset(0 0 0% 0)",
               autoAlpha: 1,
@@ -117,8 +132,10 @@ const HomepageMotion = ({ children }: HomepageMotionProps) => {
               stagger: 0.09,
               ease: "power4.out",
               clearProps: "transform,clipPath,opacity,visibility,willChange",
-            })
-            .to(
+            });
+          }
+          if (copy.length > 0) {
+            timeline.to(
               copy,
               {
                 y: 0,
@@ -129,8 +146,10 @@ const HomepageMotion = ({ children }: HomepageMotionProps) => {
                 clearProps: "transform,opacity,visibility,willChange",
               },
               0.16,
-            )
-            .to(
+            );
+          }
+          if (media.length > 0) {
+            timeline.to(
               media,
               {
                 y: 0,
@@ -143,8 +162,10 @@ const HomepageMotion = ({ children }: HomepageMotionProps) => {
                 clearProps: "transform,clipPath,opacity,visibility,willChange",
               },
               0.08,
-            )
-            .to(
+            );
+          }
+          if (cards.length > 0) {
+            timeline.to(
               cards,
               {
                 y: 0,
@@ -156,8 +177,10 @@ const HomepageMotion = ({ children }: HomepageMotionProps) => {
                 clearProps: "transform,opacity,visibility,willChange",
               },
               0.24,
-            )
-            .to(
+            );
+          }
+          if (actions.length > 0) {
+            timeline.to(
               actions,
               {
                 y: 0,
@@ -168,8 +191,10 @@ const HomepageMotion = ({ children }: HomepageMotionProps) => {
                 clearProps: "transform,opacity,visibility,willChange",
               },
               0.3,
-            )
-            .to(
+            );
+          }
+          if (badges.length > 0) {
+            timeline.to(
               badges,
               {
                 x: 0,
@@ -185,6 +210,7 @@ const HomepageMotion = ({ children }: HomepageMotionProps) => {
               },
               0.38,
             );
+          }
 
           timelines.push(timeline);
           sectionObserver.unobserve(section);

@@ -56,32 +56,35 @@ export const useMobileMenuAnimation = (
         transformOrigin: "right center",
         willChange: "clip-path, transform",
       });
-      gsap.set(navItems, {
-        autoAlpha: 0,
-        y: 22,
-        willChange: "opacity, transform",
-      });
+      if (navItems.length > 0) {
+        gsap.set(navItems, {
+          autoAlpha: 0,
+          y: 22,
+          willChange: "opacity, transform",
+        });
+      }
 
       const timeline = gsap.timeline({
         defaults: { overwrite: "auto" },
       });
 
-      timeline
-        .fromTo(
-          panel,
-          {
-            xPercent: MOBILE_NAV_CLOSED_X,
-            clipPath: MOBILE_NAV_CLOSED_CLIP,
-          },
-          {
-            xPercent: MOBILE_NAV_OPEN_X,
-            clipPath: MOBILE_NAV_OPEN_CLIP,
-            duration: MOBILE_NAV_PANEL_DURATION,
-            ease: MOBILE_NAV_PANEL_EASE,
-          },
-          0
-        )
-        .to(
+      timeline.fromTo(
+        panel,
+        {
+          xPercent: MOBILE_NAV_CLOSED_X,
+          clipPath: MOBILE_NAV_CLOSED_CLIP,
+        },
+        {
+          xPercent: MOBILE_NAV_OPEN_X,
+          clipPath: MOBILE_NAV_OPEN_CLIP,
+          duration: MOBILE_NAV_PANEL_DURATION,
+          ease: MOBILE_NAV_PANEL_EASE,
+        },
+        0
+      );
+
+      if (navItems.length > 0) {
+        timeline.to(
           navItems,
           {
             autoAlpha: 1,
@@ -92,6 +95,7 @@ export const useMobileMenuAnimation = (
           },
           0.24
         );
+      }
     }, panel);
   }, []);
 
@@ -120,8 +124,8 @@ export const useMobileMenuAnimation = (
       defaults: { overwrite: "auto" },
     });
 
-    timeline
-      .to(
+    if (navItems.length > 0) {
+      timeline.to(
         navItems,
         {
           autoAlpha: 0,
@@ -134,17 +138,19 @@ export const useMobileMenuAnimation = (
           },
         },
         0
-      )
-      .to(
-        panel,
-        {
-          xPercent: MOBILE_NAV_CLOSED_X,
-          clipPath: MOBILE_NAV_CLOSED_CLIP,
-          duration: MOBILE_NAV_PANEL_DURATION,
-          ease: MOBILE_NAV_PANEL_EASE,
-        },
-        0.04
       );
+    }
+
+    timeline.to(
+      panel,
+      {
+        xPercent: MOBILE_NAV_CLOSED_X,
+        clipPath: MOBILE_NAV_CLOSED_CLIP,
+        duration: MOBILE_NAV_PANEL_DURATION,
+        ease: MOBILE_NAV_PANEL_EASE,
+      },
+      0.04
+    );
 
     exitTimelineRef.current = timeline;
   }, [setMenuOpen]);

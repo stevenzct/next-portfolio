@@ -41,17 +41,19 @@ const ProjectDetailMotion = ({
     const observerAnimations: gsap.core.Animation[] = [];
 
     const context = gsap.context(() => {
-      gsap.fromTo(
-        introItems,
-        { y: 28, autoAlpha: 0 },
-        {
-          y: 0,
-          autoAlpha: 1,
-          duration: 0.6,
-          stagger: 0.09,
-          ease: "power3.out",
-        }
-      );
+      if (introItems.length > 0) {
+        gsap.fromTo(
+          introItems,
+          { y: 28, autoAlpha: 0 },
+          {
+            y: 0,
+            autoAlpha: 1,
+            duration: 0.6,
+            stagger: 0.09,
+            ease: "power3.out",
+          }
+        );
+      }
 
       if (hero) {
         gsap.fromTo(
@@ -67,7 +69,9 @@ const ProjectDetailMotion = ({
         );
       }
 
-      gsap.set(revealItems, { y: 44, autoAlpha: 0 });
+      if (revealItems.length > 0) {
+        gsap.set(revealItems, { y: 44, autoAlpha: 0 });
+      }
 
       if (nextProject) {
         gsap.set(nextProject, {
@@ -75,7 +79,7 @@ const ProjectDetailMotion = ({
         });
       }
 
-      if (nextProjectContent) {
+      if (nextProjectContent && nextProjectContent.length > 0) {
         gsap.set(nextProjectContent, { y: 28, autoAlpha: 0 });
       }
     }, container);
@@ -107,16 +111,16 @@ const ProjectDetailMotion = ({
           (entries, observer) => {
             if (!entries[0]?.isIntersecting) return;
 
-            const timeline = gsap
-              .timeline()
-              .to(nextProject, {
-                clipPath: "inset(0% 0 0% 0)",
-                duration: 0.9,
-                ease: "power3.out",
-                clearProps: "clipPath",
-              })
-              .to(
-                nextProjectContent ?? [],
+            const timeline = gsap.timeline().to(nextProject, {
+              clipPath: "inset(0% 0 0% 0)",
+              duration: 0.9,
+              ease: "power3.out",
+              clearProps: "clipPath",
+            });
+
+            if (nextProjectContent && nextProjectContent.length > 0) {
+              timeline.to(
+                nextProjectContent,
                 {
                   y: 0,
                   autoAlpha: 1,
@@ -127,6 +131,7 @@ const ProjectDetailMotion = ({
                 },
                 0.18
               );
+            }
             observerAnimations.push(timeline);
 
             observer.unobserve(nextProject);

@@ -56,24 +56,33 @@ const PageTransition = ({ children }: PageTransitionProps) => {
         return;
       }
 
-      gsap.set(headings, {
-        yPercent: 112,
-        clipPath: "inset(0 0 100% 0)",
-        autoAlpha: 0,
-      });
-      gsap.set(copy, { y: 26, autoAlpha: 0 });
-      gsap.set(media, {
-        y: 38,
-        scale: 1.055,
-        clipPath: "inset(7% 0 7% 0 round 18px)",
-        autoAlpha: 0,
-        transformOrigin: "50% 50%",
-      });
-      gsap.set(actions, { y: 20, autoAlpha: 0 });
+      if (headings.length > 0) {
+        gsap.set(headings, {
+          yPercent: 112,
+          clipPath: "inset(0 0 100% 0)",
+          autoAlpha: 0,
+        });
+      }
+      if (copy.length > 0) {
+        gsap.set(copy, { y: 26, autoAlpha: 0 });
+      }
+      if (media.length > 0) {
+        gsap.set(media, {
+          y: 38,
+          scale: 1.055,
+          clipPath: "inset(7% 0 7% 0 round 18px)",
+          autoAlpha: 0,
+          transformOrigin: "50% 50%",
+        });
+      }
+      if (actions.length > 0) {
+        gsap.set(actions, { y: 20, autoAlpha: 0 });
+      }
 
-      gsap
-        .timeline({ defaults: { overwrite: "auto" } })
-        .to(headings, {
+      const timeline = gsap.timeline({ defaults: { overwrite: "auto" } });
+
+      if (headings.length > 0) {
+        timeline.to(headings, {
           yPercent: 0,
           clipPath: "inset(0 0 0% 0)",
           autoAlpha: 1,
@@ -81,8 +90,10 @@ const PageTransition = ({ children }: PageTransitionProps) => {
           stagger: 0.09,
           ease: "power4.out",
           clearProps: "transform,clipPath,opacity,visibility",
-        })
-        .to(
+        });
+      }
+      if (copy.length > 0) {
+        timeline.to(
           copy,
           {
             y: 0,
@@ -93,8 +104,10 @@ const PageTransition = ({ children }: PageTransitionProps) => {
             clearProps: "transform,opacity,visibility",
           },
           0.16,
-        )
-        .to(
+        );
+      }
+      if (media.length > 0) {
+        timeline.to(
           media,
           {
             y: 0,
@@ -107,8 +120,10 @@ const PageTransition = ({ children }: PageTransitionProps) => {
             clearProps: "transform,clipPath,opacity,visibility",
           },
           0.08,
-        )
-        .to(
+        );
+      }
+      if (actions.length > 0) {
+        timeline.to(
           actions,
           {
             y: 0,
@@ -120,6 +135,7 @@ const PageTransition = ({ children }: PageTransitionProps) => {
           },
           0.3,
         );
+      }
     }, page);
 
     return () => context.revert();

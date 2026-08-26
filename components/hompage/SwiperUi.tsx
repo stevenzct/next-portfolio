@@ -76,12 +76,14 @@ type DesktopRailProps = {
   items: PortfolioVisual[];
   reverse?: boolean;
   paused: boolean;
+  priorityFirstImage?: boolean;
 };
 
 const DesktopRail = ({
   items,
   reverse = false,
   paused,
+  priorityFirstImage = false,
 }: DesktopRailProps) => {
   const directionClass = reverse
     ? styles["desktop-track-reverse"]
@@ -108,6 +110,7 @@ const DesktopRail = ({
                   src={visual.src}
                   alt=""
                   fill
+                  priority={priorityFirstImage && itemIndex === 0}
                   sizes="(min-width: 1280px) 25vw, 1px"
                   className={styles["visual-image"]}
                 />
@@ -210,6 +213,7 @@ const SwiperUi = () => {
           <DesktopRail
             items={firstRailVisuals}
             paused={!desktopMotionRunning}
+            priorityFirstImage
           />
           <DesktopRail
             items={secondRailVisuals}
