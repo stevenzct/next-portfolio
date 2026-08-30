@@ -88,7 +88,11 @@ const ProjectPage = async ({ params }: PageProps) => {
     );
   }
 
-  if (project.status === "in-progress" && project.linkItem) {
+  if (
+    project.status === "in-progress" &&
+    project.linkItem &&
+    project.imageSrcUi.length === 0
+  ) {
     return (
       <main className="project-detail-page min-h-screen bg-[var(--project-canvas)] pt-[120px] md:pt-36 lg:pt-[160px]">
         <div className="container-wrapper h-auto w-full">

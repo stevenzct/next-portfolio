@@ -226,20 +226,65 @@ export const projectDetails: ProjectDetails[] = [
   {
     title: "Remittance App",
     description:
-      "This project is in progress. For UI exploration, visit this link.",
-    role: "",
-    tech: "",
-    linkItem: {
-      label: "visit this link",
-      href: "https://remittance-ui-exploration-gjnm.vercel.app/",
-    },
+      "A remittance app designed for Overseas Filipino Workers (OFWs) to send, receive, and manage money across borders.",
+    role: "UI/UX Designer",
+    tech: "Figma",
+    linkItems: [
+      {
+        label: "Figma Design",
+        href: "https://www.figma.com/design/SMngxWV100ziu31gbP7FHW/Remittance-app?node-id=0-1&t=ZFF0Fh0hzYhdYEyZ-1",
+      },
+      {
+        label: "UI Exploration",
+        href: "https://remittance-ui-exploration-gjnm.vercel.app/",
+      },
+    ],
     status: "in-progress",
     year: 2026,
-    imageSrcMockup: "/images/projects/PaysoRemittance1.png",
-    assignment: "",
-    objectives: "",
-    projectIncludes: [],
-    imageSrcUi: [],
+    imageSrcMockup:
+      "/images/projectDetails/PaysoRemittance/PaysRemittanceMockup.png",
+    assignment:
+      "Design a mobile remittance experience covering multi-currency wallets, currency exchange, cross-border transfers, receiving methods, and account management.",
+    objectives:
+      "Create clear and accessible flows for managing currencies and moving money across regions while keeping balances, rates, fees, and security settings easy to understand.",
+    projectIncludes: [
+      "UI/UX Design",
+      "Interaction Design",
+      "Currency Exchange",
+      "Money Transfer Flows",
+    ],
+    imageSrcUi: [
+      {
+        src: "/images/projectDetails/PaysoRemittance/1.png",
+        width: 3344,
+        height: 1926,
+        alt: "Payso Remittance home dashboards for Philippine and Hong Kong wallets",
+      },
+      {
+        src: "/images/projectDetails/PaysoRemittance/2.png",
+        width: 3344,
+        height: 1926,
+        alt: "Payso Remittance dashboard, work-country selector, and regional wallet state",
+      },
+      {
+        src: "/images/projectDetails/PaysoRemittance/3.png",
+        width: 3344,
+        height: 1926,
+        alt: "Payso Remittance currency exchange amount, currency selection, and payment screens",
+      },
+      {
+        src: "/images/projectDetails/PaysoRemittance/4.png",
+        width: 3344,
+        height: 1926,
+        alt: "Payso Remittance transfer recipient and receiving-method screens",
+      },
+      {
+        src: "/images/projectDetails/PaysoRemittance/5.png",
+        width: 3344,
+        height: 1926,
+        alt: "Payso Remittance profile, verification, and login security screens",
+      },
+    ],
     nextImage:
       "/images/projectDetails/PaysoGraphics/payso-business-cards.png",
     nextTitle: "Payso Graphics",
