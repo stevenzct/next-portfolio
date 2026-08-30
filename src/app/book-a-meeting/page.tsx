@@ -17,7 +17,7 @@ export default function BookMeetingPage() {
       data-nav-theme="light"
       className="booking-page min-h-screen bg-[#F8F8F8] pb-20 pt-28 md:pb-24 md:pt-36 lg:pb-28"
     >
-      <div className="mx-6 w-auto max-w-[1200px] md:mx-12 lg:mx-auto lg:w-[90%] xl:w-[88%] 2xl:w-[75%]">
+      <div className="app-container mx-6 w-auto max-w-[1200px] md:mx-12 lg:mx-auto lg:w-[90%] xl:w-[88%] 2xl:w-[75%]">
         <Link
           data-page-motion-action
           href="/#home"

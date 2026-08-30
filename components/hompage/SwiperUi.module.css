@@ -165,6 +165,24 @@
   }
 }
 
+@media (min-width: 1920px) {
+  .desktop-gallery {
+    gap: clamp(0.75rem, 1cqw, 1.5rem);
+  }
+
+  .desktop-track-group {
+    gap: clamp(0.75rem, 1cqw, 1.5rem);
+    padding-bottom: clamp(0.75rem, 1cqw, 1.5rem);
+  }
+
+  .desktop-visual {
+    min-height: calc(
+      25svh - clamp(1.625rem, 2.166667cqw, 3.25rem)
+    );
+    border-radius: clamp(0.75rem, 1cqw, 1.5rem);
+  }
+}
+
 @keyframes desktop-gallery-up {
   from {
     transform: translate3d(0, 0, 0);

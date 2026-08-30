@@ -306,7 +306,10 @@ export const Navbar = () => {
       } ${headerSurfaceClasses}`}
     >
       <div className="container-wrapper w-full">
-        <div className="app-container mx-6 w-auto max-w-[1200px] md:mx-12 lg:mx-auto lg:w-[90%] xl:w-[88%] 2xl:w-[75%]">
+        <div
+          data-ultrawide-container
+          className="app-container mx-6 w-auto max-w-[1200px] md:mx-12 lg:mx-auto lg:w-[90%] xl:w-[88%] 2xl:w-[75%]"
+        >
           <nav
             aria-label="Global"
             className="relative flex items-center justify-between"
@@ -354,6 +357,7 @@ export const Navbar = () => {
                     <div key={item.name} className="relative group">
                       <Link
                         href={item.href}
+                        data-desktop-nav-item
                         aria-current={
                           item.sectionId === activeSection
                             ? "location"
@@ -369,8 +373,12 @@ export const Navbar = () => {
                         <span>{item.name}</span>
                         <ChevronDownIcon className="h-3.5 w-3.5 transition-transform duration-300 ease-out group-hover:rotate-180 group-focus-within:rotate-180 motion-reduce:transition-none" />
                       </Link>
-                      <div className="pointer-events-none absolute left-1/2 top-full z-50 w-44 -translate-x-1/2 translate-y-1 scale-[0.98] pt-2 opacity-0 transition-all duration-300 ease-out group-hover:pointer-events-auto group-hover:translate-y-0 group-hover:scale-100 group-hover:opacity-100 group-focus-within:pointer-events-auto group-focus-within:translate-y-0 group-focus-within:scale-100 group-focus-within:opacity-100 motion-reduce:transition-none">
+                      <div
+                        data-desktop-nav-dropdown
+                        className="pointer-events-none absolute left-1/2 top-full z-50 w-44 -translate-x-1/2 translate-y-1 scale-[0.98] pt-2 opacity-0 transition-all duration-300 ease-out group-hover:pointer-events-auto group-hover:translate-y-0 group-hover:scale-100 group-hover:opacity-100 group-focus-within:pointer-events-auto group-focus-within:translate-y-0 group-focus-within:scale-100 group-focus-within:opacity-100 motion-reduce:transition-none"
+                      >
                         <div
+                          data-desktop-nav-dropdown-panel
                           className={`portfolio-about-menu rounded-lg border p-2 ${dropdownSurfaceClasses}`}
                         >
                           {aboutDropdown.map((dropdownItem) => {
@@ -380,6 +388,7 @@ export const Navbar = () => {
                               <Link
                                 key={dropdownItem.name}
                                 href={dropdownItem.href}
+                                data-desktop-nav-dropdown-item
                                 aria-current={
                                   dropdownItem.sectionId === activeSection
                                     ? "location"
@@ -402,6 +411,7 @@ export const Navbar = () => {
                   <Link
                     key={item.name}
                     href={item.href}
+                    data-desktop-nav-item
                     aria-current={
                       item.sectionId === activeSection ? "location" : undefined
                     }
