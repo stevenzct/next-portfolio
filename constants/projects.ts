@@ -35,7 +35,7 @@ export const projects: Project[] = [
     imageSrc: "/images/projects/PaysoRemittance1.png",
     imageAlt: "Remittance app Project",
     category: "UI/UX DESIGN",
-    status: "In progress",
+    status: "Developing",
   },
    {
     title: "Payso Graphics",
