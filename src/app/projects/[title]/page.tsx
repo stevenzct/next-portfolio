@@ -337,7 +337,16 @@ const ProjectPage = async ({ params }: PageProps) => {
                 </div>
                 <p className="shrink-0 font-nm-book text-sm text-[var(--project-muted)]">
                   {project.imageSrcUi.length}{" "}
-                  {project.imageSrcUi.length === 1 ? "image" : "images"}
+                  {project.imageSrcUi.some(
+                    (image) =>
+                      typeof image !== "string" && image.mediaType === "video"
+                  )
+                    ? project.imageSrcUi.length === 1
+                      ? "item"
+                      : "items"
+                    : project.imageSrcUi.length === 1
+                      ? "image"
+                      : "images"}
                 </p>
               </div>
             )}
@@ -355,6 +364,7 @@ const ProjectPage = async ({ params }: PageProps) => {
                   project.title,
                   index
                 );
+                const isVideo = galleryImage.mediaType === "video";
                 const hasCaption = Boolean(
                   galleryImage.label ||
                     galleryImage.title ||
@@ -369,7 +379,9 @@ const ProjectPage = async ({ params }: PageProps) => {
                     className={
                       hasEditorialGallery
                         ? "min-w-0"
-                        : "project-gallery-frame overflow-hidden rounded-[16px] border border-[var(--project-line-soft)] bg-[var(--project-surface)] p-1.5 md:rounded-[20px] md:p-2"
+                        : isVideo
+                          ? "mx-auto w-full max-w-[900px]"
+                          : "project-gallery-frame overflow-hidden rounded-[16px] border border-[var(--project-line-soft)] bg-[var(--project-surface)] p-1.5 md:rounded-[20px] md:p-2"
                     }
                   >
                     {hasCaption && (
@@ -429,18 +441,33 @@ const ProjectPage = async ({ params }: PageProps) => {
                           : ""
                       }
                     >
-                      <Image
-                        src={galleryImage.src}
-                        alt={galleryImage.alt}
-                        width={galleryImage.width}
-                        height={galleryImage.height}
-                        sizes="(max-width: 767px) calc(100vw - 60px), (max-width: 1023px) calc(100vw - 112px), 1200px"
-                        className={
-                          hasEditorialGallery
-                            ? "h-auto w-full object-contain"
-                            : "h-auto w-full rounded-[12px] object-contain md:rounded-[14px]"
-                        }
-                      />
+                      {isVideo ? (
+                        <video
+                          src={galleryImage.src}
+                          width={galleryImage.width}
+                          height={galleryImage.height}
+                          aria-label={galleryImage.alt}
+                          autoPlay
+                          loop
+                          muted
+                          playsInline
+                          preload="metadata"
+                          className="block h-auto w-full object-contain"
+                        />
+                      ) : (
+                        <Image
+                          src={galleryImage.src}
+                          alt={galleryImage.alt}
+                          width={galleryImage.width}
+                          height={galleryImage.height}
+                          sizes="(max-width: 767px) calc(100vw - 60px), (max-width: 1023px) calc(100vw - 112px), 1200px"
+                          className={
+                            hasEditorialGallery
+                              ? "h-auto w-full object-contain"
+                              : "h-auto w-full rounded-[12px] object-contain md:rounded-[14px]"
+                          }
+                        />
+                      )}
                     </div>
                   </figure>
                 );

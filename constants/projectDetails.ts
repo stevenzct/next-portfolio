@@ -22,6 +22,7 @@ export type ProjectGalleryImage = {
   width: number;
   height: number;
   alt: string;
+  mediaType?: "image" | "video";
   label?: string;
   title?: string;
   subtitle?: string;
@@ -254,6 +255,13 @@ export const projectDetails: ProjectDetails[] = [
       "Money Transfer Flows",
     ],
     imageSrcUi: [
+      {
+        src: "/images/projectDetails/PaysoRemittance/remittance-loop-video.mp4",
+        width: 1404,
+        height: 964,
+        alt: "Payso Remittance app interface walkthrough",
+        mediaType: "video",
+      },
       {
         src: "/images/projectDetails/PaysoRemittance/1.png",
         width: 3344,
