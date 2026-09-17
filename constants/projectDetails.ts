@@ -233,7 +233,7 @@ export const projectDetails: ProjectDetails[] = [
     linkItems: [
       {
         label: "Figma Design",
-        href: "https://www.figma.com/design/SMngxWV100ziu31gbP7FHW/Remittance-app?node-id=0-1&t=ZFF0Fh0hzYhdYEyZ-1",
+        href: "https://www.figma.com/design/DTxzYYs9IYYrVFCqgC61FF/Project-remittance?node-id=1-16931&p=f&t=z0SwObg7WvDs9Xt5-0",
       },
       {
         label: "UI Exploration",
