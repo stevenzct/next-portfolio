@@ -42,7 +42,8 @@ export const projects: Project[] = [
     year: 2026,
     description: "Sales materials, trifolds, and banners",
     imageSrc:
-      "/images/projectDetails/PaysoGraphics/payso-business-cards.png",
+      // "/images/projectDetails/PaysoGraphics/payso-business-cards.png",
+      "/images/projectDetails/PaysoGraphics/thumbnail.png",
     imageAlt: "Payso business card graphic designs",
     imageWidth: 1672,
     imageHeight: 941,

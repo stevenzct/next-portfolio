@@ -316,13 +316,13 @@ export const projectDetails: ProjectDetails[] = [
       "Sales Materials",
     ],
     imageSrcUi: [
-      {
-        src: "/images/projectDetails/PaysoGraphics/payso-business-cards.png",
-        width: 1672,
-        height: 941,
-        alt: "Payso and Jinyi Holdings business card graphic designs",
-        title: "Business Cards",
-      },
+      // {
+      //   src: "/images/projectDetails/PaysoGraphics/payso-business-cards.png",
+      //   width: 1672,
+      //   height: 941,
+      //   alt: "Payso and Jinyi Holdings business card graphic designs",
+      //   title: "Business Cards",
+      // },
       "/images/projectDetails/PaysoGraphics/image2.png",
       "/images/projectDetails/PaysoGraphics/image3.png",
       "/images/projectDetails/PaysoGraphics/image4.png",
