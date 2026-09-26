@@ -229,7 +229,7 @@ export const projectDetails: ProjectDetails[] = [
     description:
       "A remittance app designed for Overseas Filipino Workers (OFWs) to send, receive, and manage money across borders.",
     role: "UI/UX Designer",
-    tech: "Figma",
+    tech: "Figma, OpenAI, Claude, Gemini",
     linkItems: [
       {
         label: "Figma Design",
