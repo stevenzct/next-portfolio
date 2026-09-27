@@ -70,6 +70,20 @@ export type AboutTechGroup = {
 
 export const aboutTechStack = [
   {
+    category: "AI and Automation",
+    tags: [
+      { label: "OpenAI", icon: TbBrandOpenai, color: "#FFFFFF" },
+      { label: "Claude", icon: SiClaude, color: "#D97757" },
+      { label: "Gemini", icon: SiGooglegemini, color: "#8AB4F8" },
+      { label: "LangChain", icon: SiLangchain, color: "#1C3C3C" },
+      { label: "HuggingFace", icon: SiHuggingface, color: "#FFD21E" },
+      { label: "Ollama", icon: SiOllama, color: "#FFFFFF" },
+      { label: "n8n", icon: SiN8N, color: "#EA4B71" },
+      { label: "Make", icon: SiMake, color: "#6D00CC" },
+      { label: "Zapier", icon: SiZapier, color: "#FF4F00" },
+    ],
+  },
+  {
     category: "Frontend",
     tags: [
       { label: "ReactJS", icon: SiReact, color: "#61DAFB" },
@@ -131,20 +145,6 @@ export const aboutTechStack = [
       { label: "GCP", icon: SiGooglecloud, color: "#4285F4" },
       { label: "OCI", icon: FaCloud, color: "#F80000" },
       { label: "DigitalOcean", icon: SiDigitalocean, color: "#0080FF" },
-    ],
-  },
-  {
-    category: "AI and Automation",
-    tags: [
-      { label: "OpenAI", icon: TbBrandOpenai, color: "#FFFFFF" },
-      { label: "Claude", icon: SiClaude, color: "#D97757" },
-      { label: "Gemini", icon: SiGooglegemini, color: "#8AB4F8" },
-      { label: "LangChain", icon: SiLangchain, color: "#1C3C3C" },
-      { label: "HuggingFace", icon: SiHuggingface, color: "#FFD21E" },
-      { label: "Ollama", icon: SiOllama, color: "#FFFFFF" },
-      { label: "n8n", icon: SiN8N, color: "#EA4B71" },
-      { label: "Make", icon: SiMake, color: "#6D00CC" },
-      { label: "Zapier", icon: SiZapier, color: "#FF4F00" },
     ],
   },
   {
