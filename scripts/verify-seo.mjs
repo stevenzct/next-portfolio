@@ -4,9 +4,9 @@ const baseUrl = (process.argv[2] ?? "http://127.0.0.1:3010").replace(
 );
 
 const expectedTitle =
-  "Steven Cabugos — Full-Stack Software Engineer & UI/UX Designer";
+  "Steven Cabugos — AI Engineer & UI/UX Designer";
 const expectedDescription =
-  "Steven Cabugos is a Philippines-based full-stack software engineer and UI/UX designer specializing in fintech, payments, and digital products.";
+  "Steven Cabugos is a Philippines-based AI Engineer and UI/UX designer specializing in fintech, payments, and digital products.";
 const expectedSocialImage = "https://stevencabugos.me/images/hero.jpg";
 const expectedSocialImageAlt =
   "Abstract white folded forms on a light gray background";
@@ -149,7 +149,7 @@ check(
 );
 check(
   person?.jobTitle?.join("|") ===
-    "Full-Stack Software Engineer|UI/UX Designer",
+    "AI Engineer|UI/UX Designer",
   "Person job titles are exact",
 );
 check(
@@ -189,7 +189,7 @@ check(
 );
 check(
   homepage.text.includes(
-    'alt="Portrait of Steven Cabugos, full-stack software engineer and UI/UX designer"',
+    'alt="Portrait of Steven Cabugos, AI Engineer and UI/UX designer"',
   ),
   "Homepage portrait has descriptive alternative text",
 );

@@ -76,7 +76,7 @@ const About = () => {
                   </div>
 
                   <p className="relative mt-5 max-w-2xl text-balance font-nm-medium text-[clamp(1.65rem,3.4vw,2.55rem)] font-medium leading-[1.02] tracking-[-0.035em] text-white">
-                    Full-stack Software Engineer{" "}
+                    AI Engineer{" "}
                     <span className="text-white/45">&amp; UI/UX Designer.</span>
                   </p>
 
@@ -95,8 +95,8 @@ const About = () => {
                       />
                     </Link>
                     <p className="max-w-md font-nm-book text-xs leading-5 text-white/55 sm:text-sm sm:leading-6">
-                      Designing high-impact digital experiences for fintech
-                      products.
+                      Designing and developing high-impact digital experiences
+                      for fintech products.
                     </p>
                   </div>
                 </div>
