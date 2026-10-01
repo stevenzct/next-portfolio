@@ -8,11 +8,13 @@ import styles from "./ProjectGrid.module.css";
 type ProjectGridProps = {
   projects: readonly Project[];
   showStatusRibbon?: boolean;
+  imageSizes?: string;
 };
 
 const ProjectGrid = ({
   projects,
   showStatusRibbon = false,
+  imageSizes = "(max-width: 767px) calc(100vw - 48px), (max-width: 1279px) calc((100vw - 128px) / 2), 589px",
 }: ProjectGridProps) => {
   return (
     <div className="projects-content grid gap-x-8 gap-y-12 md:grid-cols-2 md:gap-y-16">
@@ -60,19 +62,19 @@ const ProjectGrid = ({
                   width={imageWidth ?? 589}
                   quality={90}
                   alt={imageAlt}
-                  sizes="(max-width: 767px) calc(100vw - 48px), (max-width: 1279px) calc((100vw - 128px) / 2), 589px"
+                  sizes={imageSizes}
                 />
                 <span
                   aria-hidden="true"
-                  className="project-card-arrow absolute left-1/2 top-1/2 flex size-[76px] -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-[var(--project-arrow-bg)] text-[var(--project-arrow-ink)] opacity-0 shadow-[0_12px_30px_rgba(3,32,43,0.16)] transition-opacity duration-300 group-hover:opacity-100"
+                  className="project-card-arrow absolute left-1/2 top-1/2 flex size-[calc(76*var(--home-unit,1px))] -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-[var(--project-arrow-bg)] text-[var(--project-arrow-ink)] opacity-0 shadow-[0_12px_30px_rgba(3,32,43,0.16)] transition-opacity duration-300 group-hover:opacity-100"
                 >
                   <ArrowUpRightIcon className="size-8" strokeWidth={1.6} />
                 </span>
                 <div className="project-card-overlay absolute inset-0 flex flex-col justify-end rounded-lg p-5 text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100 lg:p-6 xl:p-8">
-                  <span className="project-card-overlay-title font-nm-medium text-[18px] font-medium">
+                  <span className="project-card-overlay-title font-nm-medium text-[calc(18*var(--home-unit,1px))] font-medium">
                     {title}
                   </span>
-                  <span className="project-card-overlay-category font-nm-book text-[16px]">
+                  <span className="project-card-overlay-category font-nm-book text-[calc(16*var(--home-unit,1px))]">
                     {category}
                   </span>
                 </div>
@@ -91,7 +93,7 @@ const ProjectGrid = ({
             </div>
             <div className="projects-title">
               <div className="mt-4 flex items-start justify-between gap-4 md:mt-6">
-                <h2 className="project-card-title mb-0 font-nm-medium text-2xl font-medium leading-tight text-[var(--project-ink)] md:text-[28px] xl:text-[32px]">
+                <h2 className="project-card-title mb-0 font-nm-medium text-2xl font-medium leading-tight text-[var(--project-ink)] md:text-[calc(28*var(--home-unit,1px))] xl:text-[calc(32*var(--home-unit,1px))]">
                   {title}
                 </h2>
                 <time

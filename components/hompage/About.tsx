@@ -10,9 +10,9 @@ const About = () => {
     <section
       id="about"
       aria-labelledby="homepage-about-heading"
-      data-nav-theme="light"
+      data-home-layout data-nav-theme="light"
       data-home-motion-section
-      className="about bg-white pb-8 pt-[80px] md:pb-24 md:pt-24 lg:pt-[120px]"
+      className="about bg-white pb-8 pt-[calc(80*var(--home-unit,1px))] md:pb-24 md:pt-24 lg:pt-[calc(120*var(--home-unit,1px))]"
     >
       <div className="container-wrapper h-auto w-full">
         <div className="app-container mx-6 w-auto max-w-[1200px] md:mx-12 lg:mx-auto lg:w-[90%] xl:w-[88%] 2xl:w-[75%]">
@@ -35,21 +35,21 @@ const About = () => {
           <div className="grid grid-cols-1 items-start gap-6 md:gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-stretch lg:gap-8 xl:gap-10">
             <div
               data-home-motion-media
-              className="about-portrait-card group relative mx-auto w-full max-w-[520px] overflow-hidden rounded-[20px] border border-black/[0.06] bg-[#F4F4F2] shadow-[0_24px_60px_rgba(0,0,0,0.06)] md:h-[680px] md:max-w-[640px] lg:max-w-none xl:h-[720px]"
+              className="about-portrait-card group relative mx-auto w-full max-w-[calc(520*var(--home-unit,1px))] overflow-hidden rounded-[calc(20*var(--home-unit,1px))] border border-black/[0.06] bg-[#F4F4F2] shadow-[0_24px_60px_rgba(0,0,0,0.06)] md:h-[calc(680*var(--home-unit,1px))] md:max-w-[calc(640*var(--home-unit,1px))] lg:max-w-none xl:h-[calc(720*var(--home-unit,1px))]"
             >
               <Image
                 src="/images/about/steve-profile.png"
                 alt={siteConfig.profileImageAlt}
                 width={1086}
                 height={1448}
-                sizes="(max-width: 767px) calc(100vw - 48px), (max-width: 1023px) 640px, (max-width: 1279px) 42vw, 480px"
+                sizes="(min-width: 4000px) 1392px, (min-width: 1280px) 35vw, (max-width: 767px) calc(100vw - 48px), (max-width: 1023px) 640px, 42vw"
                 className="h-auto w-full object-cover transition-transform duration-700 ease-out motion-safe:group-hover:scale-[1.015] md:h-full md:object-top"
               />
             </div>
 
             <div
               data-home-motion-card
-              className="about-tech-card relative mx-auto flex h-[660px] min-w-0 w-full flex-col overflow-hidden rounded-[20px] bg-[#0B0B0B] p-5 text-white shadow-[0_28px_70px_rgba(0,0,0,0.16)] sm:h-[680px] sm:p-7 md:max-w-[640px] md:p-8 lg:max-w-none lg:p-10 xl:h-[720px]"
+              className="about-tech-card relative mx-auto flex h-[calc(660*var(--home-unit,1px))] min-w-0 w-full flex-col overflow-hidden rounded-[calc(20*var(--home-unit,1px))] bg-[#0B0B0B] p-5 text-white shadow-[0_28px_70px_rgba(0,0,0,0.16)] sm:h-[calc(680*var(--home-unit,1px))] sm:p-7 md:max-w-[calc(640*var(--home-unit,1px))] md:p-8 lg:max-w-none lg:p-10 xl:h-[calc(720*var(--home-unit,1px))]"
             >
               <div
                 aria-hidden="true"
@@ -65,17 +65,17 @@ const About = () => {
                 aria-label="Technology stack cards. Scroll to explore all categories."
                 className="relative h-full min-h-0 overflow-y-auto overscroll-y-auto pr-1 outline-none [scrollbar-color:rgba(255,255,255,0.28)_transparent] [scrollbar-width:thin] focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-white/60"
               >
-                <div className="relative overflow-hidden rounded-[16px] border border-white/10 bg-white/[0.055] p-5 sm:p-6">
+                <div className="relative overflow-hidden rounded-[calc(16*var(--home-unit,1px))] border border-white/10 bg-white/[0.055] p-5 sm:p-6">
                   <div
                     aria-hidden="true"
                     className="absolute -right-12 -top-16 size-40 rounded-full bg-white/[0.06] blur-3xl"
                   />
 
-                  <div className="about-card-eyebrow relative font-nm-medium text-[11px] font-medium uppercase tracking-[0.16em] text-white/65 sm:text-xs">
+                  <div className="about-card-eyebrow relative font-nm-medium text-[calc(11*var(--home-unit,1px))] font-medium uppercase tracking-[0.16em] text-white/65 sm:text-xs">
                     Steven Cabugos
                   </div>
 
-                  <p className="relative mt-5 max-w-2xl text-balance font-nm-medium text-[clamp(1.65rem,3.4vw,2.55rem)] font-medium leading-[1.02] tracking-[-0.035em] text-white">
+                  <p className="about-card-title relative mt-5 max-w-2xl text-balance font-nm-medium text-[clamp(1.65rem,3.4vw,2.55rem)] font-medium leading-[1.02] tracking-[-0.035em] text-white">
                     AI Engineer{" "}
                     <span className="text-white/45">&amp; UI/UX Designer.</span>
                   </p>
@@ -106,13 +106,13 @@ const About = () => {
                     {aboutTechStack.map((group, index) => (
                       <section
                         key={group.category}
-                        className="about-tech-group rounded-[14px] border border-white/10 bg-white/[0.045] p-4 backdrop-blur-sm"
+                        className="about-tech-group rounded-[calc(14*var(--home-unit,1px))] border border-white/10 bg-white/[0.045] p-4 backdrop-blur-sm"
                       >
                         <div className="flex items-center justify-between gap-4">
                           <h4 className="font-nm-medium text-sm font-medium text-white sm:text-base">
                             {group.category}
                           </h4>
-                          <span className="about-tech-index font-nm-book text-[10px] tracking-[0.12em] text-white/35">
+                          <span className="about-tech-index font-nm-book text-[calc(10*var(--home-unit,1px))] tracking-[0.12em] text-white/35">
                             0{index + 1}
                           </span>
                         </div>
@@ -121,7 +121,7 @@ const About = () => {
                             ({ label, icon: TechIcon, color }) => (
                               <span
                                 key={label}
-                                className="about-tech-tag inline-flex items-center gap-1.5 rounded-full border border-white/10 bg-white/[0.055] px-2.5 py-1.5 font-nm-book text-[10px] leading-none text-white/70 transition-colors duration-200 hover:border-white/20 hover:bg-white/[0.09] hover:text-white sm:text-[11px]"
+                                className="about-tech-tag inline-flex items-center gap-1.5 rounded-full border border-white/10 bg-white/[0.055] px-2.5 py-1.5 font-nm-book text-[calc(10*var(--home-unit,1px))] leading-none text-white/70 transition-colors duration-200 hover:border-white/20 hover:bg-white/[0.09] hover:text-white sm:text-[calc(11*var(--home-unit,1px))]"
                               >
                                 <TechIcon
                                   aria-hidden="true"

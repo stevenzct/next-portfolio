@@ -109,24 +109,26 @@
 @media (min-width: 1280px) {
   .contact-feature {
     display: flex;
-    min-height: clamp(31rem, 48vw, 39rem);
+    min-height: calc(624 * var(--home-unit, 1px));
     align-items: center;
-    margin-bottom: 1.25rem;
-    padding-block: 4rem 6rem;
+    margin-bottom: calc(20 * var(--home-unit, 1px));
+    padding-block: calc(64 * var(--home-unit, 1px)) calc(96 * var(--home-unit, 1px));
   }
 
   .contact-copy {
-    width: min(72%, 60rem);
+    width: min(72%, calc(960 * var(--home-unit, 1px)));
   }
 
   .contact-art {
     position: absolute;
     top: 7%;
     right: 0;
-    bottom: 3.75rem;
-    width: min(72%, 54rem);
+    bottom: calc(60 * var(--home-unit, 1px));
+    width: min(72%, calc(864 * var(--home-unit, 1px)));
     aspect-ratio: auto;
     margin-top: 0;
+    border-radius: calc(20 * var(--home-unit, 1px));
+    clip-path: inset(0 round calc(20 * var(--home-unit, 1px)));
     -webkit-mask-image: linear-gradient(
       to right,
       transparent 0%,

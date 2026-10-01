@@ -4,7 +4,7 @@
   --background: #ffffff;
   --foreground: #171717;
   --desktop-content-width: 1200px;
-  --ultrawide-content-width: clamp(1200px, 62.5vw, 2400px);
+  --ultrawide-content-width: min(80vw, 3200px);
   --project-canvas: #ffffff;
   --project-ink: #000000;
   --project-copy: #4a4a4a;
@@ -101,7 +101,7 @@ body {
 
 }
 
-/* Keep shared desktop sections aligned, then grow from the 1920px reference. */
+/* Keep the body sections at their shared reading width. */
 @media (min-width: 1536px) {
   .app-container {
     width: min(var(--desktop-content-width), calc(100% - 96px));
@@ -110,63 +110,66 @@ body {
   }
 }
 
-@media (min-width: 1920px) {
-  [data-ultrawide-container] {
+/* Keep every homepage section aligned with the hero and navigation. */
+@media (min-width: 1280px) {
+  [data-ultrawide-container],
+  .homepage-wrapper .app-container {
     width: min(var(--ultrawide-content-width), calc(100% - 96px));
     max-width: var(--ultrawide-content-width);
+    margin-inline: auto;
     container-type: inline-size;
   }
 
   [data-site-header] {
-    padding-block: clamp(1rem, 0.833333vw, 2rem);
+    padding-block: clamp(1rem, 1.066667vw, 2.666667rem);
   }
 
   .portfolio-nav-brand {
-    font-size: clamp(1rem, 1.333333cqw, 2rem);
+    font-size: max(1rem, 1.333333cqw);
   }
 
   .desktop-navigation {
-    height: clamp(3rem, 4cqw, 6rem);
-    border-radius: clamp(0.5rem, 0.666667cqw, 1rem);
-    padding-inline: clamp(0.875rem, 1.166667cqw, 1.75rem);
+    height: max(3rem, 4cqw);
+    border-radius: max(0.5rem, 0.666667cqw);
+    padding-inline: max(0.875rem, 1.166667cqw);
   }
 
   [data-desktop-nav-item] {
-    gap: clamp(0.375rem, 0.5cqw, 0.75rem);
-    border-radius: clamp(0.5rem, 0.666667cqw, 1rem);
-    padding: clamp(0.25rem, 0.333333cqw, 0.5rem)
-      clamp(0.875rem, 1.166667cqw, 1.75rem);
-    font-size: clamp(0.875rem, 1.166667cqw, 1.75rem);
-    line-height: clamp(1.5rem, 2cqw, 3rem);
+    gap: max(0.375rem, 0.5cqw);
+    border-radius: max(0.5rem, 0.666667cqw);
+    padding: max(0.25rem, 0.333333cqw)
+      max(0.875rem, 1.166667cqw);
+    font-size: max(0.875rem, 1.166667cqw);
+    line-height: max(1.5rem, 2cqw);
   }
 
   [data-desktop-nav-item] svg {
-    width: clamp(0.875rem, 1.166667cqw, 1.75rem);
-    height: clamp(0.875rem, 1.166667cqw, 1.75rem);
+    width: max(0.875rem, 1.166667cqw);
+    height: max(0.875rem, 1.166667cqw);
   }
 
   [data-desktop-nav-dropdown] {
-    width: clamp(11rem, 14.666667cqw, 22rem);
-    padding-top: clamp(0.5rem, 0.666667cqw, 1rem);
+    width: max(11rem, 14.666667cqw);
+    padding-top: max(0.5rem, 0.666667cqw);
   }
 
   [data-desktop-nav-dropdown-panel] {
-    border-radius: clamp(0.5rem, 0.666667cqw, 1rem);
-    padding: clamp(0.5rem, 0.666667cqw, 1rem);
+    border-radius: max(0.5rem, 0.666667cqw);
+    padding: max(0.5rem, 0.666667cqw);
   }
 
   [data-desktop-nav-dropdown-item] {
-    gap: clamp(0.5rem, 0.666667cqw, 1rem);
-    border-radius: clamp(0.375rem, 0.5cqw, 0.75rem);
-    padding: clamp(0.5rem, 0.666667cqw, 1rem)
-      clamp(0.75rem, 1cqw, 1.5rem);
-    font-size: clamp(0.875rem, 1.166667cqw, 1.75rem);
-    line-height: clamp(1.5rem, 2cqw, 3rem);
+    gap: max(0.5rem, 0.666667cqw);
+    border-radius: max(0.375rem, 0.5cqw);
+    padding: max(0.5rem, 0.666667cqw)
+      max(0.75rem, 1cqw);
+    font-size: max(0.875rem, 1.166667cqw);
+    line-height: max(1.5rem, 2cqw);
   }
 
   [data-desktop-nav-dropdown-item] svg {
-    width: clamp(1rem, 1.333333cqw, 2rem);
-    height: clamp(1rem, 1.333333cqw, 2rem);
+    width: max(1rem, 1.333333cqw);
+    height: max(1rem, 1.333333cqw);
   }
 }
 
@@ -185,7 +188,7 @@ html {
   background: #ffffff;
   color-scheme: only light;
   scroll-behavior: smooth;
-  scroll-padding-top: 96px;
+  scroll-padding-top: clamp(96px, 5.333333vw, 213.333333px);
 }
 
 .reviews-atmosphere {

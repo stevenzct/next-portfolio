@@ -15,8 +15,8 @@ const Footer = () => {
     <footer
       id="contact"
       aria-labelledby="contact-heading"
-      data-nav-theme="dark"
-      className={`${styles["contact-section"]} contact relative overflow-hidden bg-[#090909] pb-8 pt-[80px] text-white md:pb-10 md:pt-24 lg:pt-[120px]`}
+      data-home-layout data-nav-theme="dark"
+      className={`${styles["contact-section"]} contact relative overflow-hidden bg-[#090909] pb-8 pt-[calc(80*var(--home-unit,1px))] text-white md:pb-10 md:pt-24 lg:pt-[calc(120*var(--home-unit,1px))]`}
     >
       <div className={styles["contact-grid"]} aria-hidden="true" />
       <div className={styles["contact-glow"]} aria-hidden="true" />
@@ -35,14 +35,14 @@ const Footer = () => {
           </div>
 
           <div className={styles["contact-feature"]}>
-            <div className={`${styles["contact-copy"]} max-w-[960px]`}>
+            <div className={`${styles["contact-copy"]} max-w-[calc(960*var(--home-unit,1px))]`}>
               <p className={`${styles["contact-kicker"]} mb-5 font-nm-book text-xs uppercase tracking-[0.18em] text-white/45 md:mb-7`}>
                 Contact <span className="mx-2 text-white/20">/</span> 06
               </p>
 
               <h2
                 id="contact-heading"
-                className="max-w-[820px] font-nm-medium text-[clamp(2.5rem,10.5vw,3.75rem)] font-medium leading-[0.96] tracking-[-0.05em] text-white sm:text-[clamp(3.75rem,7vw,5rem)] lg:text-[clamp(4.5rem,5.5vw,5.5rem)]"
+                className="max-w-[calc(820*var(--home-unit,1px))] font-nm-medium text-[clamp(2.5rem,10.5vw,3.75rem)] font-medium leading-[0.96] tracking-[-0.05em] text-white sm:text-[clamp(3.75rem,7vw,5rem)] lg:text-[clamp(4.5rem,5.5vw,5.5rem)]"
               >
                 Let&apos;s build
                 <span className={`${styles["contact-heading-accent"]} block text-white/70`}>
@@ -50,7 +50,7 @@ const Footer = () => {
                 </span>
               </h2>
 
-              <p className={`${styles["contact-intro"]} mt-7 max-w-[560px] font-nm-book text-base leading-7 text-white/60 sm:text-lg sm:leading-8`}>
+              <p className={`${styles["contact-intro"]} mt-7 max-w-[calc(560*var(--home-unit,1px))] font-nm-book text-base leading-7 text-white/60 sm:text-lg sm:leading-8`}>
                 Have a product idea, a design challenge, or a team that needs a
                 focused creative partner? Tell me where you want to go.
               </p>
@@ -61,7 +61,7 @@ const Footer = () => {
 
           <a
             href={`mailto:${siteConfig.email}`}
-            className={`${styles["contact-email-card"]} group/email relative z-10 flex min-h-[170px] flex-col justify-between overflow-hidden rounded-[20px] border border-white/15 bg-white/[0.065] p-5 backdrop-blur-md transition-all duration-500 hover:border-white/30 hover:bg-white/[0.09] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white sm:min-h-[190px] sm:p-7 md:min-h-[210px] md:p-9`}
+            className={`${styles["contact-email-card"]} group/email relative z-10 flex min-h-[calc(170*var(--home-unit,1px))] flex-col justify-between overflow-hidden rounded-[calc(20*var(--home-unit,1px))] border border-white/15 bg-white/[0.065] p-5 backdrop-blur-md transition-all duration-500 hover:border-white/30 hover:bg-white/[0.09] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white sm:min-h-[calc(190*var(--home-unit,1px))] sm:p-7 md:min-h-[calc(210*var(--home-unit,1px))] md:p-9`}
           >
             <div
               aria-hidden="true"
@@ -69,7 +69,7 @@ const Footer = () => {
             />
             <span
               aria-hidden="true"
-              className="pointer-events-none absolute -bottom-12 right-5 font-nm-medium text-[150px] font-medium leading-none text-white/[0.035] sm:right-10 sm:text-[210px]"
+              className="pointer-events-none absolute -bottom-12 right-5 font-nm-medium text-[calc(150*var(--home-unit,1px))] font-medium leading-none text-white/[0.035] sm:right-10 sm:text-[calc(210*var(--home-unit,1px))]"
             >
               @
             </span>
@@ -79,12 +79,12 @@ const Footer = () => {
                 <EnvelopeIcon className="h-4 w-4" aria-hidden="true" />
                 Start with an email
               </span>
-              <span className={`${styles["contact-card-icon"]} flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-white text-black transition-transform duration-500 motion-safe:group-hover/email:rotate-45 sm:h-[52px] sm:w-[52px]`}>
+              <span className={`${styles["contact-card-icon"]} flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-white text-black transition-transform duration-500 motion-safe:group-hover/email:rotate-45 sm:h-[calc(52*var(--home-unit,1px))] sm:w-[calc(52*var(--home-unit,1px))]`}>
                 <ArrowUpRightIcon className="h-5 w-5" aria-hidden="true" />
               </span>
             </div>
 
-            <span className="relative mt-10 break-all font-nm-medium text-[clamp(1.3rem,5vw,3.75rem)] font-medium leading-none tracking-[-0.04em] text-white sm:break-normal">
+            <span className="contact-email-address relative mt-10 break-all font-nm-medium text-[clamp(1.3rem,5vw,3.75rem)] font-medium leading-none tracking-[-0.04em] text-white sm:break-normal">
               {siteConfig.email}
             </span>
           </a>
@@ -94,7 +94,7 @@ const Footer = () => {
               href="https://tally.so/r/Y5gQDz"
               target="_blank"
               rel="noopener noreferrer"
-              className={`${styles["contact-brief-card"]} group/card flex min-h-[230px] flex-col justify-between rounded-[20px] bg-white p-5 text-black transition-transform duration-500 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white motion-safe:hover:-translate-y-1 sm:p-7`}
+              className={`${styles["contact-brief-card"]} group/card flex min-h-[calc(230*var(--home-unit,1px))] flex-col justify-between rounded-[calc(20*var(--home-unit,1px))] bg-white p-5 text-black transition-transform duration-500 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white motion-safe:hover:-translate-y-1 sm:p-7`}
             >
               <div className="flex items-start justify-between gap-4">
                 <span className={`${styles["contact-brief-label"]} font-nm-book text-xs uppercase tracking-[0.16em] text-black/45`}>
@@ -106,7 +106,7 @@ const Footer = () => {
                 />
               </div>
               <div>
-                <h3 className="font-nm-medium text-[28px] font-medium leading-[1.04] tracking-[-0.03em] sm:text-[32px]">
+                <h3 className="font-nm-medium text-[calc(28*var(--home-unit,1px))] font-medium leading-[1.04] tracking-[-0.03em] sm:text-[calc(32*var(--home-unit,1px))]">
                   Tell me what you&apos;re building.
                 </h3>
                 <p className={`${styles["contact-brief-copy"]} mt-3 font-nm-book text-sm leading-6 text-black/55`}>
@@ -117,7 +117,7 @@ const Footer = () => {
 
             <Link
               href="/book-a-meeting"
-              className={`${styles["contact-call-card"]} group/card flex min-h-[230px] flex-col justify-between rounded-[20px] border border-white/15 bg-white/[0.055] p-5 transition-all duration-500 hover:border-white/30 hover:bg-white/[0.085] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white motion-safe:hover:-translate-y-1 sm:p-7`}
+              className={`${styles["contact-call-card"]} group/card flex min-h-[calc(230*var(--home-unit,1px))] flex-col justify-between rounded-[calc(20*var(--home-unit,1px))] border border-white/15 bg-white/[0.055] p-5 transition-all duration-500 hover:border-white/30 hover:bg-white/[0.085] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white motion-safe:hover:-translate-y-1 sm:p-7`}
             >
               <div className="flex items-start justify-between gap-4">
                 <span className={`${styles["contact-card-label"]} font-nm-book text-xs uppercase tracking-[0.16em] text-white/45`}>
@@ -126,7 +126,7 @@ const Footer = () => {
                 <CalendarDaysIcon className="h-5 w-5" aria-hidden="true" />
               </div>
               <div>
-                <h3 className="font-nm-medium text-[28px] font-medium leading-[1.04] tracking-[-0.03em] text-white sm:text-[32px]">
+                <h3 className="font-nm-medium text-[calc(28*var(--home-unit,1px))] font-medium leading-[1.04] tracking-[-0.03em] text-white sm:text-[calc(32*var(--home-unit,1px))]">
                   Book a focused call.
                 </h3>
                 <p className={`${styles["contact-card-copy"]} mt-3 font-nm-book text-sm leading-6 text-white/50`}>
@@ -135,7 +135,7 @@ const Footer = () => {
               </div>
             </Link>
 
-            <div className={`${styles["contact-social-card"]} flex min-h-[230px] flex-col justify-between rounded-[20px] border border-white/15 bg-[#111111] p-5 sm:p-7 md:col-span-2 xl:col-span-1`}>
+            <div className={`${styles["contact-social-card"]} flex min-h-[calc(230*var(--home-unit,1px))] flex-col justify-between rounded-[calc(20*var(--home-unit,1px))] border border-white/15 bg-[#111111] p-5 sm:p-7 md:col-span-2 xl:col-span-1`}>
               <div className="flex items-start justify-between gap-4">
                 <span className={`${styles["contact-card-label"]} font-nm-book text-xs uppercase tracking-[0.16em] text-white/45`}>
                   03 / Socials
@@ -144,7 +144,7 @@ const Footer = () => {
               </div>
 
               <div>
-                <h3 className="font-nm-medium text-[28px] font-medium leading-[1.04] tracking-[-0.03em] text-white sm:text-[32px]">
+                <h3 className="font-nm-medium text-[calc(28*var(--home-unit,1px))] font-medium leading-[1.04] tracking-[-0.03em] text-white sm:text-[calc(32*var(--home-unit,1px))]">
                   Stay connected.
                 </h3>
                 <div className="mt-5 flex flex-wrap gap-2">

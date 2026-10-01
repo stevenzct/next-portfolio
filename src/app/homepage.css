@@ -1,0 +1,57 @@
+/* Match the hero's 1200px design scale inside its fluid desktop container.
+   Scope the tokens to the lower homepage sections so mobile and other routes
+   keep their existing dimensions. */
+@media (min-width: 1280px) {
+  .homepage-wrapper [data-home-layout] {
+    --home-unit: calc(var(--ultrawide-content-width) / 1200);
+    --spacing: calc(4 * var(--home-unit));
+    --text-xs: calc(12 * var(--home-unit));
+    --text-sm: calc(14 * var(--home-unit));
+    --text-base: calc(16 * var(--home-unit));
+    --text-lg: calc(18 * var(--home-unit));
+    --text-xl: calc(20 * var(--home-unit));
+    --text-2xl: calc(24 * var(--home-unit));
+    --radius-sm: calc(4 * var(--home-unit));
+    --radius-md: calc(6 * var(--home-unit));
+    --radius-lg: calc(8 * var(--home-unit));
+    --radius-xl: calc(12 * var(--home-unit));
+    --radius-2xl: calc(16 * var(--home-unit));
+    --container-md: calc(448 * var(--home-unit));
+    --container-xl: calc(576 * var(--home-unit));
+    --container-2xl: calc(672 * var(--home-unit));
+  }
+
+  .homepage-wrapper [data-home-layout] [data-home-motion-heading] {
+    font-size: calc(76 * var(--home-unit));
+  }
+
+  .homepage-wrapper .experience-card-company {
+    font-size: calc(28 * var(--home-unit));
+  }
+
+  .homepage-wrapper .experience-card-link > img {
+    width: calc(17 * var(--home-unit));
+    height: auto;
+  }
+
+  .homepage-wrapper .about-card-title {
+    font-size: calc(40.8 * var(--home-unit));
+  }
+
+  .homepage-wrapper .review-ticket {
+    border-radius: calc(13 * var(--home-unit));
+  }
+
+  .homepage-wrapper .tech-logo-image {
+    width: 100%;
+    height: auto;
+  }
+
+  .homepage-wrapper #contact-heading {
+    font-size: calc(88 * var(--home-unit));
+  }
+
+  .homepage-wrapper .contact-email-address {
+    font-size: calc(60 * var(--home-unit));
+  }
+}

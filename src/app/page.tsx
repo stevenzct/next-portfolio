@@ -9,6 +9,7 @@ import Projects from "../../components/hompage/Projects";
 import Reviews from "../../components/hompage/Reviews";
 import TechSwiper from "../../components/hompage/TechSwiper";
 import { homepageJsonLd } from "../../utils/structuredData";
+import "./homepage.css";
 
 export default function Home() {
   return (

@@ -13,44 +13,64 @@ import "swiper/css";
 type PortfolioVisual = {
   src: string;
   alt: string;
+  width: number;
+  height: number;
 };
 
 const mobileVisuals: PortfolioVisual[] = [
   {
     src: "/images/Image1.jpg",
     alt: "Pixel Buds ecommerce landing page concept",
+    width: 544,
+    height: 416,
   },
   {
     src: "/images/Image2.jpg",
     alt: "Fruit ecommerce landing page concept",
+    width: 544,
+    height: 416,
   },
   {
     src: "/images/Image3.jpg",
     alt: "Rioflorido residential property website",
+    width: 544,
+    height: 416,
   },
   {
     src: "/images/Image4.jpg",
     alt: "Rioflorido interior design website",
+    width: 272,
+    height: 208,
   },
   {
     src: "/images/Image5.jpg",
     alt: "Florida travel landing page concept",
+    width: 272,
+    height: 208,
   },
   {
     src: "/images/Image6.jpg",
     alt: "Planco travel planning website",
+    width: 272,
+    height: 207,
   },
   {
     src: "/images/Image7.jpg",
     alt: "Laprasca restaurant booking website",
+    width: 544,
+    height: 416,
   },
   {
     src: "/images/Image8.jpg",
     alt: "Designer and developer portfolio concept",
+    width: 544,
+    height: 416,
   },
   {
     src: "/images/Image9.jpg",
     alt: "Monochrome designer portfolio concept",
+    width: 544,
+    height: 416,
   },
 ];
 
@@ -85,23 +105,55 @@ const DesktopRail = ({
   paused,
   priorityFirstImage = false,
 }: DesktopRailProps) => {
+  const railRef = useRef<HTMLDivElement>(null);
+  const groupRef = useRef<HTMLDivElement>(null);
+  const [repetitions, setRepetitions] = useState(1);
+
+  useEffect(() => {
+    const rail = railRef.current;
+    const group = groupRef.current;
+    if (!rail || !group) return;
+
+    const fillRail = () => {
+      const gap = parseFloat(getComputedStyle(group).rowGap) || 0;
+      const cycleHeight = Array.from(group.children)
+        .slice(0, items.length)
+        .reduce((height, card) => height + (card as HTMLElement).offsetHeight + gap, 0);
+
+      if (rail.clientHeight > 0 && cycleHeight > 0) {
+        // Extend the loop on tall screens without changing any card's proportions.
+        setRepetitions(Math.max(1, Math.ceil((rail.clientHeight + 1) / cycleHeight)));
+      }
+    };
+
+    const observer = new ResizeObserver(fillRail);
+    observer.observe(rail);
+    observer.observe(group);
+    fillRail();
+
+    return () => observer.disconnect();
+  }, [items]);
+
+  const repeatedVisuals = Array.from({ length: repetitions }, () => items).flat();
   const directionClass = reverse
     ? styles["desktop-track-reverse"]
     : styles["desktop-track-forward"];
 
   return (
-    <div className={styles["desktop-rail"]}>
+    <div ref={railRef} className={styles["desktop-rail"]}>
       <div
         className={`${styles["desktop-track"]} ${directionClass} ${
           paused ? styles["desktop-track-paused"] : ""
         }`}
+        style={{ animationDuration: `${(reverse ? 53.33 : 66.67) * repetitions}s` }}
       >
         {[0, 1].map((groupIndex) => (
           <div
             key={groupIndex}
+            ref={groupIndex === 0 ? groupRef : undefined}
             className={styles["desktop-track-group"]}
           >
-            {items.map((visual, itemIndex) => (
+            {repeatedVisuals.map((visual, itemIndex) => (
               <div
                 key={`${groupIndex}-${itemIndex}-${visual.src}`}
                 className={styles["desktop-visual"]}
@@ -109,9 +161,10 @@ const DesktopRail = ({
                 <Image
                   src={visual.src}
                   alt=""
-                  fill
-                  priority={priorityFirstImage && itemIndex === 0}
-                  sizes="(min-width: 1280px) 25vw, 1px"
+                  width={visual.width}
+                  height={visual.height}
+                  priority={priorityFirstImage && groupIndex === 0 && itemIndex === 0}
+                  sizes="(min-width: 4000px) 742px, (min-width: 1280px) 18.6vw, 1px"
                   className={styles["visual-image"]}
                 />
               </div>

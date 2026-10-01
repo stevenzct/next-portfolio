@@ -36,9 +36,9 @@ function Certifications() {
   return (
     <div
       id="certifications"
-      data-nav-theme="light"
+      data-home-layout data-nav-theme="light"
       data-home-motion-section
-      className="certifications bg-[var(--ios-grouped-background)] py-[80px] md:py-24 lg:py-[120px]"
+      className="certifications bg-[var(--ios-grouped-background)] py-[calc(80*var(--home-unit,1px))] md:py-24 lg:py-[calc(120*var(--home-unit,1px))]"
     >
       <div className="container-wrapper w-full h-auto">
         <div className="app-container mx-6 w-auto max-w-[1200px] md:mx-12 lg:mx-auto lg:w-[90%] xl:w-[88%] 2xl:w-[75%]">
@@ -51,7 +51,7 @@ function Certifications() {
           <div className="mb-7 flex items-end justify-between gap-2.5 sm:gap-3 md:mb-12 lg:mb-16">
             <h2
               data-home-motion-heading
-              className="min-w-0 text-start font-nm-medium text-[28px] font-medium leading-[0.96] tracking-[-0.035em] text-black sm:text-[32px] md:text-[clamp(2.75rem,6vw,4.75rem)]"
+              className="min-w-0 text-start font-nm-medium text-[calc(28*var(--home-unit,1px))] font-medium leading-[0.96] tracking-[-0.035em] text-black sm:text-[calc(32*var(--home-unit,1px))] md:text-[clamp(2.75rem,6vw,4.75rem)]"
             >
               Learning &amp; Growth
             </h2>
@@ -102,6 +102,7 @@ function Certifications() {
                   },
                   1280: {
                     slidesPerView: 3,
+                    spaceBetween: "2%",
                   },
                 }}
                 loop={false}
@@ -128,12 +129,12 @@ function Certifications() {
                         <article
                           data-home-motion-card
                           style={certificationCardStyle}
-                          className="certification-card group flex h-full max-w-full flex-col overflow-hidden rounded-[24px] border border-[var(--cert-line)] bg-white shadow-[0_8px_24px_var(--cert-shadow)] transition-[transform,box-shadow,border-color] duration-500 ease-out motion-safe:hover:-translate-y-1 motion-safe:hover:border-[var(--ios-accent)] motion-safe:hover:shadow-[0_14px_36px_var(--cert-shadow)]"
+                          className="certification-card group flex h-full max-w-full flex-col overflow-hidden rounded-[calc(24*var(--home-unit,1px))] border border-[var(--cert-line)] bg-white shadow-[0_8px_24px_var(--cert-shadow)] transition-[transform,box-shadow,border-color] duration-500 ease-out motion-safe:hover:-translate-y-1 motion-safe:hover:border-[var(--ios-accent)] motion-safe:hover:shadow-[0_14px_36px_var(--cert-shadow)]"
                         >
                         <div className="certification-card-media relative aspect-[1.27/1] overflow-hidden border-b border-black/[0.06] bg-[var(--cert-surface)] p-3.5 sm:p-4">
                           <div
                             aria-hidden="true"
-                            className="certification-card-glow absolute -right-12 -top-16 h-52 w-52 rounded-full bg-[var(--cert-glow)] blur-[18px]"
+                            className="certification-card-glow absolute -right-12 -top-16 h-52 w-52 rounded-full bg-[var(--cert-glow)] blur-[calc(18*var(--home-unit,1px))]"
                           />
                           <div
                             aria-hidden="true"
@@ -141,7 +142,7 @@ function Certifications() {
                           />
                           <div
                             data-home-motion-media
-                            className="certification-card-artwork-frame relative h-full w-full overflow-hidden rounded-[17px] border border-white/80 bg-white/70 shadow-[0_14px_34px_var(--cert-shadow)] backdrop-blur-sm transition-transform duration-700 ease-out motion-safe:group-hover:scale-[1.012]"
+                            className="certification-card-artwork-frame relative h-full w-full overflow-hidden rounded-[calc(17*var(--home-unit,1px))] border border-white/80 bg-white/70 shadow-[0_14px_34px_var(--cert-shadow)] backdrop-blur-sm transition-transform duration-700 ease-out motion-safe:group-hover:scale-[1.012]"
                           >
                             <Image
                               className="certification-card-artwork object-cover mix-blend-multiply"
@@ -155,27 +156,27 @@ function Certifications() {
 
                         <div className="flex flex-1 flex-col p-5 sm:p-6 xl:p-7">
                           <div className="mb-6 flex min-w-0 items-center gap-2.5">
-                            <div className="certification-card-logo flex h-10 w-10 shrink-0 items-center justify-center overflow-hidden rounded-[11px] border border-[var(--cert-line)] bg-[var(--cert-surface-soft)] p-1.5 shadow-[0_4px_12px_var(--cert-shadow)] sm:h-11 sm:w-11">
+                            <div className="certification-card-logo flex h-10 w-10 shrink-0 items-center justify-center overflow-hidden rounded-[calc(11*var(--home-unit,1px))] border border-[var(--cert-line)] bg-[var(--cert-surface-soft)] p-1.5 shadow-[0_4px_12px_var(--cert-shadow)] sm:h-11 sm:w-11">
                               {logoSrc ? (
                                 <Image
-                                  className="h-full w-full rounded-[5px] object-contain"
+                                  className="h-full w-full rounded-[calc(5*var(--home-unit,1px))] object-contain"
                                   src={logoSrc}
                                   height={51}
                                   width={51}
                                   alt={logoAlt ?? `${certificateName} Logo`}
                                 />
                               ) : (
-                                <span className="flex h-full w-full items-center justify-center rounded-[5px] bg-[var(--cert-accent)] font-nm-medium text-base font-medium text-white">
+                                <span className="flex h-full w-full items-center justify-center rounded-[calc(5*var(--home-unit,1px))] bg-[var(--cert-accent)] font-nm-medium text-base font-medium text-white">
                                   {certificateName.charAt(0)}
                                 </span>
                               )}
                             </div>
-                            <p className="certification-card-issued min-w-0 rounded-full bg-[var(--cert-surface-soft)] px-3 py-2 font-nm-book text-[10px] uppercase leading-4 tracking-[0.09em] text-black/55 shadow-[inset_0_0_0_1px_rgba(0,0,0,0.035)] sm:text-[11px]">
+                            <p className="certification-card-issued min-w-0 rounded-full bg-[var(--cert-surface-soft)] px-3 py-2 font-nm-book text-[calc(10*var(--home-unit,1px))] uppercase leading-4 tracking-[0.09em] text-black/55 shadow-[inset_0_0_0_1px_rgba(0,0,0,0.035)] sm:text-[calc(11*var(--home-unit,1px))]">
                               {Issued}
                             </p>
                           </div>
 
-                          <h3 className="certification-card-name max-w-[15ch] font-nm-medium text-[28px] font-medium leading-[1.01] tracking-[-0.04em] text-black md:text-[30px]">
+                          <h3 className="certification-card-name max-w-[15ch] font-nm-medium text-[calc(28*var(--home-unit,1px))] font-medium leading-[1.01] tracking-[-0.04em] text-black md:text-[calc(30*var(--home-unit,1px))]">
                             {certificateName}
                           </h3>
                           <h4 className="certification-card-company mt-2 font-nm-book text-base leading-5 text-black/60 md:text-lg md:leading-6">
@@ -187,10 +188,10 @@ function Certifications() {
                               href={certificateUrl ?? imageSrc}
                               target="_blank"
                               rel="noopener noreferrer"
-                              className="certification-card-link group/action inline-flex h-12 w-full items-center justify-between rounded-[13px] border border-[var(--cert-line)] bg-white/90 px-2.5 font-nm-medium text-sm font-medium text-black shadow-[0_6px_18px_var(--cert-shadow)] transition-[background-color,box-shadow,border-color] duration-300 hover:bg-[var(--cert-surface-soft)] hover:shadow-[0_9px_24px_var(--cert-shadow)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--cert-accent)]"
+                              className="certification-card-link group/action inline-flex h-12 w-full items-center justify-between rounded-[calc(13*var(--home-unit,1px))] border border-[var(--cert-line)] bg-white/90 px-2.5 font-nm-medium text-sm font-medium text-black shadow-[0_6px_18px_var(--cert-shadow)] transition-[background-color,box-shadow,border-color] duration-300 hover:bg-[var(--cert-surface-soft)] hover:shadow-[0_9px_24px_var(--cert-shadow)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--cert-accent)]"
                             >
                               <span className="inline-flex items-center gap-2.5">
-                                <span className="certification-card-action-icon flex h-8 w-8 items-center justify-center rounded-[9px] bg-[var(--cert-surface)] text-[var(--cert-accent)] shadow-[inset_0_0_0_1px_var(--cert-line)]">
+                                <span className="certification-card-action-icon flex h-8 w-8 items-center justify-center rounded-[calc(9*var(--home-unit,1px))] bg-[var(--cert-surface)] text-[var(--cert-accent)] shadow-[inset_0_0_0_1px_var(--cert-line)]">
                                   <DocumentCheckIcon className="h-4 w-4 shrink-0" />
                                 </span>
                                 {credentialType === "badge"

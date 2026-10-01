@@ -27,9 +27,9 @@ function Experience() {
     <section
       id="work"
       aria-labelledby="experience-heading"
-      data-nav-theme="light"
+      data-home-layout data-nav-theme="light"
       data-home-motion-section
-      className="experience bg-[#F8F8F8] py-[80px] md:py-24 lg:py-[120px]"
+      className="experience bg-[#F8F8F8] py-[calc(80*var(--home-unit,1px))] md:py-24 lg:py-[calc(120*var(--home-unit,1px))]"
     >
       <div className="container-wrapper h-auto w-full">
         <div className="app-container mx-6 w-auto max-w-[1200px] md:mx-12 lg:mx-auto lg:w-[90%] xl:w-[88%] 2xl:w-[75%]">
@@ -95,6 +95,7 @@ function Experience() {
                   },
                   1280: {
                     slidesPerView: 3,
+                    spaceBetween: "2%",
                   },
                 }}
                 loop={false}
@@ -123,7 +124,7 @@ function Experience() {
                     >
                       <article
                         data-home-motion-card
-                        className="experience-card group flex h-full w-full max-w-full flex-col overflow-hidden rounded-[13px] bg-white shadow-[0_4px_18px_rgba(0,0,0,0.065)] ring-1 ring-inset ring-black/[0.05] transition-shadow duration-500 ease-out motion-safe:hover:shadow-[0_8px_26px_rgba(0,0,0,0.085)]"
+                        className="experience-card group flex h-full w-full max-w-full flex-col overflow-hidden rounded-[calc(13*var(--home-unit,1px))] bg-white shadow-[0_4px_18px_rgba(0,0,0,0.065)] ring-1 ring-inset ring-black/[0.05] transition-shadow duration-500 ease-out motion-safe:hover:shadow-[0_8px_26px_rgba(0,0,0,0.085)]"
                       >
                         <div
                           data-home-motion-media
@@ -149,14 +150,14 @@ function Experience() {
                           <div className="experience-card-logo absolute right-4 top-4 flex h-12 w-12 items-center justify-center overflow-hidden rounded-xl border border-white/70 bg-white/95 p-1.5 shadow-[0_10px_30px_rgba(0,0,0,0.14)] backdrop-blur-sm md:right-5 md:top-5 md:h-14 md:w-14">
                             {logoSrc ? (
                               <Image
-                                className="h-full w-full rounded-[7px] object-contain"
+                                className="h-full w-full rounded-[calc(7*var(--home-unit,1px))] object-contain"
                                 src={logoSrc}
                                 height={51}
                                 width={51}
                                 alt={logoAlt ?? `${company} Logo`}
                               />
                             ) : (
-                              <span className="flex h-full w-full items-center justify-center rounded-[7px] bg-black font-nm-medium text-lg font-medium text-white">
+                              <span className="flex h-full w-full items-center justify-center rounded-[calc(7*var(--home-unit,1px))] bg-black font-nm-medium text-lg font-medium text-white">
                                 {company.charAt(0)}
                               </span>
                             )}
@@ -165,7 +166,7 @@ function Experience() {
 
                         <div className="flex flex-1 flex-col p-5 sm:p-6 xl:p-7">
                           <div className="flex min-h-10 items-center justify-between gap-3">
-                            <p className="experience-card-period min-w-0 font-nm-book text-[11px] uppercase leading-4 tracking-[0.08em] text-black/55 md:text-xs">
+                            <p className="experience-card-period min-w-0 font-nm-book text-[calc(11*var(--home-unit,1px))] uppercase leading-4 tracking-[0.08em] text-black/55 md:text-xs">
                               {startDate} &mdash; {endDate}
                             </p>
 
@@ -175,7 +176,7 @@ function Experience() {
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 aria-label={`View ${company} on LinkedIn`}
-                                className="experience-card-link group/linkedin relative inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-[8px] border border-black/[0.06] bg-[#F7F7F5] text-black shadow-[0_2px_8px_rgba(0,0,0,0.05)] transition-[background-color,box-shadow,transform] duration-300 hover:bg-white hover:shadow-[0_4px_12px_rgba(0,0,0,0.09)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black motion-safe:hover:-translate-y-0.5"
+                                className="experience-card-link group/linkedin relative inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-[calc(8*var(--home-unit,1px))] border border-black/[0.06] bg-[#F7F7F5] text-black shadow-[0_2px_8px_rgba(0,0,0,0.05)] transition-[background-color,box-shadow,transform] duration-300 hover:bg-white hover:shadow-[0_4px_12px_rgba(0,0,0,0.09)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black motion-safe:hover:-translate-y-0.5"
                               >
                                 <Image
                                   src="/images/icons/linkedin.png"
@@ -187,7 +188,7 @@ function Experience() {
                                   role="tooltip"
                                   className="pointer-events-none absolute right-0 top-full z-30 mt-3 translate-y-1 whitespace-nowrap rounded-lg border border-white/15 bg-[#052F40] px-3 py-2 font-nm-medium text-xs font-medium leading-[1.25] tracking-[0.01em] text-white opacity-0 shadow-[0_10px_28px_rgba(3,32,43,0.28)] transition-[opacity,transform] duration-200 group-hover/linkedin:translate-y-0 group-hover/linkedin:opacity-100 group-focus-visible/linkedin:translate-y-0 group-focus-visible/linkedin:opacity-100"
                                 >
-                                  <span className="absolute right-[15px] top-[-4px] size-2 rotate-45 border-l border-t border-white/15 bg-[#052F40]" />
+                                  <span className="absolute right-[calc(15*var(--home-unit,1px))] top-[calc(-4*var(--home-unit,1px))] size-2 rotate-45 border-l border-t border-white/15 bg-[#052F40]" />
                                   View LinkedIn
                                 </span>
                               </a>
@@ -197,7 +198,7 @@ function Experience() {
                           <h3 className="experience-card-company mt-2.5 break-words font-nm-medium text-[clamp(1.4rem,2.2vw,1.75rem)] font-medium leading-[1.08] tracking-[-0.025em] text-black md:mt-3">
                             {company}
                           </h3>
-                          <h4 className="experience-card-role mt-1.5 font-nm-book text-[15px] leading-5 text-black/60 sm:text-base sm:leading-[22px]">
+                          <h4 className="experience-card-role mt-1.5 font-nm-book text-[calc(15*var(--home-unit,1px))] leading-5 text-black/60 sm:text-base sm:leading-[calc(22*var(--home-unit,1px))]">
                             {role}
                           </h4>
 
@@ -207,7 +208,7 @@ function Experience() {
                                 aria-hidden="true"
                                 className="experience-card-location-icon mt-0.5 h-4 w-4 shrink-0 text-black/35"
                               />
-                              <p className="experience-card-location max-w-[30ch] font-nm-book text-[13px] leading-[18px] text-black/60 md:text-sm md:leading-5">
+                              <p className="experience-card-location max-w-[30ch] font-nm-book text-[calc(13*var(--home-unit,1px))] leading-[calc(18*var(--home-unit,1px))] text-black/60 md:text-sm md:leading-5">
                                 {location}
                               </p>
                             </div>

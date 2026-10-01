@@ -34,9 +34,9 @@ const Reviews = () => {
     <section
       id="reviews"
       aria-labelledby="reviews-heading"
-      data-nav-theme="light"
+      data-home-layout data-nav-theme="light"
       data-home-motion-section
-      className="reviews-section relative overflow-hidden border-y border-[var(--ios-separator)] bg-[var(--ios-grouped-background)] py-[80px] md:py-24 lg:py-[120px]"
+      className="reviews-section relative overflow-hidden border-y border-[var(--ios-separator)] bg-[var(--ios-grouped-background)] py-[calc(80*var(--home-unit,1px))] md:py-24 lg:py-[calc(120*var(--home-unit,1px))]"
     >
       <div
         aria-hidden="true"
@@ -106,6 +106,7 @@ const Reviews = () => {
               },
               1280: {
                 slidesPerView: 3,
+                    spaceBetween: "2%",
               },
             }}
             loop={false}
@@ -136,7 +137,7 @@ const Reviews = () => {
                 >
                   <article
                     data-home-motion-card
-                    className={`review-ticket group relative h-full max-w-full overflow-hidden rounded-[13px] ${
+                    className={`review-ticket group relative h-full max-w-full overflow-hidden rounded-[calc(13*var(--home-unit,1px))] ${
                       index === 0
                         ? "review-ticket--dark"
                         : "review-ticket--light"
@@ -147,14 +148,14 @@ const Reviews = () => {
                       target="_blank"
                       rel="noopener noreferrer"
                       aria-label={`View ${attribution} on ${platformLabels[platform]}`}
-                      className="review-ticket-link relative z-10 flex min-h-[370px] h-full flex-col p-6 focus-visible:outline-2 focus-visible:outline-offset-[-7px] focus-visible:outline-current sm:min-h-[390px] sm:p-7"
+                      className="review-ticket-link relative z-10 flex min-h-[calc(370*var(--home-unit,1px))] h-full flex-col p-6 focus-visible:outline-2 focus-visible:outline-offset-[calc(-7*var(--home-unit,1px))] focus-visible:outline-current sm:min-h-[calc(390*var(--home-unit,1px))] sm:p-7"
                     >
                       <div className="flex items-center justify-between gap-4">
-                        <span className="review-card-index font-nm-book text-[11px] uppercase tracking-[0.16em] opacity-55">
+                        <span className="review-card-index font-nm-book text-[calc(11*var(--home-unit,1px))] uppercase tracking-[0.16em] opacity-55">
                           Review / {String(index + 1).padStart(2, "0")}
                         </span>
 
-                        <span className="review-card-platform inline-flex items-center gap-2 rounded-full border px-3 py-1.5 font-nm-book text-[11px] leading-none transition-colors duration-500">
+                        <span className="review-card-platform inline-flex items-center gap-2 rounded-full border px-3 py-1.5 font-nm-book text-[calc(11*var(--home-unit,1px))] leading-none transition-colors duration-500">
                           {platform === "facebook" ? (
                             <FaFacebookF className="h-3 w-3" />
                           ) : (
@@ -166,13 +167,13 @@ const Reviews = () => {
 
                       <div className="flex flex-1 flex-col justify-center py-9 sm:py-10">
                         <div className="mb-4" aria-hidden="true">
-                          <span className="font-nm-medium text-[38px] leading-[0.7]">
+                          <span className="font-nm-medium text-[calc(38*var(--home-unit,1px))] leading-[0.7]">
                             &ldquo;
                           </span>
                         </div>
 
                         <blockquote>
-                          <p className="review-card-quote max-w-[31ch] font-nm-medium text-[19px] font-medium leading-[1.22] tracking-[-0.022em] sm:text-[21px]">
+                          <p className="review-card-quote max-w-[31ch] font-nm-medium text-[calc(19*var(--home-unit,1px))] font-medium leading-[1.22] tracking-[-0.022em] sm:text-[calc(21*var(--home-unit,1px))]">
                             {quote}
                           </p>
                         </blockquote>
@@ -184,7 +185,7 @@ const Reviews = () => {
                             src={imageSrc}
                             alt={imageAlt}
                             fill
-                            sizes="48px"
+                            sizes="(min-width: 4000px) 128px, (min-width: 1280px) 3.2vw, 48px"
                             style={{ objectPosition: imagePosition }}
                             className={
                               imageFit === "contain"
@@ -195,10 +196,10 @@ const Reviews = () => {
                         </span>
 
                         <div className="min-w-0 flex-1">
-                          <cite className="review-card-attribution block truncate font-nm-medium text-[15px] font-medium leading-tight not-italic sm:text-base">
+                          <cite className="review-card-attribution block truncate font-nm-medium text-[calc(15*var(--home-unit,1px))] font-medium leading-tight not-italic sm:text-base">
                             {attribution}
                           </cite>
-                          <p className="review-card-context mt-1 truncate font-nm-book text-xs leading-4 opacity-50 sm:text-[13px]">
+                          <p className="review-card-context mt-1 truncate font-nm-book text-xs leading-4 opacity-50 sm:text-[calc(13*var(--home-unit,1px))]">
                             {context}
                           </p>
                         </div>

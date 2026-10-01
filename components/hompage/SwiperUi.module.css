@@ -71,7 +71,7 @@
 }
 
 .visual-image {
-  object-fit: cover;
+  object-fit: contain;
   -webkit-user-drag: none;
 }
 
@@ -147,14 +147,19 @@
   .desktop-visual {
     position: relative;
     width: 100%;
-    aspect-ratio: 1.3077 / 1;
-    min-height: calc(25svh - 26px);
     flex: 0 0 auto;
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 12px;
     box-shadow:
       0 16px 38px rgba(0, 0, 0, 0.34),
       inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  }
+
+  /* Let each image's intrinsic ratio set the card height, independent of the viewport. */
+  .desktop-visual .visual-image {
+    display: block;
+    width: 100%;
+    height: auto;
   }
 
   .mobile-gallery {
@@ -165,21 +170,18 @@
   }
 }
 
-@media (min-width: 1920px) {
+@media (min-width: 1280px) {
   .desktop-gallery {
-    gap: clamp(0.75rem, 1cqw, 1.5rem);
+    gap: max(0.75rem, 1cqw);
   }
 
   .desktop-track-group {
-    gap: clamp(0.75rem, 1cqw, 1.5rem);
-    padding-bottom: clamp(0.75rem, 1cqw, 1.5rem);
+    gap: max(0.75rem, 1cqw);
+    padding-bottom: max(0.75rem, 1cqw);
   }
 
   .desktop-visual {
-    min-height: calc(
-      25svh - clamp(1.625rem, 2.166667cqw, 3.25rem)
-    );
-    border-radius: clamp(0.75rem, 1cqw, 1.5rem);
+    border-radius: max(0.75rem, 1cqw);
   }
 }
 

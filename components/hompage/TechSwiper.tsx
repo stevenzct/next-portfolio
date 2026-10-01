@@ -35,13 +35,14 @@ const images = [
 
 const TechSwiper = () => {
   return (
-    <div data-nav-theme="light" className="TechSwiper-section">
+    <div data-home-layout data-nav-theme="light" className="TechSwiper-section">
       <div className="container-wrapper w-full h-auto">
-        <div className="app-container mx-6 w-auto max-w-[1200px] pb-[80px] md:mx-12 md:pb-24 lg:mx-auto lg:w-[90%] lg:pb-[120px] xl:w-[88%] 2xl:w-[75%]">
+        <div className="app-container mx-6 w-auto max-w-[1200px] pb-[calc(80*var(--home-unit,1px))] md:mx-12 md:pb-24 lg:mx-auto lg:w-[90%] lg:pb-[calc(120*var(--home-unit,1px))] xl:w-[88%] 2xl:w-[75%]">
           <div className="tech-marquee-window" aria-hidden="true">
             <Swiper
               slidesPerView="auto"
               spaceBetween={16}
+              breakpoints={{ 1280: { spaceBetween: "1.333333%" } }}
               pagination={{ clickable: false }}
               autoplay={{
                 delay: 0,
@@ -58,13 +59,14 @@ const TechSwiper = () => {
                 <SwiperSlide
                   className="tech-logo-card"
                   key={index}
-                  style={{ width: 250 }}
+                  style={{ width: "calc(250 * var(--home-unit, 1px))" }}
                 >
                   <Image
                     className="tech-logo-image rounded-lg"
                     src={src}
                     width={250}
                     height={125}
+                    sizes="(min-width: 4000px) 667px, (min-width: 1280px) 16.7vw, 250px"
                     alt=""
                   />
                 </SwiperSlide>

@@ -12,9 +12,9 @@ const Projects = () => {
   return (
     <section
       id="projects"
-      data-nav-theme="light"
+      data-home-layout data-nav-theme="light"
       data-home-motion-section
-      className="projects-section py-[80px] md:py-24 lg:py-[120px]"
+      className="projects-section py-[calc(80*var(--home-unit,1px))] md:py-24 lg:py-[calc(120*var(--home-unit,1px))]"
     >
       <div className="container-wrapper w-full h-auto">
         <div className="app-container mx-6 w-auto max-w-[1200px] md:mx-12 lg:mx-auto lg:w-[90%] xl:w-[88%] 2xl:w-[75%]">
@@ -42,7 +42,11 @@ const Projects = () => {
               <ArrowRightIcon className="h-4 w-4" aria-hidden="true" />
             </Link>
           </div>
-          <ProjectGrid projects={featuredProjects} showStatusRibbon />
+          <ProjectGrid
+            projects={featuredProjects}
+            showStatusRibbon
+            imageSizes="(min-width: 4000px) 1558px, (min-width: 1280px) 39vw, (max-width: 767px) calc(100vw - 48px), calc((100vw - 128px) / 2)"
+          />
         </div>
       </div>
     </section>
