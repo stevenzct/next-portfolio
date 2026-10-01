@@ -42,11 +42,6 @@
     border-radius: calc(13 * var(--home-unit));
   }
 
-  .homepage-wrapper .tech-logo-image {
-    width: 100%;
-    height: auto;
-  }
-
   .homepage-wrapper #contact-heading {
     font-size: calc(88 * var(--home-unit));
   }

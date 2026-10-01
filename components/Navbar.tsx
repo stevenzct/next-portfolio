@@ -7,6 +7,7 @@ import {
   ChevronDownIcon,
   DocumentCheckIcon,
   EnvelopeIcon,
+  PhotoIcon,
   UserCircleIcon,
   XMarkIcon,
 } from "@heroicons/react/24/outline";
@@ -29,6 +30,12 @@ const aboutDropdown = [
     href: "/#about",
     sectionId: "about",
     Icon: UserCircleIcon,
+  },
+  {
+    name: "Life Beyond Work",
+    href: "/#life-beyond-work",
+    sectionId: "life-beyond-work",
+    Icon: PhotoIcon,
   },
   {
     name: "Certifications",
@@ -113,6 +120,7 @@ const useActiveSection = () => {
       "reviews",
       "work",
       "about",
+      "life-beyond-work",
       "certifications",
       "contact",
     ];

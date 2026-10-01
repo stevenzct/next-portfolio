@@ -112,7 +112,6 @@ The navigation's active-section observer remains co-located in `Navbar.tsx`. Mob
 | `Projects.tsx` | Six featured projects and the call to action for the complete catalog |
 | `Experience.tsx` | Responsive work-history carousel |
 | `About.tsx` | Responsive biography, portrait, project call to action, and social links |
-| `TechSwiper.tsx` | Continuous technology-logo carousel |
 | `Certifications.tsx` | Responsive credentials carousel with external certificate links |
 | `Pricing.tsx` | Optional pricing component retained in the codebase but not mounted by a current route |
 

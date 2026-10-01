@@ -1,0 +1,44 @@
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-areas:
+    "waterfall bridge"
+    "swimming swimming"
+    "friends friends";
+  align-items: center;
+  gap: calc(16 * var(--home-unit, 1px));
+}
+
+.photo {
+  min-width: 0;
+  overflow: hidden;
+  border-radius: calc(16 * var(--home-unit, 1px));
+  background: #d6d2cb;
+  box-shadow: 0 0 0 1px rgba(36, 36, 36, 0.08);
+}
+
+.waterfall {
+  grid-area: waterfall;
+}
+
+.bridge {
+  grid-area: bridge;
+}
+
+.swimming {
+  grid-area: swimming;
+}
+
+.friends {
+  grid-area: friends;
+}
+
+@media (min-width: 768px) {
+  .gallery {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-areas:
+      "waterfall swimming bridge"
+      "waterfall friends bridge";
+    gap: calc(24 * var(--home-unit, 1px));
+  }
+}
