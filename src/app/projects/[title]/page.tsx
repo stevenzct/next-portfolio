@@ -9,6 +9,7 @@ import {
 import JsonLd from "../../../../components/JsonLd";
 import ProjectLinksMenu from "../../../../components/ProjectLinksMenu";
 import ProjectDetailMotion from "../../../../components/projects/ProjectDetailMotion";
+import ProjectContextCarousel from "../../../../components/projects/ProjectContextCarousel";
 import {
   projectDetails,
   type ProjectDetails,
@@ -125,9 +126,12 @@ const ProjectPage = async ({ params }: PageProps) => {
     );
   }
 
-  const hasEditorialGallery = project.imageSrcUi.some(
-    (image) => typeof image !== "string" && Boolean(image.title)
+  const galleryImages = project.imageSrcUi.map((image, index) =>
+    normalizeGalleryImage(image, project.title, index)
   );
+  const supportingImages = galleryImages.filter((image) => image.isSupportingWork);
+  const featuredImages = galleryImages.filter((image) => !image.isSupportingWork);
+  const hasEditorialGallery = featuredImages.some((image) => Boolean(image.title));
 
   const currentProjectIndex = projectDetails.findIndex(
     (item) => item.title === project.title
@@ -321,6 +325,13 @@ const ProjectPage = async ({ params }: PageProps) => {
             </div>
           </section>
 
+          {supportingImages.length > 0 && (
+            <ProjectContextCarousel
+              images={supportingImages}
+              credit={project.supportingWorkCredit}
+            />
+          )}
+
           <section className="project-detail-gallery">
             {!hasEditorialGallery && (
               <div
@@ -336,15 +347,12 @@ const ProjectPage = async ({ params }: PageProps) => {
                   </h2>
                 </div>
                 <p className="shrink-0 font-nm-book text-sm text-[var(--project-muted)]">
-                  {project.imageSrcUi.length}{" "}
-                  {project.imageSrcUi.some(
-                    (image) =>
-                      typeof image !== "string" && image.mediaType === "video"
-                  )
-                    ? project.imageSrcUi.length === 1
+                  {featuredImages.length}{" "}
+                  {featuredImages.some((image) => image.mediaType === "video")
+                    ? featuredImages.length === 1
                       ? "item"
                       : "items"
-                    : project.imageSrcUi.length === 1
+                    : featuredImages.length === 1
                       ? "image"
                       : "images"}
                 </p>
@@ -358,12 +366,7 @@ const ProjectPage = async ({ params }: PageProps) => {
                   : "grid grid-cols-1 gap-6 md:gap-10"
               }
             >
-              {project.imageSrcUi.map((image, index) => {
-                const galleryImage = normalizeGalleryImage(
-                  image,
-                  project.title,
-                  index
-                );
+              {featuredImages.map((galleryImage) => {
                 const isVideo = galleryImage.mediaType === "video";
                 const hasCaption = Boolean(
                   galleryImage.label ||
@@ -474,6 +477,7 @@ const ProjectPage = async ({ params }: PageProps) => {
               })}
             </div>
           </section>
+
         </div>
 
         {(nextProject || previousProject) && (

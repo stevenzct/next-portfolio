@@ -10,6 +10,7 @@ export type ProjectDetails = {
   objectives: string;
   projectIncludes: string[];
   imageSrcUi: Array<string | ProjectGalleryImage>;
+  supportingWorkCredit?: string;
   nextImage?: string;
   nextTitle?: string;
   nextDescription?: string;
@@ -23,6 +24,7 @@ export type ProjectGalleryImage = {
   height: number;
   alt: string;
   mediaType?: "image" | "video";
+  isSupportingWork?: boolean;
   label?: string;
   title?: string;
   subtitle?: string;
@@ -47,9 +49,9 @@ export const projectDetails: ProjectDetails[] = [
     year: 2025,
     imageSrcMockup: "/images/projectDetails/PaysoCashier/PaysoCashierMockup.png",
     assignment:
-      "Responsible for designing and validating the UI/UX of the Payso Cashier H5 product, focusing on merchant payment flows, responsive interfaces, and design-to-development quality assurance.",
+      "When I joined Payso, the product planning, page flows, and wireframes for Cashier were already in place. My role focused on UI design: translating that structure into clear, responsive payment screens and supporting QA through handoff.",
     objectives:
-      "To design and validate a seamless, reliable, and user-friendly H5 cashier system that enables merchants to efficiently process digital payments with minimal friction, ensuring a smooth end-to-end transaction experience across mobile devices.",
+      "My goal was to make the payment screens easy to read and use, with clear amounts, payment options, and transaction states. I also supported design-to-development QA to keep the implemented UI consistent with the design.",
     projectIncludes: [
       "UI/UX Design",
       "Quality Assurance",
@@ -64,9 +66,10 @@ export const projectDetails: ProjectDetails[] = [
         alt: "Bilingual Payso Cashier product process and workflow diagrams",
         label: "Product strategy",
         title: "Product Process",
-        subtitle: "Planning before pixels.",
+        isSupportingWork: true,
+        subtitle: "The direction was already established.",
         description:
-          "Product Manager Ms. Fayalina Chen created and led planning, system flow, page flow diagram and wireframing, shaping the shared product direction. English and Chinese source notes supported collaboration and handoff.",
+          "Before I joined, Product Manager Ms. Fayalina Chen had already created the product process and system flow. I used that foundation to understand the product and focus on its UI design.",
       },
       {
         src: "/images/projectDetails/PaysoCashier/pageflow-diagram.png",
@@ -75,9 +78,10 @@ export const projectDetails: ProjectDetails[] = [
         alt: "Payso Cashier page flow across payment methods and merchant callbacks",
         label: "Experience architecture",
         title: "Page Flow Diagram",
-        subtitle: "One map for every payment route.",
+        isSupportingWork: true,
+        subtitle: "A payment journey already mapped.",
         description:
-          "Mapped payment methods, confirmations, redirects, and merchant callbacks for product and engineering.",
+          "Ms. Fayalina Chen had already mapped payment methods, confirmations, redirects, and merchant callbacks. These existing flows guided the screens and payment states I designed.",
       },
       {
         src: "/images/projectDetails/PaysoCashier/2.png",
@@ -86,9 +90,10 @@ export const projectDetails: ProjectDetails[] = [
         alt: "Bilingual low-fidelity Payso Cashier wireframes and transaction states",
         label: "Interaction structure",
         title: "Wireframes",
-        subtitle: "Testing structure before styling.",
+        isSupportingWork: true,
+        subtitle: "An existing structure to build on.",
         description:
-          "Ms. Fayalina Chen created and validated the hierarchy, payment flows, and transaction states through low-fidelity wireframes, allowing me to focus on the UI’s visual direction.",
+          "The wireframes prepared by Ms. Fayalina Chen already defined the hierarchy, payment flows, and transaction states. My focus was translating that structure into the final UI through color, typography, spacing, and visual consistency.",
       },
       {
         src: "/images/projectDetails/PaysoCashier/3.png",
@@ -97,9 +102,9 @@ export const projectDetails: ProjectDetails[] = [
         alt: "Payso brand colors and five cashier interface style explorations",
         label: "Visual direction",
         title: "UI Exploration",
-        subtitle: "Comparing brand-led directions.",
+        subtitle: "Finding the visual direction.",
         description:
-          "Compared Payso brand colors and layouts with the product team to select the best user experience.",
+          "With the structure in place, I explored five UI directions using Payso’s brand colors. I reviewed the colors and layouts with the product team to refine the visual direction for the payment experience.",
       },
       {
         src: "/images/projectDetails/PaysoCashier/4.png",
@@ -109,7 +114,8 @@ export const projectDetails: ProjectDetails[] = [
         label: "Final experience",
         title: "Final Design",
         subtitle: "Why Style 5 won.",
-        description: "Selected for three practical reasons.",
+        description:
+          "Style 5 became the selected direction. I applied it across the final cashier screens and payment states, building on the existing flows and wireframes. The visual direction was chosen for three practical reasons.",
         points: [
           {
             title: "Color adaptability",
@@ -135,9 +141,9 @@ export const projectDetails: ProjectDetails[] = [
         alt: "Figma Dev Mode annotations for the Payso Cashier interface",
         label: "Developer handoff",
         title: "Figma Dev Mode Annotation",
-        subtitle: "Clear specifications for handoff.",
+        subtitle: "Taking the UI into development.",
         description:
-          "Documented spacing, color, typography, sizing, weight, and styles for accurate implementation.",
+          "Once the UI direction was established, I documented spacing, color, typography, sizing, weight, and styles in Figma Dev Mode to help developers implement the designs accurately.",
       },
       {
         src: "/images/projectDetails/PaysoCashier/6.png",
@@ -146,6 +152,8 @@ export const projectDetails: ProjectDetails[] = [
         alt: "Payso Cashier Phase 2 notice for upcoming payment methods",
       },
     ],
+    supportingWorkCredit:
+      "When I joined Payso, Product Manager Ms. Fayalina Chen had already created the product process, flow diagrams, and wireframes. With the planning and structure in place, my role focused on UI design.",
     nextImage: "/images/projectDetails/PaysoCashier/nextImage.png",
     nextTitle: "Payso Merchant",
     nextDescription: "Payso Merchant h5 mobile product",
@@ -167,9 +175,9 @@ export const projectDetails: ProjectDetails[] = [
     year: 2026,
     imageSrcMockup: "/images/projectDetails/PaysoMerchant/PaysoMerchantMockup.png",
     assignment:
-      "Responsible for designing the UI/UX of Payso Merchant, an H5 mobile payment product. Created responsive mobile layouts, improved payment flows, and supported QA testing to ensure usability, functionality, and visual consistency across devices.",
+      "When I joined Payso, the product process, page flows, and wireframes were already prepared by the product manager. For Payso Merchant, my focus was UI design: turning that structure into responsive screens that felt consistent with Payso Cashier, while supporting QA.",
     objectives:
-      "To design a clear, responsive, and user-friendly H5 mobile payment experience that helps merchants manage payment workflows smoothly while maintaining strong visual consistency with the Payso brand.",
+      "My goal was to give the existing merchant workflows a clear, responsive UI, with consistent color, typography, spacing, and payment states across the connected Payso products.",
     projectIncludes: [
       "UI/UX Design",
       "Quality Assurance",
@@ -184,9 +192,10 @@ export const projectDetails: ProjectDetails[] = [
         alt: "Bilingual Payso Merchant product and page flow diagrams",
         label: "Experience architecture",
         title: "Page Flow Diagram",
-        subtitle: "One map for the merchant journey.",
+        isSupportingWork: true,
+        subtitle: "The merchant journey was already mapped.",
         description:
-          "Product Manager Ms. Fayalina Chen created and shaped the product flow, page diagrams, and wireframes. English and Chinese notes supported collaboration.",
+          "Product Manager Ms. Fayalina Chen had already prepared the product flow and page diagrams. I used them to understand the merchant journey and translate the existing structure into UI screens.",
       },
       {
         src: "/images/projectDetails/PaysoMerchant/22.png",
@@ -195,9 +204,10 @@ export const projectDetails: ProjectDetails[] = [
         alt: "Payso Merchant low-fidelity wireframes and transaction states",
         label: "Interaction structure",
         title: "Wireframes",
-        subtitle: "Testing structure before styling.",
+        isSupportingWork: true,
+        subtitle: "A foundation for the final UI.",
         description:
-          "Ms. Fayalina Chen created and validated hierarchy, payment flows, and transaction states, allowing me to focus on visual direction.",
+          "Ms. Fayalina Chen’s wireframes already defined the hierarchy, payment flows, and transaction states. Building on that foundation, I focused on the visual design of the merchant interface.",
       },
       {
         src: "/images/projectDetails/PaysoMerchant/3.png",
@@ -208,9 +218,11 @@ export const projectDetails: ProjectDetails[] = [
         title: "Final Design",
         subtitle: "One visual system across Payso.",
         description:
-          "Since Payso Merchant and Payso Cashier are connected products, the Product Department chose the same colour palette to create a consistent, comfortable, and easy-to-navigate experience.",
+          "I translated the existing merchant flows and wireframes into the final UI. The Product Department chose a shared colour palette for Cashier and Merchant, and I applied it consistently across the merchant screens.",
       },
     ],
+    supportingWorkCredit:
+      "When I joined Payso, Product Manager Ms. Fayalina Chen had already created the product process, flow diagrams, and wireframes. With the planning and structure in place, my role focused on UI design.",
     nextImage: "/images/projects/PaysoRemittance1.png",
     nextTitle: "Remittance App",
     nextDescription: "Fast, secure, and convenient money transfers",
