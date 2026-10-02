@@ -2,6 +2,7 @@ import Footer from "../../components/Footer";
 import JsonLd from "../../components/JsonLd";
 import About from "../../components/hompage/About";
 import Certifications from "../../components/hompage/Certifications";
+import Education from "../../components/hompage/Education";
 import Experience from "../../components/hompage/Experience";
 import Hero from "../../components/hompage/Hero";
 import HomepageMotion from "../../components/hompage/HomepageMotion";
@@ -21,6 +22,7 @@ export default function Home() {
         <Reviews />
         <Experience />
         <About />
+        <Education />
         <LifeBeyondWork />
         <Certifications />
       </HomepageMotion>
