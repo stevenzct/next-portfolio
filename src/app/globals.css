@@ -149,7 +149,8 @@ body {
   }
 
   [data-desktop-nav-dropdown] {
-    width: max(11rem, 14.666667cqw);
+    width: max-content;
+    min-width: max(14rem, 18.666667cqw);
     padding-top: max(0.5rem, 0.666667cqw);
   }
 

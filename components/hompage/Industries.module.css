@@ -1,0 +1,201 @@
+.section {
+  background: #ededed;
+  color: #171717;
+}
+
+.header {
+  display: grid;
+  gap: calc(24 * var(--home-unit, 1px));
+  margin-bottom: calc(48 * var(--home-unit, 1px));
+}
+
+.headingLine { display: block; }
+
+.subtitle {
+  max-width: 36ch;
+  font-family: var(--font-nm-book), sans-serif;
+  font-size: calc(16 * var(--home-unit, 1px));
+  line-height: 1.625;
+  text-wrap: pretty;
+  color: #545454;
+}
+
+.carousel {
+  width: 100%;
+  min-width: 0;
+  overflow: visible;
+}
+
+.carousel .grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: calc(12 * var(--home-unit, 1px));
+  height: auto;
+}
+
+.carousel .card {
+  --industry-surface: #fafafa;
+  --industry-ink: #171717;
+  --industry-copy: #545454;
+  --industry-line: #d6d6d6;
+  --industry-icon-highlight: #666;
+  --industry-icon-mid: #303030;
+  --industry-icon-low: #111;
+  --industry-icon-rim: #909090;
+  --industry-icon-detail: #e9e9e9;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  width: auto;
+  height: auto;
+  min-height: calc(320 * var(--home-unit, 1px));
+  padding: calc(24 * var(--home-unit, 1px));
+  border: 1px solid var(--industry-line);
+  border-radius: calc(20 * var(--home-unit, 1px));
+  background: var(--industry-surface);
+  color: var(--industry-ink);
+  transition: border-color 300ms ease, box-shadow 300ms ease;
+}
+
+.iconFrame {
+  display: grid;
+  place-items: center;
+  width: calc(56 * var(--home-unit, 1px));
+  max-width: 100%;
+  aspect-ratio: 1;
+  flex-shrink: 0;
+  margin-bottom: calc(28 * var(--home-unit, 1px));
+}
+
+.icon {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+  opacity: 0.72;
+}
+
+.cardContent {
+  display: grid;
+  gap: calc(20 * var(--home-unit, 1px));
+  margin-top: auto;
+}
+
+.name {
+  font-family: var(--font-nm-medium), sans-serif;
+  font-size: calc(32 * var(--home-unit, 1px));
+  font-weight: 500;
+  line-height: 1.03;
+  letter-spacing: -0.04em;
+  text-wrap: balance;
+  overflow-wrap: break-word;
+}
+
+.description {
+  max-width: 32ch;
+  font-family: var(--font-nm-book), sans-serif;
+  font-size: calc(14 * var(--home-unit, 1px));
+  line-height: 1.65;
+  text-wrap: pretty;
+  color: var(--industry-copy);
+}
+
+.carousel .featured {
+  --industry-surface: #171717;
+  --industry-ink: #fff;
+  --industry-copy: #c7c7c7;
+  --industry-line: #171717;
+  --industry-icon-highlight: #fff;
+  --industry-icon-mid: #c5c5c5;
+  --industry-icon-low: #777;
+  --industry-icon-rim: #efefef;
+  --industry-icon-detail: #292929;
+  overflow: hidden;
+}
+
+.carousel:focus-visible {
+  outline: 2px solid #545454;
+  outline-offset: 4px;
+}
+
+@media (max-width: 767px) {
+  .header {
+    gap: 16px;
+    margin-bottom: 24px;
+  }
+
+  .carousel {
+    overflow: hidden;
+    overscroll-behavior-x: contain;
+    touch-action: pan-y pinch-zoom;
+    user-select: none;
+    padding-bottom: 12px;
+  }
+
+  .carousel .grid {
+    display: flex;
+    gap: 0;
+  }
+
+  .carousel .card {
+    flex: 0 0 auto;
+    width: 86%;
+    min-height: 224px;
+    padding: 20px;
+    border-radius: 18px;
+  }
+
+  .iconFrame {
+    width: 48px;
+    margin-bottom: 24px;
+  }
+
+  .cardContent {
+    gap: 12px;
+    margin-top: 0;
+  }
+
+  .name { font-size: 28px; }
+  .description { min-height: 0; }
+}
+
+@media (min-width: 640px) {
+  .carousel .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (min-width: 768px) {
+  .carousel .grid { transform: none !important; }
+  .subtitle { font-size: calc(18 * var(--home-unit, 1px)); }
+  .description { min-height: 4.95em; }
+}
+
+@media (min-width: 1024px) {
+  .header {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 0.36fr);
+    align-items: end;
+    gap: calc(48 * var(--home-unit, 1px));
+    margin-bottom: calc(64 * var(--home-unit, 1px));
+  }
+  .carousel .grid { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+  .carousel .card {
+    min-height: calc(340 * var(--home-unit, 1px));
+    padding: calc(24 * var(--home-unit, 1px));
+  }
+}
+
+@media (min-width: 1024px) and (max-width: 1279px) {
+  .carousel .card { padding: 18px; }
+  .name { font-size: 24px; }
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .carousel .card:hover {
+    border-color: #9a9a9a;
+    box-shadow: 0 calc(8 * var(--home-unit, 1px)) calc(24 * var(--home-unit, 1px)) #0000000a;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .carousel .card { transition: none; }
+  .carousel .grid { transition-duration: 0.01ms !important; }
+}

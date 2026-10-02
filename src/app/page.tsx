@@ -6,6 +6,7 @@ import Education from "../../components/hompage/Education";
 import Experience from "../../components/hompage/Experience";
 import Hero from "../../components/hompage/Hero";
 import HomepageMotion from "../../components/hompage/HomepageMotion";
+import Industries from "../../components/hompage/Industries";
 import LifeBeyondWork from "../../components/hompage/LifeBeyondWork";
 import Projects from "../../components/hompage/Projects";
 import Reviews from "../../components/hompage/Reviews";
@@ -23,6 +24,7 @@ export default function Home() {
         <Experience />
         <About />
         <Education />
+        <Industries />
         <LifeBeyondWork />
         <Certifications />
       </HomepageMotion>

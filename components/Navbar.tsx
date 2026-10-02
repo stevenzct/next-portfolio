@@ -4,6 +4,7 @@ import { usePathname } from "next/navigation";
 import { Dialog, DialogPanel, DialogTitle } from "@headlessui/react";
 import {
   Bars3Icon,
+  BuildingOffice2Icon,
   ChevronDownIcon,
   DocumentCheckIcon,
   EnvelopeIcon,
@@ -30,6 +31,12 @@ const aboutDropdown = [
     href: "/#about",
     sectionId: "about",
     Icon: UserCircleIcon,
+  },
+  {
+    name: "Industry Experience",
+    href: "/#industries",
+    sectionId: "industries",
+    Icon: BuildingOffice2Icon,
   },
   {
     name: "Life Beyond Work",
@@ -120,6 +127,7 @@ const useActiveSection = () => {
       "reviews",
       "work",
       "about",
+      "industries",
       "life-beyond-work",
       "certifications",
       "contact",
@@ -383,7 +391,7 @@ export const Navbar = () => {
                       </Link>
                       <div
                         data-desktop-nav-dropdown
-                        className="pointer-events-none absolute left-1/2 top-full z-50 w-44 -translate-x-1/2 translate-y-1 scale-[0.98] pt-2 opacity-0 transition-all duration-300 ease-out group-hover:pointer-events-auto group-hover:translate-y-0 group-hover:scale-100 group-hover:opacity-100 group-focus-within:pointer-events-auto group-focus-within:translate-y-0 group-focus-within:scale-100 group-focus-within:opacity-100 motion-reduce:transition-none"
+                        className="pointer-events-none absolute left-1/2 top-full z-50 w-max min-w-56 -translate-x-1/2 translate-y-1 scale-[0.98] pt-2 opacity-0 transition-all duration-300 ease-out group-hover:pointer-events-auto group-hover:translate-y-0 group-hover:scale-100 group-hover:opacity-100 group-focus-within:pointer-events-auto group-focus-within:translate-y-0 group-focus-within:scale-100 group-focus-within:opacity-100 motion-reduce:transition-none"
                       >
                         <div
                           data-desktop-nav-dropdown-panel
@@ -402,7 +410,7 @@ export const Navbar = () => {
                                     ? "location"
                                     : undefined
                                 }
-                                className={`portfolio-about-menu-item flex items-center gap-2 rounded-md px-3 py-2 text-sm/6 font-nm-medium font-medium transition-colors duration-300 focus-visible:outline-none focus-visible:ring-2 motion-reduce:transition-none ${dropdownItemClasses} ${themeFocusClasses}`}
+                                className={`portfolio-about-menu-item flex items-center gap-2 whitespace-nowrap rounded-md px-3 py-2 text-sm/6 font-nm-medium font-medium transition-colors duration-300 focus-visible:outline-none focus-visible:ring-2 motion-reduce:transition-none ${dropdownItemClasses} ${themeFocusClasses}`}
                               >
                                 <DropdownIcon className="h-4 w-4 shrink-0" />
                                 {dropdownItem.name}
