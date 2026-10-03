@@ -15,7 +15,7 @@ const industries = [
     icon: "payments",
   },
   {
-    name: "Construction",
+    name: "Construction Company",
     description: "Web experiences for construction businesses.",
     icon: "construction",
   },
