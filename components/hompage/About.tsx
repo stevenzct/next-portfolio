@@ -77,7 +77,7 @@ const About = () => {
 
                   <p className="about-card-title relative mt-5 max-w-2xl text-balance font-nm-medium text-[clamp(1.65rem,3.4vw,2.55rem)] font-medium leading-[1.02] tracking-[-0.035em] text-white">
                     AI Engineer{" "}
-                    <span className="text-white/45">&amp; UI/UX Designer.</span>
+                    <span className="text-white/45"><span>Full-Stack Engineer,</span>{" "}&amp; UI/UX Designer.</span>
                   </p>
 
                   <div className="relative mt-5 flex flex-col items-start gap-3 border-t border-white/10 pt-4 sm:flex-row sm:items-center sm:gap-4">
