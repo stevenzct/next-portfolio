@@ -4,9 +4,9 @@ const baseUrl = (process.argv[2] ?? "http://127.0.0.1:3010").replace(
 );
 
 const expectedTitle =
-  "Steven Cabugos — AI Engineer & UI/UX Designer";
+  "Steven Cabugos — AI Engineer, Full-Stack Engineer & UI/UX Designer";
 const expectedDescription =
-  "Steven Cabugos is a Philippines-based AI Engineer and UI/UX designer specializing in fintech, payments, and digital products.";
+  "Steven Cabugos is a Philippines-based AI engineer, full-stack engineer, and UI/UX designer building web and mobile products for fintech, payments, and businesses.";
 const expectedSocialImage = "https://stevencabugos.me/images/hero.jpg";
 const expectedSocialImageAlt =
   "Abstract white folded forms on a light gray background";
@@ -149,7 +149,7 @@ check(
 );
 check(
   person?.jobTitle?.join("|") ===
-    "AI Engineer|UI/UX Designer",
+    "AI Engineer|Full-Stack Engineer|UI/UX Designer",
   "Person job titles are exact",
 );
 check(
@@ -176,7 +176,7 @@ check(
   "Homepage has one H1",
 );
 check(
-  ["Steven Cabugos", "full-stack", "UI/UX designer", "fintech", "payments"].every(
+  ["Steven Cabugos", "AI engineer", "full-stack", "UI/UX designer", "fintech", "payments"].every(
     (value) => homepage.text.includes(value),
   ),
   "Homepage visibly states the core identity",
@@ -189,7 +189,7 @@ check(
 );
 check(
   homepage.text.includes(
-    'alt="Portrait of Steven Cabugos, AI Engineer and UI/UX designer"',
+    'alt="Portrait of Steven Cabugos, AI engineer, full-stack engineer, and UI/UX designer"',
   ),
   "Homepage portrait has descriptive alternative text",
 );
