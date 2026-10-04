@@ -8,15 +8,15 @@ export const socialProfiles = {
 
 export const siteConfig = {
   name: "Steven Cabugos",
-  title: "Steven Cabugos — AI Engineer & UI/UX Designer",
+  title: "Steven Cabugos — AI Engineer, Full-Stack Engineer & UI/UX Designer",
   description:
-    "Steven Cabugos is a Philippines-based AI engineer and UI/UX designer specializing in fintech, payments, and digital products.",
+    "Steven Cabugos is a Philippines-based AI engineer, full-stack engineer, and UI/UX designer building web and mobile products for fintech, payments, and businesses.",
   url: SITE_URL,
   locale: "en_US",
   language: "en-US",
   email: "stevencabugos138@gmail.com",
   alternateNames: ["John Steven A. Cabugos", "stevenzct"],
-  jobTitles: ["AI Engineer", "UI/UX Designer"],
+  jobTitles: ["AI Engineer", "Full-Stack Engineer", "UI/UX Designer"],
   specialties: [
     "fintech",
     "payments",
@@ -25,7 +25,7 @@ export const siteConfig = {
   ],
   profileImage: "/images/about/steve-profile.png",
   profileImageAlt:
-    "Portrait of Steven Cabugos, AI engineer and UI/UX designer",
+    "Portrait of Steven Cabugos, AI engineer, full-stack engineer, and UI/UX designer",
   socialImage: "/images/hero.jpg",
   socialImageAlt:
     "Abstract white folded forms on a light gray background",
