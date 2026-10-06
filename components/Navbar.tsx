@@ -1,5 +1,5 @@
 "use client";
-import { useState, useEffect, useLayoutEffect, useRef } from "react";
+import { useState, useEffect, useLayoutEffect } from "react";
 import { usePathname } from "next/navigation";
 import { Dialog, DialogPanel, DialogTitle } from "@headlessui/react";
 import {
@@ -58,8 +58,6 @@ const aboutDropdown = [
   },
 ];
 
-const mobileAboutDropdown = aboutDropdown;
-
 type NavTheme = "dark" | "light";
 
 const DEFAULT_HEADER_HEIGHT = 80;
@@ -83,15 +81,8 @@ const useActiveSection = () => {
   const [activeSection, setActiveSection] = useState(() =>
     getActiveSectionFromPath(pathname)
   );
-  const observerRef = useRef<IntersectionObserver | null>(null);
 
   useEffect(() => {
-    // Clean up previous observer
-    if (observerRef.current) {
-      observerRef.current.disconnect();
-      observerRef.current = null;
-    }
-
     // Standalone routes use pathname state so shared page sections, such as
     // the footer contact section, cannot override the active navigation item.
     if (pathname !== "/" && pathname !== "") {
@@ -149,13 +140,7 @@ const useActiveSection = () => {
       setActiveSection(pathBasedSection);
     }
 
-    observerRef.current = observer;
-
-    return () => {
-      if (observerRef.current) {
-        observerRef.current.disconnect();
-      }
-    };
+    return () => observer.disconnect();
   }, [pathname]); // Re-run when pathname changes
 
   return activeSection;
@@ -267,13 +252,11 @@ export const Navbar = () => {
     };
   }, []);
 
-  const headerSurfaceClasses = isDarkSurface
-    ? scrolled
+  const headerSurfaceClasses = scrolled
+    ? isDarkSurface
       ? "bg-black/76 backdrop-blur-sm"
-      : "bg-transparent"
-    : scrolled
-      ? "bg-white/76 backdrop-blur-sm"
-      : "bg-transparent";
+      : "bg-white/76 backdrop-blur-sm"
+    : "bg-transparent";
   const themeFocusClasses = isDarkSurface
     ? "focus-visible:ring-white focus-visible:ring-offset-black"
     : "focus-visible:ring-black focus-visible:ring-offset-white";
@@ -364,9 +347,6 @@ export const Navbar = () => {
             >
               {navigation.map((item) => {
                 const isAboutItem = item.sectionId === "about";
-                const isAboutGroupActive = aboutDropdown.some(
-                  (dropdownItem) => dropdownItem.sectionId === activeSection
-                );
 
                 if (isAboutItem) {
                   return (
@@ -379,9 +359,9 @@ export const Navbar = () => {
                             ? "location"
                             : undefined
                         }
-                        data-active={isAboutGroupActive ? "true" : "false"}
+                        data-active={isAboutSectionActive ? "true" : "false"}
                         className={`inline-flex items-center gap-1.5 rounded-lg px-[14px] py-1 font-nm-medium text-sm/6 font-medium transition-[background-color,color,transform] duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 active:scale-[0.97] motion-reduce:transition-none ${themeFocusClasses} ${
-                          isAboutGroupActive
+                          isAboutSectionActive
                             ? activeNavItemClasses
                             : inactiveNavItemClasses
                         }`}
@@ -532,7 +512,7 @@ export const Navbar = () => {
                                 } motion-reduce:transition-none`}
                               >
                                 <div className="min-h-0 pt-4">
-                                  {mobileAboutDropdown.map((dropdownItem) => {
+                                  {aboutDropdown.map((dropdownItem) => {
                                     const DropdownIcon = dropdownItem.Icon;
 
                                     return (

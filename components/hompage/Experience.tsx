@@ -1,9 +1,8 @@
 "use client";
 
-import React from "react";
 import Image from "next/image";
 import { Swiper, SwiperSlide } from "swiper/react";
-import type { Swiper as SwiperType } from "swiper";
+import { useSwiperNavigation } from "../../hooks/useSwiperNavigation";
 import {
   ChevronLeftIcon,
   ChevronRightIcon,
@@ -14,14 +13,8 @@ import { experiences } from "../../constants/experience";
 import "swiper/css";
 
 function Experience() {
-  const swiperRef = React.useRef<SwiperType | null>(null);
-  const [isBeginning, setIsBeginning] = React.useState(true);
-  const [isEnd, setIsEnd] = React.useState(false);
-
-  const updateNavigation = React.useCallback((swiper: SwiperType) => {
-    setIsBeginning(swiper.isBeginning);
-    setIsEnd(swiper.isEnd);
-  }, []);
+  const { swiperRef, isBeginning, isEnd, updateNavigation, onSwiper } =
+    useSwiperNavigation();
 
   return (
     <section
@@ -76,10 +69,7 @@ function Experience() {
           <div className="experience-content">
             <div className="experience-wrapper">
               <Swiper
-                onSwiper={(swiper) => {
-                  swiperRef.current = swiper;
-                  updateNavigation(swiper);
-                }}
+                onSwiper={onSwiper}
                 onSlideChange={updateNavigation}
                 onBreakpoint={updateNavigation}
                 slidesPerView={1.08}

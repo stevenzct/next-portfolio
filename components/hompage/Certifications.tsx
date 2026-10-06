@@ -1,9 +1,9 @@
 "use client";
 
-import React from "react";
+import type { CSSProperties } from "react";
 import Image from "next/image";
 import { Swiper, SwiperSlide } from "swiper/react";
-import type { Swiper as SwiperType } from "swiper";
+import { useSwiperNavigation } from "../../hooks/useSwiperNavigation";
 import {
   ArrowUpRightIcon,
   ChevronLeftIcon,
@@ -21,17 +21,11 @@ const certificationCardStyle = {
   "--cert-accent": "var(--ios-accent)",
   "--cert-glow": "rgba(28, 28, 30, 0.1)",
   "--cert-shadow": "rgba(28, 28, 30, 0.1)",
-} as React.CSSProperties;
+} as CSSProperties;
 
 function Certifications() {
-  const swiperRef = React.useRef<SwiperType | null>(null);
-  const [isBeginning, setIsBeginning] = React.useState(true);
-  const [isEnd, setIsEnd] = React.useState(false);
-
-  const updateNavigation = React.useCallback((swiper: SwiperType) => {
-    setIsBeginning(swiper.isBeginning);
-    setIsEnd(swiper.isEnd);
-  }, []);
+  const { swiperRef, isBeginning, isEnd, updateNavigation, onSwiper } =
+    useSwiperNavigation();
 
   return (
     <div
@@ -83,10 +77,7 @@ function Certifications() {
           <div className="certifications-content">
             <div className="certifications-wrapper -mx-6 overflow-hidden px-6 py-3 sm:-mx-8 sm:px-8">
               <Swiper
-                onSwiper={(swiper) => {
-                  swiperRef.current = swiper;
-                  updateNavigation(swiper);
-                }}
+                onSwiper={onSwiper}
                 onSlideChange={updateNavigation}
                 onBreakpoint={updateNavigation}
                 slidesPerView={1.08}

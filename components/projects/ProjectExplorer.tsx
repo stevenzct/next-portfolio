@@ -161,20 +161,10 @@ const ProjectExplorer = ({ projects }: ProjectExplorerProps) => {
               aria-label="Project category"
               className="flex flex-wrap gap-2"
             >
-              <button
-                type="button"
-                aria-pressed={selectedCategory === ALL_CATEGORIES}
-                aria-controls="project-search-results"
-                onClick={() => setSelectedCategory(ALL_CATEGORIES)}
-                className={`rounded-full border px-4 py-2 font-nm-medium text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--project-focus)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--project-canvas)] ${
-                  selectedCategory === ALL_CATEGORIES
-                    ? "border-[var(--project-ink)] bg-[var(--project-ink)] text-[var(--project-canvas)]"
-                    : "border-[var(--project-line)] bg-[var(--project-canvas)] text-[var(--project-control-ink)] hover:border-[var(--project-line-strong)] hover:bg-[var(--project-surface)]"
-                }`}
-              >
-                All
-              </button>
-              {categoryOptions.map(({ label, value }) => {
+              {[
+                { label: "All", value: ALL_CATEGORIES },
+                ...categoryOptions,
+              ].map(({ label, value }) => {
                 const isSelected = selectedCategory === value;
 
                 return (
