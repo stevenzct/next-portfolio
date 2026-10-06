@@ -43,8 +43,9 @@ export const metadata: Metadata = {
     images: [
       {
         url: siteConfig.socialImage,
-        width: 2880,
-        height: 1096,
+        width: siteConfig.socialImageWidth,
+        height: siteConfig.socialImageHeight,
+        type: siteConfig.socialImageType,
         alt: siteConfig.socialImageAlt,
       },
     ],
@@ -53,7 +54,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: siteConfig.title,
     description: siteConfig.description,
-    images: [siteConfig.socialImage],
+    images: [{ url: siteConfig.socialImage, alt: siteConfig.socialImageAlt }],
   },
   robots: {
     index: true,

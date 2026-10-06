@@ -7,6 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
+    "generate:social-image": "node scripts/generate-social-image.mjs",
     "verify:seo": "node scripts/verify-seo.mjs"
   },
   "dependencies": {

@@ -34,13 +34,25 @@ export const createPageMetadata = ({
       siteName: siteConfig.name,
       title: socialTitle,
       description,
-      images: [{ url: image, alt: imageAlt }],
+      images: [
+        {
+          url: image,
+          alt: imageAlt,
+          ...(image === siteConfig.socialImage
+            ? {
+                width: siteConfig.socialImageWidth,
+                height: siteConfig.socialImageHeight,
+                type: siteConfig.socialImageType,
+              }
+            : {}),
+        },
+      ],
     },
     twitter: {
       card: "summary_large_image",
       title: socialTitle,
       description,
-      images: [image],
+      images: [{ url: image, alt: imageAlt }],
     },
     ...(noIndex
       ? {

@@ -7,9 +7,10 @@ const expectedTitle =
   "Steven Cabugos — AI Engineer & UI/UX Designer";
 const expectedDescription =
   "Steven Cabugos is a Philippines-based AI Engineer and UI/UX designer specializing in fintech, payments, and digital products.";
-const expectedSocialImage = "https://stevencabugos.me/images/hero.jpg";
+const expectedSocialImage =
+  "https://stevencabugos.me/images/social/hero-preview-v1.png";
 const expectedSocialImageAlt =
-  "Abstract white folded forms on a light gray background";
+  "Steven Cabugos portfolio hero: Designed to impress. Built to convert. Selected website designs on a black background.";
 const expectedSocialProfiles = [
   "https://ph.linkedin.com/in/cabugos-steven",
   "https://github.com/stevenzct",
@@ -120,6 +121,12 @@ check(
     getMetaContent(homepage.text, "property", "og:image:alt") ===
       expectedSocialImageAlt,
   "Homepage Open Graph image and alt text are exact",
+);
+check(
+  getMetaContent(homepage.text, "property", "og:image:width") === "1200" &&
+    getMetaContent(homepage.text, "property", "og:image:height") === "630" &&
+    getMetaContent(homepage.text, "property", "og:image:type") === "image/png",
+  "Homepage Open Graph image dimensions and type are present",
 );
 check(
   getMetaContent(homepage.text, "name", "twitter:card") ===

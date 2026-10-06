@@ -44,6 +44,21 @@ This project uses the Next.js App Router and a data-driven content structure. Mo
 - Optimized local images and PP Neue Montreal font files.
 - Smooth scrolling, hover transitions, and responsive Tailwind breakpoints.
 
+## Social Sharing Thumbnail
+
+Open Graph (Facebook, LinkedIn, and other link previews) and X/Twitter use
+`public/images/social/hero-preview-v1.png`, a 1200 × 630 static image adapted
+from the homepage hero with the same fonts, headline, and project artwork.
+The default image URL, dimensions, and alternative text live in `constants/site.ts`.
+Pages with their own project image keep their existing preview.
+
+After changing the hero, run `npm run generate:social-image` to refresh the image.
+For a new published version, change the filename in the generator and
+`constants/site.ts` (and the expectations in `scripts/verify-seo.mjs`) so crawlers
+receive a new image URL. Deploy the updated site, then refresh cached previews
+using [Facebook Sharing Debugger](https://developers.facebook.com/tools/debug/)
+and [LinkedIn Post Inspector](https://www.linkedin.com/post-inspector/).
+
 ## Routes
 
 | Route | Purpose |

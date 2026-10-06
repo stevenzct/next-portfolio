@@ -306,7 +306,7 @@ export const projectDetails: ProjectDetails[] = [
       },
     ],
     nextImage:
-      "/images/projectDetails/PaysoGraphics/payso-business-cards.png",
+      "/images/projectDetails/PaysoGraphics/thumbnail.png",
     nextTitle: "Payso Graphics",
     nextDescription: "Sales materials, trifolds, and banners",
   },

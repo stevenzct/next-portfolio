@@ -26,8 +26,11 @@ export const siteConfig = {
   profileImage: "/images/about/steve-profile.png",
   profileImageAlt:
     "Portrait of Steven Cabugos, AI engineer and UI/UX designer",
-  socialImage: "/images/hero.jpg",
+  socialImage: "/images/social/hero-preview-v1.png",
+  socialImageWidth: 1200,
+  socialImageHeight: 630,
+  socialImageType: "image/png",
   socialImageAlt:
-    "Abstract white folded forms on a light gray background",
+    "Steven Cabugos portfolio hero: Designed to impress. Built to convert. Selected website designs on a black background.",
   socialLinks: Object.values(socialProfiles),
 } as const;
