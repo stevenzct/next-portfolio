@@ -161,11 +161,11 @@ export const projectDetails: ProjectDetails[] = [
       label: "",
       href: ""
     },
-    linkItems: [
-      { label: "Payso Cashier UI", href: "https://www.figma.com/design/DTECkf9eQwa5P9mpfENox4/Payso-Cashier--Copy-?node-id=0-1&p=f&t=TusKU9HojoZdGuXk-0" },
-      { label: "User Flow", href: "https://www.figma.com/design/DTECkf9eQwa5P9mpfENox4/Payso-Cashier--Copy-?node-id=2662-667&p=f&t=TusKU9HojoZdGuXk-0" },
-      { label: "Design System", href: "https://www.figma.com/design/DTECkf9eQwa5P9mpfENox4/Payso-Cashier--Copy-?node-id=41-241&p=f" },
-    ],
+//     linkItems: [
+//       { label: "Payso Cashier UI", href: "https://www.figma.com/design/DTECkf9eQwa5P9mpfENox4/Payso-Cashier--Copy-?node-id=0-1&p=f&t=TusKU9HojoZdGuXk-0" },
+//       { label: "User Flow", href: "https://www.figma.com/design/DTECkf9eQwa5P9mpfENox4/Payso-Cashier--Copy-?node-id=2662-667&p=f&t=TusKU9HojoZdGuXk-0" },
+//       { label: "Design System", href: "https://www.figma.com/design/DTECkf9eQwa5P9mpfENox4/Payso-Cashier--Copy-?node-id=41-241&p=f" },
+//     ],
   },
     {
     title: "Payso Merchant",
@@ -230,11 +230,11 @@ export const projectDetails: ProjectDetails[] = [
       label: "",
       href: ""
     },
-    linkItems: [
-      { label: "Payso Merchant UI", href: "https://www.figma.com/design/hBdm1zdfThaZss1TAjgvbw/Payso-Merchant?node-id=0-1&t=l1Z5j1vJDdYchP1F-1" },
-      { label: "User Flow", href: "https://www.figma.com/design/hBdm1zdfThaZss1TAjgvbw/Payso-Merchant?node-id=919-1154&t=9kXUgcwNXIqDy88D-1" },
-      { label: "Design System", href: "https://www.figma.com/design/hBdm1zdfThaZss1TAjgvbw/Payso-Merchant?node-id=298-702&p=f&t=s9BW3z4ZJJJLEVqS-0" },
-    ],
+//     linkItems: [
+//       { label: "Payso Merchant UI", href: "https://www.figma.com/design/hBdm1zdfThaZss1TAjgvbw/Payso-Merchant?node-id=0-1&t=l1Z5j1vJDdYchP1F-1" },
+//       { label: "User Flow", href: "https://www.figma.com/design/hBdm1zdfThaZss1TAjgvbw/Payso-Merchant?node-id=919-1154&t=9kXUgcwNXIqDy88D-1" },
+//       { label: "Design System", href: "https://www.figma.com/design/hBdm1zdfThaZss1TAjgvbw/Payso-Merchant?node-id=298-702&p=f&t=s9BW3z4ZJJJLEVqS-0" },
+//     ],
   },
   {
     title: "Remittance App",
@@ -243,10 +243,10 @@ export const projectDetails: ProjectDetails[] = [
     role: "UI/UX Designer",
     tech: "Figma, OpenAI, Claude, Gemini",
     linkItems: [
-      {
-        label: "Figma Design",
-        href: "https://www.figma.com/design/SMngxWV100ziu31gbP7FHW/Remittance-app?node-id=0-1&p=f&t=wSnSYHqoThrhu7R1-0",
-      },
+      // {
+      // label: "Figma Design",
+      // href: "https://www.figma.com/design/SMngxWV100ziu31gbP7FHW/Remittance-app?node-id=0-1&p=f&t=wSnSYHqoThrhu7R1-0",
+      // },
       {
         label: "UI Exploration",
         href: "https://remittance-ui-exploration-gjnm.vercel.app/",

@@ -9,7 +9,7 @@ import {
 import JsonLd from "../../../../components/JsonLd";
 import ProjectLinksMenu from "../../../../components/ProjectLinksMenu";
 import ProjectDetailMotion from "../../../../components/projects/ProjectDetailMotion";
-import ProjectContextCarousel from "../../../../components/projects/ProjectContextCarousel";
+// import ProjectContextCarousel from "../../../../components/projects/ProjectContextCarousel";
 import {
   projectDetails,
   type ProjectDetails,
@@ -126,10 +126,14 @@ const ProjectPage = async ({ params }: PageProps) => {
     );
   }
 
+  // Payso link columns are temporarily hidden while their links are commented out.
+  const hideProjectLinks =
+    project.title === "Payso Cashier" || project.title === "Payso Merchant";
+
   const galleryImages = project.imageSrcUi.map((image, index) =>
     normalizeGalleryImage(image, project.title, index)
   );
-  const supportingImages = galleryImages.filter((image) => image.isSupportingWork);
+  // const supportingImages = galleryImages.filter((image) => image.isSupportingWork);
   const featuredImages = galleryImages.filter((image) => !image.isSupportingWork);
   const hasEditorialGallery = featuredImages.some((image) => Boolean(image.title));
 
@@ -203,7 +207,11 @@ const ProjectPage = async ({ params }: PageProps) => {
 
           <dl
             data-project-detail-intro
-            className="project-detail-meta relative z-30 mt-10 grid grid-cols-1 gap-x-8 gap-y-6 border-t border-[var(--project-line)] py-6 sm:grid-cols-2 md:mt-12 md:py-8 xl:grid-cols-4 xl:gap-y-0"
+            className={`project-detail-meta relative z-30 mt-10 grid grid-cols-1 gap-x-8 gap-y-6 border-t border-[var(--project-line)] py-6 md:mt-12 md:py-8 xl:gap-y-0 ${
+              hideProjectLinks
+                ? "text-left sm:grid-cols-3"
+                : "sm:grid-cols-2 xl:grid-cols-4"
+            }`}
           >
             <div className="min-w-0">
               <dt className="font-nm-book text-xs uppercase tracking-[0.12em] text-[var(--project-kicker)]">
@@ -232,31 +240,42 @@ const ProjectPage = async ({ params }: PageProps) => {
               </dd>
             </div>
 
-            <div className="min-w-0">
-              <dt className="font-nm-book text-xs uppercase tracking-[0.12em] text-[var(--project-kicker)]">
-                Link
-              </dt>
-              <dd className="mt-2 min-h-10 font-nm-medium text-base font-medium leading-6 text-[var(--project-value)]">
-                {project.linkItem &&
-                project.linkItem.href &&
-                project.linkItem.label ? (
-                  <a
-                    className="text-[var(--project-link)] underline decoration-[var(--project-link)] underline-offset-4"
-                    href={project.linkItem.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    {project.linkItem.label}
-                  </a>
-                ) : null}
+            {!hideProjectLinks && (
+              <div className="min-w-0">
+                <dt className="font-nm-book text-xs uppercase tracking-[0.12em] text-[var(--project-kicker)]">
+                  Link
+                </dt>
+                <dd className="mt-2 min-h-10 font-nm-medium text-base font-medium leading-6 text-[var(--project-value)]">
+                  {project.linkItem &&
+                  project.linkItem.href &&
+                  project.linkItem.label ? (
+                    <a
+                      className="text-[var(--project-link)] underline decoration-[var(--project-link)] underline-offset-4"
+                      href={project.linkItem.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      {project.linkItem.label}
+                    </a>
+                  ) : null}
 
-                {project.linkItems && project.linkItems.length > 0 ? (
-                  <ProjectLinksMenu links={project.linkItems} />
-                ) : !project.linkItem?.href || !project.linkItem?.label ? (
-                  <span aria-label="No public project link">—</span>
-                ) : null}
-              </dd>
-            </div>
+                  {project.linkItems?.length === 1 ? (
+                    <a
+                      className="text-[var(--project-link)] underline decoration-[var(--project-link)] underline-offset-4"
+                      href={project.linkItems[0].href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      {project.linkItems[0].label}
+                    </a>
+                  ) : project.linkItems && project.linkItems.length > 0 ? (
+                    <ProjectLinksMenu links={project.linkItems} />
+                  ) : !project.linkItem?.href || !project.linkItem?.label ? (
+                    <span aria-label="No public project link">—</span>
+                  ) : null}
+                </dd>
+              </div>
+            )}
           </dl>
         </div>
 
@@ -325,12 +344,14 @@ const ProjectPage = async ({ params }: PageProps) => {
             </div>
           </section>
 
+          {/* Temporarily hidden: planning text and supporting images.
           {supportingImages.length > 0 && (
             <ProjectContextCarousel
               images={supportingImages}
               credit={project.supportingWorkCredit}
             />
           )}
+          */}
 
           <section className="project-detail-gallery">
             {!hasEditorialGallery && (
