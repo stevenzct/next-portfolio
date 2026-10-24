@@ -128,7 +128,9 @@ const ProjectPage = async ({ params }: PageProps) => {
 
   // Payso link columns are temporarily hidden while their links are commented out.
   const hideProjectLinks =
-    project.title === "Payso Cashier" || project.title === "Payso Merchant";
+    project.title === "Payso Cashier" ||
+    project.title === "Payso Merchant" ||
+    project.title === "Payso Graphics";
 
   const galleryImages = project.imageSrcUi.map((image, index) =>
     normalizeGalleryImage(image, project.title, index)

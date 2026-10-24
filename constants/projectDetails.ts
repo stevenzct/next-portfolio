@@ -347,10 +347,10 @@ export const projectDetails: ProjectDetails[] = [
     nextImage: "/images/projectDetails/PaysoMerchant/nextImage.webp",
     nextTitle: "RV Rioflorido",
     nextDescription: "Quality-driven construction company",
-     linkItem: {
-      label: "Payso Graphics Figma",
-      href: "https://www.figma.com/design/mGdxx2x94Z1Hk0zpmin2FC/Payso-freestyle2?node-id=187-100&t=YzuuqRtduYtIaR8D-0"
-    },
+//      linkItem: {
+//       label: "Payso Graphics Figma",
+//       href: "https://www.figma.com/design/mGdxx2x94Z1Hk0zpmin2FC/Payso-freestyle2?node-id=187-100&t=YzuuqRtduYtIaR8D-0"
+//     },
   },
   {
     title: "RV Rioflorido",
