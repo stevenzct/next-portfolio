@@ -7,7 +7,6 @@ import Experience from "../../components/hompage/Experience";
 import Hero from "../../components/hompage/Hero";
 import HomepageMotion from "../../components/hompage/HomepageMotion";
 import Industries from "../../components/hompage/Industries";
-import LifeBeyondWork from "../../components/hompage/LifeBeyondWork";
 import Projects from "../../components/hompage/Projects";
 import Reviews from "../../components/hompage/Reviews";
 import { homepageJsonLd } from "../../utils/structuredData";
@@ -25,7 +24,6 @@ export default function Home() {
         <About />
         <Education />
         <Industries />
-        <LifeBeyondWork />
         <Certifications />
       </HomepageMotion>
       <Footer />
